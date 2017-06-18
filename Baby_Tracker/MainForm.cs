@@ -20,7 +20,7 @@ namespace Baby_Tracker
         {
             dc.databaseCreation();
             InitializeComponent();
-            babyRetrival();          
+            babyNameRetrival();
 
         }
 
@@ -30,7 +30,7 @@ namespace Baby_Tracker
         }
 
 
-        public void babyRetrival()
+        public void babyNameRetrival()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
@@ -40,8 +40,9 @@ namespace Baby_Tracker
             connection.Open();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
+            {
                 babySelector_cmbo.Items.Add(reader["FirstName"].ToString());
-
+            }
         }
 
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)

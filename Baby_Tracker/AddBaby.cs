@@ -42,7 +42,6 @@ namespace Baby_Tracker
                 conn.Open();
                 command.ExecuteNonQuery();
 
-
                 /* Used to test the information from the database for BabyList table
                 string sql = "select * from BabyList";
                 SQLiteCommand command1 = new SQLiteCommand(sql, conn);

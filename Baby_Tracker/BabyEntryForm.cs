@@ -13,8 +13,6 @@ namespace Baby_Tracker
 {
     public partial class BabyEntryForm : Form
     {
-
-
         //String declarations for babyEntry inputs
         public static string firstName = "";
         public static string middleName = "";
@@ -54,7 +52,6 @@ namespace Baby_Tracker
             AddBaby addBaby = new AddBaby();
             addBaby.connection();
 
-
             this.Hide();
             emptyTextFields();
 
@@ -80,6 +77,7 @@ namespace Baby_Tracker
          */
         public void emptyTextFields()
         {
+
             firstName_tbox.Text = "";
             middleName_tbox.Text = "";
             lastName_tbox.Text = "";
@@ -87,6 +85,7 @@ namespace Baby_Tracker
             weight_tbox.Text = "";
             length_tbox.Text = "";
             head_tbox.Text = "";
+
         }
 
 

@@ -8,7 +8,7 @@ namespace Baby_Tracker
 {
     static class Program
     {
-     
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,6 +18,8 @@ namespace Baby_Tracker
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BabyTracker());
+            
         }
+        
     }
 }
