@@ -20,7 +20,7 @@ namespace Baby_Tracker
         {
             dc.databaseCreation();
             InitializeComponent();
-            babyNameRetrival();
+            comboBoxNameRetrival();
 
         }
 
@@ -30,8 +30,25 @@ namespace Baby_Tracker
         }
 
 
-        public void babyNameRetrival()
+        public void comboBoxNameRetrival()
         {
+             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+        
+             using (SQLiteConnection connection = new SQliteConnection(connectionString))
+             {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    babySelector_cmbo.DisplayMember = "FirstName";
+                    babySelector_cmbo.Datasource = dt;
+                    connection.Close();
+                }
+             }
+        
+        
+        
+            /* THis is the previous used database connection to update combobox
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
 
@@ -43,7 +60,9 @@ namespace Baby_Tracker
             {
                 babySelector_cmbo.Items.Add(reader["FirstName"].ToString());
             }
+            */
         }
+
 
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
