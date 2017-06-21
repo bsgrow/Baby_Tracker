@@ -44,16 +44,16 @@ namespace Baby_Tracker
         */
         public void comboBoxNameRetrival()
         {
+
              string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-        
              using (SQLiteConnection connection = new SQliteConnection(connectionString))
              {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
                 {
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    babySelector_cmbo.DisplayMember = "FirstName";
                     babySelector_cmbo.Datasource = dt;
+                    babySelector_cmbo.ResetText();
                     connection.Close();
                 }
              }
