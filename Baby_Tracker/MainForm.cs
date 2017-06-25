@@ -34,14 +34,17 @@ namespace Baby_Tracker
         {
              string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
         
-             using (SQLiteConnection connection = new SQliteConnection(connectionString))
+             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
              {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
                 {
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     babySelector_cmbo.DisplayMember = "FirstName";
-                    babySelector_cmbo.Datasource = dt;
+                    Console.WriteLine("This is going to the correct place");
+                    babySelector_cmbo.DataSource = null;
+
+                    babySelector_cmbo.DataSource = dt;
                     connection.Close();
                 }
              }

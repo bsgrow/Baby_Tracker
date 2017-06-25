@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Data;
 
 /*
  * This class is used to store the inputs from the Add Baby Entry form. Here
@@ -42,6 +43,7 @@ namespace Baby_Tracker
                 conn.Open();
                 command.ExecuteNonQuery();
 
+                
                 /* Used to test the information from the database for BabyList table
                 string sql = "select * from BabyList";
                 SQLiteCommand command1 = new SQLiteCommand(sql, conn);

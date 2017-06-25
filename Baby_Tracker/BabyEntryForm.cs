@@ -55,6 +55,9 @@ namespace Baby_Tracker
             this.Hide();
             emptyTextFields();
 
+            BabyTracker babyTracker = new BabyTracker();
+            babyTracker.comboBoxNameRetrival();
+
         }
 
 
