@@ -114,6 +114,9 @@ namespace Baby_Tracker
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                var fileName = saveFileDialog1.FileName;
+
+                File.Copy(fileName, @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\BabyImages", true);
             }
         }
     }
