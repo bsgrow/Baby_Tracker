@@ -46,6 +46,7 @@
             this.head_tbox = new System.Windows.Forms.TextBox();
             this.addEntry_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
+            this.addImage_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // babyEntryTitle_lb
@@ -139,7 +140,7 @@
             // middleName_tbox
             // 
             this.middleName_tbox.Location = new System.Drawing.Point(113, 110);
-            this.middleName_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.middleName_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.middleName_tbox.Name = "middleName_tbox";
             this.middleName_tbox.Size = new System.Drawing.Size(278, 20);
             this.middleName_tbox.TabIndex = 1;
@@ -147,7 +148,7 @@
             // firstName_tbox
             // 
             this.firstName_tbox.Location = new System.Drawing.Point(114, 66);
-            this.firstName_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.firstName_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.firstName_tbox.Name = "firstName_tbox";
             this.firstName_tbox.Size = new System.Drawing.Size(278, 20);
             this.firstName_tbox.TabIndex = 0;
@@ -155,7 +156,7 @@
             // lastName_tbox
             // 
             this.lastName_tbox.Location = new System.Drawing.Point(113, 155);
-            this.lastName_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastName_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.lastName_tbox.Name = "lastName_tbox";
             this.lastName_tbox.Size = new System.Drawing.Size(278, 20);
             this.lastName_tbox.TabIndex = 2;
@@ -163,7 +164,7 @@
             // dob_tbox
             // 
             this.dob_tbox.Location = new System.Drawing.Point(114, 200);
-            this.dob_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dob_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.dob_tbox.Name = "dob_tbox";
             this.dob_tbox.Size = new System.Drawing.Size(278, 20);
             this.dob_tbox.TabIndex = 3;
@@ -171,7 +172,7 @@
             // weight_tbox
             // 
             this.weight_tbox.Location = new System.Drawing.Point(114, 245);
-            this.weight_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.weight_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.weight_tbox.Name = "weight_tbox";
             this.weight_tbox.Size = new System.Drawing.Size(278, 20);
             this.weight_tbox.TabIndex = 4;
@@ -179,7 +180,7 @@
             // length_tbox
             // 
             this.length_tbox.Location = new System.Drawing.Point(114, 291);
-            this.length_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.length_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.length_tbox.Name = "length_tbox";
             this.length_tbox.Size = new System.Drawing.Size(278, 20);
             this.length_tbox.TabIndex = 5;
@@ -187,7 +188,7 @@
             // head_tbox
             // 
             this.head_tbox.Location = new System.Drawing.Point(114, 336);
-            this.head_tbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.head_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.head_tbox.Name = "head_tbox";
             this.head_tbox.Size = new System.Drawing.Size(278, 20);
             this.head_tbox.TabIndex = 6;
@@ -196,7 +197,7 @@
             // 
             this.addEntry_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addEntry_btn.Location = new System.Drawing.Point(61, 454);
-            this.addEntry_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addEntry_btn.Margin = new System.Windows.Forms.Padding(2);
             this.addEntry_btn.Name = "addEntry_btn";
             this.addEntry_btn.Size = new System.Drawing.Size(119, 26);
             this.addEntry_btn.TabIndex = 7;
@@ -208,7 +209,7 @@
             // 
             this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel_btn.Location = new System.Drawing.Point(225, 454);
-            this.cancel_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancel_btn.Margin = new System.Windows.Forms.Padding(2);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(119, 26);
             this.cancel_btn.TabIndex = 8;
@@ -216,12 +217,25 @@
             this.cancel_btn.UseVisualStyleBackColor = true;
             this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
+            // addImage_btn
+            // 
+            this.addImage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addImage_btn.Location = new System.Drawing.Point(13, 375);
+            this.addImage_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.addImage_btn.Name = "addImage_btn";
+            this.addImage_btn.Size = new System.Drawing.Size(119, 31);
+            this.addImage_btn.TabIndex = 10;
+            this.addImage_btn.Text = "Add An Image";
+            this.addImage_btn.UseVisualStyleBackColor = true;
+            this.addImage_btn.Click += new System.EventHandler(this.addImage_btn_Click);
+            // 
             // BabyEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 490);
             this.ControlBox = false;
+            this.Controls.Add(this.addImage_btn);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.addEntry_btn);
             this.Controls.Add(this.head_tbox);
@@ -240,7 +254,7 @@
             this.Controls.Add(this.firstName_lb);
             this.Controls.Add(this.babyEntryTitle_lb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BabyEntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Baby Entry ";
@@ -268,5 +282,6 @@
         private System.Windows.Forms.TextBox head_tbox;
         private System.Windows.Forms.Button addEntry_btn;
         private System.Windows.Forms.Button cancel_btn;
+        private System.Windows.Forms.Button addImage_btn;
     }
 }

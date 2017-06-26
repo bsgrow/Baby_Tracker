@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace Baby_Tracker
 {
@@ -92,5 +93,28 @@ namespace Baby_Tracker
         }
 
 
+        /*
+         * Allows for a image the user chooses to be saved into the babies 
+         * creation. The only files that will be accepted are JPEG and PNG
+         * files. These images will then be saved to the BabyImages folder 
+         * inside the application.
+         */
+        private void addImage_btn_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.Title = "Selet Baby Profile Image";
+            saveFileDialog1.CheckFileExists = true;
+            saveFileDialog1.CheckPathExists = true;
+            saveFileDialog1.DefaultExt = "txt";
+            saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+            }
+        }
     }
 }
