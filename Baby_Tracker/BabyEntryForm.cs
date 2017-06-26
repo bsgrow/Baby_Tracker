@@ -101,23 +101,24 @@ namespace Baby_Tracker
          */
         private void addImage_btn_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.InitialDirectory = @"C:\";
-            saveFileDialog1.Title = "Selet Baby Profile Image";
-            saveFileDialog1.CheckFileExists = true;
-            saveFileDialog1.CheckPathExists = true;
-            saveFileDialog1.DefaultExt = "txt";
-            saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = @"C:\";
+            openFileDialog1.Title = "Selet Baby Profile Image";
+            openFileDialog1.CheckFileExists = true;
+            openFileDialog1.CheckPathExists = true;
+            openFileDialog1.DefaultExt = "txt";
+            openFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string fileName = saveFileDialog1.FileName; //source file location
-                string targetPath = @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\BabyImages";
-                string destFile = Path.Combine(targetpath, fileName);
+                string path = @"C:\\Users\\Brandon\Documents";
+                string targetPath = Path.Combine(path, Path.GetFileName(openFileDialog1.FileName));
 
-                File.Copy(fileName, destFile, true);
+                //string destintation = 
+
+                 File.Copy(openFileDialog1.FileName, targetPath, true);
             }
         }
     }
