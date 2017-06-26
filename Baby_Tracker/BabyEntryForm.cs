@@ -101,7 +101,6 @@ namespace Baby_Tracker
          */
         private void addImage_btn_Click(object sender, EventArgs e)
         {
-
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.InitialDirectory = @"C:\";
             saveFileDialog1.Title = "Selet Baby Profile Image";
@@ -114,9 +113,11 @@ namespace Baby_Tracker
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var fileName = saveFileDialog1.FileName;
+                string fileName = saveFileDialog1.FileName; //source file location
+                string targetPath = @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\BabyImages";
+                string destFile = Path.Combine(targetpath, fileName);
 
-                File.Copy(fileName, @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\BabyImages", true);
+                File.Copy(fileName, destFile, true);
             }
         }
     }
