@@ -21,7 +21,8 @@ namespace Baby_Tracker
 				DOB DATE NOT NULL,
 				BirthWeight INTEGER NOT NULL, 
 				BirthLength INTEGER NOT NULL, 
-				BirthHeadCir INTEGER NOT NULL
+				BirthHeadCir INTEGER NOT NULL,
+				BabyImagePath VARCHAR(250) NULL
 				)";
 
         string sqlWeightTable = @"CREATE TABLE Weight (
