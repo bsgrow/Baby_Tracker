@@ -61,10 +61,10 @@ namespace Baby_Tracker
                     babySelector_cmbo.ResetText();
                     connection.Close();
                 }
+
              }
-        
-        
-        
+
+
             /* THis is the previous used database connection to update combobox
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
@@ -89,5 +89,6 @@ namespace Baby_Tracker
         {
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem);
         }
+
     }
 }

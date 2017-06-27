@@ -30,7 +30,7 @@ namespace Baby_Tracker
             using (SQLiteCommand command = conn.CreateCommand())
             {
 
-                command.CommandText = "INSERT INTO BabyList (ID, FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir) VALUES (@id, @firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir)";
+                command.CommandText = "INSERT INTO BabyList (ID, FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) VALUES (@id, @firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
                 command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@firstName", firstName);
                 command.Parameters.AddWithValue("@middleName", middleName);
@@ -39,17 +39,18 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@birthWeight", weight);
                 command.Parameters.AddWithValue("@birthLength", length);
                 command.Parameters.AddWithValue("@birthHeadCir", headCir);
+                command.Parameters.AddWithValue("@babyImagePath", imagePath);
 
                 conn.Open();
                 command.ExecuteNonQuery();
 
                 
-                /* Used to test the information from the database for BabyList table
+                /* Used to test the output of the database
                 string sql = "select * from BabyList";
                 SQLiteCommand command1 = new SQLiteCommand(sql, conn);
                 SQLiteDataReader reader = command1.ExecuteReader();
                 while (reader.Read())
-                    Console.WriteLine("ID: " + reader["ID"] + "\tWeight: " + reader["BirthWeight"] + "\tDate: " + reader["DOB"]);
+                    Console.WriteLine("image Path: " + reader["BabyImagePath"] );
                 */
             }
 

@@ -47,6 +47,7 @@
             this.addEntry_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
             this.addImage_btn = new System.Windows.Forms.Button();
+            this.pathLocation_lb = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // babyEntryTitle_lb
@@ -219,15 +220,23 @@
             // 
             // addImage_btn
             // 
-            this.addImage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImage_btn.Location = new System.Drawing.Point(13, 375);
+            this.addImage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addImage_btn.Location = new System.Drawing.Point(10, 375);
             this.addImage_btn.Margin = new System.Windows.Forms.Padding(2);
             this.addImage_btn.Name = "addImage_btn";
-            this.addImage_btn.Size = new System.Drawing.Size(119, 31);
+            this.addImage_btn.Size = new System.Drawing.Size(104, 31);
             this.addImage_btn.TabIndex = 10;
             this.addImage_btn.Text = "Add An Image";
             this.addImage_btn.UseVisualStyleBackColor = true;
             this.addImage_btn.Click += new System.EventHandler(this.addImage_btn_Click);
+            // 
+            // pathLocation_lb
+            // 
+            this.pathLocation_lb.AutoSize = true;
+            this.pathLocation_lb.Location = new System.Drawing.Point(120, 384);
+            this.pathLocation_lb.Name = "pathLocation_lb";
+            this.pathLocation_lb.Size = new System.Drawing.Size(0, 13);
+            this.pathLocation_lb.TabIndex = 11;
             // 
             // BabyEntryForm
             // 
@@ -235,6 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 490);
             this.ControlBox = false;
+            this.Controls.Add(this.pathLocation_lb);
             this.Controls.Add(this.addImage_btn);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.addEntry_btn);
@@ -283,5 +293,6 @@
         private System.Windows.Forms.Button addEntry_btn;
         private System.Windows.Forms.Button cancel_btn;
         private System.Windows.Forms.Button addImage_btn;
+        private System.Windows.Forms.Label pathLocation_lb;
     }
 }

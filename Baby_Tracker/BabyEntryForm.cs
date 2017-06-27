@@ -22,6 +22,7 @@ namespace Baby_Tracker
         public static double weight;
         public static double length ;
         public static double headCir;
+        public static string imagePath = "";
 
 
         public BabyEntryForm()
@@ -48,6 +49,9 @@ namespace Baby_Tracker
             weight = double.Parse(weight_tbox.Text);
             length = double.Parse(length_tbox.Text);
             headCir = double.Parse(head_tbox.Text);
+            imagePath = pathLocation_lb.Text;
+
+            Console.WriteLine("Image Path for Database" + imagePath);
 
             //Calls addbaby to add data to the database and close the input form
             AddBaby addBaby = new AddBaby();
@@ -89,7 +93,8 @@ namespace Baby_Tracker
             weight_tbox.Text = "";
             length_tbox.Text = "";
             head_tbox.Text = "";
-
+            pathLocation_lb.Text = "";
+        
         }
 
 
@@ -110,10 +115,12 @@ namespace Baby_Tracker
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string path = @"C:\\Users\\Brandon\Documents"; //save to file location
+                pathLocation_lb.Text = openFileDialog1.FileName;
+                string path = @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
                 string targetPath = Path.Combine(path, Path.GetFileName(openFileDialog1.FileName));
 
                 File.Copy(openFileDialog1.FileName, targetPath, true);
+                pathLocation_lb.Text = openFileDialog1.FileName;
             }
         }
     }
