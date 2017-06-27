@@ -95,7 +95,7 @@ namespace Baby_Tracker
 
         /*
          * Allows for a image the user chooses to be saved into the babies 
-         * creation. The only files that will be accepted are JPEG and PNG
+         * creation. The only files that will be accepted are JPEG/JPG and PNG
          * files. These images will then be saved to the BabyImages folder 
          * inside the application.
          */
@@ -104,21 +104,16 @@ namespace Baby_Tracker
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.InitialDirectory = @"C:\";
             openFileDialog1.Title = "Selet Baby Profile Image";
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.CheckPathExists = true;
-            openFileDialog1.DefaultExt = "txt";
-            openFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.Filter =  "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string path = @"C:\\Users\\Brandon\Documents";
+                string path = @"C:\\Users\\Brandon\Documents"; //save to file location
                 string targetPath = Path.Combine(path, Path.GetFileName(openFileDialog1.FileName));
 
-                //string destintation = 
-
-                 File.Copy(openFileDialog1.FileName, targetPath, true);
+                File.Copy(openFileDialog1.FileName, targetPath, true);
             }
         }
     }
