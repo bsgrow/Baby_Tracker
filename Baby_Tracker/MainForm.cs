@@ -54,7 +54,6 @@ namespace Baby_Tracker
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     babySelector_cmbo.DisplayMember = "FirstName";
-                    Console.WriteLine("This is going to the correct place");
                     babySelector_cmbo.DataSource = null;
 
                     babySelector_cmbo.DataSource = dt;
@@ -62,32 +61,47 @@ namespace Baby_Tracker
                     connection.Close();
                 }
 
+
+
+                           /* THis is the previous used database connection to update combobox
+-                     string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+-            SQLiteConnection connection = new SQLiteConnection(connectionString);
+-
+-            string namesQuery = "SELECT * FROM BabyList";
+-            SQLiteCommand command = new SQLiteCommand(namesQuery, connection);
+-            connection.Open();
+-            SQLiteDataReader reader = command.ExecuteReader();
+-            while (reader.Read())
+-            {
+-                babySelector_cmbo.Items.Add(reader["FirstName"].ToString());
+-            }
+-            */
+
              }
 
-
-            /* THis is the previous used database connection to update combobox
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-            SQLiteConnection connection = new SQLiteConnection(connectionString);
-
-            string namesQuery = "SELECT * FROM BabyList";
-            SQLiteCommand command = new SQLiteCommand(namesQuery, connection);
-            connection.Open();
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                babySelector_cmbo.Items.Add(reader["FirstName"].ToString());
-            }
-            */
         }
 
 
         /*
-        *  Method is allowing for the baby name that is selected from the combo box to be
-        *  display or called to use throughout the application as needed. 
+        *  Used for the selection of the combobox name to be changed throughout the program
+        *  as needed. 
+        *  
+        *  Note: The heart of changing data between differenet babies.
         */
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem);
+
+
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT BabyImagePath FROM BabyList where FirstName = " +name_lb, connection))
+                {
+                
+                }
+
+            }
         }
 
     }
