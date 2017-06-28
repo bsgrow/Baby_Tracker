@@ -313,6 +313,7 @@
             this.editBaby_btn.Size = new System.Drawing.Size(28, 31);
             this.editBaby_btn.TabIndex = 8;
             this.editBaby_btn.UseVisualStyleBackColor = true;
+            this.editBaby_btn.Click += new System.EventHandler(this.editBaby_btn_Click);
             // 
             // fullExport_btn
             // 

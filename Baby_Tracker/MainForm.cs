@@ -14,6 +14,7 @@ namespace Baby_Tracker
     public partial class BabyTracker : Form
     {
         BabyEntryForm babyEntryForm = new BabyEntryForm();
+        BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
 
         public BabyTracker()
         {
@@ -25,12 +26,20 @@ namespace Baby_Tracker
         /*
         *  Allows for the BabyEntryForm to be opened for the user to 
         *  add a new entry for a baby.
-        *
-        *  Note: Main purpose is to show the form here and thats it
         */
         private void newBaby_btn_Click(object sender, EventArgs e)
         {
             babyEntryForm.Show();
+        }
+
+
+        /*
+       *  Allows for the BabyUpdateForm to be opened for the user to 
+       *  add a updated entry for a baby.
+       */
+        private void editBaby_btn_Click(object sender, EventArgs e)
+        {
+            babyUpdateForm.Show();
         }
 
 
@@ -81,7 +90,7 @@ namespace Baby_Tracker
                     string result = Convert.ToString(reader["BabyImagePath"]);
                     userImage_box.Image = Image.FromFile(result);
                 }
-        }  
-        
+        }
+
     }
 }

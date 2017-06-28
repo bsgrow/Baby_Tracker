@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +16,14 @@ namespace Baby_Tracker
         [STAThread]
         static void Main()
         {
+            //checks for existing database, none found then created
             if (!File.Exists("BabyDatabase.sqlite")) 
             {
                 DatabaseCreation database = new DatabaseCreation();
                 database.databaseCreation();
-            } else {
-                //Do nothing
+            } else
+            {
+                Console.WriteLine("Data already created");
             }
             
             Application.EnableVisualStyles();

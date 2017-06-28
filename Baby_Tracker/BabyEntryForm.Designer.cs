@@ -188,10 +188,10 @@
             // 
             // head_tbox
             // 
-            this.head_tbox.Location = new System.Drawing.Point(114, 336);
+            this.head_tbox.Location = new System.Drawing.Point(125, 336);
             this.head_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.head_tbox.Name = "head_tbox";
-            this.head_tbox.Size = new System.Drawing.Size(278, 20);
+            this.head_tbox.Size = new System.Drawing.Size(267, 20);
             this.head_tbox.TabIndex = 6;
             // 
             // addEntry_btn
@@ -221,7 +221,7 @@
             // addImage_btn
             // 
             this.addImage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImage_btn.Location = new System.Drawing.Point(10, 375);
+            this.addImage_btn.Location = new System.Drawing.Point(10, 381);
             this.addImage_btn.Margin = new System.Windows.Forms.Padding(2);
             this.addImage_btn.Name = "addImage_btn";
             this.addImage_btn.Size = new System.Drawing.Size(104, 31);
