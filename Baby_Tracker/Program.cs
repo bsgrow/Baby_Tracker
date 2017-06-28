@@ -19,6 +19,13 @@ namespace Baby_Tracker
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BabyTracker());
             
+            if (!File.Exists("BabyDatabase.sqlite")) 
+            {
+                databasereation();
+            } else {
+                //Do nothing
+            }
+            
         }
         
     }
