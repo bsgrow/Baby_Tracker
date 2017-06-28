@@ -14,11 +14,9 @@ namespace Baby_Tracker
     public partial class BabyTracker : Form
     {
         BabyEntryForm babyEntryForm = new BabyEntryForm();
-        DatabaseCreation dc = new DatabaseCreation();
 
         public BabyTracker()
         {
-            dc.databaseCreation();
             InitializeComponent();
             comboBoxNameRetrival();
         }
