@@ -15,10 +15,6 @@ namespace Baby_Tracker
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BabyTracker());
-            
             if (!File.Exists("BabyDatabase.sqlite")) 
             {
                 databasereation();
@@ -26,6 +22,10 @@ namespace Baby_Tracker
                 //Do nothing
             }
             
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new BabyTracker());
+     
         }
         
     }
