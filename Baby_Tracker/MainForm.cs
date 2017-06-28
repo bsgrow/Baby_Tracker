@@ -92,10 +92,22 @@ namespace Baby_Tracker
         {
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem);
 
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             string query = "SELECT BabyImagePath FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
-          
-        }
+
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            
+            SQLiteCommand command = new SQLiteCommand(query, connection);
+            connection.Open();
+            SQLiteDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                           {
+                string result = Convert.ToString(reader["BabyImagePath"]);
+                Console.WriteLine("Path: " + reader["BabyImagePath"]);
+                userImage_box.Image = Image.FromFile(result);
+
+            }
+        }    
 
     }
 }

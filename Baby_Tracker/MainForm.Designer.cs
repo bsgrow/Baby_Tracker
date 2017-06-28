@@ -179,7 +179,7 @@
             this.leftPanel.Controls.Add(this.leftPanelTitle_lb);
             this.leftPanel.Controls.Add(this.newBaby_btn);
             this.leftPanel.Location = new System.Drawing.Point(4, 25);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.leftPanel.Margin = new System.Windows.Forms.Padding(2);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(201, 746);
             this.leftPanel.TabIndex = 1;
@@ -191,7 +191,7 @@
             this.button7.Image = global::Baby_Tracker.Properties.Resources.medicationIcon;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.Location = new System.Drawing.Point(13, 451);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(176, 50);
             this.button7.TabIndex = 16;
@@ -206,7 +206,7 @@
             this.button6.Image = global::Baby_Tracker.Properties.Resources.weightIcon;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(13, 278);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(176, 50);
             this.button6.TabIndex = 15;
@@ -221,7 +221,7 @@
             this.button5.Image = global::Baby_Tracker.Properties.Resources.statIcon;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(13, 625);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(176, 50);
             this.button5.TabIndex = 14;
@@ -236,7 +236,7 @@
             this.button4.Image = global::Baby_Tracker.Properties.Resources.contactIcon;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(13, 566);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(176, 50);
             this.button4.TabIndex = 13;
@@ -251,7 +251,7 @@
             this.button3.Image = global::Baby_Tracker.Properties.Resources.calanderIcon;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(13, 509);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 50);
             this.button3.TabIndex = 12;
@@ -266,7 +266,7 @@
             this.button2.Image = global::Baby_Tracker.Properties.Resources.immunizationIcon;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(13, 393);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 50);
             this.button2.TabIndex = 11;
@@ -281,7 +281,7 @@
             this.button1.Image = global::Baby_Tracker.Properties.Resources.measurementsIcon;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(13, 336);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 50);
             this.button1.TabIndex = 10;
@@ -296,7 +296,7 @@
             this.dashboard_btn.Image = global::Baby_Tracker.Properties.Resources.dashboardIcon;
             this.dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboard_btn.Location = new System.Drawing.Point(13, 220);
-            this.dashboard_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboard_btn.Margin = new System.Windows.Forms.Padding(2);
             this.dashboard_btn.Name = "dashboard_btn";
             this.dashboard_btn.Size = new System.Drawing.Size(176, 50);
             this.dashboard_btn.TabIndex = 9;
@@ -308,7 +308,7 @@
             // 
             this.editBaby_btn.Image = global::Baby_Tracker.Properties.Resources.editIcon_L_;
             this.editBaby_btn.Location = new System.Drawing.Point(64, 709);
-            this.editBaby_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editBaby_btn.Margin = new System.Windows.Forms.Padding(2);
             this.editBaby_btn.Name = "editBaby_btn";
             this.editBaby_btn.Size = new System.Drawing.Size(28, 31);
             this.editBaby_btn.TabIndex = 8;
@@ -318,7 +318,7 @@
             // 
             this.fullExport_btn.Image = global::Baby_Tracker.Properties.Resources.exportIcon;
             this.fullExport_btn.Location = new System.Drawing.Point(111, 709);
-            this.fullExport_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fullExport_btn.Margin = new System.Windows.Forms.Padding(2);
             this.fullExport_btn.Name = "fullExport_btn";
             this.fullExport_btn.Size = new System.Drawing.Size(28, 31);
             this.fullExport_btn.TabIndex = 7;
@@ -328,7 +328,7 @@
             // 
             this.settings_btn.Image = global::Baby_Tracker.Properties.Resources.settingsIcon_L_;
             this.settings_btn.Location = new System.Drawing.Point(158, 709);
-            this.settings_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.settings_btn.Margin = new System.Windows.Forms.Padding(2);
             this.settings_btn.Name = "settings_btn";
             this.settings_btn.Size = new System.Drawing.Size(28, 31);
             this.settings_btn.TabIndex = 6;
@@ -358,8 +358,8 @@
             // 
             // userImage_box
             // 
-            this.userImage_box.Location = new System.Drawing.Point(4, 115);
-            this.userImage_box.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userImage_box.Location = new System.Drawing.Point(11, 113);
+            this.userImage_box.Margin = new System.Windows.Forms.Padding(2);
             this.userImage_box.Name = "userImage_box";
             this.userImage_box.Size = new System.Drawing.Size(68, 67);
             this.userImage_box.TabIndex = 2;
@@ -372,7 +372,7 @@
             this.babySelector_cmbo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.babySelector_cmbo.FormattingEnabled = true;
             this.babySelector_cmbo.Location = new System.Drawing.Point(32, 73);
-            this.babySelector_cmbo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.babySelector_cmbo.Margin = new System.Windows.Forms.Padding(2);
             this.babySelector_cmbo.Name = "babySelector_cmbo";
             this.babySelector_cmbo.Size = new System.Drawing.Size(130, 21);
             this.babySelector_cmbo.TabIndex = 1;
@@ -393,7 +393,7 @@
             // 
             this.newBaby_btn.Image = global::Baby_Tracker.Properties.Resources.addIcon;
             this.newBaby_btn.Location = new System.Drawing.Point(18, 709);
-            this.newBaby_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newBaby_btn.Margin = new System.Windows.Forms.Padding(2);
             this.newBaby_btn.Name = "newBaby_btn";
             this.newBaby_btn.Size = new System.Drawing.Size(28, 31);
             this.newBaby_btn.TabIndex = 5;
@@ -404,7 +404,7 @@
             // 
             this.dashboardPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dashboardPanel.Location = new System.Drawing.Point(208, 25);
-            this.dashboardPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboardPanel.Margin = new System.Windows.Forms.Padding(2);
             this.dashboardPanel.Name = "dashboardPanel";
             this.dashboardPanel.Size = new System.Drawing.Size(974, 746);
             this.dashboardPanel.TabIndex = 2;
@@ -419,7 +419,7 @@
             this.Controls.Add(this.mainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BabyTracker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baby Tracker";
