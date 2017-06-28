@@ -92,16 +92,9 @@ namespace Baby_Tracker
         {
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem);
 
-
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT BabyImagePath FROM BabyList where FirstName = " +name_lb, connection))
-                {
-                
-                }
-
-            }
+            string query = "SELECT BabyImagePath FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
+          
         }
 
     }
