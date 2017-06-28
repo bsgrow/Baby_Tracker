@@ -14,7 +14,7 @@ namespace Baby_Tracker
 {
     public partial class BabyEntryForm : Form
     {
-        //String declarations for babyEntry inputs
+        //String declarations
         public static string firstName = "";
         public static string middleName = "";
         public static string lastName = "";
@@ -49,9 +49,7 @@ namespace Baby_Tracker
             weight = double.Parse(weight_tbox.Text);
             length = double.Parse(length_tbox.Text);
             headCir = double.Parse(head_tbox.Text);
-            imagePath = pathLocation_lb.Text;
-
-            Console.WriteLine("Image Path for Database" + imagePath);
+            imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
 
             //Calls addbaby to add data to the database and close the input form
             AddBaby addBaby = new AddBaby();
@@ -102,7 +100,9 @@ namespace Baby_Tracker
          * Allows for a image the user chooses to be saved into the babies 
          * creation. The only files that will be accepted are JPEG/JPG and PNG
          * files. These images will then be saved to the BabyImages folder 
-         * inside the application.
+         * inside the application. Takes the file the user selects from OpenFileDialog
+         * then copies it to the BabyImages folder. The path is retrieved here to get
+         * the path and saves it to the database.
          */
         private void addImage_btn_Click(object sender, EventArgs e)
         {
@@ -115,13 +115,13 @@ namespace Baby_Tracker
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pathLocation_lb.Text = openFileDialog1.FileName;
                 string path = @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
                 string targetPath = Path.Combine(path, Path.GetFileName(openFileDialog1.FileName));
 
                 File.Copy(openFileDialog1.FileName, targetPath, true);
                 pathLocation_lb.Text = openFileDialog1.FileName;
             }
-        }
+        } 
+        
     }
 }
