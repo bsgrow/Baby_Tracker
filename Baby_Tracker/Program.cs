@@ -17,7 +17,8 @@ namespace Baby_Tracker
         {
             if (!File.Exists("BabyDatabase.sqlite")) 
             {
-                databasereation();
+                DatabaseCreation database = new DatabaseCreation();
+                datbase.databaseCreation();
             } else {
                 //Do nothing
             }
