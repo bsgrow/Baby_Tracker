@@ -82,12 +82,6 @@ namespace Baby_Tracker
 
         public void databaseCreation()
         {
-
-            if (!File.Exists("BabyDatabase.sqlite"))
-            {  //need to set the file location
-
-                Console.WriteLine("Database does not exist! Creating database now!");
-
                 //Creating database and connection
                 SQLiteConnection.CreateFile("BabyDatabase.sqlite"); //set location to a database folder
                 connection = new SQLiteConnection("Data Source = BabyDatabase.sqlite; Version = 3;");
@@ -111,13 +105,6 @@ namespace Baby_Tracker
 
                 //Closes the connection to the database
                 connection.Close();
-
-            }
-            else
-            {
-                Console.WriteLine("Database already exists!");
-            }
-
         }
 
     }
