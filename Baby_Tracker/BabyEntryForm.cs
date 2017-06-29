@@ -14,6 +14,8 @@ namespace Baby_Tracker
 {
     public partial class BabyEntryForm : Form
     {
+        AddUpdateBaby addUpdateBaby = new AddUpdateBaby();
+
         //String declarations
         public static string firstName = "";
         public static string middleName = "";
@@ -52,15 +54,11 @@ namespace Baby_Tracker
             imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
 
             //Calls addbaby to add data to the database and close the input form
-            AddBaby addBaby = new AddBaby();
-            addBaby.connection();
+            AddUpdateBaby addBaby = new AddUpdateBaby();
+            addBaby.addBabyConnection();
 
             this.Hide();
             emptyTextFields();
-
-            BabyTracker babyTracker = new BabyTracker();
-            babyTracker.comboBoxNameRetrival();
-
         }
 
 
@@ -96,31 +94,11 @@ namespace Baby_Tracker
         }
 
 
-        /*
-         * Allows for a image the user chooses to be saved into the babies 
-         * creation. The only files that will be accepted are JPEG/JPG and PNG
-         * files. These images will then be saved to the BabyImages folder 
-         * inside the application. Takes the file the user selects from OpenFileDialog
-         * then copies it to the BabyImages folder. The path is retrieved here to get
-         * the path and saves it to the database.
-         */
+     
         private void addImage_btn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = @"C:\";
-            openFileDialog1.Title = "Selet Baby Profile Image";
-            openFileDialog1.Filter =  "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string path = @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
-                string targetPath = Path.Combine(path, Path.GetFileName(openFileDialog1.FileName));
-
-                File.Copy(openFileDialog1.FileName, targetPath, true);
-                pathLocation_lb.Text = openFileDialog1.FileName;
-            }
+            addUpdateBaby.babyImagePath();
+            pathLocation_lb.Text = addUpdateBaby.targetPath;
         } 
         
     }

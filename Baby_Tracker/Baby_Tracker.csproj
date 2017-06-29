@@ -63,9 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBaby.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AddUpdateBaby.cs" />
     <Compile Include="BabyEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
