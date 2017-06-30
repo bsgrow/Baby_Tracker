@@ -54,7 +54,6 @@ namespace Baby_Tracker
             imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
 
             //Calls addbaby to add data to the database and close the input form
-            AddUpdateBaby addBaby = new AddUpdateBaby();
             addBaby.addBabyConnection();
 
             this.Hide();
