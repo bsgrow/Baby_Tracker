@@ -19,9 +19,7 @@ namespace Baby_Tracker
         /*
          * Method is using the data from the BabyEntryForm textboxes to create a new row for
          * each new baby entered. The connection and all database requires are set up here. 
-         * 
-         * Note: DatabaseCreation class is called to either create a new database or check to see is there is a database
-         * 
+         * BabyList is the table that is being used for the storage of the information.
          */
         public void addBabyConnection()
         {
@@ -43,21 +41,15 @@ namespace Baby_Tracker
 
                 conn.Open();
                 command.ExecuteNonQuery();
-
-
-                /* Used to test the output of the database
-                string sql = "select * from BabyList";
-                SQLiteCommand command1 = new SQLiteCommand(sql, conn);
-                SQLiteDataReader reader = command1.ExecuteReader();
-                while (reader.Read())
-                    Console.WriteLine("image Path: " + reader["BabyImagePath"] );
-                */
             }
-
         }
 
 
-
+        /* Allows for a image to be selected for the baby entry. This is called via
+         * both new baby entry and also update baby entry. Only JPEG na dPNG images 
+         * are accepted here. The files are then saved to a folder (BabyImages) in
+         * the application.
+         */
         public void babyImagePath()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
