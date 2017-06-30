@@ -23,6 +23,11 @@ namespace Baby_Tracker
         }
 
 
+         /*
+         * Upon click this will hide the for and not record any data that 
+         * was entered by the user. To make sure that the textfields have
+         * no data, the will be set to blank here.
+         */
         private void updateCancel_btn_Click(object sender, EventArgs e)
         {
             emptyTextFields();
