@@ -47,16 +47,16 @@
             this.updateLastName_tbox = new System.Windows.Forms.TextBox();
             this.updateMiddleName_tbox = new System.Windows.Forms.TextBox();
             this.updatePathLocation_lb = new System.Windows.Forms.Label();
+            this.updateCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // updateBabyEntryTitle_lb
             // 
             this.updateBabyEntryTitle_lb.AutoSize = true;
             this.updateBabyEntryTitle_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateBabyEntryTitle_lb.Location = new System.Drawing.Point(86, 15);
-            this.updateBabyEntryTitle_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.updateBabyEntryTitle_lb.Location = new System.Drawing.Point(35, 18);
             this.updateBabyEntryTitle_lb.Name = "updateBabyEntryTitle_lb";
-            this.updateBabyEntryTitle_lb.Size = new System.Drawing.Size(228, 29);
+            this.updateBabyEntryTitle_lb.Size = new System.Drawing.Size(282, 36);
             this.updateBabyEntryTitle_lb.TabIndex = 1;
             this.updateBabyEntryTitle_lb.Text = "Update Baby Entry";
             // 
@@ -64,10 +64,9 @@
             // 
             this.firstName_lb.AutoSize = true;
             this.firstName_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstName_lb.Location = new System.Drawing.Point(9, 60);
-            this.firstName_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.firstName_lb.Location = new System.Drawing.Point(12, 74);
             this.firstName_lb.Name = "firstName_lb";
-            this.firstName_lb.Size = new System.Drawing.Size(90, 20);
+            this.firstName_lb.Size = new System.Drawing.Size(112, 25);
             this.firstName_lb.TabIndex = 2;
             this.firstName_lb.Text = "First Name:";
             // 
@@ -75,10 +74,9 @@
             // 
             this.middleName_lb.AutoSize = true;
             this.middleName_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleName_lb.Location = new System.Drawing.Point(9, 106);
-            this.middleName_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.middleName_lb.Location = new System.Drawing.Point(12, 130);
             this.middleName_lb.Name = "middleName_lb";
-            this.middleName_lb.Size = new System.Drawing.Size(105, 20);
+            this.middleName_lb.Size = new System.Drawing.Size(133, 25);
             this.middleName_lb.TabIndex = 4;
             this.middleName_lb.Text = "Middle Name:";
             // 
@@ -86,10 +84,9 @@
             // 
             this.lastName_lb.AutoSize = true;
             this.lastName_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastName_lb.Location = new System.Drawing.Point(9, 152);
-            this.lastName_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lastName_lb.Location = new System.Drawing.Point(12, 187);
             this.lastName_lb.Name = "lastName_lb";
-            this.lastName_lb.Size = new System.Drawing.Size(90, 20);
+            this.lastName_lb.Size = new System.Drawing.Size(112, 25);
             this.lastName_lb.TabIndex = 5;
             this.lastName_lb.Text = "Last Name:";
             // 
@@ -97,10 +94,9 @@
             // 
             this.dob_lb.AutoSize = true;
             this.dob_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dob_lb.Location = new System.Drawing.Point(9, 201);
-            this.dob_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dob_lb.Location = new System.Drawing.Point(12, 247);
             this.dob_lb.Name = "dob_lb";
-            this.dob_lb.Size = new System.Drawing.Size(48, 20);
+            this.dob_lb.Size = new System.Drawing.Size(61, 25);
             this.dob_lb.TabIndex = 6;
             this.dob_lb.Text = "DOB:";
             // 
@@ -108,10 +104,9 @@
             // 
             this.birthWeight_lb.AutoSize = true;
             this.birthWeight_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthWeight_lb.Location = new System.Drawing.Point(9, 248);
-            this.birthWeight_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthWeight_lb.Location = new System.Drawing.Point(12, 305);
             this.birthWeight_lb.Name = "birthWeight_lb";
-            this.birthWeight_lb.Size = new System.Drawing.Size(100, 20);
+            this.birthWeight_lb.Size = new System.Drawing.Size(124, 25);
             this.birthWeight_lb.TabIndex = 7;
             this.birthWeight_lb.Text = "Birth Weight:";
             // 
@@ -119,10 +114,9 @@
             // 
             this.birthLength_lb.AutoSize = true;
             this.birthLength_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthLength_lb.Location = new System.Drawing.Point(9, 300);
-            this.birthLength_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthLength_lb.Location = new System.Drawing.Point(12, 369);
             this.birthLength_lb.Name = "birthLength_lb";
-            this.birthLength_lb.Size = new System.Drawing.Size(100, 20);
+            this.birthLength_lb.Size = new System.Drawing.Size(122, 25);
             this.birthLength_lb.TabIndex = 8;
             this.birthLength_lb.Text = "Birth Length:";
             // 
@@ -130,20 +124,19 @@
             // 
             this.birthHeadCir_lb.AutoSize = true;
             this.birthHeadCir_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthHeadCir_lb.Location = new System.Drawing.Point(9, 350);
-            this.birthHeadCir_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthHeadCir_lb.Location = new System.Drawing.Point(12, 431);
             this.birthHeadCir_lb.Name = "birthHeadCir_lb";
-            this.birthHeadCir_lb.Size = new System.Drawing.Size(112, 20);
+            this.birthHeadCir_lb.Size = new System.Drawing.Size(139, 25);
             this.birthHeadCir_lb.TabIndex = 9;
             this.birthHeadCir_lb.Text = "Birth Head Cir:";
             // 
             // updateImage_btn
             // 
             this.updateImage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateImage_btn.Location = new System.Drawing.Point(9, 397);
-            this.updateImage_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.updateImage_btn.Location = new System.Drawing.Point(12, 489);
+            this.updateImage_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateImage_btn.Name = "updateImage_btn";
-            this.updateImage_btn.Size = new System.Drawing.Size(104, 31);
+            this.updateImage_btn.Size = new System.Drawing.Size(139, 38);
             this.updateImage_btn.TabIndex = 11;
             this.updateImage_btn.Text = "Update Image";
             this.updateImage_btn.UseVisualStyleBackColor = true;
@@ -152,10 +145,10 @@
             // updateCancel_btn
             // 
             this.updateCancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateCancel_btn.Location = new System.Drawing.Point(221, 449);
-            this.updateCancel_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.updateCancel_btn.Location = new System.Drawing.Point(295, 553);
+            this.updateCancel_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateCancel_btn.Name = "updateCancel_btn";
-            this.updateCancel_btn.Size = new System.Drawing.Size(119, 26);
+            this.updateCancel_btn.Size = new System.Drawing.Size(159, 32);
             this.updateCancel_btn.TabIndex = 13;
             this.updateCancel_btn.Text = "Cancel";
             this.updateCancel_btn.UseVisualStyleBackColor = true;
@@ -164,10 +157,10 @@
             // updateEntry_btn
             // 
             this.updateEntry_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateEntry_btn.Location = new System.Drawing.Point(50, 449);
-            this.updateEntry_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.updateEntry_btn.Location = new System.Drawing.Point(67, 553);
+            this.updateEntry_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateEntry_btn.Name = "updateEntry_btn";
-            this.updateEntry_btn.Size = new System.Drawing.Size(139, 26);
+            this.updateEntry_btn.Size = new System.Drawing.Size(185, 32);
             this.updateEntry_btn.TabIndex = 12;
             this.updateEntry_btn.Text = "Update Baby Entry";
             this.updateEntry_btn.UseVisualStyleBackColor = true;
@@ -175,73 +168,84 @@
             // 
             // updateFirstName_tbox
             // 
-            this.updateFirstName_tbox.Location = new System.Drawing.Point(111, 62);
-            this.updateFirstName_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateFirstName_tbox.Location = new System.Drawing.Point(148, 76);
+            this.updateFirstName_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateFirstName_tbox.Name = "updateFirstName_tbox";
-            this.updateFirstName_tbox.Size = new System.Drawing.Size(278, 20);
+            this.updateFirstName_tbox.Size = new System.Drawing.Size(369, 22);
             this.updateFirstName_tbox.TabIndex = 14;
             // 
             // updateBirthWeight_tbox
             // 
-            this.updateBirthWeight_tbox.Location = new System.Drawing.Point(111, 250);
-            this.updateBirthWeight_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateBirthWeight_tbox.Location = new System.Drawing.Point(148, 308);
+            this.updateBirthWeight_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateBirthWeight_tbox.Name = "updateBirthWeight_tbox";
-            this.updateBirthWeight_tbox.Size = new System.Drawing.Size(278, 20);
+            this.updateBirthWeight_tbox.Size = new System.Drawing.Size(369, 22);
             this.updateBirthWeight_tbox.TabIndex = 15;
             // 
             // updateBirthLength_tbox
             // 
-            this.updateBirthLength_tbox.Location = new System.Drawing.Point(111, 301);
-            this.updateBirthLength_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateBirthLength_tbox.Location = new System.Drawing.Point(148, 370);
+            this.updateBirthLength_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateBirthLength_tbox.Name = "updateBirthLength_tbox";
-            this.updateBirthLength_tbox.Size = new System.Drawing.Size(278, 20);
+            this.updateBirthLength_tbox.Size = new System.Drawing.Size(369, 22);
             this.updateBirthLength_tbox.TabIndex = 16;
             // 
             // updateBirthHead_tbox
             // 
-            this.updateBirthHead_tbox.Location = new System.Drawing.Point(125, 350);
-            this.updateBirthHead_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateBirthHead_tbox.Location = new System.Drawing.Point(167, 431);
+            this.updateBirthHead_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateBirthHead_tbox.Name = "updateBirthHead_tbox";
-            this.updateBirthHead_tbox.Size = new System.Drawing.Size(264, 20);
+            this.updateBirthHead_tbox.Size = new System.Drawing.Size(351, 22);
             this.updateBirthHead_tbox.TabIndex = 17;
             // 
             // updateDOB_tbox
             // 
-            this.updateDOB_tbox.Location = new System.Drawing.Point(111, 201);
-            this.updateDOB_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateDOB_tbox.Location = new System.Drawing.Point(148, 247);
+            this.updateDOB_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateDOB_tbox.Name = "updateDOB_tbox";
-            this.updateDOB_tbox.Size = new System.Drawing.Size(278, 20);
+            this.updateDOB_tbox.Size = new System.Drawing.Size(369, 22);
             this.updateDOB_tbox.TabIndex = 18;
             // 
             // updateLastName_tbox
             // 
-            this.updateLastName_tbox.Location = new System.Drawing.Point(111, 154);
-            this.updateLastName_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateLastName_tbox.Location = new System.Drawing.Point(148, 190);
+            this.updateLastName_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateLastName_tbox.Name = "updateLastName_tbox";
-            this.updateLastName_tbox.Size = new System.Drawing.Size(278, 20);
+            this.updateLastName_tbox.Size = new System.Drawing.Size(369, 22);
             this.updateLastName_tbox.TabIndex = 19;
             // 
             // updateMiddleName_tbox
             // 
-            this.updateMiddleName_tbox.Location = new System.Drawing.Point(111, 108);
-            this.updateMiddleName_tbox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateMiddleName_tbox.Location = new System.Drawing.Point(148, 133);
+            this.updateMiddleName_tbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateMiddleName_tbox.Name = "updateMiddleName_tbox";
-            this.updateMiddleName_tbox.Size = new System.Drawing.Size(278, 20);
+            this.updateMiddleName_tbox.Size = new System.Drawing.Size(369, 22);
             this.updateMiddleName_tbox.TabIndex = 20;
             // 
             // updatePathLocation_lb
             // 
             this.updatePathLocation_lb.AutoSize = true;
-            this.updatePathLocation_lb.Location = new System.Drawing.Point(122, 406);
+            this.updatePathLocation_lb.Location = new System.Drawing.Point(163, 500);
+            this.updatePathLocation_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.updatePathLocation_lb.Name = "updatePathLocation_lb";
-            this.updatePathLocation_lb.Size = new System.Drawing.Size(0, 13);
+            this.updatePathLocation_lb.Size = new System.Drawing.Size(0, 17);
             this.updatePathLocation_lb.TabIndex = 21;
+            // 
+            // updateCombo
+            // 
+            this.updateCombo.FormattingEnabled = true;
+            this.updateCombo.Location = new System.Drawing.Point(350, 18);
+            this.updateCombo.Name = "updateCombo";
+            this.updateCombo.Size = new System.Drawing.Size(121, 24);
+            this.updateCombo.TabIndex = 22;
+            this.updateCombo.SelectedIndexChanged += new System.EventHandler(this.updateCombo_SelectedIndexChanged);
             // 
             // BabyUpdateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 490);
+            this.ClientSize = new System.Drawing.Size(533, 603);
+            this.Controls.Add(this.updateCombo);
             this.Controls.Add(this.updatePathLocation_lb);
             this.Controls.Add(this.updateMiddleName_tbox);
             this.Controls.Add(this.updateLastName_tbox);
@@ -261,6 +265,7 @@
             this.Controls.Add(this.middleName_lb);
             this.Controls.Add(this.firstName_lb);
             this.Controls.Add(this.updateBabyEntryTitle_lb);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BabyUpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baby Update Form";
@@ -290,5 +295,6 @@
         private System.Windows.Forms.TextBox updateLastName_tbox;
         private System.Windows.Forms.TextBox updateMiddleName_tbox;
         private System.Windows.Forms.Label updatePathLocation_lb;
+        private System.Windows.Forms.ComboBox updateCombo;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,10 +17,22 @@ namespace Baby_Tracker
 
         AddUpdateBaby addUpdateBaby = new AddUpdateBaby();
 
+        //String declarations
+        public static string updateFirstName = "";
+        public static string updateMiddleName = "";
+        public static string updateLastName = "";
+        public static string updatedob = "";
+        public static double updateWeight;
+        public static double updateLength;
+        public static double updateHeadCir;
+        public static string updateImagePath = "";
+        public static string comboName = "";
+
 
         public BabyUpdateForm()
         {
             InitializeComponent();
+            updateComboBox();
         }
 
 
@@ -60,6 +73,16 @@ namespace Baby_Tracker
          */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
+            updateFirstName = updateFirstName_tbox.Text;
+            updateMiddleName = updateMiddleName_tbox.Text;
+            updateLastName = updateLastName_tbox.Text;
+            updatedob = updateDOB_tbox.Text;
+            updateWeight = double.Parse(updateBirthWeight_tbox.Text);
+            updateLength = double.Parse(updateBirthLength_tbox.Text);
+            updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
+            updateImagePath = updatePathLocation_lb.Text;
+
+        
             addUpdateBaby.updateBaby();
             emptyTextFields();
             Hide();
@@ -79,6 +102,29 @@ namespace Baby_Tracker
         {
             addUpdateBaby.babyImagePath();
             updatePathLocation_lb.Text = addUpdateBaby.targetPath;
+        }
+
+
+
+        public void updateComboBox()
+        {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    updateCombo.DisplayMember = "FirstName";
+                    updateCombo.DataSource = dt;
+                    connection.Close();
+                }
+            }
+        }
+
+        private void updateCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboName = updateCombo.GetItemText(updateCombo.SelectedItem);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -69,11 +70,30 @@ namespace Baby_Tracker
         }
 
 
+        /* Connections to the database to use the information entered from the
+         * BabyUpdateForm to update the database based upon the fields that 
+         * have entered data.
+         */
         public void updateBaby()
         {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "UPDATE BabyList SET (FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) = (@firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
+                command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
+                command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
+                command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
+                command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
+                command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
+                command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
+                command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
+                command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
 
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
         }
-
 
     }
 }
