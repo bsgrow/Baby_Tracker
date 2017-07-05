@@ -58,9 +58,7 @@ namespace Baby_Tracker
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     babySelector_cmbo.DisplayMember = "FirstName";
-                    babySelector_cmbo.DataSource = null;
                     babySelector_cmbo.DataSource = dt;
-                    babySelector_cmbo.ResetText();
                     connection.Close();
                 }
              }

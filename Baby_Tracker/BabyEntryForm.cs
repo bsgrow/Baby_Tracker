@@ -53,8 +53,7 @@ namespace Baby_Tracker
             headCir = double.Parse(head_tbox.Text);
             imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
 
-            //Calls addbaby to add data to the database and close the input form
-            addBaby.addBabyConnection();
+            addUpdateBaby.addBabyConnection();  //calls the method to add baby information to data table
 
             this.Hide();
             emptyTextFields();
