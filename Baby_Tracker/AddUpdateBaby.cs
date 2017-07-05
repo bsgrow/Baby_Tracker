@@ -80,7 +80,7 @@ namespace Baby_Tracker
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
-                command.CommandText = "UPDATE BabyList SET (FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) = (@firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
+                command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '"+BabyUpdateForm.comboName+"'";
                 command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
                 command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
                 command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
