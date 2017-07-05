@@ -52,9 +52,17 @@ namespace Baby_Tracker
             updatePathLocation_lb.Text = "";
         }
 
+
+        /*
+         * Calls the AddUpdateBaby to allow for the connection to update the 
+         * certain fields that the user had updated. User does not have to update
+         * every field. 
+         */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
-
+            addUpdateBaby.updateBaby();
+            emptyTextFields();
+            Hide();
         }
 
 
