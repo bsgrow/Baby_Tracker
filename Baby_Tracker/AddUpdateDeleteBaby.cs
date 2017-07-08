@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Baby_Tracker
 {
-    class AddUpdateBaby 
+    class AddUpdateDeleteBaby 
     {
         //String declarations
         public string path;
@@ -93,6 +93,12 @@ namespace Baby_Tracker
                 conn.Open();
                 command.ExecuteNonQuery();
             }
+        }
+
+
+        public void deletebaby()
+        {
+
         }
 
     }

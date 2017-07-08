@@ -15,7 +15,7 @@ namespace Baby_Tracker
     public partial class BabyUpdateForm : Form
     {
 
-        AddUpdateBaby addUpdateBaby = new AddUpdateBaby();
+        AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
 
         //String declarations
         public static string updateFirstName = "";

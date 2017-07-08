@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BabyUpdateForm));
             this.updateBabyEntryTitle_lb = new System.Windows.Forms.Label();
             this.firstName_lb = new System.Windows.Forms.Label();
             this.middleName_lb = new System.Windows.Forms.Label();
@@ -265,6 +266,7 @@
             this.Controls.Add(this.middleName_lb);
             this.Controls.Add(this.firstName_lb);
             this.Controls.Add(this.updateBabyEntryTitle_lb);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BabyUpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

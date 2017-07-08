@@ -63,7 +63,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUpdateBaby.cs" />
+    <Compile Include="AddUpdateDeleteBaby.cs" />
+    <Compile Include="BabyDeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BabyDeleteForm.Designer.cs">
+      <DependentUpon>BabyDeleteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BabyEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BabyDeleteForm.resx">
+      <DependentUpon>BabyDeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BabyEntryForm.resx">
       <DependentUpon>BabyEntryForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -15,6 +15,7 @@ namespace Baby_Tracker
     {
         BabyEntryForm babyEntryForm = new BabyEntryForm();
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
+        BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
 
         public BabyTracker()
         {
@@ -90,5 +91,14 @@ namespace Baby_Tracker
                 }
         }
 
+
+        /*
+         * Calls the BabyDeleteForm to allow for the user to delete an
+         * baby entry.
+         */
+        private void deleteBaby_btn_Click(object sender, EventArgs e)
+        {
+            babyDeleteForm.Show();
+        }
     }
 }
