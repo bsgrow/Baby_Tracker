@@ -54,6 +54,7 @@
             this.deleteBaby_cmbo.Name = "deleteBaby_cmbo";
             this.deleteBaby_cmbo.Size = new System.Drawing.Size(205, 24);
             this.deleteBaby_cmbo.TabIndex = 3;
+            this.deleteBaby_cmbo.SelectedIndexChanged += new System.EventHandler(this.deleteBaby_cmbo_SelectedIndexChanged);
             // 
             // deleteBaby_btn
             // 
@@ -65,6 +66,7 @@
             this.deleteBaby_btn.TabIndex = 13;
             this.deleteBaby_btn.Text = "Delete Baby Entry";
             this.deleteBaby_btn.UseVisualStyleBackColor = true;
+            this.deleteBaby_btn.Click += new System.EventHandler(this.deleteBaby_btn_Click);
             // 
             // textExplaination_text
             // 
@@ -86,6 +88,7 @@
             this.cancel_btn.TabIndex = 15;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // BabyDeleteForm
             // 

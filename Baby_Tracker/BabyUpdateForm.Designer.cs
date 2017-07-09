@@ -246,6 +246,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 603);
+            this.ControlBox = false;
             this.Controls.Add(this.updateCombo);
             this.Controls.Add(this.updatePathLocation_lb);
             this.Controls.Add(this.updateMiddleName_tbox);

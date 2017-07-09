@@ -12,6 +12,7 @@ namespace Baby_Tracker
 {
     class AddUpdateDeleteBaby 
     {
+
         //String declarations
         public string path;
         public string targetPath;
@@ -96,8 +97,22 @@ namespace Baby_Tracker
         }
 
 
+        /* Connects to the database to allow for the user to delete a baby 
+         * entry that they have previously made. Once a baby is deleted 
+         * from the database, all data is lost on the baby and must
+         * be reentered as a new baby.
+         */
         public void deletebaby()
         {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
+
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
 
         }
 
