@@ -108,12 +108,13 @@ namespace Baby_Tracker
 
         public void updateComboBox()
         {
+            DataTable dt = new DataTable();
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
                 {
-                    DataTable dt = new DataTable();
+                    dt.Clear();
                     da.Fill(dt);
                     updateCombo.DisplayMember = "FirstName";
                     updateCombo.DataSource = dt;

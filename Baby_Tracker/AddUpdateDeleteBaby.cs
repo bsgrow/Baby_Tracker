@@ -43,6 +43,9 @@ namespace Baby_Tracker
 
                 conn.Open();
                 command.ExecuteNonQuery();
+
+                BabyTracker bt = new BabyTracker();
+                bt.comboBoxNameRetrival();
             }
         }
 
