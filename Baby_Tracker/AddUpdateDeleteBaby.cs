@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -9,8 +10,9 @@ using System.Windows.Forms;
 
 namespace Baby_Tracker
 {
-    class AddUpdateBaby 
+    class AddUpdateDeleteBaby 
     {
+
         //String declarations
         public string path;
         public string targetPath;
@@ -41,6 +43,9 @@ namespace Baby_Tracker
 
                 conn.Open();
                 command.ExecuteNonQuery();
+
+                BabyTracker bt = new BabyTracker();
+                bt.comboBoxNameRetrival();
             }
         }
 
@@ -69,11 +74,50 @@ namespace Baby_Tracker
         }
 
 
+        /* Connections to the database to use the information entered from the
+         * BabyUpdateForm to update the database based upon the fields that 
+         * have entered data.
+         */
         public void updateBaby()
         {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '"+BabyUpdateForm.comboName+"'";
+                command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
+                command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
+                command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
+                command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
+                command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
+                command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
+                command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
+                command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
 
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
+
+        /* Connects to the database to allow for the user to delete a baby 
+         * entry that they have previously made. Once a baby is deleted 
+         * from the database, all data is lost on the baby and must
+         * be reentered as a new baby.
+         */
+        public void deletebaby()
+        {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
+
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
+
+        }
 
     }
 }

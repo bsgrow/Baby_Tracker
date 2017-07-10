@@ -14,7 +14,7 @@ namespace Baby_Tracker
 {
     public partial class BabyEntryForm : Form
     {
-        AddUpdateBaby addUpdateBaby = new AddUpdateBaby();
+        AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
 
         //String declarations
         public static string firstName = "";

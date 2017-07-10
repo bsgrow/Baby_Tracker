@@ -15,6 +15,7 @@ namespace Baby_Tracker
     {
         BabyEntryForm babyEntryForm = new BabyEntryForm();
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
+        BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
 
         public BabyTracker()
         {
@@ -29,7 +30,8 @@ namespace Baby_Tracker
         */
         private void newBaby_btn_Click(object sender, EventArgs e)
         {
-            babyEntryForm.Show();
+            babyEntryForm.ShowDialog();
+            comboBoxNameRetrival();
         }
 
 
@@ -39,7 +41,8 @@ namespace Baby_Tracker
        */
         private void editBaby_btn_Click(object sender, EventArgs e)
         {
-            babyUpdateForm.Show();
+            babyUpdateForm.updateComboBox();
+            babyUpdateForm.ShowDialog();
         }
 
 
@@ -50,12 +53,13 @@ namespace Baby_Tracker
         */
         public void comboBoxNameRetrival()
         {
+             DataTable dt = new DataTable();
              string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
              using (SQLiteConnection connection = new SQLiteConnection(connectionString))
              {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
                 {
-                    DataTable dt = new DataTable();
+                    dt.Clear();
                     da.Fill(dt);
                     babySelector_cmbo.DisplayMember = "FirstName";
                     babySelector_cmbo.DataSource = dt;
@@ -70,8 +74,6 @@ namespace Baby_Tracker
         *  as needed. Also, the image for each baby is changed here where the path is called
         *  from the database to then load the image for each baby based off of the selection
         *  from the combobox
-        *  
-        *  Note: The heart of changing data between differenet babies.
         */
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,5 +92,15 @@ namespace Baby_Tracker
                 }
         }
 
+
+        /*
+         * Calls the BabyDeleteForm to allow for the user to delete an
+         * baby entry.
+         */
+        private void deleteBaby_btn_Click(object sender, EventArgs e)
+        {
+            babyDeleteForm.updateDeleteCombo();
+            babyDeleteForm.ShowDialog();
+        }
     }
 }
