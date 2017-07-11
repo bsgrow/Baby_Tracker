@@ -105,7 +105,11 @@ namespace Baby_Tracker
         }
 
 
-
+        /*
+     *  Calls the FirstName table from the SQLite database to be displayed inside
+     *  the combob box. This is also set to refresh as a new baby is entered into the
+     *  application.
+     */
         public void updateComboBox()
         {
             DataTable dt = new DataTable();
@@ -123,6 +127,10 @@ namespace Baby_Tracker
             }
         }
 
+
+        /*
+         * Retrieves the seleted name in the combobox
+         */
         private void updateCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboName = updateCombo.GetItemText(updateCombo.SelectedItem);
