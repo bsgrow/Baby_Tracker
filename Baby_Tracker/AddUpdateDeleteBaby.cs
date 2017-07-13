@@ -66,7 +66,7 @@ namespace Baby_Tracker
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                path = @"C:\Users\Brandon\Documents\Visual Studio 2017\Projects\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
+                path = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
                 targetPath = Path.Combine(path, Path.GetFileName(openFileDialog.FileName));
 
                 File.Copy(openFileDialog.FileName, targetPath, true);
