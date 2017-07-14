@@ -44,8 +44,6 @@ namespace Baby_Tracker
                 conn.Open();
                 command.ExecuteNonQuery();
 
-                BabyTracker bt = new BabyTracker();
-                bt.comboBoxNameRetrival();
             }
         }
 
@@ -62,14 +60,14 @@ namespace Baby_Tracker
             openFileDialog.Title = "Selet Baby Profile Image";
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
+            openFileDialog.RestoreDirectory = true; 
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 path = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
                 targetPath = Path.Combine(path, Path.GetFileName(openFileDialog.FileName));
 
-                File.Copy(openFileDialog.FileName, targetPath, true);
+                File.Copy(openFileDialog.FileName, targetPath, true); 
             }
         }
 
@@ -84,7 +82,7 @@ namespace Baby_Tracker
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
-                command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '"+BabyUpdateForm.comboName+"'";
+                command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
                 command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
                 command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
                 command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
@@ -96,7 +94,9 @@ namespace Baby_Tracker
 
                 conn.Open();
                 command.ExecuteNonQuery();
+
             }
+          
         }
 
 
@@ -107,15 +107,21 @@ namespace Baby_Tracker
          */
         public void deletebaby()
         {
+            string path = "";
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
-                command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
 
                 conn.Open();
+                command.CommandText = "SELECT BabyImagePath FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
+                path = (string)command.ExecuteScalar();
+                command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
                 command.ExecuteNonQuery();
             }
+
+            Console.WriteLine(path);
+            //File.Delete(path);
 
         }
 

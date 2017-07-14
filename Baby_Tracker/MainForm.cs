@@ -26,7 +26,7 @@ namespace Baby_Tracker
 
         /*
         *  Allows for the BabyEntryForm to be opened for the user to 
-        *  add a new entry for a baby.
+        *  add a new entry for a baby. Also, will update comboboxes.
         */
         private void newBaby_btn_Click(object sender, EventArgs e)
         {
@@ -37,12 +37,13 @@ namespace Baby_Tracker
 
         /*
        *  Allows for the BabyUpdateForm to be opened for the user to 
-       *  add a updated entry for a baby.
+       *  add a updated entry for a baby. Also, will update comboboxes.
        */
         private void editBaby_btn_Click(object sender, EventArgs e)
         {
             babyUpdateForm.updateComboBox();
             babyUpdateForm.ShowDialog();
+            comboBoxNameRetrival();
         }
 
 
@@ -95,12 +96,13 @@ namespace Baby_Tracker
 
         /*
          * Calls the BabyDeleteForm to allow for the user to delete an
-         * baby entry.
+         * baby entry. Also, will update comboboxes.
          */
         private void deleteBaby_btn_Click(object sender, EventArgs e)
         {
             babyDeleteForm.updateDeleteCombo();
             babyDeleteForm.ShowDialog();
+            comboBoxNameRetrival();
         }
     }
 }
