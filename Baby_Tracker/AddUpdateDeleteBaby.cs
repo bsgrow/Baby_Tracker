@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Baby_Tracker
 {
-    class AddUpdateDeleteBaby 
+    class AddUpdateDeleteBaby
     {
 
         //String declarations
@@ -60,14 +60,14 @@ namespace Baby_Tracker
             openFileDialog.Title = "Selet Baby Profile Image";
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true; 
+            openFileDialog.RestoreDirectory = true;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 path = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
                 targetPath = Path.Combine(path, Path.GetFileName(openFileDialog.FileName));
 
-                File.Copy(openFileDialog.FileName, targetPath, true); 
+                File.Copy(openFileDialog.FileName, targetPath, true);
             }
         }
 
@@ -96,7 +96,7 @@ namespace Baby_Tracker
                 command.ExecuteNonQuery();
 
             }
-          
+
         }
 
 

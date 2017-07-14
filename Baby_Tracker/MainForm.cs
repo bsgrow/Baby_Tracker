@@ -89,7 +89,14 @@ namespace Baby_Tracker
             while (reader.Read())
                 {
                     string result = Convert.ToString(reader["BabyImagePath"]);
-                    userImage_box.Image = Image.FromFile(result);
+                     if (result == "")
+                    {
+                         //do nothing
+                     }
+                    else
+                     {
+                        userImage_box.Image = Image.FromFile(result);
+                     }
                 }
         }
 

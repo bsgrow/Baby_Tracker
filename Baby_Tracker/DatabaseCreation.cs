@@ -17,7 +17,7 @@ namespace Baby_Tracker
 			 	ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
 				FirstName VARCHAR(20) NOT NULL, 
 				MiddleName VARCHAR(20) NULL, 
-				LastName VARCHAR(20) NOT NULL, 
+				LastName VARCHAR(20) NULL, 
 				DOB DATE NOT NULL,
 				BirthWeight INTEGER NOT NULL, 
 				BirthLength INTEGER NOT NULL, 
