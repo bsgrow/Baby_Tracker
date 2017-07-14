@@ -43,20 +43,23 @@ namespace Baby_Tracker
          */
         private void addEntry_btn_Click(object sender, EventArgs e)
         {
-            //Sets the textbox inputs to a string for accessablity throughout application
-            firstName = firstName_tbox.Text;
-            middleName = middleName_tbox.Text;
-            lastName = lastName_tbox.Text;
-            dob = dob_tbox.Text;
-            weight = double.Parse(weight_tbox.Text);
-            length = double.Parse(length_tbox.Text);
-            headCir = double.Parse(head_tbox.Text);
-            imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
-
-            addUpdateBaby.addBabyConnection();  //calls the method to add baby information to data table
-
-            this.Hide();
-            emptyTextFields();
+            if(firstName_tbox.Text == "" | dob_tbox.Text == "" | weight_tbox.Text == "" | length_tbox.Text == "" | head_tbox.Text == "") {
+                Message.Box("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
+            } else {
+                //Sets the textbox inputs to a string for accessablity throughout application
+               firstName = firstName_tbox.Text;
+               middleName = middleName_tbox.Text;
+               lastName = lastName_tbox.Text;
+               dob = dob_tbox.Text;
+               weight = double.Parse(weight_tbox.Text);
+               length = double.Parse(length_tbox.Text);
+               headCir = double.Parse(head_tbox.Text);
+               imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
+           
+                addUpdateBaby.addBabyConnection();  //calls the method to add baby information to data table
+                this.Hide();
+                emptyTextFields();
+            }
         }
 
 
