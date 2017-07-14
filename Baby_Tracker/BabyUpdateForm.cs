@@ -73,19 +73,22 @@ namespace Baby_Tracker
          */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
-            updateFirstName = updateFirstName_tbox.Text;
-            updateMiddleName = updateMiddleName_tbox.Text;
-            updateLastName = updateLastName_tbox.Text;
-            updatedob = updateDOB_tbox.Text;
-            updateWeight = double.Parse(updateBirthWeight_tbox.Text);
-            updateLength = double.Parse(updateBirthLength_tbox.Text);
-            updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
-            updateImagePath = updatePathLocation_lb.Text;
+            if(updateFirstName_tbox.Text == "" | updateDOB_tbox.Text == "" | updateBirthWeight_tbox.Text == "" | updateBirthLength_tbox.Text == "" | updateBirthHead_tbox.Text == "") {
+                Message.Box("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
+            } else {
+                updateFirstName = updateFirstName_tbox.Text;
+                updateMiddleName = updateMiddleName_tbox.Text;
+                updateLastName = updateLastName_tbox.Text;
+                updatedob = updateDOB_tbox.Text;
+                updateWeight = double.Parse(updateBirthWeight_tbox.Text);
+                updateLength = double.Parse(updateBirthLength_tbox.Text);
+                updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
+                updateImagePath = updatePathLocation_lb.Text;
 
-        
-            addUpdateBaby.updateBaby();
-            emptyTextFields();
-            Hide();
+                addUpdateBaby.updateBaby();
+                 emptyTextFields();
+                Hide();
+            }
         }
 
 
