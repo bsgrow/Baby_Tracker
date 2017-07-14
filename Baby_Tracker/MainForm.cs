@@ -54,10 +54,10 @@ namespace Baby_Tracker
         */
         public void comboBoxNameRetrival()
         {
-             DataTable dt = new DataTable();
-             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-             {
+            DataTable dt = new DataTable();
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
                 {
                     dt.Clear();
@@ -66,8 +66,8 @@ namespace Baby_Tracker
                     babySelector_cmbo.DataSource = dt;
                     connection.Close();
                 }
-             }
-          }
+            }
+        }
 
 
         /*
@@ -87,17 +87,17 @@ namespace Baby_Tracker
             connection.Open();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
+            {
+                string result = Convert.ToString(reader["BabyImagePath"]);
+                if (result == "")
                 {
-                    string result = Convert.ToString(reader["BabyImagePath"]);
-                     if (result == "")
-                    {
-                         //do nothing
-                     }
-                    else
-                     {
-                        userImage_box.Image = Image.FromFile(result);
-                     }
+                    //do nothing
                 }
+                else
+                {
+                    userImage_box.Image = Image.FromFile(result);
+                }
+            }
         }
 
 
