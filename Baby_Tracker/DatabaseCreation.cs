@@ -27,14 +27,12 @@ namespace Baby_Tracker
 
         string sqlWeightTable = @"CREATE TABLE Weight (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
-             
 				Weight INTEGER NOT NULL, 
 				Date DATE NULL
 				)";
 
         string sqlMeasurementsTable = @"CREATE TABLE Measurements (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-				
 				Length INTEGER NULL,
 				Waist INTEGER NULL,
 				Head INTEGER NULL,
@@ -44,7 +42,6 @@ namespace Baby_Tracker
 
         string sqlImmunizationsTable = @"CREATE TABLE Immunizations (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-				
 				Name VARCHAR(100) NOT NULL,
 				DateGiven DATE NULL,
 				AdminBy VARCHAR(100) NULL,
@@ -53,7 +50,6 @@ namespace Baby_Tracker
 
         string sqlMedicationsTable = @"CREATE TABLE Medications (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-			
 				Name VARCHAR(200) NOT NULL,
 				Dosage INTEGER NOT NULL,
 				Type VARCHAR(100) NULL,

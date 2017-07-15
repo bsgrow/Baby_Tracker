@@ -17,20 +17,21 @@ namespace Baby_Tracker
         static void Main()
         {
             //checks for existing database, none found then created
-            if (!File.Exists("BabyDatabase.sqlite")) 
+            if (!File.Exists("BabyDatabase.sqlite"))
             {
                 DatabaseCreation database = new DatabaseCreation();
                 database.databaseCreation();
-            } else
+            }
+            else
             {
                 Console.WriteLine("Data already created");
             }
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BabyTracker());
-     
+
         }
-        
+
     }
 }

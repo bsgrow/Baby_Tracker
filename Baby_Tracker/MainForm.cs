@@ -16,6 +16,7 @@ namespace Baby_Tracker
         BabyEntryForm babyEntryForm = new BabyEntryForm();
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
         BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
+        ReportExports reportExports = new ReportExports();
 
         public BabyTracker()
         {
@@ -44,6 +45,40 @@ namespace Baby_Tracker
             babyUpdateForm.updateComboBox();
             babyUpdateForm.ShowDialog();
             comboBoxNameRetrival();
+        }
+
+
+
+
+        /*
+         * Calls the BabyDeleteForm to allow for the user to delete an
+         * baby entry. Also, will update comboboxes.
+         */
+        private void deleteBaby_btn_Click(object sender, EventArgs e)
+        {
+            babyDeleteForm.updateDeleteCombo();
+            babyDeleteForm.ShowDialog();
+            comboBoxNameRetrival();
+        }
+
+        /*
+         * Calls the ReportExports class to allows for the excel function
+         * to be activated to export a excel spreadsheet to the desired location.
+         * (Only for Baby List)
+         */
+        private void babyListExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportExports.excelExport();
+        }
+
+
+        /*
+         * Calls the ReportExports class to allow for the PDF function to be
+         * activated to export a PDF to the desired location. (Only for Baby List)
+         */
+        private void babyListPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportExports.pdfExport();
         }
 
 
@@ -98,18 +133,6 @@ namespace Baby_Tracker
                     userImage_box.Image = Image.FromFile(result);
                 }
             }
-        }
-
-
-        /*
-         * Calls the BabyDeleteForm to allow for the user to delete an
-         * baby entry. Also, will update comboboxes.
-         */
-        private void deleteBaby_btn_Click(object sender, EventArgs e)
-        {
-            babyDeleteForm.updateDeleteCombo();
-            babyDeleteForm.ShowDialog();
-            comboBoxNameRetrival();
         }
     }
 }

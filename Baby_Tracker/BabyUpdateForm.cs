@@ -36,11 +36,11 @@ namespace Baby_Tracker
         }
 
 
-         /*
-         * Upon click this will hide the for and not record any data that 
-         * was entered by the user. To make sure that the textfields have
-         * no data, the will be set to blank here.
-         */
+        /*
+        * Upon click this will hide the for and not record any data that 
+        * was entered by the user. To make sure that the textfields have
+        * no data, the will be set to blank here.
+        */
         private void updateCancel_btn_Click(object sender, EventArgs e)
         {
             emptyTextFields();
@@ -73,9 +73,12 @@ namespace Baby_Tracker
          */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
-            if(updateFirstName_tbox.Text == "" | updateDOB_tbox.Text == "" | updateBirthWeight_tbox.Text == "" | updateBirthLength_tbox.Text == "" | updateBirthHead_tbox.Text == "") {
-                Message.Box("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
-            } else {
+            if (updateFirstName_tbox.Text == "" | updateDOB_tbox.Text == "" | updateBirthWeight_tbox.Text == "" | updateBirthLength_tbox.Text == "" | updateBirthHead_tbox.Text == "")
+            {
+                MessageBox.Show("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
+            }
+            else
+            {
                 updateFirstName = updateFirstName_tbox.Text;
                 updateMiddleName = updateMiddleName_tbox.Text;
                 updateLastName = updateLastName_tbox.Text;
@@ -86,7 +89,7 @@ namespace Baby_Tracker
                 updateImagePath = updatePathLocation_lb.Text;
 
                 addUpdateBaby.updateBaby();
-                 emptyTextFields();
+                emptyTextFields();
                 Hide();
             }
         }

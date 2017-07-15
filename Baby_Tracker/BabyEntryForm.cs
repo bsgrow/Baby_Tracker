@@ -22,7 +22,7 @@ namespace Baby_Tracker
         public static string lastName = "";
         public static string dob = "";
         public static double weight;
-        public static double length ;
+        public static double length;
         public static double headCir;
         public static string imagePath = "";
 
@@ -43,19 +43,22 @@ namespace Baby_Tracker
          */
         private void addEntry_btn_Click(object sender, EventArgs e)
         {
-            if(firstName_tbox.Text == "" | dob_tbox.Text == "" | weight_tbox.Text == "" | length_tbox.Text == "" | head_tbox.Text == "") {
-                Message.Box("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
-            } else {
+            if (firstName_tbox.Text == "" | dob_tbox.Text == "" | weight_tbox.Text == "" | length_tbox.Text == "" | head_tbox.Text == "")
+            {
+                MessageBox.Show("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
+            }
+            else
+            {
                 //Sets the textbox inputs to a string for accessablity throughout application
-               firstName = firstName_tbox.Text;
-               middleName = middleName_tbox.Text;
-               lastName = lastName_tbox.Text;
-               dob = dob_tbox.Text;
-               weight = double.Parse(weight_tbox.Text);
-               length = double.Parse(length_tbox.Text);
-               headCir = double.Parse(head_tbox.Text);
-               imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
-           
+                firstName = firstName_tbox.Text;
+                middleName = middleName_tbox.Text;
+                lastName = lastName_tbox.Text;
+                dob = dob_tbox.Text;
+                weight = double.Parse(weight_tbox.Text);
+                length = double.Parse(length_tbox.Text);
+                headCir = double.Parse(head_tbox.Text);
+                imagePath = pathLocation_lb.Text;//shows the user the file path in the form once selected
+
                 addUpdateBaby.addBabyConnection();  //calls the method to add baby information to data table
                 this.Hide();
                 emptyTextFields();
@@ -91,16 +94,16 @@ namespace Baby_Tracker
             length_tbox.Text = "";
             head_tbox.Text = "";
             pathLocation_lb.Text = "";
-        
+
         }
 
 
-     
+
         private void addImage_btn_Click(object sender, EventArgs e)
         {
             addUpdateBaby.babyImagePath();
             pathLocation_lb.Text = addUpdateBaby.targetPath;
-        } 
-        
+        }
+
     }
 }

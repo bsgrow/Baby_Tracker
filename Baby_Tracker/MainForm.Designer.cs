@@ -60,6 +60,8 @@
             this.leftPanelTitle_lb = new System.Windows.Forms.Label();
             this.newBaby_btn = new System.Windows.Forms.Button();
             this.dashboardPanel = new System.Windows.Forms.Panel();
+            this.babyListExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.babyListPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -107,9 +109,12 @@
             // 
             // completeReportToolStripMenuItem
             // 
+            this.completeReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.babyListExcelToolStripMenuItem,
+            this.babyListPDFToolStripMenuItem});
             this.completeReportToolStripMenuItem.Name = "completeReportToolStripMenuItem";
             this.completeReportToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.completeReportToolStripMenuItem.Text = "Complete Report";
+            this.completeReportToolStripMenuItem.Text = "Baby List Report";
             // 
             // weightReportToolStripMenuItem
             // 
@@ -408,6 +413,20 @@
             this.dashboardPanel.Size = new System.Drawing.Size(1298, 918);
             this.dashboardPanel.TabIndex = 2;
             // 
+            // babyListExcelToolStripMenuItem
+            // 
+            this.babyListExcelToolStripMenuItem.Name = "babyListExcelToolStripMenuItem";
+            this.babyListExcelToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.babyListExcelToolStripMenuItem.Text = "Baby List Excel";
+            this.babyListExcelToolStripMenuItem.Click += new System.EventHandler(this.babyListExcelToolStripMenuItem_Click);
+            // 
+            // babyListPDFToolStripMenuItem
+            // 
+            this.babyListPDFToolStripMenuItem.Name = "babyListPDFToolStripMenuItem";
+            this.babyListPDFToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.babyListPDFToolStripMenuItem.Text = "Baby List PDF";
+            this.babyListPDFToolStripMenuItem.Click += new System.EventHandler(this.babyListPDFToolStripMenuItem_Click);
+            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -465,6 +484,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem babyListExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem babyListPDFToolStripMenuItem;
     }
 }
 

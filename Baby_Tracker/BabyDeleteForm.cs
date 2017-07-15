@@ -66,7 +66,7 @@ namespace Baby_Tracker
         /*
          * Calls the delete baby method which then allows for the connection
          * to the database and to delete that row assicated with the baby,
-         */ 
+         */
         private void deleteBaby_btn_Click(object sender, EventArgs e)
         {
             addUpdateDeleteBaby.deletebaby();
