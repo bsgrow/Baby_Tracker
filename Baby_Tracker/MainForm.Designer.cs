@@ -34,6 +34,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.completeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.babyListExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.babyListPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weightReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.growthStatisticReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.immunizationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +62,6 @@
             this.leftPanelTitle_lb = new System.Windows.Forms.Label();
             this.newBaby_btn = new System.Windows.Forms.Button();
             this.dashboardPanel = new System.Windows.Forms.Panel();
-            this.babyListExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.babyListPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -77,7 +77,7 @@
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.mainMenuStrip.Size = new System.Drawing.Size(1532, 28);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1581, 28);
             this.mainMenuStrip.TabIndex = 0;
             // 
             // fileToolStripMenuItem
@@ -115,6 +115,20 @@
             this.completeReportToolStripMenuItem.Name = "completeReportToolStripMenuItem";
             this.completeReportToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.completeReportToolStripMenuItem.Text = "Baby List Report";
+            // 
+            // babyListExcelToolStripMenuItem
+            // 
+            this.babyListExcelToolStripMenuItem.Name = "babyListExcelToolStripMenuItem";
+            this.babyListExcelToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.babyListExcelToolStripMenuItem.Text = "Baby List Excel";
+            this.babyListExcelToolStripMenuItem.Click += new System.EventHandler(this.babyListExcelToolStripMenuItem_Click);
+            // 
+            // babyListPDFToolStripMenuItem
+            // 
+            this.babyListPDFToolStripMenuItem.Name = "babyListPDFToolStripMenuItem";
+            this.babyListPDFToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.babyListPDFToolStripMenuItem.Text = "Baby List PDF";
+            this.babyListPDFToolStripMenuItem.Click += new System.EventHandler(this.babyListPDFToolStripMenuItem_Click);
             // 
             // weightReportToolStripMenuItem
             // 
@@ -363,10 +377,10 @@
             // 
             // userImage_box
             // 
-            this.userImage_box.Location = new System.Drawing.Point(15, 139);
+            this.userImage_box.Location = new System.Drawing.Point(17, 156);
             this.userImage_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userImage_box.Name = "userImage_box";
-            this.userImage_box.Size = new System.Drawing.Size(91, 82);
+            this.userImage_box.Size = new System.Drawing.Size(80, 80);
             this.userImage_box.TabIndex = 2;
             this.userImage_box.TabStop = false;
             // 
@@ -413,25 +427,11 @@
             this.dashboardPanel.Size = new System.Drawing.Size(1298, 918);
             this.dashboardPanel.TabIndex = 2;
             // 
-            // babyListExcelToolStripMenuItem
-            // 
-            this.babyListExcelToolStripMenuItem.Name = "babyListExcelToolStripMenuItem";
-            this.babyListExcelToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.babyListExcelToolStripMenuItem.Text = "Baby List Excel";
-            this.babyListExcelToolStripMenuItem.Click += new System.EventHandler(this.babyListExcelToolStripMenuItem_Click);
-            // 
-            // babyListPDFToolStripMenuItem
-            // 
-            this.babyListPDFToolStripMenuItem.Name = "babyListPDFToolStripMenuItem";
-            this.babyListPDFToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.babyListPDFToolStripMenuItem.Text = "Baby List PDF";
-            this.babyListPDFToolStripMenuItem.Click += new System.EventHandler(this.babyListPDFToolStripMenuItem_Click);
-            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1532, 933);
+            this.ClientSize = new System.Drawing.Size(1581, 952);
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.mainMenuStrip);

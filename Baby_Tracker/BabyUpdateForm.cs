@@ -16,6 +16,7 @@ namespace Baby_Tracker
     {
 
         AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
+        public static string result = "";
 
         //String declarations
         public static string updateFirstName = "";
@@ -33,6 +34,29 @@ namespace Baby_Tracker
         {
             InitializeComponent();
             updateComboBox();
+            profileCombobox();
+        }
+
+        private void profilePic_comb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT ImagePath FROM ProfileImages where ImageName = '" + profilePic_comb.GetItemText(profilePic_comb.SelectedItem) + "'";
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            SQLiteCommand command = new SQLiteCommand(query, connection);
+            connection.Open();
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                result = Convert.ToString(reader["ImagePath"]);
+                if (result == "")
+                {
+                    //do nothing
+                }
+                else
+                {
+                    profilePictureBox.Image = Image.FromFile(result);
+                }
+            }
         }
 
 
@@ -73,12 +97,6 @@ namespace Baby_Tracker
          */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
-            if (updateFirstName_tbox.Text == "" | updateDOB_tbox.Text == "" | updateBirthWeight_tbox.Text == "" | updateBirthLength_tbox.Text == "" | updateBirthHead_tbox.Text == "")
-            {
-                MessageBox.Show("Either First Name, DOB, Weight, Length, Head Circumfirence are blank. Must have an entry!!");
-            }
-            else
-            {
                 updateFirstName = updateFirstName_tbox.Text;
                 updateMiddleName = updateMiddleName_tbox.Text;
                 updateLastName = updateLastName_tbox.Text;
@@ -86,38 +104,23 @@ namespace Baby_Tracker
                 updateWeight = double.Parse(updateBirthWeight_tbox.Text);
                 updateLength = double.Parse(updateBirthLength_tbox.Text);
                 updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
-                updateImagePath = updatePathLocation_lb.Text;
+                updateImagePath = result;
 
                 addUpdateBaby.updateBaby();
-                emptyTextFields();
                 Hide();
-            }
+                emptyTextFields();
+
         }
 
-
-
         /*
-         * Allows for a image the user chooses to be saved into the babies 
-         * creation. The only files that will be accepted are JPEG/JPG and PNG
-         * files. These images will then be saved to the BabyImages folder 
-         * inside the application. Takes the file the user selects from OpenFileDialog
-         * then copies it to the BabyImages folder. The path is retrieved here to get
-         * the path and saves it to the database.
-         */
-        private void updateImage_btn_Click(object sender, EventArgs e)
-        {
-            addUpdateBaby.babyImagePath();
-            updatePathLocation_lb.Text = addUpdateBaby.targetPath;
-        }
-
-
-        /*
-     *  Calls the FirstName table from the SQLite database to be displayed inside
-     *  the combob box. This is also set to refresh as a new baby is entered into the
-     *  application.
-     */
+            *  Calls the FirstName table from the SQLite database to be displayed inside
+            *  the combob box. This is also set to refresh as a new baby is entered into the
+            *  application.
+            */
         public void updateComboBox()
         {
+            comboName = updateCombo.GetItemText(updateCombo.SelectedItem);
+
             DataTable dt = new DataTable();
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -126,7 +129,7 @@ namespace Baby_Tracker
                 {
                     dt.Clear();
                     da.Fill(dt);
-                    updateCombo.DisplayMember = "FirstName";
+                   updateCombo.DisplayMember = "FirstName";
                     updateCombo.DataSource = dt;
                     connection.Close();
                 }
@@ -134,12 +137,24 @@ namespace Baby_Tracker
         }
 
 
-        /*
-         * Retrieves the seleted name in the combobox
-         */
-        private void updateCombo_SelectedIndexChanged(object sender, EventArgs e)
+
+        public void profileCombobox()
         {
-            comboName = updateCombo.GetItemText(updateCombo.SelectedItem);
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ImageName FROM ProfileImages", connection))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    profilePic_comb.DisplayMember = "ImageName";
+                   profilePic_comb.DataSource = dt;
+                    connection.Close();
+                }
+            }
         }
+
     }
 }
+
+    

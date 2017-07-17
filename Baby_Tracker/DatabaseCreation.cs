@@ -10,6 +10,12 @@ namespace Baby_Tracker
 {
     class DatabaseCreation
     {
+        //Pre-set image path locations for babies user profile
+        public static string bg1 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png"; 
+        public static string bg2 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
+        public static string bb1 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
+        public static string bb2 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
+
         SQLiteConnection connection;
         SQLiteCommand command;
 
@@ -24,6 +30,12 @@ namespace Baby_Tracker
 				BirthHeadCir INTEGER NOT NULL,
 				BabyImagePath VARCHAR(250) NULL
 				)";
+
+        string sqlProfileImages = @"CREATE TABLE ProfileImages (
+                ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                ImageName VARCHAR(40) NOT NULL,
+                ImagePath VARCHAR(250) NOT NULL
+                )";
 
         string sqlWeightTable = @"CREATE TABLE Weight (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
@@ -78,29 +90,41 @@ namespace Baby_Tracker
 
         public void databaseCreation()
         {
-                //Creating database and connection
-                SQLiteConnection.CreateFile("BabyDatabase.sqlite"); //set location to a database folder
-                connection = new SQLiteConnection("Data Source = BabyDatabase.sqlite; Version = 3;");
-                connection.Open();
+            //Creating database and connection
+            SQLiteConnection.CreateFile("BabyDatabase.sqlite"); //set location to a database folder
+            connection = new SQLiteConnection("Data Source = BabyDatabase.sqlite; Version = 3;");
+            connection.Open();
 
-                //Creating the tables
-                command = new SQLiteCommand(sqlBabyTable, connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand(sqlWeightTable, connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand(sqlMeasurementsTable, connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand(sqlImmunizationsTable, connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand(sqlMedicationsTable, connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand(sqlDoctorAppointmentsTable, connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand(sqlDoctorContactTable, connection);
-                command.ExecuteNonQuery();
+            //Creating the tables
+            command = new SQLiteCommand(sqlBabyTable, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlProfileImages, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlWeightTable, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlMeasurementsTable, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlImmunizationsTable, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlMedicationsTable, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlDoctorAppointmentsTable, connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(sqlDoctorContactTable, connection);
+            command.ExecuteNonQuery();
 
-                //Closes the connection to the database
-                connection.Close();
+            //inserts the Profile images into the database (ProfileImages Table)
+            command.CommandText = "INSERT INTO ProfileImages (ID, ImageName, ImagePath) VALUES (null, 'Baby Girl 1', '" + bg1 + "')";
+            command.ExecuteNonQuery();
+            command.CommandText = "INSERT INTO ProfileImages (ID, ImageName, ImagePath) VALUES (null, 'Baby Girl 2', '" + bg2 + "')";
+            command.ExecuteNonQuery();
+            command.CommandText = "INSERT INTO ProfileImages (ID, ImageName, ImagePath) VALUES (null, 'Baby Boy 1', '" + bb1 + "')";
+            command.ExecuteNonQuery();
+            command.CommandText = "INSERT INTO ProfileImages (ID, ImageName, ImagePath) VALUES (null, 'Baby Boy 2', '" + bb2 + "')";
+            command.ExecuteNonQuery();
+
+            //Closes the connection to the database
+            connection.Close();
         }
 
     }

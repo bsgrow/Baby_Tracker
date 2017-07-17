@@ -37,7 +37,6 @@
             this.birthWeight_lb = new System.Windows.Forms.Label();
             this.birthLength_lb = new System.Windows.Forms.Label();
             this.birthHeadCir_lb = new System.Windows.Forms.Label();
-            this.updateImage_btn = new System.Windows.Forms.Button();
             this.updateCancel_btn = new System.Windows.Forms.Button();
             this.updateEntry_btn = new System.Windows.Forms.Button();
             this.updateFirstName_tbox = new System.Windows.Forms.TextBox();
@@ -49,6 +48,10 @@
             this.updateMiddleName_tbox = new System.Windows.Forms.TextBox();
             this.updatePathLocation_lb = new System.Windows.Forms.Label();
             this.updateCombo = new System.Windows.Forms.ComboBox();
+            this.profilePic_lb = new System.Windows.Forms.Label();
+            this.profilePictureBox = new System.Windows.Forms.PictureBox();
+            this.profilePic_comb = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // updateBabyEntryTitle_lb
@@ -131,22 +134,10 @@
             this.birthHeadCir_lb.TabIndex = 9;
             this.birthHeadCir_lb.Text = "Birth Head Cir:";
             // 
-            // updateImage_btn
-            // 
-            this.updateImage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateImage_btn.Location = new System.Drawing.Point(12, 489);
-            this.updateImage_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.updateImage_btn.Name = "updateImage_btn";
-            this.updateImage_btn.Size = new System.Drawing.Size(139, 38);
-            this.updateImage_btn.TabIndex = 11;
-            this.updateImage_btn.Text = "Update Image";
-            this.updateImage_btn.UseVisualStyleBackColor = true;
-            this.updateImage_btn.Click += new System.EventHandler(this.updateImage_btn_Click);
-            // 
             // updateCancel_btn
             // 
             this.updateCancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateCancel_btn.Location = new System.Drawing.Point(295, 553);
+            this.updateCancel_btn.Location = new System.Drawing.Point(294, 583);
             this.updateCancel_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateCancel_btn.Name = "updateCancel_btn";
             this.updateCancel_btn.Size = new System.Drawing.Size(159, 32);
@@ -158,7 +149,7 @@
             // updateEntry_btn
             // 
             this.updateEntry_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateEntry_btn.Location = new System.Drawing.Point(67, 553);
+            this.updateEntry_btn.Location = new System.Drawing.Point(64, 583);
             this.updateEntry_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateEntry_btn.Name = "updateEntry_btn";
             this.updateEntry_btn.Size = new System.Drawing.Size(185, 32);
@@ -239,14 +230,43 @@
             this.updateCombo.Name = "updateCombo";
             this.updateCombo.Size = new System.Drawing.Size(121, 24);
             this.updateCombo.TabIndex = 22;
-            this.updateCombo.SelectedIndexChanged += new System.EventHandler(this.updateCombo_SelectedIndexChanged);
+            // 
+            // profilePic_lb
+            // 
+            this.profilePic_lb.AutoSize = true;
+            this.profilePic_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profilePic_lb.Location = new System.Drawing.Point(20, 500);
+            this.profilePic_lb.Name = "profilePic_lb";
+            this.profilePic_lb.Size = new System.Drawing.Size(104, 25);
+            this.profilePic_lb.TabIndex = 26;
+            this.profilePic_lb.Text = "Profile Pic:";
+            // 
+            // profilePictureBox
+            // 
+            this.profilePictureBox.Location = new System.Drawing.Point(160, 483);
+            this.profilePictureBox.Name = "profilePictureBox";
+            this.profilePictureBox.Size = new System.Drawing.Size(80, 80);
+            this.profilePictureBox.TabIndex = 25;
+            this.profilePictureBox.TabStop = false;
+            // 
+            // profilePic_comb
+            // 
+            this.profilePic_comb.FormattingEnabled = true;
+            this.profilePic_comb.Location = new System.Drawing.Point(273, 501);
+            this.profilePic_comb.Name = "profilePic_comb";
+            this.profilePic_comb.Size = new System.Drawing.Size(215, 24);
+            this.profilePic_comb.TabIndex = 24;
+            this.profilePic_comb.SelectedIndexChanged += new System.EventHandler(this.profilePic_comb_SelectedIndexChanged);
             // 
             // BabyUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 603);
+            this.ClientSize = new System.Drawing.Size(533, 637);
             this.ControlBox = false;
+            this.Controls.Add(this.profilePic_lb);
+            this.Controls.Add(this.profilePictureBox);
+            this.Controls.Add(this.profilePic_comb);
             this.Controls.Add(this.updateCombo);
             this.Controls.Add(this.updatePathLocation_lb);
             this.Controls.Add(this.updateMiddleName_tbox);
@@ -258,7 +278,6 @@
             this.Controls.Add(this.updateFirstName_tbox);
             this.Controls.Add(this.updateCancel_btn);
             this.Controls.Add(this.updateEntry_btn);
-            this.Controls.Add(this.updateImage_btn);
             this.Controls.Add(this.birthHeadCir_lb);
             this.Controls.Add(this.birthLength_lb);
             this.Controls.Add(this.birthWeight_lb);
@@ -272,6 +291,7 @@
             this.Name = "BabyUpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baby Update Form";
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +307,6 @@
         private System.Windows.Forms.Label birthWeight_lb;
         private System.Windows.Forms.Label birthLength_lb;
         private System.Windows.Forms.Label birthHeadCir_lb;
-        private System.Windows.Forms.Button updateImage_btn;
         private System.Windows.Forms.Button updateCancel_btn;
         private System.Windows.Forms.Button updateEntry_btn;
         private System.Windows.Forms.TextBox updateFirstName_tbox;
@@ -299,5 +318,8 @@
         private System.Windows.Forms.TextBox updateMiddleName_tbox;
         private System.Windows.Forms.Label updatePathLocation_lb;
         private System.Windows.Forms.ComboBox updateCombo;
+        private System.Windows.Forms.Label profilePic_lb;
+        private System.Windows.Forms.PictureBox profilePictureBox;
+        private System.Windows.Forms.ComboBox profilePic_comb;
     }
 }

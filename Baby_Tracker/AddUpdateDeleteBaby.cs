@@ -13,17 +13,12 @@ namespace Baby_Tracker
     class AddUpdateDeleteBaby
     {
 
-        //String declarations
-        public string path;
-        public string targetPath;
-
-
         /*
          * Method is using the data from the BabyEntryForm textboxes to create a new row for
          * each new baby entered. The connection and all database requires are set up here. 
          * BabyList is the table that is being used for the storage of the information.
          */
-        public void addBabyConnection()
+        public void addBaby()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
@@ -44,30 +39,6 @@ namespace Baby_Tracker
                 conn.Open();
                 command.ExecuteNonQuery();
 
-            }
-        }
-
-
-        /* Allows for a image to be selected for the baby entry. This is called via
-         * both new baby entry and also update baby entry. Only JPEG na dPNG images 
-         * are accepted here. The files are then saved to a folder (BabyImages) in
-         * the application.
-         */
-        public void babyImagePath()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = @"C:\";
-            openFileDialog.Title = "Selet Baby Profile Image";
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                path = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyImages"; //save to file location
-                targetPath = Path.Combine(path, Path.GetFileName(openFileDialog.FileName));
-
-                File.Copy(openFileDialog.FileName, targetPath, true);
             }
         }
 
@@ -107,21 +78,20 @@ namespace Baby_Tracker
          */
         public void deletebaby()
         {
-            string path = "";
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
-
                 conn.Open();
-                command.CommandText = "SELECT BabyImagePath FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
-                path = (string)command.ExecuteScalar();
                 command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
                 command.ExecuteNonQuery();
             }
 
-            Console.WriteLine(path);
-            //File.Delete(path);
+        }
+
+
+        public void profileImageSelection()
+        {
 
         }
 
