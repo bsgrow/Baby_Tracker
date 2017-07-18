@@ -36,7 +36,8 @@ namespace Baby_Tracker
 
         /*
          * Adds the names to the combobox found within the delete form
-         * window.
+         * window. These names are called from the BabyList table where
+         * only the first name of each baby is displayed
          */
         public void updateDeleteCombo()
         {

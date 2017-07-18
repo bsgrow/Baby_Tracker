@@ -15,7 +15,6 @@ namespace Baby_Tracker
     public partial class BabyEntryForm : Form
     {
         AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
-        public static string result = "";
 
         //String declarations
         public static string firstName = "";
@@ -26,16 +25,21 @@ namespace Baby_Tracker
         public static double length;
         public static double headCir;
         public static string imagePath = "";
+        public static string result = "";
 
 
         public BabyEntryForm()
         {
             InitializeComponent();
-            updateComboBox();
+            updateProfilePicCombo();
         }
 
 
-
+        /*
+         * Allows for the picture to be displayed in the picture box on the form. This 
+         * uses the name from the profilePic_combo to select the correct image from the 
+         * database.
+         */
         private void profilePic_comb_SelectedIndexChanged(object sender, EventArgs e)
         {
             string query = "SELECT ImagePath FROM ProfileImages where ImageName = '" + profilePic_comb.GetItemText(profilePic_comb.SelectedItem) + "'";
@@ -57,8 +61,6 @@ namespace Baby_Tracker
                 }
             }
         }
-
-
 
 
         /*
@@ -126,12 +128,13 @@ namespace Baby_Tracker
 
         }
 
+
         /*
-         *  Calls the FirstName table from the SQLite database to be displayed inside
-         *  the combob box. This is also set to refresh as a new baby is entered into the
-         *  application.
+         * Calls the ProfileImages datatable to display the names of the images
+         * that are associated with the database. These images are then displayed 
+         * in the profilePic_comb box.
          */
-        public void updateComboBox()
+        public void updateProfilePicCombo()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))

@@ -89,11 +89,5 @@ namespace Baby_Tracker
 
         }
 
-
-        public void profileImageSelection()
-        {
-
-        }
-
     }
 }

@@ -48,8 +48,6 @@ namespace Baby_Tracker
         }
 
 
-
-
         /*
          * Calls the BabyDeleteForm to allow for the user to delete an
          * baby entry. Also, will update comboboxes.
@@ -60,6 +58,7 @@ namespace Baby_Tracker
             babyDeleteForm.ShowDialog();
             comboBoxNameRetrival();
         }
+
 
         /*
          * Calls the ReportExports class to allows for the excel function
@@ -106,10 +105,10 @@ namespace Baby_Tracker
 
 
         /*
-        *  Used for the selection of the combobox name to be changed throughout the program
-        *  as needed. Also, the image for each baby is changed here where the path is called
-        *  from the database to then load the image for each baby based off of the selection
-        *  from the combobox
+        * Allows for the Image box to be updated based upon the selected name
+        * that is found within the combobox. Image is found within the database
+        * table BabyList, where the path to the image is saved. THerefore, that image
+        * path is then added to the image box for display based upon the user
         */
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -134,5 +133,7 @@ namespace Baby_Tracker
                 }
             }
         }
+
+
     }
 }

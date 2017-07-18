@@ -37,6 +37,12 @@ namespace Baby_Tracker
             profileCombobox();
         }
 
+
+        /*
+       * Allows for the picture to be displayed in the picture box on the form. This 
+       * uses the name from the profilePic_combo to select the correct image from the 
+       * database.
+       */
         private void profilePic_comb_SelectedIndexChanged(object sender, EventArgs e)
         {
             string query = "SELECT ImagePath FROM ProfileImages where ImageName = '" + profilePic_comb.GetItemText(profilePic_comb.SelectedItem) + "'";
@@ -97,18 +103,18 @@ namespace Baby_Tracker
          */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
-                updateFirstName = updateFirstName_tbox.Text;
-                updateMiddleName = updateMiddleName_tbox.Text;
-                updateLastName = updateLastName_tbox.Text;
-                updatedob = updateDOB_tbox.Text;
-                updateWeight = double.Parse(updateBirthWeight_tbox.Text);
-                updateLength = double.Parse(updateBirthLength_tbox.Text);
-                updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
-                updateImagePath = result;
+            updateFirstName = updateFirstName_tbox.Text;
+            updateMiddleName = updateMiddleName_tbox.Text;
+            updateLastName = updateLastName_tbox.Text;
+            updatedob = updateDOB_tbox.Text;
+            updateWeight = double.Parse(updateBirthWeight_tbox.Text);
+            updateLength = double.Parse(updateBirthLength_tbox.Text);
+            updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
+            updateImagePath = result;
 
-                addUpdateBaby.updateBaby();
-                Hide();
-                emptyTextFields();
+            addUpdateBaby.updateBaby();
+            Hide();
+            emptyTextFields();
 
         }
 
@@ -129,7 +135,7 @@ namespace Baby_Tracker
                 {
                     dt.Clear();
                     da.Fill(dt);
-                   updateCombo.DisplayMember = "FirstName";
+                    updateCombo.DisplayMember = "FirstName";
                     updateCombo.DataSource = dt;
                     connection.Close();
                 }
@@ -148,7 +154,7 @@ namespace Baby_Tracker
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     profilePic_comb.DisplayMember = "ImageName";
-                   profilePic_comb.DataSource = dt;
+                    profilePic_comb.DataSource = dt;
                     connection.Close();
                 }
             }
@@ -157,4 +163,4 @@ namespace Baby_Tracker
     }
 }
 
-    
+
