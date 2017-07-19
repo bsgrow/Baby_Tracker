@@ -225,11 +225,13 @@
             // 
             // updateCombo
             // 
+            this.updateCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.updateCombo.FormattingEnabled = true;
             this.updateCombo.Location = new System.Drawing.Point(350, 18);
             this.updateCombo.Name = "updateCombo";
             this.updateCombo.Size = new System.Drawing.Size(121, 24);
             this.updateCombo.TabIndex = 22;
+            this.updateCombo.SelectedIndexChanged += new System.EventHandler(this.updateCombo_SelectedIndexChanged);
             // 
             // profilePic_lb
             // 
