@@ -119,10 +119,10 @@ namespace Baby_Tracker
         }
 
         /*
-            *  Calls the FirstName table from the SQLite database to be displayed inside
-            *  the combob box. This is also set to refresh as a new baby is entered into the
-            *  application.
-            */
+         *  Calls the FirstName table from the SQLite database to be displayed inside
+         *  the combob box. This is also set to refresh as a new baby is entered into the
+         *  application.
+         */
         public void updateComboBox()
         {
             comboName = updateCombo.GetItemText(updateCombo.SelectedItem);
@@ -140,10 +140,17 @@ namespace Baby_Tracker
                     connection.Close();
                 }
             }
+            
+            fillUpdateTextboxes(); //updates the textboxes with the selected Name
         }
 
 
-
+        /*
+         * Allows for the profile picture combobox to be feeled based off of the 
+         * image that are pre-defined in the program. Using this combobox allows
+         * for the image box to be changed as the user changes the name in the
+         * combobox.
+         */
         public void profileCombobox()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -159,8 +166,37 @@ namespace Baby_Tracker
                 }
             }
         }
+        
+        /*
+         * Method allows for the text boxes in the form to be filled by the name
+         * that is selected in the combobox found at the top of the form. This 
+         * will update the textboxes as the user changes the name in the combobox.
+         */
+        public void fillUpdateTextboxes() 
+        {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM BabyList WHERE FirstName = '"+updateCombo.GetItemText(updateCombo.SelectedItem)+"'", connection))
+                {
+                    DataTable dt = new DataTable();
+                    dt.Clear();
+                    da.Fill(dt);
+                    updateFirstName_tbox.Text = dt.Rows[0]["FirstName"].ToString();
+                    updateMiddleName_tbox.Text = dt.Rows[0]["MiddleName"].ToString();
+                    updateLastName_tbox.Text = dt.Rows[0]["LastName"].ToString();
+                    updateDOB_tbox.Text = dt.Rows[0]["DOB"].ToString();
+                    updateBirthWeight_tbox.Text = dt.Rows[0]["BirthWeight"].ToString();
+                    updateBirthLength_tbox.Text = dt.Rows[0]["BirthLength"].ToString();
+                    updateBirthHead_tbox.Text = dt.Rows[0]["BirthHeadCir"].ToString();
+                    profilePictureBox.Image = Image.FromFile(dt.Rows[0]["BabyImagePath"].ToString());
 
-    }
-}
+                }
+            }
+        }
+       
+
+    }//End of Class
+}//End of Namespace
 
 
