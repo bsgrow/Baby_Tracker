@@ -134,6 +134,44 @@ namespace Baby_Tracker
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            testPanel.BringToFront();
+        }
 
+        private void dashboard_btn_Click(object sender, EventArgs e)
+        {
+            dashboardPanel.BringToFront();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            measurementsPanel.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            immunizationsPanel.BringToFront();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            medicationsPanel.BringToFront();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            appointmentsPanel.BringToFront();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            doctorContactsPanel.BringToFront();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            growthStatsPanel.BringToFront();
+        }
     }
 }

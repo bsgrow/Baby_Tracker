@@ -219,9 +219,7 @@
   <ItemGroup>
     <None Include="Icons\settingsIcon%28L%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BabyImages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

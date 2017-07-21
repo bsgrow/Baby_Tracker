@@ -197,7 +197,6 @@ namespace Baby_Tracker
         private void updateCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             fillUpdateTextboxes(); //updates the textboxes with the selected Name
-
         }
     }//End of Class
 }//End of Namespace
