@@ -11,6 +11,12 @@ namespace Baby_Tracker
     class Weight
     {
 
+        /*
+         * Method allows for the information for the textboxes from the
+         * WeightEntryForm to be recorded and saved into the table 
+         * Weight in the database. BabyID is used as the name that is
+         * selected in the combobox from the leftPanel
+         */
         public void addWeight()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";

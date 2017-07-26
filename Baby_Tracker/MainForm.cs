@@ -20,7 +20,7 @@ namespace Baby_Tracker
         WeightEntryForm weightEntry = new WeightEntryForm();
         Weight weightClass = new Weight();
 
-        public static string babyName = "";
+        public static string babyName = ""; //used thoughout the program to call the name selected by the user from combobox
 
         public BabyTracker()
         {
@@ -119,8 +119,7 @@ namespace Baby_Tracker
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //loads the selected name from combobox to theis label
-            babyName = name_lb.Text;
-
+            babyName = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //sets he combobox to be saved as a string
 
             string query = "SELECT BabyImagePath FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -143,52 +142,76 @@ namespace Baby_Tracker
             }
         }
 
+        //Shows weight panel
         private void button6_Click(object sender, EventArgs e)
         {
             testPanel.BringToFront();
         }
 
+        //Shows dashboard panel
         private void dashboard_btn_Click(object sender, EventArgs e)
         {
             dashboardPanel.BringToFront();
         }
 
+        //Shows measurements Panel
         private void button1_Click(object sender, EventArgs e)
         {
             measurementsPanel.BringToFront();
         }
 
+        //Shows immunization Panel
         private void button2_Click(object sender, EventArgs e)
         {
             immunizationsPanel.BringToFront();
         }
 
+        //Shows medications Panel
         private void button7_Click(object sender, EventArgs e)
         {
             medicationsPanel.BringToFront();
         }
 
+        //Shows appointments Panel
         private void button3_Click(object sender, EventArgs e)
         {
             appointmentsPanel.BringToFront();
         }
 
+        //Shows Doctor Contact Panel
         private void button4_Click(object sender, EventArgs e)
         {
             doctorContactsPanel.BringToFront();
         }
 
+        //Shows Growth Stats Panel
         private void button5_Click(object sender, EventArgs e)
         {
             growthStatsPanel.BringToFront();
         }
 
-        private void weightSubmit_btn_Click(object sender, EventArgs e)
+
+
+
+        /// <WEIGHTPANEL>
+
+        /*
+         * Allows for the weightEntry panel to be shown. Here the
+         * user will be able to entry a new weight for the user selected 
+         * in the left panel combobox.
+         */
+        private void weightEntry_btn_Click(object sender, EventArgs e)
         {
-            weightClass.addWeight();
+            weightEntry.ShowDialog();
         }
 
-        
+
+        /*
+         * Loads the weight gridviewtable in the weight panel. THis 
+         * is queried based on the name selected from the combobox
+         * on the left panel. This will change the weights based of
+         * of that selection. 
+         */
         public void dataTable()
         {
             DataTable dt = new DataTable();
@@ -204,9 +227,14 @@ namespace Baby_Tracker
             }
         }
 
-        private void weightEntry_btn_Click(object sender, EventArgs e)
+        /*
+         * Calls the addWeight from the Weight class. Here the information
+         * from textboxes in the weightEntryForm are then recorded and 
+         * saved into the database.
+         */
+        private void weightSubmit_btn_Click(object sender, EventArgs e)
         {
-            weightEntry.ShowDialog();
+            weightClass.addWeight();
         }
 
 
