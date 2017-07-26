@@ -517,6 +517,7 @@
             this.weightTableView.RowTemplate.Height = 24;
             this.weightTableView.Size = new System.Drawing.Size(527, 531);
             this.weightTableView.TabIndex = 9;
+            this.weightTableView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.weightTableView_CellContentClick);
             // 
             // weightPanel_lb
             // 

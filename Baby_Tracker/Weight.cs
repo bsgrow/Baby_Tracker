@@ -39,6 +39,14 @@ namespace Baby_Tracker
 
         public void deleteEntry()
         {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteCommand command = conn.CreateCommand())
+            {
+                conn.Open();
+                //command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
+                command.ExecuteNonQuery();
+            }
 
         }
     }

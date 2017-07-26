@@ -237,6 +237,9 @@ namespace Baby_Tracker
             weightClass.addWeight();
         }
 
+        private void weightTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
