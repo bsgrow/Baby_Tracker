@@ -17,11 +17,17 @@ namespace Baby_Tracker
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
         BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
         ReportExports reportExports = new ReportExports();
+        WeightEntryForm weightEntry = new WeightEntryForm();
+        Weight weightClass = new Weight();
+
+        public static string babyName = "";
 
         public BabyTracker()
         {
             InitializeComponent();
             comboBoxNameRetrival();
+            dataTable();
+
         }
 
 
@@ -113,6 +119,8 @@ namespace Baby_Tracker
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //loads the selected name from combobox to theis label
+            babyName = name_lb.Text;
+
 
             string query = "SELECT BabyImagePath FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -130,6 +138,7 @@ namespace Baby_Tracker
                 else
                 {
                     userImage_box.Image = Image.FromFile(result);
+                    dataTable();
                 }
             }
         }
@@ -173,5 +182,33 @@ namespace Baby_Tracker
         {
             growthStatsPanel.BringToFront();
         }
+
+        private void weightSubmit_btn_Click(object sender, EventArgs e)
+        {
+            weightClass.addWeight();
+        }
+
+        
+        public void dataTable()
+        {
+            DataTable dt = new DataTable();
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    weightTableView.DataSource = dt;
+                }
+            }
+        }
+
+        private void weightEntry_btn_Click(object sender, EventArgs e)
+        {
+            weightEntry.ShowDialog();
+        }
+
+
     }
 }
