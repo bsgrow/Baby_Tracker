@@ -246,8 +246,7 @@ namespace Baby_Tracker
                     dt.Clear();
                     da.Fill(dt);
                     weightTableView.DataSource = dt;
-                    //this.weightTableView.Columns[0].Visible = false;
-
+                    this.weightTableView.Columns[0].Visible = false;
                 }
             }
         }

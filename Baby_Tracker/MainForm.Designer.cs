@@ -64,6 +64,14 @@
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashBoardPanel_lb = new System.Windows.Forms.Label();
             this.testPanel = new System.Windows.Forms.Panel();
+            this.weightStatistics_Box = new System.Windows.Forms.GroupBox();
+            this.averageWeight_Text = new System.Windows.Forms.Label();
+            this.mediumWeight_lb = new System.Windows.Forms.Label();
+            this.weightLost_lb = new System.Windows.Forms.Label();
+            this.weightGained_lb = new System.Windows.Forms.Label();
+            this.averageWeight_lb = new System.Windows.Forms.Label();
+            this.lastDate_lb = new System.Windows.Forms.Label();
+            this.lastWeight_lb = new System.Windows.Forms.Label();
             this.weightEntry_gbox = new System.Windows.Forms.GroupBox();
             this.dateEntry_tbox = new System.Windows.Forms.TextBox();
             this.weightEntry_tbox = new System.Windows.Forms.TextBox();
@@ -86,11 +94,13 @@
             this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.growthStatsPanel = new System.Windows.Forms.Panel();
             this.growthStatPanel_lb = new System.Windows.Forms.Label();
+            this.aveWeight_Text = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
             this.dashboardPanel.SuspendLayout();
             this.testPanel.SuspendLayout();
+            this.weightStatistics_Box.SuspendLayout();
             this.weightEntry_gbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightTableView)).BeginInit();
             this.measurementsPanel.SuspendLayout();
@@ -483,6 +493,7 @@
             // testPanel
             // 
             this.testPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.testPanel.Controls.Add(this.weightStatistics_Box);
             this.testPanel.Controls.Add(this.weightEntry_gbox);
             this.testPanel.Controls.Add(this.weightTableView);
             this.testPanel.Controls.Add(this.weightPanel_lb);
@@ -491,6 +502,87 @@
             this.testPanel.Name = "testPanel";
             this.testPanel.Size = new System.Drawing.Size(1298, 918);
             this.testPanel.TabIndex = 0;
+            // 
+            // weightStatistics_Box
+            // 
+            this.weightStatistics_Box.Controls.Add(this.aveWeight_Text);
+            this.weightStatistics_Box.Controls.Add(this.averageWeight_Text);
+            this.weightStatistics_Box.Controls.Add(this.mediumWeight_lb);
+            this.weightStatistics_Box.Controls.Add(this.weightLost_lb);
+            this.weightStatistics_Box.Controls.Add(this.weightGained_lb);
+            this.weightStatistics_Box.Controls.Add(this.averageWeight_lb);
+            this.weightStatistics_Box.Controls.Add(this.lastDate_lb);
+            this.weightStatistics_Box.Controls.Add(this.lastWeight_lb);
+            this.weightStatistics_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightStatistics_Box.Location = new System.Drawing.Point(579, 660);
+            this.weightStatistics_Box.Name = "weightStatistics_Box";
+            this.weightStatistics_Box.Size = new System.Drawing.Size(693, 231);
+            this.weightStatistics_Box.TabIndex = 13;
+            this.weightStatistics_Box.TabStop = false;
+            this.weightStatistics_Box.Text = "Weight Statistics";
+            // 
+            // averageWeight_Text
+            // 
+            this.averageWeight_Text.AutoSize = true;
+            this.averageWeight_Text.ForeColor = System.Drawing.Color.Blue;
+            this.averageWeight_Text.Location = new System.Drawing.Point(390, 75);
+            this.averageWeight_Text.Name = "averageWeight_Text";
+            this.averageWeight_Text.Size = new System.Drawing.Size(0, 24);
+            this.averageWeight_Text.TabIndex = 6;
+            // 
+            // mediumWeight_lb
+            // 
+            this.mediumWeight_lb.AutoSize = true;
+            this.mediumWeight_lb.Location = new System.Drawing.Point(240, 162);
+            this.mediumWeight_lb.Name = "mediumWeight_lb";
+            this.mediumWeight_lb.Size = new System.Drawing.Size(148, 24);
+            this.mediumWeight_lb.TabIndex = 5;
+            this.mediumWeight_lb.Text = "Medium Weight:";
+            // 
+            // weightLost_lb
+            // 
+            this.weightLost_lb.AutoSize = true;
+            this.weightLost_lb.Location = new System.Drawing.Point(495, 75);
+            this.weightLost_lb.Name = "weightLost_lb";
+            this.weightLost_lb.Size = new System.Drawing.Size(113, 24);
+            this.weightLost_lb.TabIndex = 4;
+            this.weightLost_lb.Text = "Weight Lost:";
+            // 
+            // weightGained_lb
+            // 
+            this.weightGained_lb.AutoSize = true;
+            this.weightGained_lb.Location = new System.Drawing.Point(495, 162);
+            this.weightGained_lb.Name = "weightGained_lb";
+            this.weightGained_lb.Size = new System.Drawing.Size(140, 24);
+            this.weightGained_lb.TabIndex = 3;
+            this.weightGained_lb.Text = "Weight Gained:";
+            // 
+            // averageWeight_lb
+            // 
+            this.averageWeight_lb.AutoSize = true;
+            this.averageWeight_lb.Location = new System.Drawing.Point(240, 75);
+            this.averageWeight_lb.Name = "averageWeight_lb";
+            this.averageWeight_lb.Size = new System.Drawing.Size(150, 24);
+            this.averageWeight_lb.TabIndex = 2;
+            this.averageWeight_lb.Text = "Average Weight:";
+            // 
+            // lastDate_lb
+            // 
+            this.lastDate_lb.AutoSize = true;
+            this.lastDate_lb.Location = new System.Drawing.Point(14, 162);
+            this.lastDate_lb.Name = "lastDate_lb";
+            this.lastDate_lb.Size = new System.Drawing.Size(91, 24);
+            this.lastDate_lb.TabIndex = 1;
+            this.lastDate_lb.Text = "Last Date:";
+            // 
+            // lastWeight_lb
+            // 
+            this.lastWeight_lb.AutoSize = true;
+            this.lastWeight_lb.Location = new System.Drawing.Point(14, 75);
+            this.lastWeight_lb.Name = "lastWeight_lb";
+            this.lastWeight_lb.Size = new System.Drawing.Size(112, 24);
+            this.lastWeight_lb.TabIndex = 0;
+            this.lastWeight_lb.Text = "Last Weight:";
             // 
             // weightEntry_gbox
             // 
@@ -726,6 +818,14 @@
             this.growthStatPanel_lb.TabIndex = 0;
             this.growthStatPanel_lb.Text = "Growth Statistics";
             // 
+            // aveWeight_Text
+            // 
+            this.aveWeight_Text.AutoSize = true;
+            this.aveWeight_Text.Location = new System.Drawing.Point(394, 81);
+            this.aveWeight_Text.Name = "aveWeight_Text";
+            this.aveWeight_Text.Size = new System.Drawing.Size(0, 24);
+            this.aveWeight_Text.TabIndex = 7;
+            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -756,6 +856,8 @@
             this.dashboardPanel.PerformLayout();
             this.testPanel.ResumeLayout(false);
             this.testPanel.PerformLayout();
+            this.weightStatistics_Box.ResumeLayout(false);
+            this.weightStatistics_Box.PerformLayout();
             this.weightEntry_gbox.ResumeLayout(false);
             this.weightEntry_gbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightTableView)).EndInit();
@@ -836,6 +938,15 @@
         private System.Windows.Forms.Label dateEntry_lb;
         private System.Windows.Forms.Label weightEntry_lb;
         private System.Windows.Forms.Button updateWeight_btn;
+        private System.Windows.Forms.GroupBox weightStatistics_Box;
+        private System.Windows.Forms.Label mediumWeight_lb;
+        private System.Windows.Forms.Label weightLost_lb;
+        private System.Windows.Forms.Label weightGained_lb;
+        private System.Windows.Forms.Label averageWeight_lb;
+        private System.Windows.Forms.Label lastDate_lb;
+        private System.Windows.Forms.Label lastWeight_lb;
+        private System.Windows.Forms.Label averageWeight_Text;
+        private System.Windows.Forms.Label aveWeight_Text;
     }
 }
 

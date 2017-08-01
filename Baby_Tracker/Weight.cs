@@ -70,5 +70,11 @@ namespace Baby_Tracker
                 command.ExecuteNonQuery();
             }
         }
+
+
+        public void weightStatistics()
+        {
+           
+        }
     }
 }
