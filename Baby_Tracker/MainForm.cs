@@ -246,7 +246,7 @@ namespace Baby_Tracker
                     dt.Clear();
                     da.Fill(dt);
                     weightTableView.DataSource = dt;
-                    this.weightTableView.Columns[0].Visible = false;
+                    //this.weightTableView.Columns[0].Visible = false;
 
                 }
             }
@@ -280,6 +280,28 @@ namespace Baby_Tracker
                 weightID = Convert.ToInt32(weightTableView.CurrentRow.Cells[0].Value.ToString());
                 weightEntry_tbox.Text = weightTableView.CurrentRow.Cells[1].Value.ToString();
                 dateEntry_tbox.Text = weightTableView.CurrentRow.Cells[2].Value.ToString();
+            }
+        }
+
+
+        /*
+         * Allows for the weight that has been previously entered to be
+         * edit and then saved. 
+         */
+        private void updateWeight_btn_Click(object sender, EventArgs e)
+        {
+            if (weightEntry_tbox.Text == "" | dateEntry_tbox.Text == "")
+            {
+                MessageBox.Show("Both Weight and Date must have an Entry to save!");
+            }
+            else
+            {
+                weightEntry = double.Parse(weightEntry_tbox.Text);
+                dateEntry = dateEntry_tbox.Text;
+                weightClass.updateEntry();
+                dataTable();
+                clearWeightTextboxes();
+                MessageBox.Show("Entry was successfully updated!!");
             }
         }
     }

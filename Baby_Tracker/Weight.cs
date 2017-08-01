@@ -37,6 +37,12 @@ namespace Baby_Tracker
         }
 
 
+        /*
+         * Allows for the information that the user has selected from the 
+         * data table to be retrieved. Once the data is retrieved then the
+         * data is called here and the data is then deleted from the database
+         * table "Weight"
+         */ 
         public void deleteEntry()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -48,6 +54,21 @@ namespace Baby_Tracker
                 command.ExecuteNonQuery();
             }
 
+        }
+
+
+        public void updateEntry()
+        {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteCommand command = conn.CreateCommand())
+            {
+                conn.Open();
+                command.CommandText = "UPDATE Weight SET Weight = @weight, Date = @date  WHERE ID = '" + BabyTracker.weightID + "'";
+                command.Parameters.AddWithValue("@weight", BabyTracker.weightEntry);
+                command.Parameters.AddWithValue("@date", BabyTracker.dateEntry);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

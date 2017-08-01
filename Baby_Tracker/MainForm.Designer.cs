@@ -550,6 +550,7 @@
             this.updateWeight_btn.TabIndex = 12;
             this.updateWeight_btn.Text = "Update Entry";
             this.updateWeight_btn.UseVisualStyleBackColor = true;
+            this.updateWeight_btn.Click += new System.EventHandler(this.updateWeight_btn_Click);
             // 
             // weightEntry_btn
             // 
