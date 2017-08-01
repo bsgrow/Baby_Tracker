@@ -26,8 +26,8 @@ namespace Baby_Tracker
 
                 command.CommandText = "INSERT INTO Weight (ID, Weight, Date, BabyID) VALUES (@id, @weight, @date, @babyID)";
                 command.Parameters.AddWithValue("@id", null);
-                command.Parameters.AddWithValue("@weight", WeightEntryForm.weightEntry);
-                command.Parameters.AddWithValue("@date", WeightEntryForm.dateEntry);
+                command.Parameters.AddWithValue("@weight", BabyTracker.weightEntry);
+                command.Parameters.AddWithValue("@date", BabyTracker.dateEntry);
                 command.Parameters.AddWithValue("@babyID", BabyTracker.babyName);
 
                 conn.Open();
@@ -44,7 +44,7 @@ namespace Baby_Tracker
             using (SQLiteCommand command = conn.CreateCommand())
             {
                 conn.Open();
-                //command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
+                command.CommandText = "DELETE FROM Weight WHERE ID = '" + BabyTracker.weightID + "'";
                 command.ExecuteNonQuery();
             }
 

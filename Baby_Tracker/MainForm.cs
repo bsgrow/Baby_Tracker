@@ -13,14 +13,19 @@ namespace Baby_Tracker
 {
     public partial class BabyTracker : Form
     {
+        //Access to other classes and forms
         BabyEntryForm babyEntryForm = new BabyEntryForm();
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
         BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
         ReportExports reportExports = new ReportExports();
-        WeightEntryForm weightEntry = new WeightEntryForm();
         Weight weightClass = new Weight();
 
-        public static string babyName = ""; //used thoughout the program to call the name selected by the user from combobox
+        //Allows for the weight and baby to be called in other classes for data entry
+        public static string babyName = ""; 
+        public static double weightEntry = 0;
+        public static string dateEntry = "";
+        public static int weightID = 0;
+
 
         public BabyTracker()
         {
@@ -195,6 +200,13 @@ namespace Baby_Tracker
 
         /// <WEIGHTPANEL>
 
+        public void clearWeightTextboxes()
+        {
+            weightEntry_tbox.Text = "";
+            dateEntry_tbox.Text = "";
+        }
+
+
         /*
          * Allows for the weightEntry panel to be shown. Here the
          * user will be able to entry a new weight for the user selected 
@@ -202,7 +214,18 @@ namespace Baby_Tracker
          */
         private void weightEntry_btn_Click(object sender, EventArgs e)
         {
-            weightEntry.ShowDialog();
+            if (weightEntry_tbox.Text == "" | dateEntry_tbox.Text == "")
+            {
+                MessageBox.Show("Both Weight and Date must have an Entry to save!");
+            }
+            else
+            {
+                weightEntry = double.Parse(weightEntry_tbox.Text);
+                dateEntry = dateEntry_tbox.Text;
+                weightClass.addWeight();
+                dataTable();
+                MessageBox.Show("New Weight Was Added!!");
+            }
         }
 
 
@@ -218,28 +241,46 @@ namespace Baby_Tracker
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
                     dt.Clear();
                     da.Fill(dt);
                     weightTableView.DataSource = dt;
+                    this.weightTableView.Columns[0].Visible = false;
+
                 }
             }
         }
 
+
         /*
-         * Calls the addWeight from the Weight class. Here the information
-         * from textboxes in the weightEntryForm are then recorded and 
-         * saved into the database.
+         * Allows for a row that has been selected from the table to be
+         * permentatly deleted from the table and the database. 
          */
-        private void weightSubmit_btn_Click(object sender, EventArgs e)
+        private void deleteWeight_btn_Click(object sender, EventArgs e)
         {
-            weightClass.addWeight();
+            weightClass.deleteEntry();
+            dataTable();
+            clearWeightTextboxes();
+            MessageBox.Show("Entry was succesfully deleted!!");
         }
 
-        private void weightTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        /*
+         * Allows for a double click to be called in the data table. When a 
+         * click is found on the data table then the row that is click data
+         * will be displayed in the weight textboxes below the table view. Here
+         * the user can then choose what they woudl like to do with double click 
+         * selection.
+         */
+        private void weightTableView_Click(object sender, EventArgs e)
+        {
+            if (weightTableView.CurrentRow.Index != -1)
+            {
+                weightID = Convert.ToInt32(weightTableView.CurrentRow.Cells[0].Value.ToString());
+                weightEntry_tbox.Text = weightTableView.CurrentRow.Cells[1].Value.ToString();
+                dateEntry_tbox.Text = weightTableView.CurrentRow.Cells[2].Value.ToString();
+            }
         }
     }
 }

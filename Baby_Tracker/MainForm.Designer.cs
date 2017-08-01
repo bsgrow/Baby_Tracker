@@ -64,8 +64,14 @@
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashBoardPanel_lb = new System.Windows.Forms.Label();
             this.testPanel = new System.Windows.Forms.Panel();
-            this.deleteWeight_btn = new System.Windows.Forms.Button();
+            this.weightEntry_gbox = new System.Windows.Forms.GroupBox();
+            this.dateEntry_tbox = new System.Windows.Forms.TextBox();
+            this.weightEntry_tbox = new System.Windows.Forms.TextBox();
+            this.dateEntry_lb = new System.Windows.Forms.Label();
+            this.weightEntry_lb = new System.Windows.Forms.Label();
+            this.updateWeight_btn = new System.Windows.Forms.Button();
             this.weightEntry_btn = new System.Windows.Forms.Button();
+            this.deleteWeight_btn = new System.Windows.Forms.Button();
             this.weightTableView = new System.Windows.Forms.DataGridView();
             this.weightPanel_lb = new System.Windows.Forms.Label();
             this.measurementsPanel = new System.Windows.Forms.Panel();
@@ -85,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
             this.dashboardPanel.SuspendLayout();
             this.testPanel.SuspendLayout();
+            this.weightEntry_gbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightTableView)).BeginInit();
             this.measurementsPanel.SuspendLayout();
             this.immunizationsPanel.SuspendLayout();
@@ -476,8 +483,7 @@
             // testPanel
             // 
             this.testPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.testPanel.Controls.Add(this.deleteWeight_btn);
-            this.testPanel.Controls.Add(this.weightEntry_btn);
+            this.testPanel.Controls.Add(this.weightEntry_gbox);
             this.testPanel.Controls.Add(this.weightTableView);
             this.testPanel.Controls.Add(this.weightPanel_lb);
             this.testPanel.Location = new System.Drawing.Point(277, 31);
@@ -486,38 +492,102 @@
             this.testPanel.Size = new System.Drawing.Size(1298, 918);
             this.testPanel.TabIndex = 0;
             // 
-            // deleteWeight_btn
+            // weightEntry_gbox
             // 
-            this.deleteWeight_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteWeight_btn.Location = new System.Drawing.Point(1028, 639);
-            this.deleteWeight_btn.Name = "deleteWeight_btn";
-            this.deleteWeight_btn.Size = new System.Drawing.Size(180, 38);
-            this.deleteWeight_btn.TabIndex = 11;
-            this.deleteWeight_btn.Text = "Delete Weight Entry";
-            this.deleteWeight_btn.UseVisualStyleBackColor = true;
+            this.weightEntry_gbox.Controls.Add(this.dateEntry_tbox);
+            this.weightEntry_gbox.Controls.Add(this.weightEntry_tbox);
+            this.weightEntry_gbox.Controls.Add(this.dateEntry_lb);
+            this.weightEntry_gbox.Controls.Add(this.weightEntry_lb);
+            this.weightEntry_gbox.Controls.Add(this.updateWeight_btn);
+            this.weightEntry_gbox.Controls.Add(this.weightEntry_btn);
+            this.weightEntry_gbox.Controls.Add(this.deleteWeight_btn);
+            this.weightEntry_gbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightEntry_gbox.Location = new System.Drawing.Point(24, 660);
+            this.weightEntry_gbox.Name = "weightEntry_gbox";
+            this.weightEntry_gbox.Size = new System.Drawing.Size(527, 231);
+            this.weightEntry_gbox.TabIndex = 12;
+            this.weightEntry_gbox.TabStop = false;
+            this.weightEntry_gbox.Text = "Weight Entry/Edit";
+            // 
+            // dateEntry_tbox
+            // 
+            this.dateEntry_tbox.Location = new System.Drawing.Point(179, 109);
+            this.dateEntry_tbox.Name = "dateEntry_tbox";
+            this.dateEntry_tbox.Size = new System.Drawing.Size(246, 28);
+            this.dateEntry_tbox.TabIndex = 16;
+            // 
+            // weightEntry_tbox
+            // 
+            this.weightEntry_tbox.Location = new System.Drawing.Point(179, 50);
+            this.weightEntry_tbox.Name = "weightEntry_tbox";
+            this.weightEntry_tbox.Size = new System.Drawing.Size(246, 28);
+            this.weightEntry_tbox.TabIndex = 15;
+            // 
+            // dateEntry_lb
+            // 
+            this.dateEntry_lb.AutoSize = true;
+            this.dateEntry_lb.Location = new System.Drawing.Point(100, 109);
+            this.dateEntry_lb.Name = "dateEntry_lb";
+            this.dateEntry_lb.Size = new System.Drawing.Size(53, 24);
+            this.dateEntry_lb.TabIndex = 14;
+            this.dateEntry_lb.Text = "Date:";
+            // 
+            // weightEntry_lb
+            // 
+            this.weightEntry_lb.AutoSize = true;
+            this.weightEntry_lb.Location = new System.Drawing.Point(99, 50);
+            this.weightEntry_lb.Name = "weightEntry_lb";
+            this.weightEntry_lb.Size = new System.Drawing.Size(74, 24);
+            this.weightEntry_lb.TabIndex = 13;
+            this.weightEntry_lb.Text = "Weight:";
+            // 
+            // updateWeight_btn
+            // 
+            this.updateWeight_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateWeight_btn.Location = new System.Drawing.Point(363, 180);
+            this.updateWeight_btn.Name = "updateWeight_btn";
+            this.updateWeight_btn.Size = new System.Drawing.Size(146, 31);
+            this.updateWeight_btn.TabIndex = 12;
+            this.updateWeight_btn.Text = "Update Entry";
+            this.updateWeight_btn.UseVisualStyleBackColor = true;
             // 
             // weightEntry_btn
             // 
             this.weightEntry_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightEntry_btn.Location = new System.Drawing.Point(779, 639);
+            this.weightEntry_btn.Location = new System.Drawing.Point(15, 179);
             this.weightEntry_btn.Name = "weightEntry_btn";
-            this.weightEntry_btn.Size = new System.Drawing.Size(180, 38);
+            this.weightEntry_btn.Size = new System.Drawing.Size(138, 32);
             this.weightEntry_btn.TabIndex = 10;
             this.weightEntry_btn.Text = "New Weight Entry";
             this.weightEntry_btn.UseVisualStyleBackColor = true;
             this.weightEntry_btn.Click += new System.EventHandler(this.weightEntry_btn_Click);
             // 
+            // deleteWeight_btn
+            // 
+            this.deleteWeight_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteWeight_btn.Location = new System.Drawing.Point(187, 180);
+            this.deleteWeight_btn.Name = "deleteWeight_btn";
+            this.deleteWeight_btn.Size = new System.Drawing.Size(146, 31);
+            this.deleteWeight_btn.TabIndex = 11;
+            this.deleteWeight_btn.Text = "Delete Weight Entry";
+            this.deleteWeight_btn.UseVisualStyleBackColor = true;
+            this.deleteWeight_btn.Click += new System.EventHandler(this.deleteWeight_btn_Click);
+            // 
             // weightTableView
             // 
+            this.weightTableView.AllowUserToDeleteRows = false;
+            this.weightTableView.AllowUserToResizeColumns = false;
+            this.weightTableView.AllowUserToResizeRows = false;
             this.weightTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.weightTableView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.weightTableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.weightTableView.Location = new System.Drawing.Point(727, 86);
+            this.weightTableView.Location = new System.Drawing.Point(24, 69);
             this.weightTableView.Name = "weightTableView";
+            this.weightTableView.ReadOnly = true;
             this.weightTableView.RowTemplate.Height = 24;
-            this.weightTableView.Size = new System.Drawing.Size(527, 531);
+            this.weightTableView.Size = new System.Drawing.Size(527, 548);
             this.weightTableView.TabIndex = 9;
-            this.weightTableView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.weightTableView_CellContentClick);
+            this.weightTableView.Click += new System.EventHandler(this.weightTableView_Click);
             // 
             // weightPanel_lb
             // 
@@ -685,6 +755,8 @@
             this.dashboardPanel.PerformLayout();
             this.testPanel.ResumeLayout(false);
             this.testPanel.PerformLayout();
+            this.weightEntry_gbox.ResumeLayout(false);
+            this.weightEntry_gbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightTableView)).EndInit();
             this.measurementsPanel.ResumeLayout(false);
             this.measurementsPanel.PerformLayout();
@@ -757,6 +829,12 @@
         private System.Windows.Forms.DataGridView weightTableView;
         private System.Windows.Forms.Button deleteWeight_btn;
         private System.Windows.Forms.Button weightEntry_btn;
+        private System.Windows.Forms.GroupBox weightEntry_gbox;
+        private System.Windows.Forms.TextBox dateEntry_tbox;
+        private System.Windows.Forms.TextBox weightEntry_tbox;
+        private System.Windows.Forms.Label dateEntry_lb;
+        private System.Windows.Forms.Label weightEntry_lb;
+        private System.Windows.Forms.Button updateWeight_btn;
     }
 }
 
