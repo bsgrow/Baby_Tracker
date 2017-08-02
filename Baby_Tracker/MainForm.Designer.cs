@@ -568,7 +568,7 @@
             // averageWeight_lb
             // 
             this.averageWeight_lb.AutoSize = true;
-            this.averageWeight_lb.Location = new System.Drawing.Point(240, 75);
+            this.averageWeight_lb.Location = new System.Drawing.Point(238, 75);
             this.averageWeight_lb.Name = "averageWeight_lb";
             this.averageWeight_lb.Size = new System.Drawing.Size(150, 24);
             this.averageWeight_lb.TabIndex = 2;

@@ -249,6 +249,7 @@ namespace Baby_Tracker
                     da.Fill(dt);
                     weightTableView.DataSource = dt;
                     this.weightTableView.Columns[0].Visible = false;
+                    weightStatistics();
                 }
             }
         }
@@ -304,6 +305,20 @@ namespace Baby_Tracker
                 clearWeightTextboxes();
                 MessageBox.Show("Entry was successfully updated!!");
             }
+        }
+
+
+        public void weightStatistics()
+        {
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            string query = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
+
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            conn.Open();
+            averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
+            conn.Close();
+
         }
     }
 }
