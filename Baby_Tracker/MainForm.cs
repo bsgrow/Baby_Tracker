@@ -25,7 +25,7 @@ namespace Baby_Tracker
         Weight weightClass = new Weight();
 
         //Allows for the weight and baby to be called in other classes for data entry
-        public static string babyName = ""; 
+        public static string babyName = ""; //declares the baby name from the main combobox in the left panel
         public static double weightEntry = 0;
         public static string dateEntry = "";
         public static int weightID = 0;
@@ -292,7 +292,7 @@ namespace Baby_Tracker
 
         /*
          * Allows for the weight that has been previously entered to be
-         * edit and then saved. 
+         * edit and then saved via the Weight Panel. 
          */
         private void updateWeight_btn_Click(object sender, EventArgs e)
         {
@@ -311,7 +311,10 @@ namespace Baby_Tracker
             }
         }
 
-
+        /*
+         * Calls the six queries that allow for the statstics to be displayed
+         * on the statistic section on the weight panel.
+         */
         public void weightStatistics()
         {
             /*
@@ -331,7 +334,15 @@ namespace Baby_Tracker
             command.CommandText = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
             averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
             command.CommandText = "SELECT min(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
-             = cmd.ExecuteScalar().ToString();
+            minWeight_Text.Text = cmd.ExecuteScalar().ToString();
+            command.CommandText = "SELECT max(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
+            maxWeight_Text.Text = cmd.ExecuteScalar().ToString();
+            command.CommandText = "SELECT Weight FROM Weight ORDER BY ID DESC limit 1 WHERE BabyID = '"+babyName+"'";
+            lastWeight_Text.Text = cmd.ExecuteScalar().ToString();
+            command.CommandText = "SELECT Date FROM Weight ORDER BY ID DESC limit 1 WHERE BabyID = '"+babyName+"'";
+            lastDate_text.Text = cmd.ExecuteScalar().ToString();
+            command.CommandText = "SELECT min(Weight) '"+lastWeight_Text.Text+"' - min(Weight) WHERE BabyID = '"+babyName+"'";
+            weightGained_Text.Text = cmd.ExecuteScalar().ToString();
             
         }
     }
