@@ -13,6 +13,10 @@ namespace Baby_Tracker
 {
     public partial class BabyTracker : Form
     {
+        //SQLite database declaration
+        SQLiteConnection connection;
+        SQLiteCommand command;
+    
         //Access to other classes and forms
         BabyEntryForm babyEntryForm = new BabyEntryForm();
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
@@ -310,6 +314,7 @@ namespace Baby_Tracker
 
         public void weightStatistics()
         {
+            /*
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             string query = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
 
@@ -318,7 +323,15 @@ namespace Baby_Tracker
             conn.Open();
             averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
             conn.Close();
+            */
 
+            connection = new SQLiteConnection("Data Source = BabyDatabase.sqlite; Version = 3;");
+            connection.Open();
+            
+            command.CommandText = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
+            averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
+            command.Comman
+            
         }
     }
 }
