@@ -330,7 +330,8 @@ namespace Baby_Tracker
             
             command.CommandText = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
             averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
-            command.Comman
+            command.CommandText = "SELECT min(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
+             = cmd.ExecuteScalar().ToString();
             
         }
     }
