@@ -65,6 +65,7 @@
             this.dashBoardPanel_lb = new System.Windows.Forms.Label();
             this.testPanel = new System.Windows.Forms.Panel();
             this.weightStatistics_Box = new System.Windows.Forms.GroupBox();
+            this.aveWeight_Text = new System.Windows.Forms.Label();
             this.averageWeight_Text = new System.Windows.Forms.Label();
             this.mediumWeight_lb = new System.Windows.Forms.Label();
             this.weightLost_lb = new System.Windows.Forms.Label();
@@ -94,7 +95,6 @@
             this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.growthStatsPanel = new System.Windows.Forms.Panel();
             this.growthStatPanel_lb = new System.Windows.Forms.Label();
-            this.aveWeight_Text = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -253,10 +253,10 @@
             this.medications_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.medications_btn.Image = global::Baby_Tracker.Properties.Resources.medicationIcon;
             this.medications_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.medications_btn.Location = new System.Drawing.Point(17, 555);
+            this.medications_btn.Location = new System.Drawing.Point(17, 562);
             this.medications_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.medications_btn.Name = "medications_btn";
-            this.medications_btn.Size = new System.Drawing.Size(235, 62);
+            this.medications_btn.Size = new System.Drawing.Size(235, 70);
             this.medications_btn.TabIndex = 16;
             this.medications_btn.Text = "Medications";
             this.medications_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -269,10 +269,10 @@
             this.weight_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weight_btn.Image = global::Baby_Tracker.Properties.Resources.weightIcon;
             this.weight_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.weight_btn.Location = new System.Drawing.Point(17, 342);
+            this.weight_btn.Location = new System.Drawing.Point(17, 340);
             this.weight_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weight_btn.Name = "weight_btn";
-            this.weight_btn.Size = new System.Drawing.Size(235, 62);
+            this.weight_btn.Size = new System.Drawing.Size(235, 70);
             this.weight_btn.TabIndex = 15;
             this.weight_btn.Text = "Weight";
             this.weight_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -285,10 +285,10 @@
             this.growthStat_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.growthStat_btn.Image = global::Baby_Tracker.Properties.Resources.statIcon;
             this.growthStat_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.growthStat_btn.Location = new System.Drawing.Point(17, 769);
+            this.growthStat_btn.Location = new System.Drawing.Point(17, 784);
             this.growthStat_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.growthStat_btn.Name = "growthStat_btn";
-            this.growthStat_btn.Size = new System.Drawing.Size(235, 62);
+            this.growthStat_btn.Size = new System.Drawing.Size(235, 70);
             this.growthStat_btn.TabIndex = 14;
             this.growthStat_btn.Text = "Growth Stats";
             this.growthStat_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -301,12 +301,12 @@
             this.doctorContact_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctorContact_btn.Image = global::Baby_Tracker.Properties.Resources.contactIcon;
             this.doctorContact_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.doctorContact_btn.Location = new System.Drawing.Point(17, 697);
+            this.doctorContact_btn.Location = new System.Drawing.Point(17, 710);
             this.doctorContact_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.doctorContact_btn.Name = "doctorContact_btn";
-            this.doctorContact_btn.Size = new System.Drawing.Size(235, 62);
+            this.doctorContact_btn.Size = new System.Drawing.Size(235, 70);
             this.doctorContact_btn.TabIndex = 13;
-            this.doctorContact_btn.Text = "Doctor Contacts";
+            this.doctorContact_btn.Text = "Doctor Contact";
             this.doctorContact_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.doctorContact_btn.UseVisualStyleBackColor = true;
             this.doctorContact_btn.Click += new System.EventHandler(this.button4_Click);
@@ -317,10 +317,10 @@
             this.appointment_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointment_btn.Image = global::Baby_Tracker.Properties.Resources.calanderIcon;
             this.appointment_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.appointment_btn.Location = new System.Drawing.Point(17, 626);
+            this.appointment_btn.Location = new System.Drawing.Point(17, 636);
             this.appointment_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointment_btn.Name = "appointment_btn";
-            this.appointment_btn.Size = new System.Drawing.Size(235, 62);
+            this.appointment_btn.Size = new System.Drawing.Size(235, 70);
             this.appointment_btn.TabIndex = 12;
             this.appointment_btn.Text = "Appointments";
             this.appointment_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -333,10 +333,10 @@
             this.immunizations_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.immunizations_btn.Image = global::Baby_Tracker.Properties.Resources.immunizationIcon;
             this.immunizations_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.immunizations_btn.Location = new System.Drawing.Point(17, 484);
+            this.immunizations_btn.Location = new System.Drawing.Point(17, 488);
             this.immunizations_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.immunizations_btn.Name = "immunizations_btn";
-            this.immunizations_btn.Size = new System.Drawing.Size(235, 62);
+            this.immunizations_btn.Size = new System.Drawing.Size(235, 70);
             this.immunizations_btn.TabIndex = 11;
             this.immunizations_btn.Text = "Immunizations";
             this.immunizations_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -352,7 +352,7 @@
             this.measurements_btn.Location = new System.Drawing.Point(17, 414);
             this.measurements_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.measurements_btn.Name = "measurements_btn";
-            this.measurements_btn.Size = new System.Drawing.Size(235, 62);
+            this.measurements_btn.Size = new System.Drawing.Size(235, 70);
             this.measurements_btn.TabIndex = 10;
             this.measurements_btn.Text = "Measurements";
             this.measurements_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -365,10 +365,10 @@
             this.dashboard_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_btn.Image = global::Baby_Tracker.Properties.Resources.dashboardIcon;
             this.dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dashboard_btn.Location = new System.Drawing.Point(17, 271);
+            this.dashboard_btn.Location = new System.Drawing.Point(17, 266);
             this.dashboard_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dashboard_btn.Name = "dashboard_btn";
-            this.dashboard_btn.Size = new System.Drawing.Size(235, 62);
+            this.dashboard_btn.Size = new System.Drawing.Size(235, 70);
             this.dashboard_btn.TabIndex = 9;
             this.dashboard_btn.Text = "Dashboard";
             this.dashboard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -520,6 +520,14 @@
             this.weightStatistics_Box.TabIndex = 13;
             this.weightStatistics_Box.TabStop = false;
             this.weightStatistics_Box.Text = "Weight Statistics";
+            // 
+            // aveWeight_Text
+            // 
+            this.aveWeight_Text.AutoSize = true;
+            this.aveWeight_Text.Location = new System.Drawing.Point(394, 81);
+            this.aveWeight_Text.Name = "aveWeight_Text";
+            this.aveWeight_Text.Size = new System.Drawing.Size(0, 24);
+            this.aveWeight_Text.TabIndex = 7;
             // 
             // averageWeight_Text
             // 
@@ -686,11 +694,10 @@
             // 
             this.weightPanel_lb.AutoSize = true;
             this.weightPanel_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightPanel_lb.Location = new System.Drawing.Point(563, 3);
+            this.weightPanel_lb.Location = new System.Drawing.Point(534, 3);
             this.weightPanel_lb.Name = "weightPanel_lb";
-            this.weightPanel_lb.Size = new System.Drawing.Size(163, 51);
+            this.weightPanel_lb.Size = new System.Drawing.Size(0, 51);
             this.weightPanel_lb.TabIndex = 0;
-            this.weightPanel_lb.Text = "Weight";
             // 
             // measurementsPanel
             // 
@@ -818,18 +825,12 @@
             this.growthStatPanel_lb.TabIndex = 0;
             this.growthStatPanel_lb.Text = "Growth Statistics";
             // 
-            // aveWeight_Text
-            // 
-            this.aveWeight_Text.AutoSize = true;
-            this.aveWeight_Text.Location = new System.Drawing.Point(394, 81);
-            this.aveWeight_Text.Name = "aveWeight_Text";
-            this.aveWeight_Text.Size = new System.Drawing.Size(0, 24);
-            this.aveWeight_Text.TabIndex = 7;
-            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1581, 953);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.mainMenuStrip);
@@ -841,6 +842,7 @@
             this.Controls.Add(this.doctorContactsPanel);
             this.Controls.Add(this.appointmentsPanel);
             this.Controls.Add(this.measurementsPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

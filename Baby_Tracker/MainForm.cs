@@ -143,6 +143,8 @@ namespace Baby_Tracker
                 {
                     userImage_box.Image = Image.FromFile(result);
                     dataTable();
+                    weightPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Weight";
+
                 }
             }
         }
