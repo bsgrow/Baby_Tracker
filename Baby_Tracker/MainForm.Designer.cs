@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BabyTracker));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,6 +103,7 @@
             this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.growthStatsPanel = new System.Windows.Forms.Panel();
             this.growthStatPanel_lb = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -114,6 +118,7 @@
             this.appointmentsPanel.SuspendLayout();
             this.doctorContactsPanel.SuspendLayout();
             this.growthStatsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -498,6 +503,7 @@
             // testPanel
             // 
             this.testPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.testPanel.Controls.Add(this.chart1);
             this.testPanel.Controls.Add(this.weightStatistics_Box);
             this.testPanel.Controls.Add(this.weightEntry_gbox);
             this.testPanel.Controls.Add(this.weightTableView);
@@ -881,6 +887,22 @@
             this.growthStatPanel_lb.TabIndex = 0;
             this.growthStatPanel_lb.Text = "Growth Statistics";
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(579, 69);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(693, 548);
+            this.chart1.TabIndex = 14;
+            this.chart1.Text = "chart1";
+            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -931,6 +953,7 @@
             this.doctorContactsPanel.PerformLayout();
             this.growthStatsPanel.ResumeLayout(false);
             this.growthStatsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1010,6 +1033,7 @@
         private System.Windows.Forms.Label maxWeight_Text;
         private System.Windows.Forms.Label weightGained_Text;
         private System.Windows.Forms.Label lastDate_Text;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 
