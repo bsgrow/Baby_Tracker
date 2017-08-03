@@ -35,7 +35,7 @@ namespace Baby_Tracker
         {
             InitializeComponent();
             comboBoxNameRetrival();
-            dataTable();
+            weightDataTable();
 
         }
 
@@ -146,7 +146,7 @@ namespace Baby_Tracker
                 else
                 {
                     userImage_box.Image = Image.FromFile(result);
-                    dataTable();
+                    weightDataTable();
                     weightPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Weight";
 
                 }
@@ -229,7 +229,7 @@ namespace Baby_Tracker
                 weightEntry = double.Parse(weightEntry_tbox.Text);
                 dateEntry = dateEntry_tbox.Text;
                 weightClass.addWeight();
-                dataTable();
+                weightDataTable();
                 MessageBox.Show("New Weight Was Added!!");
             }
         }
@@ -241,7 +241,7 @@ namespace Baby_Tracker
          * on the left panel. This will change the weights based of
          * of that selection. 
          */
-        public void dataTable()
+        public void weightDataTable()
         {
             DataTable dt = new DataTable();
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -266,7 +266,7 @@ namespace Baby_Tracker
         private void deleteWeight_btn_Click(object sender, EventArgs e)
         {
             weightClass.deleteEntry();
-            dataTable();
+            weightDataTable();
             clearWeightTextboxes();
             MessageBox.Show("Entry was succesfully deleted!!");
         }
@@ -305,7 +305,7 @@ namespace Baby_Tracker
                 weightEntry = double.Parse(weightEntry_tbox.Text);
                 dateEntry = dateEntry_tbox.Text;
                 weightClass.updateEntry();
-                dataTable();
+                weightDataTable();
                 clearWeightTextboxes();
                 MessageBox.Show("Entry was successfully updated!!");
             }
@@ -316,34 +316,22 @@ namespace Baby_Tracker
          * on the statistic section on the weight panel.
          */
         public void weightStatistics()
-        {
-            /*
+        { 
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-            string query = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
-
             SQLiteConnection conn = new SQLiteConnection(connectionString);
-            SQLiteCommand cmd = new SQLiteCommand(query, conn);
             conn.Open();
-            averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT avg(Weight) FROM Weight WHERE BabyID = '" + babyName + "'", conn);
+            averageWeight_Text.Text = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT min(Weight) FROM Weight WHERE BabyID = '" + babyName + "'", conn);
+            minWeight_text.Text = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT max(Weight) FROM Weight WHERE BabyID = '" + babyName + "'", conn);
+            maxWeight_Text.Text = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT Weight FROM Weight  WHERE BabyID = '" + babyName + "' ORDER BY ID DESC limit 1", conn);
+            lastWeight_Text.Text = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT Date FROM Weight WHERE BabyID = '" + babyName + "' ORDER BY ID DESC limit 1", conn);
+            lastDate_Text.Text = command.ExecuteScalar().ToString();
+            weightGained_Text.Text = Convert.ToString(Convert.ToInt32(lastWeight_Text.Text) - Convert.ToInt32(minWeight_text.Text));
             conn.Close();
-            */
-
-            connection = new SQLiteConnection("Data Source = BabyDatabase.sqlite; Version = 3;");
-            connection.Open();
-            
-            command.CommandText = "SELECT avg(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
-            averageWeight_Text.Text = cmd.ExecuteScalar().ToString();
-            command.CommandText = "SELECT min(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
-            minWeight_Text.Text = cmd.ExecuteScalar().ToString();
-            command.CommandText = "SELECT max(Weight) FROM Weight WHERE BabyID = '"+babyName+"'";
-            maxWeight_Text.Text = cmd.ExecuteScalar().ToString();
-            command.CommandText = "SELECT Weight FROM Weight ORDER BY ID DESC limit 1 WHERE BabyID = '"+babyName+"'";
-            lastWeight_Text.Text = cmd.ExecuteScalar().ToString();
-            command.CommandText = "SELECT Date FROM Weight ORDER BY ID DESC limit 1 WHERE BabyID = '"+babyName+"'";
-            lastDate_text.Text = cmd.ExecuteScalar().ToString();
-            command.CommandText = "SELECT min(Weight) '"+lastWeight_Text.Text+"' - min(Weight) WHERE BabyID = '"+babyName+"'";
-            weightGained_Text.Text = cmd.ExecuteScalar().ToString();
-            
         }
     }
 }

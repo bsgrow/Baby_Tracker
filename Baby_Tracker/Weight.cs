@@ -11,6 +11,13 @@ namespace Baby_Tracker
     class Weight
     {
 
+        //SQLite database declaration
+        SQLiteConnection connection;
+        SQLiteCommand command;
+
+        
+
+
         /*
          * Method allows for the information for the textboxes from the
          * WeightEntryForm to be recorded and saved into the table 
@@ -69,29 +76,6 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@date", BabyTracker.dateEntry);
                 command.ExecuteNonQuery();
             }
-        }
-
-
-        public void weightStatistics()
-        {
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
