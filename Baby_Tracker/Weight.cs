@@ -77,5 +77,21 @@ namespace Baby_Tracker
                 command.ExecuteNonQuery();
             }
         }
+        
+        
+        public void weightChart() 
+        {
+            string weightQuery = "";
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            SQLiteCommand command = new SQLiteCommand(query, connection);
+            connection.Open();
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                
+            }
+        }
+            
     }
 }
