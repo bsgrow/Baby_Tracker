@@ -11,6 +11,20 @@ namespace Baby_Tracker
     class Weight
     {
 
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+
+
+        //Variable Declarations for statistics
+        public static string averageWeight = "";
+        public static string minWeight = "0";
+        public static string maxWeight = "";
+        public static string lastWeight = "";
+        public static string lastDate = "0";
+        public static string gainWeight = "";
+            
+        
+
+
         /*
          * Method allows for the information for the textboxes from the
          * WeightEntryForm to be recorded and saved into the table 
@@ -19,7 +33,6 @@ namespace Baby_Tracker
          */
         public void addWeight()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
@@ -45,7 +58,6 @@ namespace Baby_Tracker
          */ 
         public void deleteEntry()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
@@ -59,7 +71,6 @@ namespace Baby_Tracker
 
         public void updateEntry()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
@@ -70,9 +81,9 @@ namespace Baby_Tracker
                 command.ExecuteNonQuery();
             }
         }
-        
-        
-        public void weightChart1() 
+
+
+        public void weightChart1()
         {
             string weightQuery = "";
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -82,8 +93,32 @@ namespace Baby_Tracker
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                
+
             }
+        }
+
+
+        /*
+         * Calls the six queries that allow for the statstics to be displayed
+         * on the statistic section on the weight panel.
+         */
+        public void weightStatistics()
+        {
+            SQLiteCommand command;
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            conn.Open();
+            command = new SQLiteCommand("SELECT avg(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
+            averageWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT min(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
+            minWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT max(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
+            maxWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT Weight FROM Weight  WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1", conn);
+            lastWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT Date FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1", conn);
+            lastDate = command.ExecuteScalar().ToString();
+            gainWeight = Convert.ToString(Convert.ToInt32(lastWeight) - Convert.ToInt32(minWeight));
+            conn.Close();
         }
             
     }
