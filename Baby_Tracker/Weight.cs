@@ -18,10 +18,10 @@ namespace Baby_Tracker
         
         //Variable Declarations for statistics
         public static string averageWeight = "";
-        public static string minWeight = "";
+        public static string minWeight = "0";
         public static string maxWeight = "";
         public static string lastWeight = "";
-        public static string lastDate = "";
+        public static string lastDate = "0";
         public static string gainWeight = "";
             
         
