@@ -14,7 +14,6 @@ namespace Baby_Tracker
     public partial class BabyTracker : Form
     {
         //SQLite database declaration
-        SQLiteConnection connection;
         SQLiteCommand command;
     
         //Access to other classes and forms
@@ -254,6 +253,7 @@ namespace Baby_Tracker
                     weightTableView.DataSource = dt;
                     this.weightTableView.Columns[0].Visible = false;
                     weightStatistics();
+                    weightChartMethod();
                 }
             }
         }
@@ -332,6 +332,29 @@ namespace Baby_Tracker
             lastDate_Text.Text = command.ExecuteScalar().ToString();
             weightGained_Text.Text = Convert.ToString(Convert.ToInt32(lastWeight_Text.Text) - Convert.ToInt32(minWeight_text.Text));
             conn.Close();
+        }
+
+
+        public void weightChartMethod()
+        {
+            string weightQuery = "SELECT * FROM Weight WHERE BabyID = '"+babyName+"'";
+            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
+            try
+            {
+                connection.Open();
+                SQLiteDataReader reader = command.ExecuteReader();
+                weightChart.Series["Weight"].Points.Clear();
+                while (reader.Read())
+                {
+                    weightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

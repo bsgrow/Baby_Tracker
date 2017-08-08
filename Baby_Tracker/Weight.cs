@@ -11,13 +11,6 @@ namespace Baby_Tracker
     class Weight
     {
 
-        //SQLite database declaration
-        SQLiteConnection connection;
-        SQLiteCommand command;
-
-        
-
-
         /*
          * Method allows for the information for the textboxes from the
          * WeightEntryForm to be recorded and saved into the table 
@@ -79,12 +72,12 @@ namespace Baby_Tracker
         }
         
         
-        public void weightChart() 
+        public void weightChart1() 
         {
             string weightQuery = "";
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
-            SQLiteCommand command = new SQLiteCommand(query, connection);
+            SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
             connection.Open();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())

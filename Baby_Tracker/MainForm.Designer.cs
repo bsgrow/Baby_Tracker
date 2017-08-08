@@ -525,9 +525,10 @@
             this.weightChart.Name = "weightChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Weight";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             this.weightChart.Series.Add(series1);
             this.weightChart.Size = new System.Drawing.Size(693, 548);
             this.weightChart.TabIndex = 14;
