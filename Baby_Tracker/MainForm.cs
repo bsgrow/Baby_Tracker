@@ -317,21 +317,14 @@ namespace Baby_Tracker
          */
         public void weightStatistics()
         { 
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-            SQLiteConnection conn = new SQLiteConnection(connectionString);
-            conn.Open();
-            command = new SQLiteCommand("SELECT avg(Weight) FROM Weight WHERE BabyID = '" + babyName + "'", conn);
-            averageWeight_Text.Text = command.ExecuteScalar().ToString();
-            command = new SQLiteCommand("SELECT min(Weight) FROM Weight WHERE BabyID = '" + babyName + "'", conn);
-            minWeight_text.Text = command.ExecuteScalar().ToString();
-            command = new SQLiteCommand("SELECT max(Weight) FROM Weight WHERE BabyID = '" + babyName + "'", conn);
-            maxWeight_Text.Text = command.ExecuteScalar().ToString();
-            command = new SQLiteCommand("SELECT Weight FROM Weight  WHERE BabyID = '" + babyName + "' ORDER BY ID DESC limit 1", conn);
-            lastWeight_Text.Text = command.ExecuteScalar().ToString();
-            command = new SQLiteCommand("SELECT Date FROM Weight WHERE BabyID = '" + babyName + "' ORDER BY ID DESC limit 1", conn);
-            lastDate_Text.Text = command.ExecuteScalar().ToString();
-            weightGained_Text.Text = Convert.ToString(Convert.ToInt32(lastWeight_Text.Text) - Convert.ToInt32(minWeight_text.Text));
-            conn.Close();
+            weightClass.weightStatistics();
+            averageWeight_Text.Text = weightClass.averageWeight;
+            minWeight_text.Text = weightClass.minWeight;
+            maxWeight_Text.Text = weightClass.maxWeight;
+            lastWeight_Text.Text = weightClass.lastWeight;
+            lastDate_Text.Text = weightClass.lastDate;
+            weightGained_Text.Text = weightClass.weightGained;
+            
         }
     }
 }
