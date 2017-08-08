@@ -16,6 +16,15 @@ namespace Baby_Tracker
         SQLiteCommand command;
 
         
+        //Variable Declarations for statistics
+        public static averageWeight = "";
+        public static minWeight = "";
+        public static maxWeight = "";
+        public static lastWeight = "";
+        public static lastDate = "";
+        public static gainWeight = "";
+            
+        
 
 
         /*
@@ -79,18 +88,27 @@ namespace Baby_Tracker
         }
         
         
-        public void weightChart() 
-        {
-            string weightQuery = "";
+        /*
+         * Calls the six queries that allow for the statstics to be displayed
+         * on the statistic section on the weight panel.
+         */
+        public void weightStatistics()
+        { 
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-            SQLiteConnection connection = new SQLiteConnection(connectionString);
-            SQLiteCommand command = new SQLiteCommand(query, connection);
-            connection.Open();
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                
-            }
+            SQLiteConnection conn = new SQLiteConnection(connectionString);
+            conn.Open();
+            command = new SQLiteCommand("SELECT avg(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
+            averageWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT min(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
+            minWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT max(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
+            maxWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT Weight FROM Weight  WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1", conn);
+            lastWeight = command.ExecuteScalar().ToString();
+            command = new SQLiteCommand("SELECT Date FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1", conn);
+            lastDate = command.ExecuteScalar().ToString();
+            weightGained = Convert.ToString(Convert.ToInt32(lastWeight) - Convert.ToInt32(minWeight));
+            conn.Close();
         }
             
     }
