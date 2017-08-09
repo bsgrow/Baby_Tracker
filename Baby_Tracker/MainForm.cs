@@ -210,6 +210,30 @@ namespace Baby_Tracker
 
 
         /*
+         * Loads the weight gridviewtable in the weight panel. THis 
+         * is queried based on the name selected from the combobox
+         * on the left panel. This will change the weights based of
+         * of that selection. 
+         */
+        public void weightDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    weightDataView.DataSource = dt;
+                    this.weightDataView.Columns[0].Visible = false;
+                    weightStatistics();
+                    weightChartMethod();
+                }
+            }
+        }
+
+
+        /*
          * Allows for the weightEntry panel to be shown. Here the
          * user will be able to entry a new weight for the user selected 
          * in the left panel combobox.
@@ -227,30 +251,6 @@ namespace Baby_Tracker
                 weightClass.addWeight();
                 weightDataTable();
                 MessageBox.Show("New Weight Was Added!!");
-            }
-        }
-
-
-        /*
-         * Loads the weight gridviewtable in the weight panel. THis 
-         * is queried based on the name selected from the combobox
-         * on the left panel. This will change the weights based of
-         * of that selection. 
-         */
-        public void weightDataTable()
-        {
-            DataTable dt = new DataTable();
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
-                {
-                    dt.Clear();
-                    da.Fill(dt);
-                    weightTableView.DataSource = dt;
-                    this.weightTableView.Columns[0].Visible = false;
-                    weightStatistics();
-                    weightChartMethod();
-                }
             }
         }
 
@@ -277,11 +277,11 @@ namespace Baby_Tracker
          */
         private void weightTableView_Click(object sender, EventArgs e)
         {
-            if (weightTableView.CurrentRow.Index != -1)
+            if (weightDataView.CurrentRow.Index != -1)
             {
-                weightID = Convert.ToInt32(weightTableView.CurrentRow.Cells[0].Value.ToString());
-                weightEntry_tbox.Text = weightTableView.CurrentRow.Cells[1].Value.ToString();
-                dateEntry_tbox.Text = weightTableView.CurrentRow.Cells[2].Value.ToString();
+                weightID = Convert.ToInt32(weightDataView.CurrentRow.Cells[0].Value.ToString());
+                weightEntry_tbox.Text = weightDataView.CurrentRow.Cells[1].Value.ToString();
+                dateEntry_tbox.Text = weightDataView.CurrentRow.Cells[2].Value.ToString();
             }
         }
 

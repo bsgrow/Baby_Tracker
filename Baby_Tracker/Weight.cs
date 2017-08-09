@@ -21,8 +21,8 @@ namespace Baby_Tracker
         public static string lastWeight = "0";
         public static string lastDate = "0";
         public static string gainWeight = "0";
-            
-        
+
+
 
 
         /*
@@ -55,7 +55,7 @@ namespace Baby_Tracker
          * data table to be retrieved. Once the data is retrieved then the
          * data is called here and the data is then deleted from the database
          * table "Weight"
-         */ 
+         */
         public void deleteEntry()
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
@@ -117,7 +117,7 @@ namespace Baby_Tracker
             lastWeight = command.ExecuteScalar().ToString();
             command = new SQLiteCommand("SELECT IFNULL ((SELECT Date FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1), 0)", conn);
             lastDate = command.ExecuteScalar().ToString();
-            if(lastWeight == "" | minWeight == "" )
+            if (lastWeight == "" | minWeight == "")
             {
                 averageWeight = "0";
                 minWeight = "0";
@@ -125,12 +125,39 @@ namespace Baby_Tracker
                 lastWeight = "0";
                 lastDate = "0";
                 gainWeight = "0";
-            }else
+            }
+            else
             {
                 gainWeight = Convert.ToString(Convert.ToInt32(lastWeight) - Convert.ToInt32(minWeight));
             }
             conn.Close();
         }
-            
+
+
+
+
+        /*
+         * Loads the weight gridviewtable in the weight panel. THis 
+         * is queried based on the name selected from the combobox
+         * on the left panel. This will change the weights based of
+         * of that selection. 
+         *
+        public void weightDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + BabyTracker.babyName + "'", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    BabyTracker.weightTableView.DataSource = dt;
+                    (BabyTracker.weightTableView).Columns[0].Visible = false;
+                    weightStatistics();
+                    //BabyTracker.weightChartMethod();
+                }
+            }
+        }
+        */
     }
 }

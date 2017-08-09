@@ -67,6 +67,7 @@
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashBoardPanel_lb = new System.Windows.Forms.Label();
             this.testPanel = new System.Windows.Forms.Panel();
+            this.weightDataView = new System.Windows.Forms.DataGridView();
             this.weightChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.weightStatistics_Box = new System.Windows.Forms.GroupBox();
             this.minWeight_text = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@
             this.updateWeight_btn = new System.Windows.Forms.Button();
             this.weightEntry_btn = new System.Windows.Forms.Button();
             this.deleteWeight_btn = new System.Windows.Forms.Button();
-            this.weightTableView = new System.Windows.Forms.DataGridView();
             this.weightPanel_lb = new System.Windows.Forms.Label();
             this.measurementsPanel = new System.Windows.Forms.Panel();
             this.measurementsPanel_lb = new System.Windows.Forms.Label();
@@ -109,10 +109,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
             this.dashboardPanel.SuspendLayout();
             this.testPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weightDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightChart)).BeginInit();
             this.weightStatistics_Box.SuspendLayout();
             this.weightEntry_gbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weightTableView)).BeginInit();
             this.measurementsPanel.SuspendLayout();
             this.immunizationsPanel.SuspendLayout();
             this.medicationsPanel.SuspendLayout();
@@ -503,16 +503,31 @@
             // testPanel
             // 
             this.testPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.testPanel.Controls.Add(this.weightDataView);
             this.testPanel.Controls.Add(this.weightChart);
             this.testPanel.Controls.Add(this.weightStatistics_Box);
             this.testPanel.Controls.Add(this.weightEntry_gbox);
-            this.testPanel.Controls.Add(this.weightTableView);
             this.testPanel.Controls.Add(this.weightPanel_lb);
             this.testPanel.Location = new System.Drawing.Point(277, 31);
             this.testPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.testPanel.Name = "testPanel";
             this.testPanel.Size = new System.Drawing.Size(1298, 918);
             this.testPanel.TabIndex = 0;
+            // 
+            // weightDataView
+            // 
+            this.weightDataView.AllowUserToAddRows = false;
+            this.weightDataView.AllowUserToDeleteRows = false;
+            this.weightDataView.AllowUserToResizeColumns = false;
+            this.weightDataView.AllowUserToResizeRows = false;
+            this.weightDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.weightDataView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.weightDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.weightDataView.Location = new System.Drawing.Point(24, 69);
+            this.weightDataView.Name = "weightDataView";
+            this.weightDataView.RowTemplate.Height = 24;
+            this.weightDataView.Size = new System.Drawing.Size(527, 548);
+            this.weightDataView.TabIndex = 15;
             // 
             // weightChart
             // 
@@ -755,23 +770,6 @@
             this.deleteWeight_btn.UseVisualStyleBackColor = true;
             this.deleteWeight_btn.Click += new System.EventHandler(this.deleteWeight_btn_Click);
             // 
-            // weightTableView
-            // 
-            this.weightTableView.AllowUserToAddRows = false;
-            this.weightTableView.AllowUserToDeleteRows = false;
-            this.weightTableView.AllowUserToResizeColumns = false;
-            this.weightTableView.AllowUserToResizeRows = false;
-            this.weightTableView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.weightTableView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.weightTableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.weightTableView.Location = new System.Drawing.Point(24, 69);
-            this.weightTableView.Name = "weightTableView";
-            this.weightTableView.ReadOnly = true;
-            this.weightTableView.RowTemplate.Height = 24;
-            this.weightTableView.Size = new System.Drawing.Size(527, 548);
-            this.weightTableView.TabIndex = 9;
-            this.weightTableView.Click += new System.EventHandler(this.weightTableView_Click);
-            // 
             // weightPanel_lb
             // 
             this.weightPanel_lb.AutoSize = true;
@@ -940,12 +938,12 @@
             this.dashboardPanel.PerformLayout();
             this.testPanel.ResumeLayout(false);
             this.testPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weightDataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightChart)).EndInit();
             this.weightStatistics_Box.ResumeLayout(false);
             this.weightStatistics_Box.PerformLayout();
             this.weightEntry_gbox.ResumeLayout(false);
             this.weightEntry_gbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weightTableView)).EndInit();
             this.measurementsPanel.ResumeLayout(false);
             this.measurementsPanel.PerformLayout();
             this.immunizationsPanel.ResumeLayout(false);
@@ -1013,8 +1011,8 @@
         private System.Windows.Forms.Label doctorContactsPanel_lb;
         private System.Windows.Forms.Panel growthStatsPanel;
         private System.Windows.Forms.Label growthStatPanel_lb;
-        public static System.Windows.Forms.DataGridView weightGridView;
-        private System.Windows.Forms.DataGridView weightTableView;
+        private System.Windows.Forms.DataGridView weightTable;
+        private System.Windows.Forms.DataGridView weightDataView;
         private System.Windows.Forms.Button deleteWeight_btn;
         private System.Windows.Forms.Button weightEntry_btn;
         private System.Windows.Forms.GroupBox weightEntry_gbox;
