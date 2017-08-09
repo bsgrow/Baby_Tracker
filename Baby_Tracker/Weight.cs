@@ -15,12 +15,12 @@ namespace Baby_Tracker
 
 
         //Variable Declarations for statistics
-        public static string averageWeight = "";
+        public static string averageWeight = "0";
         public static string minWeight = "0";
-        public static string maxWeight = "";
-        public static string lastWeight = "";
+        public static string maxWeight = "0";
+        public static string lastWeight = "0";
         public static string lastDate = "0";
-        public static string gainWeight = "";
+        public static string gainWeight = "0";
             
         
 
@@ -113,11 +113,22 @@ namespace Baby_Tracker
             minWeight = command.ExecuteScalar().ToString();
             command = new SQLiteCommand("SELECT max(Weight) FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "'", conn);
             maxWeight = command.ExecuteScalar().ToString();
-            command = new SQLiteCommand("SELECT Weight FROM Weight  WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1", conn);
+            command = new SQLiteCommand("SELECT IFNULL ((SELECT Weight FROM Weight  WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1), 0)", conn);
             lastWeight = command.ExecuteScalar().ToString();
-            command = new SQLiteCommand("SELECT Date FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1", conn);
+            command = new SQLiteCommand("SELECT IFNULL ((SELECT Date FROM Weight WHERE BabyID = '" + BabyTracker.babyName + "' ORDER BY ID DESC limit 1), 0)", conn);
             lastDate = command.ExecuteScalar().ToString();
-            gainWeight = Convert.ToString(Convert.ToInt32(lastWeight) - Convert.ToInt32(minWeight));
+            if(lastWeight == "" | minWeight == "" )
+            {
+                averageWeight = "0";
+                minWeight = "0";
+                maxWeight = "0";
+                lastWeight = "0";
+                lastDate = "0";
+                gainWeight = "0";
+            }else
+            {
+                gainWeight = Convert.ToString(Convert.ToInt32(lastWeight) - Convert.ToInt32(minWeight));
+            }
             conn.Close();
         }
             

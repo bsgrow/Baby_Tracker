@@ -26,6 +26,7 @@ namespace Baby_Tracker
         public static double weightEntry = 0;
         public static string dateEntry = "";
         public static int weightID = 0;
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
 
         public BabyTracker()
@@ -101,7 +102,6 @@ namespace Baby_Tracker
         public void comboBoxNameRetrival()
         {
             DataTable dt = new DataTable();
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
@@ -128,7 +128,6 @@ namespace Baby_Tracker
             babyName = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //sets he combobox to be saved as a string
 
             string query = "SELECT BabyImagePath FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -241,7 +240,6 @@ namespace Baby_Tracker
         public void weightDataTable()
         {
             DataTable dt = new DataTable();
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
@@ -329,7 +327,6 @@ namespace Baby_Tracker
         public void weightChartMethod()
         {
             string weightQuery = "SELECT * FROM Weight WHERE BabyID = '"+babyName+"'";
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
             try

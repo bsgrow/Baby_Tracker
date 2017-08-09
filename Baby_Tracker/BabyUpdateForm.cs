@@ -184,7 +184,7 @@ namespace Baby_Tracker
                     updateFirstName_tbox.Text = dt.Rows[0]["FirstName"].ToString();
                     updateMiddleName_tbox.Text = dt.Rows[0]["MiddleName"].ToString();
                     updateLastName_tbox.Text = dt.Rows[0]["LastName"].ToString();
-                    updateDOB_tbox.Text = dt.Rows[0]["DOB"].ToString();
+                    updateDOB_tbox.Text = Convert.ToDateTime(dt.Rows[0]["DOB"]).ToString("MM/dd/yyyy");
                     updateBirthWeight_tbox.Text = dt.Rows[0]["BirthWeight"].ToString();
                     updateBirthLength_tbox.Text = dt.Rows[0]["BirthLength"].ToString();
                     updateBirthHead_tbox.Text = dt.Rows[0]["BirthHeadCir"].ToString();

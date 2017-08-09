@@ -24,7 +24,7 @@ namespace Baby_Tracker
 				FirstName VARCHAR(20) NOT NULL, 
 				MiddleName VARCHAR(20) NULL, 
 				LastName VARCHAR(20) NULL, 
-				DOB DATE NOT NULL,
+				DOB VARCHAR(9) NOT NULL,
 				BirthWeight INTEGER NOT NULL, 
 				BirthLength INTEGER NOT NULL, 
 				BirthHeadCir INTEGER NOT NULL,
@@ -40,7 +40,7 @@ namespace Baby_Tracker
         string sqlWeightTable = @"CREATE TABLE Weight (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
 				Weight INTEGER NOT NULL, 
-				Date DATE NOT NULL,
+				Date VARCHAR(9) NOT NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
 
