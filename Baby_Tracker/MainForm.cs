@@ -20,12 +20,27 @@ namespace Baby_Tracker
         BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
         ReportExports reportExports = new ReportExports();
         Weight weightClass = new Weight();
+        DoctorContacts doctorContacts = new DoctorContacts();
 
         //Allows for the weight and baby to be called in other classes for data entry
         public static string babyName = ""; //declares the baby name from the main combobox in the left panel
         public static double weightEntry = 0;
         public static string dateEntry = "";
         public static int weightID = 0;
+
+        //Doctor Contacts declarations for database
+        public static int contactID = 0;
+        public static string officeNameDoc = "";
+        public static string firstNameDoc = "";
+        public static string lastNamedoc = "";
+        public static string addressDoc = "";
+        public static string cityDoc = "";
+        public static string stateDoc = "";
+        public static string zipCodeDoc = "";
+        public static string phoneNumDoc = "";
+        public static string emailDoc = "";
+
+
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
 
@@ -349,7 +364,7 @@ namespace Baby_Tracker
 
 
         ///
-        /// Doctor Contacts
+        /// Doctor Contacts Panel
         /// 
 
 
@@ -367,6 +382,96 @@ namespace Baby_Tracker
                    
                 }
             }
+        }
+
+        private void newContact_btn_Click(object sender, EventArgs e)
+        {
+
+            if (docOfficeName_tbox.Text == "" | docPhone_tbox.Text == "")
+            {
+                MessageBox.Show("Contact must contain a Office Name and Phone Number!");
+            }
+            else
+            {
+                officeNameDoc = docOfficeName_tbox.Text;
+                firstNameDoc = docFirstName_tbox.Text;
+                lastNamedoc = docLastName_tbox.Text;
+                addressDoc = docAddress1_tbox.Text;
+                cityDoc = docCity_tbox.Text;
+                stateDoc = docState_tbox.Text;
+                zipCodeDoc = docZip_tbox.Text;
+                phoneNumDoc = docPhone_tbox.Text;
+                emailDoc = docEmail_tbox.Text;
+                doctorContacts.newContactEntry();
+                doctorContactDataTable();
+                clearContactTextboxes();
+                MessageBox.Show("New Contact was added!");
+            }
+        }
+
+        private void doctorContactTable_Click(object sender, EventArgs e)
+        {
+            if (doctorContactTable.CurrentRow.Index != -1)
+            {
+                contactID = Convert.ToInt32(doctorContactTable.CurrentRow.Cells[0].Value.ToString());
+                docOfficeName_tbox.Text = doctorContactTable.CurrentRow.Cells[1].Value.ToString();
+                docFirstName_tbox.Text = doctorContactTable.CurrentRow.Cells[2].Value.ToString();
+                docLastName_tbox.Text = doctorContactTable.CurrentRow.Cells[3].Value.ToString();
+                docAddress1_tbox.Text = doctorContactTable.CurrentRow.Cells[4].Value.ToString();
+                docCity_tbox.Text = doctorContactTable.CurrentRow.Cells[5].Value.ToString();
+                docState_tbox.Text = doctorContactTable.CurrentRow.Cells[6].Value.ToString();
+                docZip_tbox.Text = doctorContactTable.CurrentRow.Cells[7].Value.ToString();
+                docPhone_tbox.Text = doctorContactTable.CurrentRow.Cells[8].Value.ToString();
+                docEmail_tbox.Text = doctorContactTable.CurrentRow.Cells[9].Value.ToString();
+            }
+        }
+
+        private void editContact_btn_Click(object sender, EventArgs e)
+        {
+
+            if (docOfficeName_tbox.Text == "" | docPhone_tbox.Text == "")
+            {
+                MessageBox.Show("Contact must contain a Office Name and Phone Number!");
+            }
+            else
+            {
+                officeNameDoc = docOfficeName_tbox.Text;
+                firstNameDoc = docFirstName_tbox.Text;
+                lastNamedoc = docLastName_tbox.Text;
+                addressDoc = docAddress1_tbox.Text;
+                cityDoc = docCity_tbox.Text;
+                stateDoc = docState_tbox.Text;
+                zipCodeDoc = docZip_tbox.Text;
+                phoneNumDoc = docPhone_tbox.Text;
+                emailDoc = docEmail_tbox.Text;
+                doctorContacts.updateContactEntry();
+                doctorContactDataTable();
+                clearContactTextboxes();
+                MessageBox.Show("New Contact was Updated!");
+            }
+        }
+
+        private void deleteContact_btn_Click(object sender, EventArgs e)
+        {
+            doctorContacts.deleteContactEntry();
+            doctorContacts.updateContactEntry();
+            doctorContactDataTable();
+            clearContactTextboxes();
+
+
+        }
+
+        public void clearContactTextboxes()
+        {
+            docOfficeName_tbox.Text = "";
+            docFirstName_tbox.Text = "";
+            docLastName_tbox.Text = "";
+            docAddress1_tbox.Text = "";
+            docCity_tbox.Text = "";
+            docState_tbox.Text = "";
+            docZip_tbox.Text = "";
+            docPhone_tbox.Text = "";
+            docEmail_tbox.Text = "";
         }
     }
 }

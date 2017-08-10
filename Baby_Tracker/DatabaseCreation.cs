@@ -88,7 +88,7 @@ namespace Baby_Tracker
                 City VARCHAR(200) NULL,
                 State VARCHAR(200) NULL,
                 ZipCode INTEGER NULL,
-				PhoneNumber INTEGER NULL,
+				PhoneNumber VARCHAR(12) NULL,
 				Email VARCHAR(200) NULL
 				)";
 

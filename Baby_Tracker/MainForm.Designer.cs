@@ -101,31 +101,31 @@
             this.appointmentsPanel = new System.Windows.Forms.Panel();
             this.appointmentsPanel_lb = new System.Windows.Forms.Label();
             this.doctorContactsPanel = new System.Windows.Forms.Panel();
+            this.contactEntryEditBox = new System.Windows.Forms.GroupBox();
+            this.zipcode_lb = new System.Windows.Forms.Label();
+            this.editContact_btn = new System.Windows.Forms.Button();
+            this.deleteContact_btn = new System.Windows.Forms.Button();
+            this.newContact_btn = new System.Windows.Forms.Button();
+            this.docEmail_tbox = new System.Windows.Forms.TextBox();
+            this.docEmail_lb = new System.Windows.Forms.Label();
+            this.docPhone_tbox = new System.Windows.Forms.TextBox();
+            this.docPhone_lb = new System.Windows.Forms.Label();
+            this.docZip_tbox = new System.Windows.Forms.TextBox();
+            this.docState_tbox = new System.Windows.Forms.TextBox();
+            this.docCity_tbox = new System.Windows.Forms.TextBox();
+            this.docCityStZip_lb = new System.Windows.Forms.Label();
+            this.docAddress1_tbox = new System.Windows.Forms.TextBox();
+            this.docAddress_lb = new System.Windows.Forms.Label();
+            this.docFirstName_tbox = new System.Windows.Forms.TextBox();
+            this.docLastName_tbox = new System.Windows.Forms.TextBox();
+            this.docOfficeName_tbox = new System.Windows.Forms.TextBox();
+            this.docOfficeName_lb = new System.Windows.Forms.Label();
+            this.docLastName_lb = new System.Windows.Forms.Label();
+            this.docFirstName_lb = new System.Windows.Forms.Label();
+            this.doctorContactTable = new System.Windows.Forms.DataGridView();
             this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.growthStatsPanel = new System.Windows.Forms.Panel();
             this.growthStatPanel_lb = new System.Windows.Forms.Label();
-            this.doctorContactTable = new System.Windows.Forms.DataGridView();
-            this.contactEntryEditBox = new System.Windows.Forms.GroupBox();
-            this.docFirstName_lb = new System.Windows.Forms.Label();
-            this.docLastName_lb = new System.Windows.Forms.Label();
-            this.docOfficeName_lb = new System.Windows.Forms.Label();
-            this.docOfficeName_tbox = new System.Windows.Forms.TextBox();
-            this.docLastName_tbox = new System.Windows.Forms.TextBox();
-            this.docFirstName_tbox = new System.Windows.Forms.TextBox();
-            this.docAddress_lb = new System.Windows.Forms.Label();
-            this.docAddress2_tbox = new System.Windows.Forms.TextBox();
-            this.docAddress1_tbox = new System.Windows.Forms.TextBox();
-            this.docCityStZip_lb = new System.Windows.Forms.Label();
-            this.docCity_tbox = new System.Windows.Forms.TextBox();
-            this.docState_tbox = new System.Windows.Forms.TextBox();
-            this.docZip_tbox = new System.Windows.Forms.TextBox();
-            this.docPhone_lb = new System.Windows.Forms.Label();
-            this.docPhone_tbox = new System.Windows.Forms.TextBox();
-            this.docEmail_lb = new System.Windows.Forms.Label();
-            this.docEmail_tbox = new System.Windows.Forms.TextBox();
-            this.newContact_btn = new System.Windows.Forms.Button();
-            this.deleteContact_btn = new System.Windows.Forms.Button();
-            this.editContact_btn = new System.Windows.Forms.Button();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -140,9 +140,9 @@
             this.medicationsPanel.SuspendLayout();
             this.appointmentsPanel.SuspendLayout();
             this.doctorContactsPanel.SuspendLayout();
-            this.growthStatsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).BeginInit();
             this.contactEntryEditBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).BeginInit();
+            this.growthStatsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -899,6 +899,216 @@
             this.doctorContactsPanel.Size = new System.Drawing.Size(1298, 918);
             this.doctorContactsPanel.TabIndex = 1;
             // 
+            // contactEntryEditBox
+            // 
+            this.contactEntryEditBox.Controls.Add(this.zipcode_lb);
+            this.contactEntryEditBox.Controls.Add(this.editContact_btn);
+            this.contactEntryEditBox.Controls.Add(this.deleteContact_btn);
+            this.contactEntryEditBox.Controls.Add(this.newContact_btn);
+            this.contactEntryEditBox.Controls.Add(this.docEmail_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docEmail_lb);
+            this.contactEntryEditBox.Controls.Add(this.docPhone_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docPhone_lb);
+            this.contactEntryEditBox.Controls.Add(this.docZip_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docState_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docCity_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docCityStZip_lb);
+            this.contactEntryEditBox.Controls.Add(this.docAddress1_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docAddress_lb);
+            this.contactEntryEditBox.Controls.Add(this.docFirstName_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docLastName_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docOfficeName_tbox);
+            this.contactEntryEditBox.Controls.Add(this.docOfficeName_lb);
+            this.contactEntryEditBox.Controls.Add(this.docLastName_lb);
+            this.contactEntryEditBox.Controls.Add(this.docFirstName_lb);
+            this.contactEntryEditBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactEntryEditBox.Location = new System.Drawing.Point(87, 571);
+            this.contactEntryEditBox.Name = "contactEntryEditBox";
+            this.contactEntryEditBox.Size = new System.Drawing.Size(1128, 300);
+            this.contactEntryEditBox.TabIndex = 2;
+            this.contactEntryEditBox.TabStop = false;
+            this.contactEntryEditBox.Text = "Contact Entry/Edit";
+            // 
+            // zipcode_lb
+            // 
+            this.zipcode_lb.AutoSize = true;
+            this.zipcode_lb.Location = new System.Drawing.Point(443, 191);
+            this.zipcode_lb.Name = "zipcode_lb";
+            this.zipcode_lb.Size = new System.Drawing.Size(85, 24);
+            this.zipcode_lb.TabIndex = 20;
+            this.zipcode_lb.Text = "Zipcode:";
+            // 
+            // editContact_btn
+            // 
+            this.editContact_btn.Location = new System.Drawing.Point(492, 251);
+            this.editContact_btn.Name = "editContact_btn";
+            this.editContact_btn.Size = new System.Drawing.Size(145, 32);
+            this.editContact_btn.TabIndex = 19;
+            this.editContact_btn.Text = "Edit Contact";
+            this.editContact_btn.UseVisualStyleBackColor = true;
+            this.editContact_btn.Click += new System.EventHandler(this.editContact_btn_Click);
+            // 
+            // deleteContact_btn
+            // 
+            this.deleteContact_btn.Location = new System.Drawing.Point(673, 251);
+            this.deleteContact_btn.Name = "deleteContact_btn";
+            this.deleteContact_btn.Size = new System.Drawing.Size(145, 32);
+            this.deleteContact_btn.TabIndex = 18;
+            this.deleteContact_btn.Text = "Delete Contact";
+            this.deleteContact_btn.UseVisualStyleBackColor = true;
+            this.deleteContact_btn.Click += new System.EventHandler(this.deleteContact_btn_Click);
+            // 
+            // newContact_btn
+            // 
+            this.newContact_btn.Location = new System.Drawing.Point(313, 251);
+            this.newContact_btn.Name = "newContact_btn";
+            this.newContact_btn.Size = new System.Drawing.Size(145, 32);
+            this.newContact_btn.TabIndex = 17;
+            this.newContact_btn.Text = "New Contact";
+            this.newContact_btn.UseVisualStyleBackColor = true;
+            this.newContact_btn.Click += new System.EventHandler(this.newContact_btn_Click);
+            // 
+            // docEmail_tbox
+            // 
+            this.docEmail_tbox.Location = new System.Drawing.Point(891, 123);
+            this.docEmail_tbox.Name = "docEmail_tbox";
+            this.docEmail_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docEmail_tbox.TabIndex = 16;
+            // 
+            // docEmail_lb
+            // 
+            this.docEmail_lb.AutoSize = true;
+            this.docEmail_lb.Location = new System.Drawing.Point(796, 125);
+            this.docEmail_lb.Name = "docEmail_lb";
+            this.docEmail_lb.Size = new System.Drawing.Size(62, 24);
+            this.docEmail_lb.TabIndex = 15;
+            this.docEmail_lb.Text = "Email:";
+            this.docEmail_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // docPhone_tbox
+            // 
+            this.docPhone_tbox.Location = new System.Drawing.Point(891, 63);
+            this.docPhone_tbox.Name = "docPhone_tbox";
+            this.docPhone_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docPhone_tbox.TabIndex = 14;
+            // 
+            // docPhone_lb
+            // 
+            this.docPhone_lb.AutoSize = true;
+            this.docPhone_lb.Location = new System.Drawing.Point(795, 65);
+            this.docPhone_lb.Name = "docPhone_lb";
+            this.docPhone_lb.Size = new System.Drawing.Size(86, 24);
+            this.docPhone_lb.TabIndex = 13;
+            this.docPhone_lb.Text = "Phone #:";
+            this.docPhone_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // docZip_tbox
+            // 
+            this.docZip_tbox.Location = new System.Drawing.Point(534, 191);
+            this.docZip_tbox.Name = "docZip_tbox";
+            this.docZip_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docZip_tbox.TabIndex = 12;
+            // 
+            // docState_tbox
+            // 
+            this.docState_tbox.Location = new System.Drawing.Point(688, 125);
+            this.docState_tbox.Name = "docState_tbox";
+            this.docState_tbox.Size = new System.Drawing.Size(57, 28);
+            this.docState_tbox.TabIndex = 11;
+            // 
+            // docCity_tbox
+            // 
+            this.docCity_tbox.Location = new System.Drawing.Point(534, 125);
+            this.docCity_tbox.Name = "docCity_tbox";
+            this.docCity_tbox.Size = new System.Drawing.Size(148, 28);
+            this.docCity_tbox.TabIndex = 10;
+            // 
+            // docCityStZip_lb
+            // 
+            this.docCityStZip_lb.AutoSize = true;
+            this.docCityStZip_lb.Location = new System.Drawing.Point(443, 128);
+            this.docCityStZip_lb.Name = "docCityStZip_lb";
+            this.docCityStZip_lb.Size = new System.Drawing.Size(66, 24);
+            this.docCityStZip_lb.TabIndex = 9;
+            this.docCityStZip_lb.Text = "City/St:";
+            // 
+            // docAddress1_tbox
+            // 
+            this.docAddress1_tbox.Location = new System.Drawing.Point(534, 63);
+            this.docAddress1_tbox.Name = "docAddress1_tbox";
+            this.docAddress1_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docAddress1_tbox.TabIndex = 8;
+            // 
+            // docAddress_lb
+            // 
+            this.docAddress_lb.AutoSize = true;
+            this.docAddress_lb.Location = new System.Drawing.Point(443, 66);
+            this.docAddress_lb.Name = "docAddress_lb";
+            this.docAddress_lb.Size = new System.Drawing.Size(85, 24);
+            this.docAddress_lb.TabIndex = 6;
+            this.docAddress_lb.Text = "Address:";
+            // 
+            // docFirstName_tbox
+            // 
+            this.docFirstName_tbox.Location = new System.Drawing.Point(182, 126);
+            this.docFirstName_tbox.Name = "docFirstName_tbox";
+            this.docFirstName_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docFirstName_tbox.TabIndex = 5;
+            // 
+            // docLastName_tbox
+            // 
+            this.docLastName_tbox.Location = new System.Drawing.Point(182, 185);
+            this.docLastName_tbox.Name = "docLastName_tbox";
+            this.docLastName_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docLastName_tbox.TabIndex = 4;
+            // 
+            // docOfficeName_tbox
+            // 
+            this.docOfficeName_tbox.Location = new System.Drawing.Point(182, 66);
+            this.docOfficeName_tbox.Name = "docOfficeName_tbox";
+            this.docOfficeName_tbox.Size = new System.Drawing.Size(211, 28);
+            this.docOfficeName_tbox.TabIndex = 3;
+            // 
+            // docOfficeName_lb
+            // 
+            this.docOfficeName_lb.AutoSize = true;
+            this.docOfficeName_lb.Location = new System.Drawing.Point(56, 65);
+            this.docOfficeName_lb.Name = "docOfficeName_lb";
+            this.docOfficeName_lb.Size = new System.Drawing.Size(119, 24);
+            this.docOfficeName_lb.TabIndex = 2;
+            this.docOfficeName_lb.Text = "Office Name:";
+            // 
+            // docLastName_lb
+            // 
+            this.docLastName_lb.AutoSize = true;
+            this.docLastName_lb.Location = new System.Drawing.Point(56, 185);
+            this.docLastName_lb.Name = "docLastName_lb";
+            this.docLastName_lb.Size = new System.Drawing.Size(104, 24);
+            this.docLastName_lb.TabIndex = 1;
+            this.docLastName_lb.Text = "Last Name:";
+            // 
+            // docFirstName_lb
+            // 
+            this.docFirstName_lb.AutoSize = true;
+            this.docFirstName_lb.Location = new System.Drawing.Point(56, 126);
+            this.docFirstName_lb.Name = "docFirstName_lb";
+            this.docFirstName_lb.Size = new System.Drawing.Size(106, 24);
+            this.docFirstName_lb.TabIndex = 0;
+            this.docFirstName_lb.Text = "First Name:";
+            // 
+            // doctorContactTable
+            // 
+            this.doctorContactTable.AllowUserToAddRows = false;
+            this.doctorContactTable.AllowUserToDeleteRows = false;
+            this.doctorContactTable.AllowUserToResizeRows = false;
+            this.doctorContactTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.doctorContactTable.Location = new System.Drawing.Point(39, 86);
+            this.doctorContactTable.Name = "doctorContactTable";
+            this.doctorContactTable.RowTemplate.Height = 24;
+            this.doctorContactTable.Size = new System.Drawing.Size(1223, 457);
+            this.doctorContactTable.TabIndex = 1;
+            this.doctorContactTable.Click += new System.EventHandler(this.doctorContactTable_Click);
+            // 
             // doctorContactsPanel_lb
             // 
             this.doctorContactsPanel_lb.AutoSize = true;
@@ -930,210 +1140,6 @@
             this.growthStatPanel_lb.Size = new System.Drawing.Size(368, 52);
             this.growthStatPanel_lb.TabIndex = 0;
             this.growthStatPanel_lb.Text = "Growth Statistics";
-            // 
-            // doctorContactTable
-            // 
-            this.doctorContactTable.AllowUserToAddRows = false;
-            this.doctorContactTable.AllowUserToDeleteRows = false;
-            this.doctorContactTable.AllowUserToResizeRows = false;
-            this.doctorContactTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.doctorContactTable.Location = new System.Drawing.Point(39, 86);
-            this.doctorContactTable.Name = "doctorContactTable";
-            this.doctorContactTable.RowTemplate.Height = 24;
-            this.doctorContactTable.Size = new System.Drawing.Size(1223, 457);
-            this.doctorContactTable.TabIndex = 1;
-            // 
-            // contactEntryEditBox
-            // 
-            this.contactEntryEditBox.Controls.Add(this.editContact_btn);
-            this.contactEntryEditBox.Controls.Add(this.deleteContact_btn);
-            this.contactEntryEditBox.Controls.Add(this.newContact_btn);
-            this.contactEntryEditBox.Controls.Add(this.docEmail_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docEmail_lb);
-            this.contactEntryEditBox.Controls.Add(this.docPhone_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docPhone_lb);
-            this.contactEntryEditBox.Controls.Add(this.docZip_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docState_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docCity_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docCityStZip_lb);
-            this.contactEntryEditBox.Controls.Add(this.docAddress1_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docAddress2_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docAddress_lb);
-            this.contactEntryEditBox.Controls.Add(this.docFirstName_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docLastName_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docOfficeName_tbox);
-            this.contactEntryEditBox.Controls.Add(this.docOfficeName_lb);
-            this.contactEntryEditBox.Controls.Add(this.docLastName_lb);
-            this.contactEntryEditBox.Controls.Add(this.docFirstName_lb);
-            this.contactEntryEditBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactEntryEditBox.Location = new System.Drawing.Point(87, 571);
-            this.contactEntryEditBox.Name = "contactEntryEditBox";
-            this.contactEntryEditBox.Size = new System.Drawing.Size(1128, 300);
-            this.contactEntryEditBox.TabIndex = 2;
-            this.contactEntryEditBox.TabStop = false;
-            this.contactEntryEditBox.Text = "Contact Entry/Edit";
-            // 
-            // docFirstName_lb
-            // 
-            this.docFirstName_lb.AutoSize = true;
-            this.docFirstName_lb.Location = new System.Drawing.Point(56, 126);
-            this.docFirstName_lb.Name = "docFirstName_lb";
-            this.docFirstName_lb.Size = new System.Drawing.Size(106, 24);
-            this.docFirstName_lb.TabIndex = 0;
-            this.docFirstName_lb.Text = "First Name:";
-            // 
-            // docLastName_lb
-            // 
-            this.docLastName_lb.AutoSize = true;
-            this.docLastName_lb.Location = new System.Drawing.Point(56, 185);
-            this.docLastName_lb.Name = "docLastName_lb";
-            this.docLastName_lb.Size = new System.Drawing.Size(104, 24);
-            this.docLastName_lb.TabIndex = 1;
-            this.docLastName_lb.Text = "Last Name:";
-            // 
-            // docOfficeName_lb
-            // 
-            this.docOfficeName_lb.AutoSize = true;
-            this.docOfficeName_lb.Location = new System.Drawing.Point(56, 65);
-            this.docOfficeName_lb.Name = "docOfficeName_lb";
-            this.docOfficeName_lb.Size = new System.Drawing.Size(119, 24);
-            this.docOfficeName_lb.TabIndex = 2;
-            this.docOfficeName_lb.Text = "Office Name:";
-            // 
-            // docOfficeName_tbox
-            // 
-            this.docOfficeName_tbox.Location = new System.Drawing.Point(182, 66);
-            this.docOfficeName_tbox.Name = "docOfficeName_tbox";
-            this.docOfficeName_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docOfficeName_tbox.TabIndex = 3;
-            // 
-            // docLastName_tbox
-            // 
-            this.docLastName_tbox.Location = new System.Drawing.Point(182, 185);
-            this.docLastName_tbox.Name = "docLastName_tbox";
-            this.docLastName_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docLastName_tbox.TabIndex = 4;
-            // 
-            // docFirstName_tbox
-            // 
-            this.docFirstName_tbox.Location = new System.Drawing.Point(182, 126);
-            this.docFirstName_tbox.Name = "docFirstName_tbox";
-            this.docFirstName_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docFirstName_tbox.TabIndex = 5;
-            // 
-            // docAddress_lb
-            // 
-            this.docAddress_lb.AutoSize = true;
-            this.docAddress_lb.Location = new System.Drawing.Point(443, 66);
-            this.docAddress_lb.Name = "docAddress_lb";
-            this.docAddress_lb.Size = new System.Drawing.Size(85, 24);
-            this.docAddress_lb.TabIndex = 6;
-            this.docAddress_lb.Text = "Address:";
-            // 
-            // docAddress2_tbox
-            // 
-            this.docAddress2_tbox.Location = new System.Drawing.Point(534, 122);
-            this.docAddress2_tbox.Name = "docAddress2_tbox";
-            this.docAddress2_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docAddress2_tbox.TabIndex = 7;
-            // 
-            // docAddress1_tbox
-            // 
-            this.docAddress1_tbox.Location = new System.Drawing.Point(534, 63);
-            this.docAddress1_tbox.Name = "docAddress1_tbox";
-            this.docAddress1_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docAddress1_tbox.TabIndex = 8;
-            // 
-            // docCityStZip_lb
-            // 
-            this.docCityStZip_lb.AutoSize = true;
-            this.docCityStZip_lb.Location = new System.Drawing.Point(438, 190);
-            this.docCityStZip_lb.Name = "docCityStZip_lb";
-            this.docCityStZip_lb.Size = new System.Drawing.Size(98, 24);
-            this.docCityStZip_lb.TabIndex = 9;
-            this.docCityStZip_lb.Text = "City/St/Zip:";
-            // 
-            // docCity_tbox
-            // 
-            this.docCity_tbox.Location = new System.Drawing.Point(537, 188);
-            this.docCity_tbox.Name = "docCity_tbox";
-            this.docCity_tbox.Size = new System.Drawing.Size(108, 28);
-            this.docCity_tbox.TabIndex = 10;
-            // 
-            // docState_tbox
-            // 
-            this.docState_tbox.Location = new System.Drawing.Point(648, 188);
-            this.docState_tbox.Name = "docState_tbox";
-            this.docState_tbox.Size = new System.Drawing.Size(37, 28);
-            this.docState_tbox.TabIndex = 11;
-            // 
-            // docZip_tbox
-            // 
-            this.docZip_tbox.Location = new System.Drawing.Point(688, 188);
-            this.docZip_tbox.Name = "docZip_tbox";
-            this.docZip_tbox.Size = new System.Drawing.Size(57, 28);
-            this.docZip_tbox.TabIndex = 12;
-            // 
-            // docPhone_lb
-            // 
-            this.docPhone_lb.AutoSize = true;
-            this.docPhone_lb.Location = new System.Drawing.Point(795, 65);
-            this.docPhone_lb.Name = "docPhone_lb";
-            this.docPhone_lb.Size = new System.Drawing.Size(86, 24);
-            this.docPhone_lb.TabIndex = 13;
-            this.docPhone_lb.Text = "Phone #:";
-            this.docPhone_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // docPhone_tbox
-            // 
-            this.docPhone_tbox.Location = new System.Drawing.Point(891, 63);
-            this.docPhone_tbox.Name = "docPhone_tbox";
-            this.docPhone_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docPhone_tbox.TabIndex = 14;
-            // 
-            // docEmail_lb
-            // 
-            this.docEmail_lb.AutoSize = true;
-            this.docEmail_lb.Location = new System.Drawing.Point(796, 125);
-            this.docEmail_lb.Name = "docEmail_lb";
-            this.docEmail_lb.Size = new System.Drawing.Size(62, 24);
-            this.docEmail_lb.TabIndex = 15;
-            this.docEmail_lb.Text = "Email:";
-            this.docEmail_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // docEmail_tbox
-            // 
-            this.docEmail_tbox.Location = new System.Drawing.Point(891, 123);
-            this.docEmail_tbox.Name = "docEmail_tbox";
-            this.docEmail_tbox.Size = new System.Drawing.Size(211, 28);
-            this.docEmail_tbox.TabIndex = 16;
-            // 
-            // newContact_btn
-            // 
-            this.newContact_btn.Location = new System.Drawing.Point(313, 251);
-            this.newContact_btn.Name = "newContact_btn";
-            this.newContact_btn.Size = new System.Drawing.Size(145, 32);
-            this.newContact_btn.TabIndex = 17;
-            this.newContact_btn.Text = "New Contact";
-            this.newContact_btn.UseVisualStyleBackColor = true;
-            // 
-            // deleteContact_btn
-            // 
-            this.deleteContact_btn.Location = new System.Drawing.Point(673, 251);
-            this.deleteContact_btn.Name = "deleteContact_btn";
-            this.deleteContact_btn.Size = new System.Drawing.Size(145, 32);
-            this.deleteContact_btn.TabIndex = 18;
-            this.deleteContact_btn.Text = "Delete Contact";
-            this.deleteContact_btn.UseVisualStyleBackColor = true;
-            // 
-            // editContact_btn
-            // 
-            this.editContact_btn.Location = new System.Drawing.Point(492, 251);
-            this.editContact_btn.Name = "editContact_btn";
-            this.editContact_btn.Size = new System.Drawing.Size(145, 32);
-            this.editContact_btn.TabIndex = 19;
-            this.editContact_btn.Text = "Edit Contact";
-            this.editContact_btn.UseVisualStyleBackColor = true;
             // 
             // BabyTracker
             // 
@@ -1184,11 +1190,11 @@
             this.appointmentsPanel.PerformLayout();
             this.doctorContactsPanel.ResumeLayout(false);
             this.doctorContactsPanel.PerformLayout();
-            this.growthStatsPanel.ResumeLayout(false);
-            this.growthStatsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).EndInit();
             this.contactEntryEditBox.ResumeLayout(false);
             this.contactEntryEditBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).EndInit();
+            this.growthStatsPanel.ResumeLayout(false);
+            this.growthStatsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1277,7 +1283,6 @@
         private System.Windows.Forms.TextBox docCity_tbox;
         private System.Windows.Forms.Label docCityStZip_lb;
         private System.Windows.Forms.TextBox docAddress1_tbox;
-        private System.Windows.Forms.TextBox docAddress2_tbox;
         private System.Windows.Forms.Label docAddress_lb;
         private System.Windows.Forms.TextBox docFirstName_tbox;
         private System.Windows.Forms.TextBox docLastName_tbox;
@@ -1291,6 +1296,7 @@
         private System.Windows.Forms.Button editContact_btn;
         private System.Windows.Forms.Button deleteContact_btn;
         private System.Windows.Forms.Button newContact_btn;
+        private System.Windows.Forms.Label zipcode_lb;
     }
 }
 
