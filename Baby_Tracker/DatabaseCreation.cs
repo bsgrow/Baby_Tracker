@@ -81,10 +81,15 @@ namespace Baby_Tracker
 
         string sqlDoctorContactTable = @"CREATE TABLE DoctorContacts (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-				Name VARCHAR(200) NOT NULL,
-				PhoneNumber INTEGER NOT NULL,
-				Email VARCHAR(200) NOT NULL,
-				Address VARCHAR(400) NULL
+				OfficeName VARCHAR(200) NULL,
+                FirstName VARCHAR(200) NULL,
+                LastName VARCHAR(200) NULL,
+                Address VARCHAR(200) NULL,
+                City VARCHAR(200) NULL,
+                State VARCHAR(200) NULL,
+                ZipCode INTEGER NULL,
+				PhoneNumber INTEGER NULL,
+				Email VARCHAR(200) NULL
 				)";
 
 

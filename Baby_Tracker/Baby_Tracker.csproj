@@ -120,6 +120,7 @@
       <DependentUpon>BabyUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseCreation.cs" />
+    <Compile Include="DoctorContacts.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

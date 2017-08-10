@@ -34,6 +34,7 @@ namespace Baby_Tracker
             InitializeComponent();
             comboBoxNameRetrival();
             weightDataTable();
+            doctorContactDataTable();
 
         }
 
@@ -342,6 +343,29 @@ namespace Baby_Tracker
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
+        ///
+        /// Doctor Contacts
+        /// 
+
+
+        public void doctorContactDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM DoctorContacts", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    doctorContactTable.DataSource = dt;
+                    this.doctorContactTable.Columns[0].Visible = false;
+                   
+                }
             }
         }
     }
