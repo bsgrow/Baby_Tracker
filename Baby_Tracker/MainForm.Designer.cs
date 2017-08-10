@@ -31,6 +31,18 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BabyTracker));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +138,12 @@
             this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.growthStatsPanel = new System.Windows.Forms.Panel();
             this.growthStatPanel_lb = new System.Windows.Forms.Label();
+            this.measurementDatatable = new System.Windows.Forms.DataGridView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -143,6 +161,11 @@
             this.contactEntryEditBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).BeginInit();
             this.growthStatsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -806,6 +829,12 @@
             // measurementsPanel
             // 
             this.measurementsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.measurementsPanel.Controls.Add(this.groupBox1);
+            this.measurementsPanel.Controls.Add(this.chart4);
+            this.measurementsPanel.Controls.Add(this.chart3);
+            this.measurementsPanel.Controls.Add(this.chart2);
+            this.measurementsPanel.Controls.Add(this.chart1);
+            this.measurementsPanel.Controls.Add(this.measurementDatatable);
             this.measurementsPanel.Controls.Add(this.measurementsPanel_lb);
             this.measurementsPanel.Location = new System.Drawing.Point(277, 31);
             this.measurementsPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -817,7 +846,7 @@
             // 
             this.measurementsPanel_lb.AutoSize = true;
             this.measurementsPanel_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measurementsPanel_lb.Location = new System.Drawing.Point(440, 17);
+            this.measurementsPanel_lb.Location = new System.Drawing.Point(472, 3);
             this.measurementsPanel_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.measurementsPanel_lb.Name = "measurementsPanel_lb";
             this.measurementsPanel_lb.Size = new System.Drawing.Size(324, 52);
@@ -1141,6 +1170,92 @@
             this.growthStatPanel_lb.TabIndex = 0;
             this.growthStatPanel_lb.Text = "Growth Statistics";
             // 
+            // measurementDatatable
+            // 
+            this.measurementDatatable.AllowUserToAddRows = false;
+            this.measurementDatatable.AllowUserToDeleteRows = false;
+            this.measurementDatatable.AllowUserToResizeRows = false;
+            this.measurementDatatable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.measurementDatatable.Location = new System.Drawing.Point(87, 69);
+            this.measurementDatatable.Name = "measurementDatatable";
+            this.measurementDatatable.RowTemplate.Height = 24;
+            this.measurementDatatable.Size = new System.Drawing.Size(1106, 341);
+            this.measurementDatatable.TabIndex = 1;
+            // 
+            // chart1
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
+            this.chart1.Location = new System.Drawing.Point(57, 449);
+            this.chart1.Name = "chart1";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart1.Series.Add(series5);
+            this.chart1.Size = new System.Drawing.Size(371, 205);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            // 
+            // chart2
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
+            this.chart2.Location = new System.Drawing.Point(461, 449);
+            this.chart2.Name = "chart2";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart2.Series.Add(series4);
+            this.chart2.Size = new System.Drawing.Size(371, 205);
+            this.chart2.TabIndex = 3;
+            this.chart2.Text = "chart2";
+            // 
+            // chart3
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart3.Legends.Add(legend3);
+            this.chart3.Location = new System.Drawing.Point(57, 687);
+            this.chart3.Name = "chart3";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart3.Series.Add(series3);
+            this.chart3.Size = new System.Drawing.Size(371, 205);
+            this.chart3.TabIndex = 4;
+            this.chart3.Text = "chart3";
+            // 
+            // chart4
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart4.Legends.Add(legend2);
+            this.chart4.Location = new System.Drawing.Point(461, 686);
+            this.chart4.Name = "chart4";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart4.Series.Add(series2);
+            this.chart4.Size = new System.Drawing.Size(371, 205);
+            this.chart4.TabIndex = 5;
+            this.chart4.Text = "chart4";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(869, 449);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(393, 427);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Measurements New/Edit";
+            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1150,14 +1265,14 @@
             this.ClientSize = new System.Drawing.Size(1581, 953);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.mainMenuStrip);
-            this.Controls.Add(this.doctorContactsPanel);
-            this.Controls.Add(this.appointmentsPanel);
             this.Controls.Add(this.measurementsPanel);
             this.Controls.Add(this.testPanel);
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.medicationsPanel);
             this.Controls.Add(this.immunizationsPanel);
             this.Controls.Add(this.growthStatsPanel);
+            this.Controls.Add(this.doctorContactsPanel);
+            this.Controls.Add(this.appointmentsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
@@ -1195,6 +1310,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).EndInit();
             this.growthStatsPanel.ResumeLayout(false);
             this.growthStatsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1297,6 +1417,12 @@
         private System.Windows.Forms.Button deleteContact_btn;
         private System.Windows.Forms.Button newContact_btn;
         private System.Windows.Forms.Label zipcode_lb;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataGridView measurementDatatable;
     }
 }
 
