@@ -31,18 +31,19 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BabyTracker));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,6 +106,25 @@
             this.deleteWeight_btn = new System.Windows.Forms.Button();
             this.weightPanel_lb = new System.Windows.Forms.Label();
             this.measurementsPanel = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.measurementsHead_tbox = new System.Windows.Forms.TextBox();
+            this.measurementsHips_tbox = new System.Windows.Forms.TextBox();
+            this.measurementsChest_tbox = new System.Windows.Forms.TextBox();
+            this.measurementsWaist_tbox = new System.Windows.Forms.TextBox();
+            this.measurementsLength_tbox = new System.Windows.Forms.TextBox();
+            this.measurementEdit_btn = new System.Windows.Forms.Button();
+            this.measurementsDelete_btn = new System.Windows.Forms.Button();
+            this.newMeasurement_btn = new System.Windows.Forms.Button();
+            this.waist_lb = new System.Windows.Forms.Label();
+            this.head_lb = new System.Windows.Forms.Label();
+            this.chest_lb = new System.Windows.Forms.Label();
+            this.hips_lb = new System.Windows.Forms.Label();
+            this.length_lb = new System.Windows.Forms.Label();
+            this.measurementsChestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.measurementsHeadChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.measurementsWaistChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.measurementsLengthChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.measurementDatatable = new System.Windows.Forms.DataGridView();
             this.measurementsPanel_lb = new System.Windows.Forms.Label();
             this.immunizationsPanel = new System.Windows.Forms.Panel();
             this.immunizationsPanel_lb = new System.Windows.Forms.Label();
@@ -113,6 +133,8 @@
             this.appointmentsPanel = new System.Windows.Forms.Panel();
             this.appointmentsPanel_lb = new System.Windows.Forms.Label();
             this.doctorContactsPanel = new System.Windows.Forms.Panel();
+            this.doctorContactTable = new System.Windows.Forms.DataGridView();
+            this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.contactEntryEditBox = new System.Windows.Forms.GroupBox();
             this.zipcode_lb = new System.Windows.Forms.Label();
             this.editContact_btn = new System.Windows.Forms.Button();
@@ -134,29 +156,8 @@
             this.docOfficeName_lb = new System.Windows.Forms.Label();
             this.docLastName_lb = new System.Windows.Forms.Label();
             this.docFirstName_lb = new System.Windows.Forms.Label();
-            this.doctorContactTable = new System.Windows.Forms.DataGridView();
-            this.doctorContactsPanel_lb = new System.Windows.Forms.Label();
             this.growthStatsPanel = new System.Windows.Forms.Panel();
             this.growthStatPanel_lb = new System.Windows.Forms.Label();
-            this.measurementDatatable = new System.Windows.Forms.DataGridView();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.length_lb = new System.Windows.Forms.Label();
-            this.hips_lb = new System.Windows.Forms.Label();
-            this.chest_lb = new System.Windows.Forms.Label();
-            this.head_lb = new System.Windows.Forms.Label();
-            this.waist_lb = new System.Windows.Forms.Label();
-            this.newMeasurement_btn = new System.Windows.Forms.Button();
-            this.measurementsDelete_btn = new System.Windows.Forms.Button();
-            this.measurementEdit_btn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -167,19 +168,19 @@
             this.weightStatistics_Box.SuspendLayout();
             this.weightEntry_gbox.SuspendLayout();
             this.measurementsPanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsChestChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsHeadChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsWaistChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsLengthChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).BeginInit();
             this.immunizationsPanel.SuspendLayout();
             this.medicationsPanel.SuspendLayout();
             this.appointmentsPanel.SuspendLayout();
             this.doctorContactsPanel.SuspendLayout();
-            this.contactEntryEditBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).BeginInit();
+            this.contactEntryEditBox.SuspendLayout();
             this.growthStatsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -844,10 +845,10 @@
             // 
             this.measurementsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.measurementsPanel.Controls.Add(this.groupBox1);
-            this.measurementsPanel.Controls.Add(this.chart4);
-            this.measurementsPanel.Controls.Add(this.chart3);
-            this.measurementsPanel.Controls.Add(this.chart2);
-            this.measurementsPanel.Controls.Add(this.chart1);
+            this.measurementsPanel.Controls.Add(this.measurementsChestChart);
+            this.measurementsPanel.Controls.Add(this.measurementsHeadChart);
+            this.measurementsPanel.Controls.Add(this.measurementsWaistChart);
+            this.measurementsPanel.Controls.Add(this.measurementsLengthChart);
             this.measurementsPanel.Controls.Add(this.measurementDatatable);
             this.measurementsPanel.Controls.Add(this.measurementsPanel_lb);
             this.measurementsPanel.Location = new System.Drawing.Point(277, 31);
@@ -855,6 +856,233 @@
             this.measurementsPanel.Name = "measurementsPanel";
             this.measurementsPanel.Size = new System.Drawing.Size(1298, 918);
             this.measurementsPanel.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.measurementsHead_tbox);
+            this.groupBox1.Controls.Add(this.measurementsHips_tbox);
+            this.groupBox1.Controls.Add(this.measurementsChest_tbox);
+            this.groupBox1.Controls.Add(this.measurementsWaist_tbox);
+            this.groupBox1.Controls.Add(this.measurementsLength_tbox);
+            this.groupBox1.Controls.Add(this.measurementEdit_btn);
+            this.groupBox1.Controls.Add(this.measurementsDelete_btn);
+            this.groupBox1.Controls.Add(this.newMeasurement_btn);
+            this.groupBox1.Controls.Add(this.waist_lb);
+            this.groupBox1.Controls.Add(this.head_lb);
+            this.groupBox1.Controls.Add(this.chest_lb);
+            this.groupBox1.Controls.Add(this.hips_lb);
+            this.groupBox1.Controls.Add(this.length_lb);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(869, 449);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(393, 427);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Measurements New/Edit";
+            // 
+            // measurementsHead_tbox
+            // 
+            this.measurementsHead_tbox.Location = new System.Drawing.Point(111, 110);
+            this.measurementsHead_tbox.Name = "measurementsHead_tbox";
+            this.measurementsHead_tbox.Size = new System.Drawing.Size(250, 28);
+            this.measurementsHead_tbox.TabIndex = 12;
+            // 
+            // measurementsHips_tbox
+            // 
+            this.measurementsHips_tbox.Location = new System.Drawing.Point(111, 289);
+            this.measurementsHips_tbox.Name = "measurementsHips_tbox";
+            this.measurementsHips_tbox.Size = new System.Drawing.Size(250, 28);
+            this.measurementsHips_tbox.TabIndex = 11;
+            // 
+            // measurementsChest_tbox
+            // 
+            this.measurementsChest_tbox.Location = new System.Drawing.Point(111, 233);
+            this.measurementsChest_tbox.Name = "measurementsChest_tbox";
+            this.measurementsChest_tbox.Size = new System.Drawing.Size(250, 28);
+            this.measurementsChest_tbox.TabIndex = 10;
+            // 
+            // measurementsWaist_tbox
+            // 
+            this.measurementsWaist_tbox.Location = new System.Drawing.Point(111, 168);
+            this.measurementsWaist_tbox.Name = "measurementsWaist_tbox";
+            this.measurementsWaist_tbox.Size = new System.Drawing.Size(250, 28);
+            this.measurementsWaist_tbox.TabIndex = 9;
+            // 
+            // measurementsLength_tbox
+            // 
+            this.measurementsLength_tbox.Location = new System.Drawing.Point(111, 55);
+            this.measurementsLength_tbox.Name = "measurementsLength_tbox";
+            this.measurementsLength_tbox.Size = new System.Drawing.Size(250, 28);
+            this.measurementsLength_tbox.TabIndex = 8;
+            // 
+            // measurementEdit_btn
+            // 
+            this.measurementEdit_btn.Location = new System.Drawing.Point(156, 378);
+            this.measurementEdit_btn.Name = "measurementEdit_btn";
+            this.measurementEdit_btn.Size = new System.Drawing.Size(85, 35);
+            this.measurementEdit_btn.TabIndex = 7;
+            this.measurementEdit_btn.Text = "Edit";
+            this.measurementEdit_btn.UseVisualStyleBackColor = true;
+            this.measurementEdit_btn.Click += new System.EventHandler(this.measurementEdit_btn_Click);
+            // 
+            // measurementsDelete_btn
+            // 
+            this.measurementsDelete_btn.Location = new System.Drawing.Point(267, 378);
+            this.measurementsDelete_btn.Name = "measurementsDelete_btn";
+            this.measurementsDelete_btn.Size = new System.Drawing.Size(85, 35);
+            this.measurementsDelete_btn.TabIndex = 6;
+            this.measurementsDelete_btn.Text = "Delete";
+            this.measurementsDelete_btn.UseVisualStyleBackColor = true;
+            this.measurementsDelete_btn.Click += new System.EventHandler(this.measurementsDelete_btn_Click);
+            // 
+            // newMeasurement_btn
+            // 
+            this.newMeasurement_btn.Location = new System.Drawing.Point(45, 378);
+            this.newMeasurement_btn.Name = "newMeasurement_btn";
+            this.newMeasurement_btn.Size = new System.Drawing.Size(85, 35);
+            this.newMeasurement_btn.TabIndex = 5;
+            this.newMeasurement_btn.Text = "New";
+            this.newMeasurement_btn.UseVisualStyleBackColor = true;
+            this.newMeasurement_btn.Click += new System.EventHandler(this.newMeasurement_btn_Click);
+            // 
+            // waist_lb
+            // 
+            this.waist_lb.AutoSize = true;
+            this.waist_lb.Location = new System.Drawing.Point(40, 113);
+            this.waist_lb.Name = "waist_lb";
+            this.waist_lb.Size = new System.Drawing.Size(60, 24);
+            this.waist_lb.TabIndex = 4;
+            this.waist_lb.Text = "Waist:";
+            // 
+            // head_lb
+            // 
+            this.head_lb.AutoSize = true;
+            this.head_lb.Location = new System.Drawing.Point(40, 171);
+            this.head_lb.Name = "head_lb";
+            this.head_lb.Size = new System.Drawing.Size(61, 24);
+            this.head_lb.TabIndex = 3;
+            this.head_lb.Text = "Head:";
+            // 
+            // chest_lb
+            // 
+            this.chest_lb.AutoSize = true;
+            this.chest_lb.Location = new System.Drawing.Point(40, 233);
+            this.chest_lb.Name = "chest_lb";
+            this.chest_lb.Size = new System.Drawing.Size(63, 24);
+            this.chest_lb.TabIndex = 2;
+            this.chest_lb.Text = "Chest:";
+            // 
+            // hips_lb
+            // 
+            this.hips_lb.AutoSize = true;
+            this.hips_lb.Location = new System.Drawing.Point(40, 292);
+            this.hips_lb.Name = "hips_lb";
+            this.hips_lb.Size = new System.Drawing.Size(53, 24);
+            this.hips_lb.TabIndex = 1;
+            this.hips_lb.Text = "Hips:";
+            // 
+            // length_lb
+            // 
+            this.length_lb.AutoSize = true;
+            this.length_lb.Location = new System.Drawing.Point(31, 54);
+            this.length_lb.Name = "length_lb";
+            this.length_lb.Size = new System.Drawing.Size(73, 24);
+            this.length_lb.TabIndex = 0;
+            this.length_lb.Text = "Length:";
+            // 
+            // measurementsChestChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.measurementsChestChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.measurementsChestChart.Legends.Add(legend2);
+            this.measurementsChestChart.Location = new System.Drawing.Point(461, 686);
+            this.measurementsChestChart.Name = "measurementsChestChart";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Chest";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.measurementsChestChart.Series.Add(series2);
+            this.measurementsChestChart.Size = new System.Drawing.Size(371, 205);
+            this.measurementsChestChart.TabIndex = 5;
+            this.measurementsChestChart.Text = "chart4";
+            // 
+            // measurementsHeadChart
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.measurementsHeadChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.measurementsHeadChart.Legends.Add(legend3);
+            this.measurementsHeadChart.Location = new System.Drawing.Point(57, 687);
+            this.measurementsHeadChart.Name = "measurementsHeadChart";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Head";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.measurementsHeadChart.Series.Add(series3);
+            this.measurementsHeadChart.Size = new System.Drawing.Size(371, 205);
+            this.measurementsHeadChart.TabIndex = 4;
+            this.measurementsHeadChart.Text = "chart3";
+            // 
+            // measurementsWaistChart
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.measurementsWaistChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.measurementsWaistChart.Legends.Add(legend4);
+            this.measurementsWaistChart.Location = new System.Drawing.Point(461, 449);
+            this.measurementsWaistChart.Name = "measurementsWaistChart";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Waist";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.measurementsWaistChart.Series.Add(series4);
+            this.measurementsWaistChart.Size = new System.Drawing.Size(371, 205);
+            this.measurementsWaistChart.TabIndex = 3;
+            this.measurementsWaistChart.Text = "chart2";
+            // 
+            // measurementsLengthChart
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.measurementsLengthChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.measurementsLengthChart.Legends.Add(legend5);
+            this.measurementsLengthChart.Location = new System.Drawing.Point(57, 449);
+            this.measurementsLengthChart.Name = "measurementsLengthChart";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Length";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.measurementsLengthChart.Series.Add(series5);
+            this.measurementsLengthChart.Size = new System.Drawing.Size(371, 205);
+            this.measurementsLengthChart.TabIndex = 2;
+            this.measurementsLengthChart.Text = "Length";
+            title1.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title1.DockedToChartArea = "ChartArea1";
+            title1.Name = "Length";
+            this.measurementsLengthChart.Titles.Add(title1);
+            // 
+            // measurementDatatable
+            // 
+            this.measurementDatatable.AllowUserToAddRows = false;
+            this.measurementDatatable.AllowUserToDeleteRows = false;
+            this.measurementDatatable.AllowUserToResizeRows = false;
+            this.measurementDatatable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.measurementDatatable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.measurementDatatable.Location = new System.Drawing.Point(87, 69);
+            this.measurementDatatable.Name = "measurementDatatable";
+            this.measurementDatatable.RowTemplate.Height = 24;
+            this.measurementDatatable.Size = new System.Drawing.Size(1106, 341);
+            this.measurementDatatable.TabIndex = 1;
+            this.measurementDatatable.Click += new System.EventHandler(this.measurementDatatable_Click);
             // 
             // measurementsPanel_lb
             // 
@@ -933,14 +1161,38 @@
             // doctorContactsPanel
             // 
             this.doctorContactsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.doctorContactsPanel.Controls.Add(this.contactEntryEditBox);
             this.doctorContactsPanel.Controls.Add(this.doctorContactTable);
             this.doctorContactsPanel.Controls.Add(this.doctorContactsPanel_lb);
+            this.doctorContactsPanel.Controls.Add(this.contactEntryEditBox);
             this.doctorContactsPanel.Location = new System.Drawing.Point(277, 31);
             this.doctorContactsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.doctorContactsPanel.Name = "doctorContactsPanel";
             this.doctorContactsPanel.Size = new System.Drawing.Size(1298, 918);
             this.doctorContactsPanel.TabIndex = 1;
+            // 
+            // doctorContactTable
+            // 
+            this.doctorContactTable.AllowUserToAddRows = false;
+            this.doctorContactTable.AllowUserToDeleteRows = false;
+            this.doctorContactTable.AllowUserToResizeRows = false;
+            this.doctorContactTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.doctorContactTable.Location = new System.Drawing.Point(39, 86);
+            this.doctorContactTable.Name = "doctorContactTable";
+            this.doctorContactTable.RowTemplate.Height = 24;
+            this.doctorContactTable.Size = new System.Drawing.Size(1223, 457);
+            this.doctorContactTable.TabIndex = 1;
+            this.doctorContactTable.Click += new System.EventHandler(this.doctorContactTable_Click);
+            // 
+            // doctorContactsPanel_lb
+            // 
+            this.doctorContactsPanel_lb.AutoSize = true;
+            this.doctorContactsPanel_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorContactsPanel_lb.Location = new System.Drawing.Point(472, 14);
+            this.doctorContactsPanel_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.doctorContactsPanel_lb.Name = "doctorContactsPanel_lb";
+            this.doctorContactsPanel_lb.Size = new System.Drawing.Size(351, 52);
+            this.doctorContactsPanel_lb.TabIndex = 0;
+            this.doctorContactsPanel_lb.Text = "Doctor Contacts";
             // 
             // contactEntryEditBox
             // 
@@ -1139,30 +1391,6 @@
             this.docFirstName_lb.TabIndex = 0;
             this.docFirstName_lb.Text = "First Name:";
             // 
-            // doctorContactTable
-            // 
-            this.doctorContactTable.AllowUserToAddRows = false;
-            this.doctorContactTable.AllowUserToDeleteRows = false;
-            this.doctorContactTable.AllowUserToResizeRows = false;
-            this.doctorContactTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.doctorContactTable.Location = new System.Drawing.Point(39, 86);
-            this.doctorContactTable.Name = "doctorContactTable";
-            this.doctorContactTable.RowTemplate.Height = 24;
-            this.doctorContactTable.Size = new System.Drawing.Size(1223, 457);
-            this.doctorContactTable.TabIndex = 1;
-            this.doctorContactTable.Click += new System.EventHandler(this.doctorContactTable_Click);
-            // 
-            // doctorContactsPanel_lb
-            // 
-            this.doctorContactsPanel_lb.AutoSize = true;
-            this.doctorContactsPanel_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorContactsPanel_lb.Location = new System.Drawing.Point(472, 14);
-            this.doctorContactsPanel_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.doctorContactsPanel_lb.Name = "doctorContactsPanel_lb";
-            this.doctorContactsPanel_lb.Size = new System.Drawing.Size(351, 52);
-            this.doctorContactsPanel_lb.TabIndex = 0;
-            this.doctorContactsPanel_lb.Text = "Doctor Contacts";
-            // 
             // growthStatsPanel
             // 
             this.growthStatsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1183,212 +1411,6 @@
             this.growthStatPanel_lb.Size = new System.Drawing.Size(368, 52);
             this.growthStatPanel_lb.TabIndex = 0;
             this.growthStatPanel_lb.Text = "Growth Statistics";
-            // 
-            // measurementDatatable
-            // 
-            this.measurementDatatable.AllowUserToAddRows = false;
-            this.measurementDatatable.AllowUserToDeleteRows = false;
-            this.measurementDatatable.AllowUserToResizeRows = false;
-            this.measurementDatatable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.measurementDatatable.Location = new System.Drawing.Point(87, 69);
-            this.measurementDatatable.Name = "measurementDatatable";
-            this.measurementDatatable.RowTemplate.Height = 24;
-            this.measurementDatatable.Size = new System.Drawing.Size(1106, 341);
-            this.measurementDatatable.TabIndex = 1;
-            // 
-            // chart1
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(57, 449);
-            this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(371, 205);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
-            // 
-            // chart2
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(461, 449);
-            this.chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart2.Series.Add(series4);
-            this.chart2.Size = new System.Drawing.Size(371, 205);
-            this.chart2.TabIndex = 3;
-            this.chart2.Text = "chart2";
-            // 
-            // chart3
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(57, 687);
-            this.chart3.Name = "chart3";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(371, 205);
-            this.chart3.TabIndex = 4;
-            this.chart3.Text = "chart3";
-            // 
-            // chart4
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart4.Legends.Add(legend2);
-            this.chart4.Location = new System.Drawing.Point(461, 686);
-            this.chart4.Name = "chart4";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart4.Series.Add(series2);
-            this.chart4.Size = new System.Drawing.Size(371, 205);
-            this.chart4.TabIndex = 5;
-            this.chart4.Text = "chart4";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.measurementEdit_btn);
-            this.groupBox1.Controls.Add(this.measurementsDelete_btn);
-            this.groupBox1.Controls.Add(this.newMeasurement_btn);
-            this.groupBox1.Controls.Add(this.waist_lb);
-            this.groupBox1.Controls.Add(this.head_lb);
-            this.groupBox1.Controls.Add(this.chest_lb);
-            this.groupBox1.Controls.Add(this.hips_lb);
-            this.groupBox1.Controls.Add(this.length_lb);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(869, 449);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(393, 427);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Measurements New/Edit";
-            // 
-            // length_lb
-            // 
-            this.length_lb.AutoSize = true;
-            this.length_lb.Location = new System.Drawing.Point(31, 54);
-            this.length_lb.Name = "length_lb";
-            this.length_lb.Size = new System.Drawing.Size(73, 24);
-            this.length_lb.TabIndex = 0;
-            this.length_lb.Text = "Length:";
-            // 
-            // hips_lb
-            // 
-            this.hips_lb.AutoSize = true;
-            this.hips_lb.Location = new System.Drawing.Point(40, 292);
-            this.hips_lb.Name = "hips_lb";
-            this.hips_lb.Size = new System.Drawing.Size(53, 24);
-            this.hips_lb.TabIndex = 1;
-            this.hips_lb.Text = "Hips:";
-            // 
-            // chest_lb
-            // 
-            this.chest_lb.AutoSize = true;
-            this.chest_lb.Location = new System.Drawing.Point(40, 233);
-            this.chest_lb.Name = "chest_lb";
-            this.chest_lb.Size = new System.Drawing.Size(63, 24);
-            this.chest_lb.TabIndex = 2;
-            this.chest_lb.Text = "Chest:";
-            // 
-            // head_lb
-            // 
-            this.head_lb.AutoSize = true;
-            this.head_lb.Location = new System.Drawing.Point(40, 171);
-            this.head_lb.Name = "head_lb";
-            this.head_lb.Size = new System.Drawing.Size(61, 24);
-            this.head_lb.TabIndex = 3;
-            this.head_lb.Text = "Head:";
-            // 
-            // waist_lb
-            // 
-            this.waist_lb.AutoSize = true;
-            this.waist_lb.Location = new System.Drawing.Point(40, 113);
-            this.waist_lb.Name = "waist_lb";
-            this.waist_lb.Size = new System.Drawing.Size(60, 24);
-            this.waist_lb.TabIndex = 4;
-            this.waist_lb.Text = "Waist:";
-            // 
-            // newMeasurement_btn
-            // 
-            this.newMeasurement_btn.Location = new System.Drawing.Point(45, 378);
-            this.newMeasurement_btn.Name = "newMeasurement_btn";
-            this.newMeasurement_btn.Size = new System.Drawing.Size(85, 35);
-            this.newMeasurement_btn.TabIndex = 5;
-            this.newMeasurement_btn.Text = "New";
-            this.newMeasurement_btn.UseVisualStyleBackColor = true;
-            // 
-            // measurementsDelete_btn
-            // 
-            this.measurementsDelete_btn.Location = new System.Drawing.Point(267, 378);
-            this.measurementsDelete_btn.Name = "measurementsDelete_btn";
-            this.measurementsDelete_btn.Size = new System.Drawing.Size(85, 35);
-            this.measurementsDelete_btn.TabIndex = 6;
-            this.measurementsDelete_btn.Text = "Delete";
-            this.measurementsDelete_btn.UseVisualStyleBackColor = true;
-            // 
-            // measurementEdit_btn
-            // 
-            this.measurementEdit_btn.Location = new System.Drawing.Point(156, 378);
-            this.measurementEdit_btn.Name = "measurementEdit_btn";
-            this.measurementEdit_btn.Size = new System.Drawing.Size(85, 35);
-            this.measurementEdit_btn.TabIndex = 7;
-            this.measurementEdit_btn.Text = "Edit";
-            this.measurementEdit_btn.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(111, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 28);
-            this.textBox1.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(111, 168);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 28);
-            this.textBox2.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(111, 233);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 28);
-            this.textBox3.TabIndex = 10;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(111, 289);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 28);
-            this.textBox4.TabIndex = 11;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(111, 110);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 28);
-            this.textBox5.TabIndex = 12;
             // 
             // BabyTracker
             // 
@@ -1431,6 +1453,13 @@
             this.weightEntry_gbox.PerformLayout();
             this.measurementsPanel.ResumeLayout(false);
             this.measurementsPanel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsChestChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsHeadChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsWaistChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementsLengthChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).EndInit();
             this.immunizationsPanel.ResumeLayout(false);
             this.immunizationsPanel.PerformLayout();
             this.medicationsPanel.ResumeLayout(false);
@@ -1439,18 +1468,11 @@
             this.appointmentsPanel.PerformLayout();
             this.doctorContactsPanel.ResumeLayout(false);
             this.doctorContactsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).EndInit();
             this.contactEntryEditBox.ResumeLayout(false);
             this.contactEntryEditBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).EndInit();
             this.growthStatsPanel.ResumeLayout(false);
             this.growthStatsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1554,16 +1576,16 @@
         private System.Windows.Forms.Button newContact_btn;
         private System.Windows.Forms.Label zipcode_lb;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart measurementsChestChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart measurementsHeadChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart measurementsWaistChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart measurementsLengthChart;
         private System.Windows.Forms.DataGridView measurementDatatable;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox measurementsHead_tbox;
+        private System.Windows.Forms.TextBox measurementsHips_tbox;
+        private System.Windows.Forms.TextBox measurementsChest_tbox;
+        private System.Windows.Forms.TextBox measurementsWaist_tbox;
+        private System.Windows.Forms.TextBox measurementsLength_tbox;
         private System.Windows.Forms.Button measurementEdit_btn;
         private System.Windows.Forms.Button measurementsDelete_btn;
         private System.Windows.Forms.Button newMeasurement_btn;

@@ -21,7 +21,7 @@ namespace Baby_Tracker
         ReportExports reportExports = new ReportExports();
         Weight weightClass = new Weight();
         DoctorContacts doctorContacts = new DoctorContacts();
-        Measurements mesurementsClass = new Measurements();
+        Measurements measurementsClass = new Measurements();
 
         //Allows for the weight and baby to be called in other classes for data entry
         public static string babyName = ""; //declares the baby name from the main combobox in the left panel
@@ -59,6 +59,7 @@ namespace Baby_Tracker
             comboBoxNameRetrival();
             weightDataTable();
             doctorContactDataTable();
+            measurementDataTable();
 
         }
 
@@ -169,6 +170,10 @@ namespace Baby_Tracker
                     userImage_box.Image = Image.FromFile(result);
                     weightDataTable();
                     weightPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Weight";
+                    measurementDataTable();
+                    measurementsPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Measurements";
+
+
 
                 }
             }
@@ -371,7 +376,7 @@ namespace Baby_Tracker
             }
             catch(Exception ex)
             {
-                MessageBox.Show("There was an error in loading Chart!");
+                MessageBox.Show("There was an error in loading Chart!" +ex);
             }
         }
 
@@ -545,12 +550,13 @@ namespace Baby_Tracker
             DataTable dt = new DataTable();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM Measurements", connection))
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Length, Waist, Head, Chest, Hips FROM Measurements where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
                     dt.Clear();
                     da.Fill(dt);
                     measurementDatatable.DataSource = dt;
                     this.measurementDatatable.Columns[0].Visible = false;
+                    measurementChartMethod();
                 }
             }
         }
@@ -599,9 +605,60 @@ namespace Baby_Tracker
             }
             catch(Exception ex)
             {
-                MessageBox.Show("There was an error in loading Charts!");
+                MessageBox.Show("There was an error in loading Charts!" +ex);
             }
         }
-        
+
+
+        /*
+         * When a row is clicked in the table in the panel, this allows for the information
+         * from those cells selected in the row to be collected and then displayed in the
+         * textboxs.
+         */
+        private void measurementDatatable_Click(object sender, EventArgs e)
+        {
+            measurementsID = Convert.ToInt32(measurementDatatable.CurrentRow.Cells[0].Value.ToString());
+            measurementsLength_tbox.Text = measurementDatatable.CurrentRow.Cells[1].Value.ToString();
+            measurementsWaist_tbox.Text = measurementDatatable.CurrentRow.Cells[2].Value.ToString();
+            measurementsHead_tbox.Text = measurementDatatable.CurrentRow.Cells[3].Value.ToString();
+            measurementsChest_tbox.Text = measurementDatatable.CurrentRow.Cells[4].Value.ToString();
+            measurementsHips_tbox.Text = measurementDatatable.CurrentRow.Cells[5].Value.ToString();
+
+
+        }
+
+        private void newMeasurement_btn_Click(object sender, EventArgs e)
+        {
+            measurementsLength = measurementsLength_tbox.Text;
+            measurementsWaist = measurementsWaist_tbox.Text;
+            measurementsHead = measurementsHead_tbox.Text;
+            measurementsChest = measurementsChest_tbox.Text;
+            measurementsHips = measurementsHips_tbox.Text;
+            measurementsClass.addMeasurements();
+            measurementDataTable();
+            measurementChartMethod();
+            clearMeasurementTextboxes();
+        }
+
+        private void measurementEdit_btn_Click(object sender, EventArgs e)
+        {
+            measurementsLength = measurementsLength_tbox.Text;
+            measurementsWaist = measurementsWaist_tbox.Text;
+            measurementsHead = measurementsHead_tbox.Text;
+            measurementsChest = measurementsChest_tbox.Text;
+            measurementsHips = measurementsHips_tbox.Text;
+            measurementsClass.updateMeasurements();
+            measurementDataTable();
+            measurementChartMethod();
+            clearMeasurementTextboxes();
+        }
+
+        private void measurementsDelete_btn_Click(object sender, EventArgs e)
+        {
+            measurementsClass.deleteMeasurements();
+            measurementDataTable();
+            measurementChartMethod();
+            clearMeasurementTextboxes();
+        }
     }
 }

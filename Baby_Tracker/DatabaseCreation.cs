@@ -50,7 +50,8 @@ namespace Baby_Tracker
 				Waist INTEGER NULL,
 				Head INTEGER NULL,
 				Chest INTEGER NULL,
-				Hips INTEGER NULL
+				Hips INTEGER NULL,
+                BabyID VARCHAR(50) NOT NULL
 				)";
 
         string sqlImmunizationsTable = @"CREATE TABLE Immunizations (
