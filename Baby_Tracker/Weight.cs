@@ -10,9 +10,8 @@ namespace Baby_Tracker
 {
     class Weight
     {
-
+        //Database Connection String
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-
 
         //Variable Declarations for statistics
         public static string averageWeight = "0";
@@ -21,8 +20,6 @@ namespace Baby_Tracker
         public static string lastWeight = "0";
         public static string lastDate = "0";
         public static string gainWeight = "0";
-
-
 
 
         /*
@@ -69,6 +66,11 @@ namespace Baby_Tracker
         }
 
 
+        /*
+         * Allows for the Weight row selected to be updated. All the values
+         * are now updated here and if there are blanks, then that is determined
+         * in the MainFrame Form. 
+         */
         public void updateEntry()
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
@@ -79,21 +81,6 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@weight", BabyTracker.weightEntry);
                 command.Parameters.AddWithValue("@date", BabyTracker.dateEntry);
                 command.ExecuteNonQuery();
-            }
-        }
-
-
-        public void weightChart1()
-        {
-            string weightQuery = "";
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-            SQLiteConnection connection = new SQLiteConnection(connectionString);
-            SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
-            connection.Open();
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-
             }
         }
 
@@ -132,32 +119,5 @@ namespace Baby_Tracker
             }
             conn.Close();
         }
-
-
-
-
-        /*
-         * Loads the weight gridviewtable in the weight panel. THis 
-         * is queried based on the name selected from the combobox
-         * on the left panel. This will change the weights based of
-         * of that selection. 
-         *
-        public void weightDataTable()
-        {
-            DataTable dt = new DataTable();
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + BabyTracker.babyName + "'", connection))
-                {
-                    dt.Clear();
-                    da.Fill(dt);
-                    BabyTracker.weightTableView.DataSource = dt;
-                    (BabyTracker.weightTableView).Columns[0].Visible = false;
-                    weightStatistics();
-                    //BabyTracker.weightChartMethod();
-                }
-            }
-        }
-        */
     }
 }
