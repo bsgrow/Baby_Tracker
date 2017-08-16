@@ -21,6 +21,7 @@ namespace Baby_Tracker
         ReportExports reportExports = new ReportExports();
         Weight weightClass = new Weight();
         DoctorContacts doctorContacts = new DoctorContacts();
+        Measurements mesurementsClass = new Measurements();
 
         //Allows for the weight and baby to be called in other classes for data entry
         public static string babyName = ""; //declares the baby name from the main combobox in the left panel
@@ -39,8 +40,16 @@ namespace Baby_Tracker
         public static string zipCodeDoc = "";
         public static string phoneNumDoc = "";
         public static string emailDoc = "";
-
-
+        
+        //Measurement declarations for database
+        public static int measurementsID = 0;
+        public static string measurementsLength = "";
+        public static string measurementsWaist = "";
+        public static string measurementsHead = "";
+        public static string measurementsChest = "";
+        public static string measurementsHips = "";
+        
+        //Database connection string
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
 
@@ -340,6 +349,11 @@ namespace Baby_Tracker
         }
 
 
+         /*
+         * Allows for the data from the database to be displayed the graphs 
+         * shown in the Weigth panel. These data points
+         * are used from the Weight Table in the database.
+         */
         public void weightChartMethod()
         {
             string weightQuery = "SELECT * FROM Weight WHERE BabyID = '"+babyName+"'";
@@ -357,7 +371,7 @@ namespace Baby_Tracker
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("There was an error in loading Chart!");
             }
         }
 
@@ -367,7 +381,13 @@ namespace Baby_Tracker
         /// Doctor Contacts Panel
         /// 
 
-
+        
+        /*
+         * Allows for the doctor contact datatable to be called and then 
+         * the data found there is then loaded into the Datatable in the
+         * Measurements Panel. The first column is not visable in the 
+         * table view itself.
+         */
         public void doctorContactDataTable()
         {
             DataTable dt = new DataTable();
@@ -384,6 +404,14 @@ namespace Baby_Tracker
             }
         }
 
+
+        /*
+         * Allows for a new contact to be entered. There mus tbe an entry for
+         * office name and phone #. Then those entrys are give to a variable
+         * and called in another class to be added to the datatable. Here
+         * all the sections dynamically updated and loaded after the button 
+         * is completed. A message box is display for comformation.
+         */
         private void newContact_btn_Click(object sender, EventArgs e)
         {
 
@@ -409,6 +437,12 @@ namespace Baby_Tracker
             }
         }
 
+
+        /*
+         * When the user selects a row in the table view, then this method allows
+         * for that data to be collected and displayed to the textboxes in the 
+         * contact Panel. 
+         */
         private void doctorContactTable_Click(object sender, EventArgs e)
         {
             if (doctorContactTable.CurrentRow.Index != -1)
@@ -426,6 +460,15 @@ namespace Baby_Tracker
             }
         }
 
+
+        /*
+         * Allows for the selected row to be edited by the user. Office Name
+         * and Office phone # must ahve an entry for the contact to be updated.
+         * Once that is comformed, then the textboxes are saved to a varaible
+         * and then called from another class to save the edits. Then the
+         * contacts are updated and the table is refreshed and the textboxes
+         * are cleared.
+         */
         private void editContact_btn_Click(object sender, EventArgs e)
         {
 
@@ -451,16 +494,26 @@ namespace Baby_Tracker
             }
         }
 
+        
+        /*
+         * Button allows for the correct methods to be called to allow
+         * for a deletion of a selected row in the datatable. Here all
+         * the textboxes and table are then updated dynamically to 
+         * reflex the changes. 
+         */
         private void deleteContact_btn_Click(object sender, EventArgs e)
         {
             doctorContacts.deleteContactEntry();
             doctorContacts.updateContactEntry();
             doctorContactDataTable();
             clearContactTextboxes();
-
-
         }
 
+
+        /*
+         * Allows for the weight panel textboxes to be set
+         * to blank after each computation is completed.
+         */
         public void clearContactTextboxes()
         {
             docOfficeName_tbox.Text = "";
@@ -473,5 +526,82 @@ namespace Baby_Tracker
             docPhone_tbox.Text = "";
             docEmail_tbox.Text = "";
         }
+        
+        
+        
+        ///
+        /// Measurements Panel
+        ///
+        
+        
+        /*
+         * Allows for the measurements datatable to be called and then 
+         * the data found there is then loaded into the Datatable in the
+         * Measurements Panel. The first column is not visable in the 
+         * table view itself.
+         */
+        public void measurementDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM Measurements", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    measurementDatatable.DataSource = dt;
+                    this.measurementDatatable.Columns[0].Visible = false;
+                }
+            }
+        }
+        
+        
+        /*
+         * Allows for the meaurements panel textboxes to be set
+         * to blank after each computation is completed.
+         */
+        public void clearMeasurementTextboxes() 
+        {
+            measurementsLength_tbox.Text = "";
+            measurementsWaist_tbox.Text = "";
+            measurementsHead_tbox.Text = "";
+            measurementsChest_tbox.Text = "";
+            measurementsHips_tbox.Text = "";
+        }
+        
+        
+        /*
+         * Allows for the data from the database to be displayed on all four
+         * of the graphs shown in the Measurements panel. These data points
+         * are used from the Measurements Table in the database.
+         */
+         public void measurementChartMethod()
+        {
+            string weightQuery = "SELECT * FROM Measurements WHERE BabyID = '"+babyName+"'";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
+            try
+            {
+                connection.Open();
+                SQLiteDataReader reader = command.ExecuteReader();
+                measurementsLengthChart.Series["Length"].Points.Clear();
+                measurementsWaistChart.Series["Waist"].Points.Clear();
+                measurementsHeadChart.Series["Head"].Points.Clear();
+                measurementsChestChart.Series["Chest"].Points.Clear();
+                
+                while (reader.Read())
+                {
+                    measurementsLengthChart.Series["Length"].Points.AddXY(reader[0], reader[1]);
+                    measurementsWaistChart.Series["Waist"].Points.AddXY(reader[0], reader[1]);
+                    measurementsHeadChart.Series["Head"].Points.AddXY(reader[0], reader[1]);
+                    measurementsChestChart.Series["Chest"].Points.AddXY(reader[0], reader[1]);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("There was an error in loading Charts!");
+            }
+        }
+        
     }
 }
