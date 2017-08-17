@@ -627,6 +627,13 @@ namespace Baby_Tracker
 
         }
 
+
+        /*
+         * Allows for a new entry to be added to the measruements table on the
+         * panel. This button converts the textbox values to strings and then
+         * the string are then saved into the database table. All method to complete
+         * this process are called from this buttons function.
+         */
         private void newMeasurement_btn_Click(object sender, EventArgs e)
         {
             measurementsLength = measurementsLength_tbox.Text;
@@ -640,6 +647,12 @@ namespace Baby_Tracker
             clearMeasurementTextboxes();
         }
 
+
+        /*
+         * Allows for an edit to be made on a record that has already been enter.
+         * This follows the same procedure as entering a new record, but yet
+         * it is just editing one.
+         */
         private void measurementEdit_btn_Click(object sender, EventArgs e)
         {
             measurementsLength = measurementsLength_tbox.Text;
@@ -653,6 +666,12 @@ namespace Baby_Tracker
             clearMeasurementTextboxes();
         }
 
+    
+        /*
+         * Allows for a record to be deleted from the datbase and also allows
+         * for all charts and table views to refreshed to display the edit 
+         * to the table.
+         */
         private void measurementsDelete_btn_Click(object sender, EventArgs e)
         {
             measurementsClass.deleteMeasurements();
