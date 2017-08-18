@@ -22,6 +22,7 @@ namespace Baby_Tracker
         Weight weightClass = new Weight();
         DoctorContacts doctorContacts = new DoctorContacts();
         Measurements measurementsClass = new Measurements();
+        Medications medicationClass = new Medications();
 
         //Allows for the weight and baby to be called in other classes for data entry
         public static string babyName = ""; //declares the baby name from the main combobox in the left panel
@@ -48,6 +49,17 @@ namespace Baby_Tracker
         public static string measurementsHead = "";
         public static string measurementsChest = "";
         public static string measurementsHips = "";
+        
+        //Medications Declarations for database
+        public static int medicationID = 0;
+        public static string medName = "";
+        public static string medDosage = "";
+        public static string medType = "";
+        public static string medDateStarted = "";
+        public static string medRefill = "";
+        public static string medPharmacy = "";
+        public static string medTakenTime = "";
+        public static string medPrescribingDoc = "";
         
         //Database connection string
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -428,15 +440,7 @@ namespace Baby_Tracker
             }
             else
             {
-                officeNameDoc = docOfficeName_tbox.Text;
-                firstNameDoc = docFirstName_tbox.Text;
-                lastNamedoc = docLastName_tbox.Text;
-                addressDoc = docAddress1_tbox.Text;
-                cityDoc = docCity_tbox.Text;
-                stateDoc = docState_tbox.Text;
-                zipCodeDoc = docZip_tbox.Text;
-                phoneNumDoc = docPhone_tbox.Text;
-                emailDoc = docEmail_tbox.Text;
+                getDoctorContactTextboxes();
                 doctorContacts.newContactEntry();
                 doctorContactDataTable();
                 clearContactTextboxes();
@@ -485,15 +489,7 @@ namespace Baby_Tracker
             }
             else
             {
-                officeNameDoc = docOfficeName_tbox.Text;
-                firstNameDoc = docFirstName_tbox.Text;
-                lastNamedoc = docLastName_tbox.Text;
-                addressDoc = docAddress1_tbox.Text;
-                cityDoc = docCity_tbox.Text;
-                stateDoc = docState_tbox.Text;
-                zipCodeDoc = docZip_tbox.Text;
-                phoneNumDoc = docPhone_tbox.Text;
-                emailDoc = docEmail_tbox.Text;
+                getDoctorContactTextboxes();
                 doctorContacts.updateContactEntry();
                 doctorContactDataTable();
                 clearContactTextboxes();
@@ -532,6 +528,23 @@ namespace Baby_Tracker
             docZip_tbox.Text = "";
             docPhone_tbox.Text = "";
             docEmail_tbox.Text = "";
+        }
+        
+         /*
+         * Sets the current textbox inputs for doctor contacts to a variable 
+         * to be used throughout the application.
+         */
+        public void getDoctorContactTextboxes()
+        {
+               officeNameDoc = docOfficeName_tbox.Text;
+                firstNameDoc = docFirstName_tbox.Text;
+                lastNamedoc = docLastName_tbox.Text;
+                addressDoc = docAddress1_tbox.Text;
+                cityDoc = docCity_tbox.Text;
+                stateDoc = docState_tbox.Text;
+                zipCodeDoc = docZip_tbox.Text;
+                phoneNumDoc = docPhone_tbox.Text;
+                emailDoc = docEmail_tbox.Text;
         }
         
         
@@ -607,7 +620,7 @@ namespace Baby_Tracker
             }
             catch(Exception ex)
             {
-                MessageBox.Show("There was an error in loading Charts!" +ex);
+                MessageBox.Show("There was an error in loading Charts!/n" +ex);
             }
         }
 
@@ -638,11 +651,7 @@ namespace Baby_Tracker
          */
         private void newMeasurement_btn_Click(object sender, EventArgs e)
         {
-            measurementsLength = measurementsLength_tbox.Text;
-            measurementsWaist = measurementsWaist_tbox.Text;
-            measurementsHead = measurementsHead_tbox.Text;
-            measurementsChest = measurementsChest_tbox.Text;
-            measurementsHips = measurementsHips_tbox.Text;
+            getMeasurementTextboxEntry()
             measurementsClass.addMeasurements();
             measurementDataTable();
             measurementChartMethod();
@@ -657,15 +666,21 @@ namespace Baby_Tracker
          */
         private void measurementEdit_btn_Click(object sender, EventArgs e)
         {
+            getMeasurementTextboxEntry();
+            measurementsClass.updateMeasurements();
+            measurementDataTable();
+            measurementChartMethod();
+            clearMeasurementTextboxes();
+        }
+        
+        
+        public void getMeasurementTextboxEntry()
+        {
             measurementsLength = measurementsLength_tbox.Text;
             measurementsWaist = measurementsWaist_tbox.Text;
             measurementsHead = measurementsHead_tbox.Text;
             measurementsChest = measurementsChest_tbox.Text;
             measurementsHips = measurementsHips_tbox.Text;
-            measurementsClass.updateMeasurements();
-            measurementDataTable();
-            measurementChartMethod();
-            clearMeasurementTextboxes();
         }
 
     
@@ -685,9 +700,11 @@ namespace Baby_Tracker
 
 
 
+
         ///
         ///Medications Panels
         ///
+
 
         /*
          * Allows for the measurements datatable to be called and then 
@@ -710,19 +727,78 @@ namespace Baby_Tracker
             }
         }
 
+
+        /*
+         * Button allows for the textboxes that contain information from the
+         * user to then be stored into the database and be displayed on the
+         * datatable on the medications panel.
+         */
         private void newMed_btn_Click(object sender, EventArgs e)
         {
-
+            getTextboxMedInputs();
+            medicationsClass.addMedication();
+            medicationDataTable();
+            medicationClearTextboxes();
         }
 
+
+        /*
+         * Buttons allows for the user to edit selected rows from datatable
+         * to be edited. 
+         */
         private void editMed_btn_Click(object sender, EventArgs e)
         {
-
+            getTextboxMedInputs();
+            medicationsClass.updateMedicationEntry();
+            medicationDataTable();
+            medicationClearTextboxes();
         }
 
+
+        /*
+         * Button allows for the select row to be deleted from the 
+         * database and then refresh all that is assicated with it.
+         */
         private void deleteMed_btn_Click(object sender, EventArgs e)
         {
-
+            getTextboxMedInputs();
+            medicationsClass.deleteMedicationEntry();
+            medicationDataTable();
+            medicationClearTextboxes();
+        }
+        
+        
+        /*
+         * Allows for all the textboxes on the medication panel 
+         * to be reset to blank after a function is completed.
+         */
+        public void medicationClearTextboxes()
+        {
+            medicationPrecribDoc_tbox.Text = "";
+            medicationDateStart_tbox.Text = "";
+            medicationTaken_tbox.Text = "";
+            medicationPharmacy_tbox.Text = "";
+            medicationRefill_tbox.Text = "";
+            medicationType_tbox.Text = "";
+            medicationDosage_tbox.Text = "";
+            medicationName_tbox.Text = "";
+        }
+        
+        
+        /*
+         * Sets the current textbox inputs for medications to a variable 
+         * to be used throughout the application.
+         */
+        public void getTextboxMedInputs()
+        {
+            medName = medicationName_tbox.Text;
+            medDosage = medicationDosage_tbox.Text;
+            medType = medicationType_tbox.Text;
+            medDateStarted =  medicationDateStart_tbox.Text;
+            medRefill = medicationRefill_tbox.Text;
+            medPharmacy = medicationPharmacy_tbox.Text;
+            medTakenTime = medicationTaken_tbox.Text;
+            medPrescribingDoc = medicationPrecribDoc_tbox.Text;
         }
     }
 }
