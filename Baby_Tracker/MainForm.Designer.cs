@@ -129,6 +129,31 @@
             this.immunizationsPanel = new System.Windows.Forms.Panel();
             this.immunizationsPanel_lb = new System.Windows.Forms.Label();
             this.medicationsPanel = new System.Windows.Forms.Panel();
+            this.medUpGroupBox = new System.Windows.Forms.GroupBox();
+            this.upcomingTakenTime_lb = new System.Windows.Forms.Label();
+            this.upcomingMedDosage_lb = new System.Windows.Forms.Label();
+            this.upcomingMedName_lb = new System.Windows.Forms.Label();
+            this.medicationGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteMed_btn = new System.Windows.Forms.Button();
+            this.editMed_btn = new System.Windows.Forms.Button();
+            this.newMed_btn = new System.Windows.Forms.Button();
+            this.medicationPrecribDoc_tbox = new System.Windows.Forms.TextBox();
+            this.medicationDateStart_tbox = new System.Windows.Forms.TextBox();
+            this.medicationTaken_tbox = new System.Windows.Forms.TextBox();
+            this.medicationPharmacy_tbox = new System.Windows.Forms.TextBox();
+            this.medicationRefill_tbox = new System.Windows.Forms.TextBox();
+            this.medicationType_tbox = new System.Windows.Forms.TextBox();
+            this.medicationDosage_tbox = new System.Windows.Forms.TextBox();
+            this.medicationName_tbox = new System.Windows.Forms.TextBox();
+            this.medicationPrescripDoc_lb = new System.Windows.Forms.Label();
+            this.medicationPharmacy_lb = new System.Windows.Forms.Label();
+            this.medicationTakenTime_lb = new System.Windows.Forms.Label();
+            this.medicationRefill_lb = new System.Windows.Forms.Label();
+            this.medicationDateStart_lb = new System.Windows.Forms.Label();
+            this.medicationType_lb = new System.Windows.Forms.Label();
+            this.medicationDosage_lb = new System.Windows.Forms.Label();
+            this.medicationName_lb = new System.Windows.Forms.Label();
+            this.medicationsDataTable = new System.Windows.Forms.DataGridView();
             this.medicationPanel_lb = new System.Windows.Forms.Label();
             this.appointmentsPanel = new System.Windows.Forms.Panel();
             this.appointmentsPanel_lb = new System.Windows.Forms.Label();
@@ -176,6 +201,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.measurementDatatable)).BeginInit();
             this.immunizationsPanel.SuspendLayout();
             this.medicationsPanel.SuspendLayout();
+            this.medUpGroupBox.SuspendLayout();
+            this.medicationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.medicationsDataTable)).BeginInit();
             this.appointmentsPanel.SuspendLayout();
             this.doctorContactsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).BeginInit();
@@ -1119,12 +1147,256 @@
             // medicationsPanel
             // 
             this.medicationsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.medicationsPanel.Controls.Add(this.medUpGroupBox);
+            this.medicationsPanel.Controls.Add(this.medicationGroupBox);
+            this.medicationsPanel.Controls.Add(this.medicationsDataTable);
             this.medicationsPanel.Controls.Add(this.medicationPanel_lb);
             this.medicationsPanel.Location = new System.Drawing.Point(277, 31);
             this.medicationsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.medicationsPanel.Name = "medicationsPanel";
             this.medicationsPanel.Size = new System.Drawing.Size(1298, 918);
             this.medicationsPanel.TabIndex = 1;
+            // 
+            // medUpGroupBox
+            // 
+            this.medUpGroupBox.Controls.Add(this.upcomingTakenTime_lb);
+            this.medUpGroupBox.Controls.Add(this.upcomingMedDosage_lb);
+            this.medUpGroupBox.Controls.Add(this.upcomingMedName_lb);
+            this.medUpGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medUpGroupBox.Location = new System.Drawing.Point(887, 532);
+            this.medUpGroupBox.Name = "medUpGroupBox";
+            this.medUpGroupBox.Size = new System.Drawing.Size(379, 359);
+            this.medUpGroupBox.TabIndex = 3;
+            this.medUpGroupBox.TabStop = false;
+            this.medUpGroupBox.Text = "Upcoming Medication";
+            // 
+            // upcomingTakenTime_lb
+            // 
+            this.upcomingTakenTime_lb.AutoSize = true;
+            this.upcomingTakenTime_lb.Location = new System.Drawing.Point(134, 247);
+            this.upcomingTakenTime_lb.Name = "upcomingTakenTime_lb";
+            this.upcomingTakenTime_lb.Size = new System.Drawing.Size(133, 24);
+            this.upcomingTakenTime_lb.TabIndex = 19;
+            this.upcomingTakenTime_lb.Text = "Time To Take:";
+            // 
+            // upcomingMedDosage_lb
+            // 
+            this.upcomingMedDosage_lb.AutoSize = true;
+            this.upcomingMedDosage_lb.Location = new System.Drawing.Point(157, 150);
+            this.upcomingMedDosage_lb.Name = "upcomingMedDosage_lb";
+            this.upcomingMedDosage_lb.Size = new System.Drawing.Size(80, 24);
+            this.upcomingMedDosage_lb.TabIndex = 18;
+            this.upcomingMedDosage_lb.Text = "Dosage:";
+            // 
+            // upcomingMedName_lb
+            // 
+            this.upcomingMedName_lb.AutoSize = true;
+            this.upcomingMedName_lb.Location = new System.Drawing.Point(157, 55);
+            this.upcomingMedName_lb.Name = "upcomingMedName_lb";
+            this.upcomingMedName_lb.Size = new System.Drawing.Size(66, 24);
+            this.upcomingMedName_lb.TabIndex = 17;
+            this.upcomingMedName_lb.Text = "Name:";
+            // 
+            // medicationGroupBox
+            // 
+            this.medicationGroupBox.Controls.Add(this.deleteMed_btn);
+            this.medicationGroupBox.Controls.Add(this.editMed_btn);
+            this.medicationGroupBox.Controls.Add(this.newMed_btn);
+            this.medicationGroupBox.Controls.Add(this.medicationPrecribDoc_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationDateStart_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationTaken_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationPharmacy_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationRefill_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationType_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationDosage_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationName_tbox);
+            this.medicationGroupBox.Controls.Add(this.medicationPrescripDoc_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationPharmacy_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationTakenTime_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationRefill_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationDateStart_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationType_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationDosage_lb);
+            this.medicationGroupBox.Controls.Add(this.medicationName_lb);
+            this.medicationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medicationGroupBox.Location = new System.Drawing.Point(39, 530);
+            this.medicationGroupBox.Name = "medicationGroupBox";
+            this.medicationGroupBox.Size = new System.Drawing.Size(824, 361);
+            this.medicationGroupBox.TabIndex = 2;
+            this.medicationGroupBox.TabStop = false;
+            this.medicationGroupBox.Text = "New/Edit Medications";
+            // 
+            // deleteMed_btn
+            // 
+            this.deleteMed_btn.Location = new System.Drawing.Point(512, 312);
+            this.deleteMed_btn.Name = "deleteMed_btn";
+            this.deleteMed_btn.Size = new System.Drawing.Size(115, 34);
+            this.deleteMed_btn.TabIndex = 19;
+            this.deleteMed_btn.Text = "Delete Med";
+            this.deleteMed_btn.UseVisualStyleBackColor = true;
+            this.deleteMed_btn.Click += new System.EventHandler(this.deleteMed_btn_Click);
+            // 
+            // editMed_btn
+            // 
+            this.editMed_btn.Location = new System.Drawing.Point(348, 312);
+            this.editMed_btn.Name = "editMed_btn";
+            this.editMed_btn.Size = new System.Drawing.Size(115, 34);
+            this.editMed_btn.TabIndex = 18;
+            this.editMed_btn.Text = "Edit Med";
+            this.editMed_btn.UseVisualStyleBackColor = true;
+            this.editMed_btn.Click += new System.EventHandler(this.editMed_btn_Click);
+            // 
+            // newMed_btn
+            // 
+            this.newMed_btn.Location = new System.Drawing.Point(183, 312);
+            this.newMed_btn.Name = "newMed_btn";
+            this.newMed_btn.Size = new System.Drawing.Size(115, 34);
+            this.newMed_btn.TabIndex = 17;
+            this.newMed_btn.Text = "New Med";
+            this.newMed_btn.UseVisualStyleBackColor = true;
+            this.newMed_btn.Click += new System.EventHandler(this.newMed_btn_Click);
+            // 
+            // medicationPrecribDoc_tbox
+            // 
+            this.medicationPrecribDoc_tbox.Location = new System.Drawing.Point(582, 249);
+            this.medicationPrecribDoc_tbox.Name = "medicationPrecribDoc_tbox";
+            this.medicationPrecribDoc_tbox.Size = new System.Drawing.Size(191, 28);
+            this.medicationPrecribDoc_tbox.TabIndex = 16;
+            // 
+            // medicationDateStart_tbox
+            // 
+            this.medicationDateStart_tbox.Location = new System.Drawing.Point(533, 179);
+            this.medicationDateStart_tbox.Name = "medicationDateStart_tbox";
+            this.medicationDateStart_tbox.Size = new System.Drawing.Size(240, 28);
+            this.medicationDateStart_tbox.TabIndex = 15;
+            // 
+            // medicationTaken_tbox
+            // 
+            this.medicationTaken_tbox.Location = new System.Drawing.Point(533, 109);
+            this.medicationTaken_tbox.Name = "medicationTaken_tbox";
+            this.medicationTaken_tbox.Size = new System.Drawing.Size(240, 28);
+            this.medicationTaken_tbox.TabIndex = 14;
+            // 
+            // medicationPharmacy_tbox
+            // 
+            this.medicationPharmacy_tbox.Location = new System.Drawing.Point(533, 41);
+            this.medicationPharmacy_tbox.Name = "medicationPharmacy_tbox";
+            this.medicationPharmacy_tbox.Size = new System.Drawing.Size(240, 28);
+            this.medicationPharmacy_tbox.TabIndex = 13;
+            // 
+            // medicationRefill_tbox
+            // 
+            this.medicationRefill_tbox.Location = new System.Drawing.Point(124, 249);
+            this.medicationRefill_tbox.Name = "medicationRefill_tbox";
+            this.medicationRefill_tbox.Size = new System.Drawing.Size(240, 28);
+            this.medicationRefill_tbox.TabIndex = 12;
+            // 
+            // medicationType_tbox
+            // 
+            this.medicationType_tbox.Location = new System.Drawing.Point(123, 177);
+            this.medicationType_tbox.Name = "medicationType_tbox";
+            this.medicationType_tbox.Size = new System.Drawing.Size(240, 28);
+            this.medicationType_tbox.TabIndex = 11;
+            // 
+            // medicationDosage_tbox
+            // 
+            this.medicationDosage_tbox.Location = new System.Drawing.Point(135, 107);
+            this.medicationDosage_tbox.Name = "medicationDosage_tbox";
+            this.medicationDosage_tbox.Size = new System.Drawing.Size(229, 28);
+            this.medicationDosage_tbox.TabIndex = 10;
+            // 
+            // medicationName_tbox
+            // 
+            this.medicationName_tbox.Location = new System.Drawing.Point(123, 41);
+            this.medicationName_tbox.Name = "medicationName_tbox";
+            this.medicationName_tbox.Size = new System.Drawing.Size(240, 28);
+            this.medicationName_tbox.TabIndex = 9;
+            // 
+            // medicationPrescripDoc_lb
+            // 
+            this.medicationPrescripDoc_lb.AutoSize = true;
+            this.medicationPrescripDoc_lb.Location = new System.Drawing.Point(406, 250);
+            this.medicationPrescripDoc_lb.Name = "medicationPrescripDoc_lb";
+            this.medicationPrescripDoc_lb.Size = new System.Drawing.Size(170, 24);
+            this.medicationPrescripDoc_lb.TabIndex = 8;
+            this.medicationPrescripDoc_lb.Text = "Prescribing Doctor:";
+            // 
+            // medicationPharmacy_lb
+            // 
+            this.medicationPharmacy_lb.AutoSize = true;
+            this.medicationPharmacy_lb.Location = new System.Drawing.Point(413, 41);
+            this.medicationPharmacy_lb.Name = "medicationPharmacy_lb";
+            this.medicationPharmacy_lb.Size = new System.Drawing.Size(99, 24);
+            this.medicationPharmacy_lb.TabIndex = 7;
+            this.medicationPharmacy_lb.Text = "Pharmacy:";
+            // 
+            // medicationTakenTime_lb
+            // 
+            this.medicationTakenTime_lb.AutoSize = true;
+            this.medicationTakenTime_lb.Location = new System.Drawing.Point(411, 109);
+            this.medicationTakenTime_lb.Name = "medicationTakenTime_lb";
+            this.medicationTakenTime_lb.Size = new System.Drawing.Size(116, 24);
+            this.medicationTakenTime_lb.TabIndex = 6;
+            this.medicationTakenTime_lb.Text = "Taken Time:";
+            // 
+            // medicationRefill_lb
+            // 
+            this.medicationRefill_lb.AutoSize = true;
+            this.medicationRefill_lb.Location = new System.Drawing.Point(48, 250);
+            this.medicationRefill_lb.Name = "medicationRefill_lb";
+            this.medicationRefill_lb.Size = new System.Drawing.Size(70, 24);
+            this.medicationRefill_lb.TabIndex = 5;
+            this.medicationRefill_lb.Text = "Refill #:";
+            // 
+            // medicationDateStart_lb
+            // 
+            this.medicationDateStart_lb.AutoSize = true;
+            this.medicationDateStart_lb.Location = new System.Drawing.Point(411, 180);
+            this.medicationDateStart_lb.Name = "medicationDateStart_lb";
+            this.medicationDateStart_lb.Size = new System.Drawing.Size(116, 24);
+            this.medicationDateStart_lb.TabIndex = 3;
+            this.medicationDateStart_lb.Text = "Date Started:";
+            // 
+            // medicationType_lb
+            // 
+            this.medicationType_lb.AutoSize = true;
+            this.medicationType_lb.Location = new System.Drawing.Point(48, 178);
+            this.medicationType_lb.Name = "medicationType_lb";
+            this.medicationType_lb.Size = new System.Drawing.Size(58, 24);
+            this.medicationType_lb.TabIndex = 2;
+            this.medicationType_lb.Text = "Type:";
+            // 
+            // medicationDosage_lb
+            // 
+            this.medicationDosage_lb.AutoSize = true;
+            this.medicationDosage_lb.Location = new System.Drawing.Point(48, 108);
+            this.medicationDosage_lb.Name = "medicationDosage_lb";
+            this.medicationDosage_lb.Size = new System.Drawing.Size(80, 24);
+            this.medicationDosage_lb.TabIndex = 1;
+            this.medicationDosage_lb.Text = "Dosage:";
+            // 
+            // medicationName_lb
+            // 
+            this.medicationName_lb.AutoSize = true;
+            this.medicationName_lb.Location = new System.Drawing.Point(48, 41);
+            this.medicationName_lb.Name = "medicationName_lb";
+            this.medicationName_lb.Size = new System.Drawing.Size(66, 24);
+            this.medicationName_lb.TabIndex = 0;
+            this.medicationName_lb.Text = "Name:";
+            // 
+            // medicationsDataTable
+            // 
+            this.medicationsDataTable.AllowUserToAddRows = false;
+            this.medicationsDataTable.AllowUserToDeleteRows = false;
+            this.medicationsDataTable.AllowUserToResizeColumns = false;
+            this.medicationsDataTable.AllowUserToResizeRows = false;
+            this.medicationsDataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.medicationsDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.medicationsDataTable.Location = new System.Drawing.Point(39, 84);
+            this.medicationsDataTable.Name = "medicationsDataTable";
+            this.medicationsDataTable.RowTemplate.Height = 24;
+            this.medicationsDataTable.Size = new System.Drawing.Size(1213, 386);
+            this.medicationsDataTable.TabIndex = 1;
             // 
             // medicationPanel_lb
             // 
@@ -1421,14 +1693,14 @@
             this.ClientSize = new System.Drawing.Size(1581, 953);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.mainMenuStrip);
-            this.Controls.Add(this.measurementsPanel);
-            this.Controls.Add(this.testPanel);
-            this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.medicationsPanel);
             this.Controls.Add(this.immunizationsPanel);
             this.Controls.Add(this.growthStatsPanel);
             this.Controls.Add(this.doctorContactsPanel);
             this.Controls.Add(this.appointmentsPanel);
+            this.Controls.Add(this.measurementsPanel);
+            this.Controls.Add(this.testPanel);
+            this.Controls.Add(this.dashboardPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
@@ -1464,6 +1736,11 @@
             this.immunizationsPanel.PerformLayout();
             this.medicationsPanel.ResumeLayout(false);
             this.medicationsPanel.PerformLayout();
+            this.medUpGroupBox.ResumeLayout(false);
+            this.medUpGroupBox.PerformLayout();
+            this.medicationGroupBox.ResumeLayout(false);
+            this.medicationGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.medicationsDataTable)).EndInit();
             this.appointmentsPanel.ResumeLayout(false);
             this.appointmentsPanel.PerformLayout();
             this.doctorContactsPanel.ResumeLayout(false);
@@ -1528,7 +1805,6 @@
         private System.Windows.Forms.Label doctorContactsPanel_lb;
         private System.Windows.Forms.Panel growthStatsPanel;
         private System.Windows.Forms.Label growthStatPanel_lb;
-        private System.Windows.Forms.DataGridView weightTable;
         private System.Windows.Forms.DataGridView weightDataView;
         private System.Windows.Forms.Button deleteWeight_btn;
         private System.Windows.Forms.Button weightEntry_btn;
@@ -1594,6 +1870,31 @@
         private System.Windows.Forms.Label chest_lb;
         private System.Windows.Forms.Label hips_lb;
         private System.Windows.Forms.Label length_lb;
+        private System.Windows.Forms.DataGridView medicationsDataTable;
+        private System.Windows.Forms.GroupBox medicationGroupBox;
+        private System.Windows.Forms.Label medicationDosage_lb;
+        private System.Windows.Forms.Label medicationName_lb;
+        private System.Windows.Forms.Label medicationType_lb;
+        private System.Windows.Forms.Label medicationDateStart_lb;
+        private System.Windows.Forms.GroupBox medUpGroupBox;
+        private System.Windows.Forms.Label upcomingTakenTime_lb;
+        private System.Windows.Forms.Label upcomingMedDosage_lb;
+        private System.Windows.Forms.Label upcomingMedName_lb;
+        private System.Windows.Forms.Button deleteMed_btn;
+        private System.Windows.Forms.Button editMed_btn;
+        private System.Windows.Forms.Button newMed_btn;
+        private System.Windows.Forms.TextBox medicationPrecribDoc_tbox;
+        private System.Windows.Forms.TextBox medicationDateStart_tbox;
+        private System.Windows.Forms.TextBox medicationTaken_tbox;
+        private System.Windows.Forms.TextBox medicationPharmacy_tbox;
+        private System.Windows.Forms.TextBox medicationRefill_tbox;
+        private System.Windows.Forms.TextBox medicationType_tbox;
+        private System.Windows.Forms.TextBox medicationDosage_tbox;
+        private System.Windows.Forms.TextBox medicationName_tbox;
+        private System.Windows.Forms.Label medicationPrescripDoc_lb;
+        private System.Windows.Forms.Label medicationPharmacy_lb;
+        private System.Windows.Forms.Label medicationTakenTime_lb;
+        private System.Windows.Forms.Label medicationRefill_lb;
     }
 }
 

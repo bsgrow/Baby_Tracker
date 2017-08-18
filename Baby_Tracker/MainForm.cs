@@ -60,6 +60,7 @@ namespace Baby_Tracker
             weightDataTable();
             doctorContactDataTable();
             measurementDataTable();
+            medicationDataTable();
 
         }
 
@@ -172,7 +173,8 @@ namespace Baby_Tracker
                     weightPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Weight";
                     measurementDataTable();
                     measurementsPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Measurements";
-
+                    medicationDataTable();
+                    medicationPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Medications";
 
 
                 }
@@ -678,6 +680,49 @@ namespace Baby_Tracker
             measurementDataTable();
             measurementChartMethod();
             clearMeasurementTextboxes();
+        }
+
+
+
+
+        ///
+        ///Medications Panels
+        ///
+
+        /*
+         * Allows for the measurements datatable to be called and then 
+         * the data found there is then loaded into the Datatable in the
+         * Measurements Panel. The first column is not visable in the 
+         * table view itself.
+         */
+        public void medicationDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Name, Dosage, Type, DateStarted, Refill, Pharmacy, TakenTime, PrescribingDoc FROM Medications where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    medicationsDataTable.DataSource = dt;
+                    this.medicationsDataTable.Columns[0].Visible = false;
+                }
+            }
+        }
+
+        private void newMed_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editMed_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteMed_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

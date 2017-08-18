@@ -68,7 +68,11 @@ namespace Baby_Tracker
 				Dosage INTEGER NOT NULL,
 				Type VARCHAR(100) NULL,
 				DateStarted DATE NULL,
-				Refill INTEGER NULL
+				Refill INTEGER NULL,
+				Pharmacy VARCHAR(100) NULL,
+                TakenTime VARCHAR(100) NULL,
+				PrescribingDoc VARCHAR(100) NULL,
+                BabyID VARCHAR(50) NOT NULL
 				)";
 
         string sqlDoctorAppointmentsTable = @"CREATE TABLE DoctorAppointments (
