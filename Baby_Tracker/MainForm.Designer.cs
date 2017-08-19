@@ -1397,6 +1397,7 @@
             this.medicationsDataTable.RowTemplate.Height = 24;
             this.medicationsDataTable.Size = new System.Drawing.Size(1213, 386);
             this.medicationsDataTable.TabIndex = 1;
+            this.medicationsDataTable.Click += new System.EventHandler(this.medicationsDataTable_Click);
             // 
             // medicationPanel_lb
             // 

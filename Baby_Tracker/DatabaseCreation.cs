@@ -67,7 +67,7 @@ namespace Baby_Tracker
 				Name VARCHAR(200) NOT NULL,
 				Dosage INTEGER NOT NULL,
 				Type VARCHAR(100) NULL,
-				DateStarted DATE NULL,
+				DateStarted VARCHAR(9) NULL,
 				Refill INTEGER NULL,
 				Pharmacy VARCHAR(100) NULL,
                 TakenTime VARCHAR(100) NULL,

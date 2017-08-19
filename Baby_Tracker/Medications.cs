@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,8 +57,9 @@ namespace Baby_Tracker
             using (SQLiteCommand command = conn.CreateCommand())
             {
                 conn.Open();
-                command.CommandText = @"UPDATE Medications SET Name = @name, Dosage = @dosage, Type = @type, DateStarted = @dateStarted, Refill = @refill, Pharmacy = @pharmacy, TakenTime = @takenTime, PrescribingDoc = @prescribingDoc, BabyID = @babyID 
+                command.CommandText = @"UPDATE Medications SET ID = @id, Name = @name, Dosage = @dosage, Type = @type, DateStarted = @dateStarted, Refill = @refill, Pharmacy = @pharmacy, TakenTime = @takenTime, PrescribingDoc = @prescribingDoc, BabyID = @babyID 
                                         WHERE ID = '" + BabyTracker.medicationID + "'";
+                command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@name", BabyTracker.medName);
                 command.Parameters.AddWithValue("@dosage", BabyTracker.medDosage);
                 command.Parameters.AddWithValue("@type", BabyTracker.medType);

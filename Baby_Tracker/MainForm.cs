@@ -651,7 +651,7 @@ namespace Baby_Tracker
          */
         private void newMeasurement_btn_Click(object sender, EventArgs e)
         {
-            getMeasurementTextboxEntry()
+            getMeasurementTextboxEntry();
             measurementsClass.addMeasurements();
             measurementDataTable();
             measurementChartMethod();
@@ -736,7 +736,7 @@ namespace Baby_Tracker
         private void newMed_btn_Click(object sender, EventArgs e)
         {
             getTextboxMedInputs();
-            medicationsClass.addMedication();
+            medicationClass.addMedication();
             medicationDataTable();
             medicationClearTextboxes();
         }
@@ -749,7 +749,7 @@ namespace Baby_Tracker
         private void editMed_btn_Click(object sender, EventArgs e)
         {
             getTextboxMedInputs();
-            medicationsClass.updateMedicationEntry();
+            medicationClass.updateMedicationEntry();
             medicationDataTable();
             medicationClearTextboxes();
         }
@@ -761,8 +761,7 @@ namespace Baby_Tracker
          */
         private void deleteMed_btn_Click(object sender, EventArgs e)
         {
-            getTextboxMedInputs();
-            medicationsClass.deleteMedicationEntry();
+            medicationClass.deleteMedicationEntry();
             medicationDataTable();
             medicationClearTextboxes();
         }
@@ -799,6 +798,21 @@ namespace Baby_Tracker
             medPharmacy = medicationPharmacy_tbox.Text;
             medTakenTime = medicationTaken_tbox.Text;
             medPrescribingDoc = medicationPrecribDoc_tbox.Text;
+        }
+
+        private void medicationsDataTable_Click(object sender, EventArgs e)
+        {
+            measurementsID = Convert.ToInt32(medicationsDataTable.CurrentRow.Cells[0].Value.ToString());
+            medicationName_tbox.Text = medicationsDataTable.CurrentRow.Cells[1].Value.ToString();
+            medicationDosage_tbox.Text = medicationsDataTable.CurrentRow.Cells[2].Value.ToString();
+            medicationType_tbox.Text = medicationsDataTable.CurrentRow.Cells[3].Value.ToString();
+            medicationDateStart_tbox.Text = medicationsDataTable.CurrentRow.Cells[4].Value.ToString();
+            medicationRefill_tbox.Text = medicationsDataTable.CurrentRow.Cells[5].Value.ToString();
+            medicationPharmacy_tbox.Text = medicationsDataTable.CurrentRow.Cells[6].Value.ToString();
+            medicationTaken_tbox.Text = medicationsDataTable.CurrentRow.Cells[7].Value.ToString();
+            medicationPrecribDoc_tbox.Text = medicationsDataTable.CurrentRow.Cells[8].Value.ToString();
+
+
         }
     }
 }
