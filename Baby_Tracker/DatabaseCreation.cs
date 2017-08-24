@@ -11,10 +11,10 @@ namespace Baby_Tracker
     class DatabaseCreation
     {
         //Pre-set image path locations for babies user profile
-        public static string bg1 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
-        public static string bg2 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
-        public static string bb1 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
-        public static string bb2 = @"C:\Users\Brandon\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
+        public static string bg1 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
+        public static string bg2 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
+        public static string bb1 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
+        public static string bb2 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
 
         SQLiteConnection connection;
         SQLiteCommand command;

@@ -223,22 +223,11 @@ namespace Baby_Tracker
             medicationsPanel.BringToFront();
         }
 
-        //Shows appointments Panel
-        private void button3_Click(object sender, EventArgs e)
-        {
-            appointmentsPanel.BringToFront();
-        }
-
+       
         //Shows Doctor Contact Panel
         private void button4_Click(object sender, EventArgs e)
         {
             doctorContactsPanel.BringToFront();
-        }
-
-        //Shows Growth Stats Panel
-        private void button5_Click(object sender, EventArgs e)
-        {
-            growthStatsPanel.BringToFront();
         }
 
 
