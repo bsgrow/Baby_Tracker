@@ -621,13 +621,15 @@ namespace Baby_Tracker
          */
         private void measurementDatatable_Click(object sender, EventArgs e)
         {
-            measurementsID = Convert.ToInt32(measurementDatatable.CurrentRow.Cells[0].Value.ToString());
-            measurementsLength_tbox.Text = measurementDatatable.CurrentRow.Cells[1].Value.ToString();
-            measurementsWaist_tbox.Text = measurementDatatable.CurrentRow.Cells[2].Value.ToString();
-            measurementsHead_tbox.Text = measurementDatatable.CurrentRow.Cells[3].Value.ToString();
-            measurementsChest_tbox.Text = measurementDatatable.CurrentRow.Cells[4].Value.ToString();
-            measurementsHips_tbox.Text = measurementDatatable.CurrentRow.Cells[5].Value.ToString();
-
+             if (measurementDatatable.CurrentRow.Index != -1)
+            {
+                 measurementsID = Convert.ToInt32(measurementDatatable.CurrentRow.Cells[0].Value.ToString());
+                 measurementsLength_tbox.Text = measurementDatatable.CurrentRow.Cells[1].Value.ToString();
+                    measurementsWaist_tbox.Text = measurementDatatable.CurrentRow.Cells[2].Value.ToString();
+                    measurementsHead_tbox.Text = measurementDatatable.CurrentRow.Cells[3].Value.ToString();
+                    measurementsChest_tbox.Text = measurementDatatable.CurrentRow.Cells[4].Value.ToString();
+                    measurementsHips_tbox.Text = measurementDatatable.CurrentRow.Cells[5].Value.ToString();
+            }
 
         }
 
@@ -789,8 +791,15 @@ namespace Baby_Tracker
             medPrescribingDoc = medicationPrecribDoc_tbox.Text;
         }
 
+
+        /*
+         * Gets the information from the datatable and sends it to the textboxes
+         * to allow for information to be editted by the user.
+         */
         private void medicationsDataTable_Click(object sender, EventArgs e)
         {
+        if (medicationsDataTable.CurrentRow.Index != -1)
+            {
             measurementsID = Convert.ToInt32(medicationsDataTable.CurrentRow.Cells[0].Value.ToString());
             medicationName_tbox.Text = medicationsDataTable.CurrentRow.Cells[1].Value.ToString();
             medicationDosage_tbox.Text = medicationsDataTable.CurrentRow.Cells[2].Value.ToString();
@@ -801,7 +810,7 @@ namespace Baby_Tracker
             medicationTaken_tbox.Text = medicationsDataTable.CurrentRow.Cells[7].Value.ToString();
             medicationPrecribDoc_tbox.Text = medicationsDataTable.CurrentRow.Cells[8].Value.ToString();
 
-
+        }
         }
     }
 }
