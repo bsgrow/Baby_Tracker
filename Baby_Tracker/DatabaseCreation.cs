@@ -65,10 +65,10 @@ namespace Baby_Tracker
         string sqlMedicationsTable = @"CREATE TABLE Medications (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 				Name VARCHAR(200) NOT NULL,
-				Dosage INTEGER NOT NULL,
+				Dosage VARCGAR(200) NOT NULL,
 				Type VARCHAR(100) NULL,
 				DateStarted VARCHAR(9) NULL,
-				Refill INTEGER NULL,
+				Refill VARCHAR(10) NULL,
 				Pharmacy VARCHAR(100) NULL,
                 TakenTime VARCHAR(100) NULL,
 				PrescribingDoc VARCHAR(100) NULL,

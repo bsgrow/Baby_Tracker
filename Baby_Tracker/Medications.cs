@@ -53,6 +53,12 @@ namespace Baby_Tracker
          */
         public void updateMedicationEntry()
         {
+
+            Console.WriteLine("Calling method to update!!");
+           Console.WriteLine( BabyTracker.medName);
+            Console.WriteLine(BabyTracker.medicationID);
+
+
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {

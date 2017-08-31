@@ -752,6 +752,7 @@ namespace Baby_Tracker
          */
         private void deleteMed_btn_Click(object sender, EventArgs e)
         {
+            getTextboxMedInputs();
             medicationClass.deleteMedicationEntry();
             medicationDataTable();
             medicationClearTextboxes();
@@ -800,7 +801,7 @@ namespace Baby_Tracker
         {
         if (medicationsDataTable.CurrentRow.Index != -1)
             {
-            measurementsID = Convert.ToInt32(medicationsDataTable.CurrentRow.Cells[0].Value.ToString());
+            medicationID = Convert.ToInt32(medicationsDataTable.CurrentRow.Cells[0].Value.ToString());
             medicationName_tbox.Text = medicationsDataTable.CurrentRow.Cells[1].Value.ToString();
             medicationDosage_tbox.Text = medicationsDataTable.CurrentRow.Cells[2].Value.ToString();
             medicationType_tbox.Text = medicationsDataTable.CurrentRow.Cells[3].Value.ToString();
