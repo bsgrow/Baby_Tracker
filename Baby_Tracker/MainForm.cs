@@ -68,6 +68,7 @@ namespace Baby_Tracker
         public BabyTracker()
         {
             InitializeComponent();
+            weightChartMethod();
             comboBoxNameRetrival();
             weightDataTable();
             doctorContactDataTable();
@@ -372,9 +373,11 @@ namespace Baby_Tracker
                 connection.Open();
                 SQLiteDataReader reader = command.ExecuteReader();
                 weightChart.Series["Weight"].Points.Clear();
+                dashboardWeightChart.Series["Weight"].Points.Clear();
                 while (reader.Read())
                 {
                     weightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
+                    dashboardWeightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
                 }
             }
             catch(Exception ex)

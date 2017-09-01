@@ -54,18 +54,15 @@ namespace Baby_Tracker
         public void updateMedicationEntry()
         {
 
-            Console.WriteLine("Calling method to update!!");
-           Console.WriteLine( BabyTracker.medName);
-            Console.WriteLine(BabyTracker.medicationID);
-
-
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
                 conn.Open();
-                command.CommandText = @"UPDATE Medications SET ID = @id, Name = @name, Dosage = @dosage, Type = @type, DateStarted = @dateStarted, Refill = @refill, Pharmacy = @pharmacy, TakenTime = @takenTime, PrescribingDoc = @prescribingDoc, BabyID = @babyID 
+                command.CommandText = @"UPDATE Medications SET Name = @name, Dosage = @dosage, Type = @type, 
+                                        DateStarted = @dateStarted, Refill = @refill, Pharmacy = @pharmacy, TakenTime = @takenTime, 
+                                        PrescribingDoc = @prescribingDoc, BabyID = @babyID 
                                         WHERE ID = '" + BabyTracker.medicationID + "'";
-                command.Parameters.AddWithValue("@id", null);
+
                 command.Parameters.AddWithValue("@name", BabyTracker.medName);
                 command.Parameters.AddWithValue("@dosage", BabyTracker.medDosage);
                 command.Parameters.AddWithValue("@type", BabyTracker.medType);
@@ -78,8 +75,8 @@ namespace Baby_Tracker
                 command.ExecuteNonQuery();
             }
         }
-        
-        
+
+
         /*
          * Allows for the information that the user has selected from the 
          * data table to be retrieved. Once the data is retrieved then the
