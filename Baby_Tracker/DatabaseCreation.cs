@@ -11,17 +11,17 @@ namespace Baby_Tracker
     class DatabaseCreation
     {
         //Pre-set image path locations for babies user profile
-	string path = Environment.GetFolderPath(Environment.SpecialFolder.BabyProfileImages);
-        public static string bg1 = Path.Combine(path, "BabyGirl1.png");
-        public static string bg2 = Path.Combine(path, "BabyGirl2.png");
-        public static string bb1 = Path.Combine(path, "BabyBoy1.png");
-        public static string bb2 = Path.Combine(path, "BabyBoy2.png");    
+	//string path = Environment.GetFolderPath(Environment.SpecialFolder.BabyProfileImages);
+        //public static string bg1 = Path.Combine(path, "BabyGirl1.png");
+        //public static string bg2 = Path.Combine(path, "BabyGirl2.png");
+        //public static string bb1 = Path.Combine(path, "BabyBoy1.png");
+        //public static string bb2 = Path.Combine(path, "BabyBoy2.png");    
 	    
 	    
-        //public static string bg1 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
-        //public static string bg2 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
-        //public static string bb1 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
-        //public static string bb2 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
+        public static string bg1 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
+        public static string bg2 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
+        public static string bb1 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
+        public static string bb2 = @"C:\Users\brand\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
 
 	    
         SQLiteConnection connection;
