@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -44,9 +47,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BabyTracker));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +79,32 @@
             this.leftPanelTitle_lb = new System.Windows.Forms.Label();
             this.newBaby_btn = new System.Windows.Forms.Button();
             this.dashboardPanel = new System.Windows.Forms.Panel();
+            this.babyInformationBox = new System.Windows.Forms.GroupBox();
+            this.dashBirthLengthOutput_lb = new System.Windows.Forms.Label();
+            this.dashBirthWeightOuput_lb = new System.Windows.Forms.Label();
+            this.dashDOBOutput_lb = new System.Windows.Forms.Label();
+            this.dashNameOutput_lb = new System.Windows.Forms.Label();
+            this.dashBirthWeight_lb = new System.Windows.Forms.Label();
+            this.dashBirthLength_lb = new System.Windows.Forms.Label();
+            this.dashDOB_lb = new System.Windows.Forms.Label();
+            this.dashBabyName_lb = new System.Windows.Forms.Label();
+            this.measurementsBox = new System.Windows.Forms.GroupBox();
+            this.dashMHipsOut_lb = new System.Windows.Forms.Label();
+            this.dashMChestOut_lb = new System.Windows.Forms.Label();
+            this.dashMHeadOut_lb = new System.Windows.Forms.Label();
+            this.dashMWaistOut_lb = new System.Windows.Forms.Label();
+            this.dashMLengthOut_lb = new System.Windows.Forms.Label();
+            this.dashHips_lb = new System.Windows.Forms.Label();
+            this.dashChest_lb = new System.Windows.Forms.Label();
+            this.dashHead_lb = new System.Windows.Forms.Label();
+            this.dashWeight_lb = new System.Windows.Forms.Label();
+            this.dashBirthLengthM_lb = new System.Windows.Forms.Label();
+            this.weightGroupBox = new System.Windows.Forms.GroupBox();
+            this.dashLastDateInput_lb = new System.Windows.Forms.Label();
+            this.dashWeightInput_lb = new System.Windows.Forms.Label();
+            this.dashLastWeight_lb = new System.Windows.Forms.Label();
+            this.dashWeightLast_lb = new System.Windows.Forms.Label();
+            this.dashboardWeightChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dashBoardPanel_lb = new System.Windows.Forms.Label();
             this.testPanel = new System.Windows.Forms.Panel();
             this.weightDataView = new System.Windows.Forms.DataGridView();
@@ -176,15 +202,14 @@
             this.docOfficeName_lb = new System.Windows.Forms.Label();
             this.docLastName_lb = new System.Windows.Forms.Label();
             this.docFirstName_lb = new System.Windows.Forms.Label();
-            this.weightGroupBox = new System.Windows.Forms.GroupBox();
-            this.immunizationsBox = new System.Windows.Forms.GroupBox();
-            this.measurementBox = new System.Windows.Forms.GroupBox();
-            this.medicationsBox = new System.Windows.Forms.GroupBox();
-            this.dashboardWeightChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
             this.dashboardPanel.SuspendLayout();
+            this.babyInformationBox.SuspendLayout();
+            this.measurementsBox.SuspendLayout();
+            this.weightGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardWeightChart)).BeginInit();
             this.testPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightChart)).BeginInit();
@@ -204,8 +229,6 @@
             this.doctorContactsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).BeginInit();
             this.contactEntryEditBox.SuspendLayout();
-            this.weightGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardWeightChart)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -539,9 +562,8 @@
             // dashboardPanel
             // 
             this.dashboardPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dashboardPanel.Controls.Add(this.medicationsBox);
-            this.dashboardPanel.Controls.Add(this.measurementBox);
-            this.dashboardPanel.Controls.Add(this.immunizationsBox);
+            this.dashboardPanel.Controls.Add(this.babyInformationBox);
+            this.dashboardPanel.Controls.Add(this.measurementsBox);
             this.dashboardPanel.Controls.Add(this.weightGroupBox);
             this.dashboardPanel.Controls.Add(this.dashBoardPanel_lb);
             this.dashboardPanel.Location = new System.Drawing.Point(260, 32);
@@ -549,6 +571,278 @@
             this.dashboardPanel.Name = "dashboardPanel";
             this.dashboardPanel.Size = new System.Drawing.Size(1217, 956);
             this.dashboardPanel.TabIndex = 2;
+            // 
+            // babyInformationBox
+            // 
+            this.babyInformationBox.Controls.Add(this.dashBirthLengthOutput_lb);
+            this.babyInformationBox.Controls.Add(this.dashBirthWeightOuput_lb);
+            this.babyInformationBox.Controls.Add(this.dashDOBOutput_lb);
+            this.babyInformationBox.Controls.Add(this.dashNameOutput_lb);
+            this.babyInformationBox.Controls.Add(this.dashBirthWeight_lb);
+            this.babyInformationBox.Controls.Add(this.dashBirthLength_lb);
+            this.babyInformationBox.Controls.Add(this.dashDOB_lb);
+            this.babyInformationBox.Controls.Add(this.dashBabyName_lb);
+            this.babyInformationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.babyInformationBox.Location = new System.Drawing.Point(36, 87);
+            this.babyInformationBox.Name = "babyInformationBox";
+            this.babyInformationBox.Size = new System.Drawing.Size(545, 408);
+            this.babyInformationBox.TabIndex = 4;
+            this.babyInformationBox.TabStop = false;
+            this.babyInformationBox.Text = "Baby Information";
+            // 
+            // dashBirthLengthOutput_lb
+            // 
+            this.dashBirthLengthOutput_lb.AutoSize = true;
+            this.dashBirthLengthOutput_lb.Location = new System.Drawing.Point(146, 269);
+            this.dashBirthLengthOutput_lb.Name = "dashBirthLengthOutput_lb";
+            this.dashBirthLengthOutput_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashBirthLengthOutput_lb.TabIndex = 10;
+            // 
+            // dashBirthWeightOuput_lb
+            // 
+            this.dashBirthWeightOuput_lb.AutoSize = true;
+            this.dashBirthWeightOuput_lb.Location = new System.Drawing.Point(149, 194);
+            this.dashBirthWeightOuput_lb.Name = "dashBirthWeightOuput_lb";
+            this.dashBirthWeightOuput_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashBirthWeightOuput_lb.TabIndex = 9;
+            // 
+            // dashDOBOutput_lb
+            // 
+            this.dashDOBOutput_lb.AutoSize = true;
+            this.dashDOBOutput_lb.Location = new System.Drawing.Point(86, 122);
+            this.dashDOBOutput_lb.Name = "dashDOBOutput_lb";
+            this.dashDOBOutput_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashDOBOutput_lb.TabIndex = 8;
+            // 
+            // dashNameOutput_lb
+            // 
+            this.dashNameOutput_lb.AutoSize = true;
+            this.dashNameOutput_lb.Location = new System.Drawing.Point(102, 51);
+            this.dashNameOutput_lb.Name = "dashNameOutput_lb";
+            this.dashNameOutput_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashNameOutput_lb.TabIndex = 7;
+            // 
+            // dashBirthWeight_lb
+            // 
+            this.dashBirthWeight_lb.AutoSize = true;
+            this.dashBirthWeight_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashBirthWeight_lb.Location = new System.Drawing.Point(25, 194);
+            this.dashBirthWeight_lb.Name = "dashBirthWeight_lb";
+            this.dashBirthWeight_lb.Size = new System.Drawing.Size(129, 24);
+            this.dashBirthWeight_lb.TabIndex = 6;
+            this.dashBirthWeight_lb.Text = "Birth Weight:";
+            // 
+            // dashBirthLength_lb
+            // 
+            this.dashBirthLength_lb.AutoSize = true;
+            this.dashBirthLength_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashBirthLength_lb.Location = new System.Drawing.Point(25, 269);
+            this.dashBirthLength_lb.Name = "dashBirthLength_lb";
+            this.dashBirthLength_lb.Size = new System.Drawing.Size(128, 24);
+            this.dashBirthLength_lb.TabIndex = 5;
+            this.dashBirthLength_lb.Text = "Birth Length:";
+            // 
+            // dashDOB_lb
+            // 
+            this.dashDOB_lb.AutoSize = true;
+            this.dashDOB_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashDOB_lb.Location = new System.Drawing.Point(25, 122);
+            this.dashDOB_lb.Name = "dashDOB_lb";
+            this.dashDOB_lb.Size = new System.Drawing.Size(59, 24);
+            this.dashDOB_lb.TabIndex = 4;
+            this.dashDOB_lb.Text = "DOB:";
+            // 
+            // dashBabyName_lb
+            // 
+            this.dashBabyName_lb.AutoSize = true;
+            this.dashBabyName_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashBabyName_lb.Location = new System.Drawing.Point(25, 51);
+            this.dashBabyName_lb.Name = "dashBabyName_lb";
+            this.dashBabyName_lb.Size = new System.Drawing.Size(71, 24);
+            this.dashBabyName_lb.TabIndex = 3;
+            this.dashBabyName_lb.Text = "Name:";
+            // 
+            // measurementsBox
+            // 
+            this.measurementsBox.Controls.Add(this.dashMHipsOut_lb);
+            this.measurementsBox.Controls.Add(this.dashMChestOut_lb);
+            this.measurementsBox.Controls.Add(this.dashMHeadOut_lb);
+            this.measurementsBox.Controls.Add(this.dashMWaistOut_lb);
+            this.measurementsBox.Controls.Add(this.dashMLengthOut_lb);
+            this.measurementsBox.Controls.Add(this.dashHips_lb);
+            this.measurementsBox.Controls.Add(this.dashChest_lb);
+            this.measurementsBox.Controls.Add(this.dashHead_lb);
+            this.measurementsBox.Controls.Add(this.dashWeight_lb);
+            this.measurementsBox.Controls.Add(this.dashBirthLengthM_lb);
+            this.measurementsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.measurementsBox.Location = new System.Drawing.Point(358, 524);
+            this.measurementsBox.Name = "measurementsBox";
+            this.measurementsBox.Size = new System.Drawing.Size(545, 408);
+            this.measurementsBox.TabIndex = 3;
+            this.measurementsBox.TabStop = false;
+            this.measurementsBox.Text = "Last Measurements Input";
+            // 
+            // dashMHipsOut_lb
+            // 
+            this.dashMHipsOut_lb.AutoSize = true;
+            this.dashMHipsOut_lb.Location = new System.Drawing.Point(89, 364);
+            this.dashMHipsOut_lb.Name = "dashMHipsOut_lb";
+            this.dashMHipsOut_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashMHipsOut_lb.TabIndex = 16;
+            // 
+            // dashMChestOut_lb
+            // 
+            this.dashMChestOut_lb.AutoSize = true;
+            this.dashMChestOut_lb.Location = new System.Drawing.Point(98, 284);
+            this.dashMChestOut_lb.Name = "dashMChestOut_lb";
+            this.dashMChestOut_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashMChestOut_lb.TabIndex = 15;
+            // 
+            // dashMHeadOut_lb
+            // 
+            this.dashMHeadOut_lb.AutoSize = true;
+            this.dashMHeadOut_lb.Location = new System.Drawing.Point(94, 209);
+            this.dashMHeadOut_lb.Name = "dashMHeadOut_lb";
+            this.dashMHeadOut_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashMHeadOut_lb.TabIndex = 14;
+            // 
+            // dashMWaistOut_lb
+            // 
+            this.dashMWaistOut_lb.AutoSize = true;
+            this.dashMWaistOut_lb.Location = new System.Drawing.Point(97, 130);
+            this.dashMWaistOut_lb.Name = "dashMWaistOut_lb";
+            this.dashMWaistOut_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashMWaistOut_lb.TabIndex = 13;
+            // 
+            // dashMLengthOut_lb
+            // 
+            this.dashMLengthOut_lb.AutoSize = true;
+            this.dashMLengthOut_lb.Location = new System.Drawing.Point(102, 52);
+            this.dashMLengthOut_lb.Name = "dashMLengthOut_lb";
+            this.dashMLengthOut_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashMLengthOut_lb.TabIndex = 12;
+            // 
+            // dashHips_lb
+            // 
+            this.dashHips_lb.AutoSize = true;
+            this.dashHips_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashHips_lb.Location = new System.Drawing.Point(31, 364);
+            this.dashHips_lb.Name = "dashHips_lb";
+            this.dashHips_lb.Size = new System.Drawing.Size(58, 24);
+            this.dashHips_lb.TabIndex = 11;
+            this.dashHips_lb.Text = "Hips:";
+            // 
+            // dashChest_lb
+            // 
+            this.dashChest_lb.AutoSize = true;
+            this.dashChest_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashChest_lb.Location = new System.Drawing.Point(31, 284);
+            this.dashChest_lb.Name = "dashChest_lb";
+            this.dashChest_lb.Size = new System.Drawing.Size(69, 24);
+            this.dashChest_lb.TabIndex = 10;
+            this.dashChest_lb.Text = "Chest:";
+            // 
+            // dashHead_lb
+            // 
+            this.dashHead_lb.AutoSize = true;
+            this.dashHead_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashHead_lb.Location = new System.Drawing.Point(31, 209);
+            this.dashHead_lb.Name = "dashHead_lb";
+            this.dashHead_lb.Size = new System.Drawing.Size(66, 24);
+            this.dashHead_lb.TabIndex = 9;
+            this.dashHead_lb.Text = "Head:";
+            // 
+            // dashWeight_lb
+            // 
+            this.dashWeight_lb.AutoSize = true;
+            this.dashWeight_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashWeight_lb.Location = new System.Drawing.Point(31, 130);
+            this.dashWeight_lb.Name = "dashWeight_lb";
+            this.dashWeight_lb.Size = new System.Drawing.Size(66, 24);
+            this.dashWeight_lb.TabIndex = 8;
+            this.dashWeight_lb.Text = "Waist:";
+            // 
+            // dashBirthLengthM_lb
+            // 
+            this.dashBirthLengthM_lb.AutoSize = true;
+            this.dashBirthLengthM_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashBirthLengthM_lb.Location = new System.Drawing.Point(30, 52);
+            this.dashBirthLengthM_lb.Name = "dashBirthLengthM_lb";
+            this.dashBirthLengthM_lb.Size = new System.Drawing.Size(80, 24);
+            this.dashBirthLengthM_lb.TabIndex = 7;
+            this.dashBirthLengthM_lb.Text = "Length:";
+            // 
+            // weightGroupBox
+            // 
+            this.weightGroupBox.Controls.Add(this.dashLastDateInput_lb);
+            this.weightGroupBox.Controls.Add(this.dashWeightInput_lb);
+            this.weightGroupBox.Controls.Add(this.dashLastWeight_lb);
+            this.weightGroupBox.Controls.Add(this.dashWeightLast_lb);
+            this.weightGroupBox.Controls.Add(this.dashboardWeightChart);
+            this.weightGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightGroupBox.Location = new System.Drawing.Point(629, 87);
+            this.weightGroupBox.Name = "weightGroupBox";
+            this.weightGroupBox.Size = new System.Drawing.Size(546, 408);
+            this.weightGroupBox.TabIndex = 2;
+            this.weightGroupBox.TabStop = false;
+            this.weightGroupBox.Text = "Weight";
+            // 
+            // dashLastDateInput_lb
+            // 
+            this.dashLastDateInput_lb.AutoSize = true;
+            this.dashLastDateInput_lb.Location = new System.Drawing.Point(387, 309);
+            this.dashLastDateInput_lb.Name = "dashLastDateInput_lb";
+            this.dashLastDateInput_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashLastDateInput_lb.TabIndex = 4;
+            // 
+            // dashWeightInput_lb
+            // 
+            this.dashWeightInput_lb.AutoSize = true;
+            this.dashWeightInput_lb.Location = new System.Drawing.Point(416, 182);
+            this.dashWeightInput_lb.Name = "dashWeightInput_lb";
+            this.dashWeightInput_lb.Size = new System.Drawing.Size(0, 24);
+            this.dashWeightInput_lb.TabIndex = 3;
+            // 
+            // dashLastWeight_lb
+            // 
+            this.dashLastWeight_lb.AutoSize = true;
+            this.dashLastWeight_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashLastWeight_lb.Location = new System.Drawing.Point(388, 269);
+            this.dashLastWeight_lb.Name = "dashLastWeight_lb";
+            this.dashLastWeight_lb.Size = new System.Drawing.Size(95, 24);
+            this.dashLastWeight_lb.TabIndex = 2;
+            this.dashLastWeight_lb.Text = "Last Date";
+            // 
+            // dashWeightLast_lb
+            // 
+            this.dashWeightLast_lb.AutoSize = true;
+            this.dashWeightLast_lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashWeightLast_lb.Location = new System.Drawing.Point(380, 144);
+            this.dashWeightLast_lb.Name = "dashWeightLast_lb";
+            this.dashWeightLast_lb.Size = new System.Drawing.Size(118, 24);
+            this.dashWeightLast_lb.TabIndex = 1;
+            this.dashWeightLast_lb.Text = "Last Weight";
+            // 
+            // dashboardWeightChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.dashboardWeightChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.dashboardWeightChart.Legends.Add(legend1);
+            this.dashboardWeightChart.Location = new System.Drawing.Point(17, 27);
+            this.dashboardWeightChart.Name = "dashboardWeightChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Weight";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.dashboardWeightChart.Series.Add(series1);
+            this.dashboardWeightChart.Size = new System.Drawing.Size(300, 362);
+            this.dashboardWeightChart.TabIndex = 0;
+            this.dashboardWeightChart.Text = "dashboardWeightChart";
             // 
             // dashBoardPanel_lb
             // 
@@ -1661,69 +1955,6 @@
             this.docFirstName_lb.TabIndex = 0;
             this.docFirstName_lb.Text = "First Name:";
             // 
-            // weightGroupBox
-            // 
-            this.weightGroupBox.Controls.Add(this.dashboardWeightChart);
-            this.weightGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightGroupBox.Location = new System.Drawing.Point(36, 72);
-            this.weightGroupBox.Name = "weightGroupBox";
-            this.weightGroupBox.Size = new System.Drawing.Size(546, 408);
-            this.weightGroupBox.TabIndex = 2;
-            this.weightGroupBox.TabStop = false;
-            this.weightGroupBox.Text = "Weight";
-            // 
-            // immunizationsBox
-            // 
-            this.immunizationsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.immunizationsBox.Location = new System.Drawing.Point(37, 524);
-            this.immunizationsBox.Name = "immunizationsBox";
-            this.immunizationsBox.Size = new System.Drawing.Size(545, 408);
-            this.immunizationsBox.TabIndex = 3;
-            this.immunizationsBox.TabStop = false;
-            this.immunizationsBox.Text = "Immunizations";
-            // 
-            // measurementBox
-            // 
-            this.measurementBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.measurementBox.Location = new System.Drawing.Point(632, 72);
-            this.measurementBox.Name = "measurementBox";
-            this.measurementBox.Size = new System.Drawing.Size(546, 408);
-            this.measurementBox.TabIndex = 3;
-            this.measurementBox.TabStop = false;
-            this.measurementBox.Text = "Measurements";
-            // 
-            // medicationsBox
-            // 
-            this.medicationsBox.AutoSize = true;
-            this.medicationsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.medicationsBox.Location = new System.Drawing.Point(629, 524);
-            this.medicationsBox.Name = "medicationsBox";
-            this.medicationsBox.Size = new System.Drawing.Size(545, 408);
-            this.medicationsBox.TabIndex = 4;
-            this.medicationsBox.TabStop = false;
-            this.medicationsBox.Text = "Medications";
-            // 
-            // dashboardWeightChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.dashboardWeightChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.dashboardWeightChart.Legends.Add(legend1);
-            this.dashboardWeightChart.Location = new System.Drawing.Point(17, 27);
-            this.dashboardWeightChart.Name = "dashboardWeightChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Weight";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.dashboardWeightChart.Series.Add(series1);
-            this.dashboardWeightChart.Size = new System.Drawing.Size(300, 362);
-            this.dashboardWeightChart.TabIndex = 0;
-            this.dashboardWeightChart.Text = "dashboardWeightChart";
-            // 
             // BabyTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1754,6 +1985,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).EndInit();
             this.dashboardPanel.ResumeLayout(false);
             this.dashboardPanel.PerformLayout();
+            this.babyInformationBox.ResumeLayout(false);
+            this.babyInformationBox.PerformLayout();
+            this.measurementsBox.ResumeLayout(false);
+            this.measurementsBox.PerformLayout();
+            this.weightGroupBox.ResumeLayout(false);
+            this.weightGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardWeightChart)).EndInit();
             this.testPanel.ResumeLayout(false);
             this.testPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightDataView)).EndInit();
@@ -1783,8 +2021,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.doctorContactTable)).EndInit();
             this.contactEntryEditBox.ResumeLayout(false);
             this.contactEntryEditBox.PerformLayout();
-            this.weightGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardWeightChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1921,10 +2157,31 @@
         private System.Windows.Forms.Label medicationTakenTime_lb;
         private System.Windows.Forms.Label medicationRefill_lb;
         private System.Windows.Forms.GroupBox weightGroupBox;
-        private System.Windows.Forms.GroupBox immunizationsBox;
-        private System.Windows.Forms.GroupBox measurementBox;
-        private System.Windows.Forms.GroupBox medicationsBox;
+        private System.Windows.Forms.GroupBox measurementsBox;
         private System.Windows.Forms.DataVisualization.Charting.Chart dashboardWeightChart;
+        private System.Windows.Forms.GroupBox babyInformationBox;
+        private System.Windows.Forms.Label dashLastWeight_lb;
+        private System.Windows.Forms.Label dashWeightLast_lb;
+        private System.Windows.Forms.Label dashDOB_lb;
+        private System.Windows.Forms.Label dashBabyName_lb;
+        private System.Windows.Forms.Label dashBirthWeight_lb;
+        private System.Windows.Forms.Label dashBirthLength_lb;
+        private System.Windows.Forms.Label dashHips_lb;
+        private System.Windows.Forms.Label dashChest_lb;
+        private System.Windows.Forms.Label dashHead_lb;
+        private System.Windows.Forms.Label dashWeight_lb;
+        private System.Windows.Forms.Label dashBirthLengthM_lb;
+        private System.Windows.Forms.Label dashLastDateInput_lb;
+        private System.Windows.Forms.Label dashWeightInput_lb;
+        private System.Windows.Forms.Label dashBirthLengthOutput_lb;
+        private System.Windows.Forms.Label dashBirthWeightOuput_lb;
+        private System.Windows.Forms.Label dashDOBOutput_lb;
+        private System.Windows.Forms.Label dashNameOutput_lb;
+        private System.Windows.Forms.Label dashMHipsOut_lb;
+        private System.Windows.Forms.Label dashMChestOut_lb;
+        private System.Windows.Forms.Label dashMHeadOut_lb;
+        private System.Windows.Forms.Label dashMWaistOut_lb;
+        private System.Windows.Forms.Label dashMLengthOut_lb;
     }
 }
 

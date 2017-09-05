@@ -74,6 +74,7 @@ namespace Baby_Tracker
             doctorContactDataTable();
             measurementDataTable();
             medicationDataTable();
+            dashboardDisplay();
 
         }
 
@@ -167,21 +168,28 @@ namespace Baby_Tracker
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //loads the selected name from combobox to theis label
             babyName = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //sets he combobox to be saved as a string
 
-            string query = "SELECT BabyImagePath FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
+            string query = "SELECT * FROM BabyList where FirstName = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(query, connection);
             connection.Open();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string result = Convert.ToString(reader["BabyImagePath"]);
-                if (result == "")
+                string imageResult = Convert.ToString(reader["BabyImagePath"]);
+
+                //used for dashboard display results
+                string weightResult = Convert.ToString(reader["BirthWeight"]);
+                string DOBResult = Convert.ToString(reader["DOB"]);
+                string lengthResult = Convert.ToString(reader["BirthLength"]);
+                string firstNameResult = Convert.ToString(reader["FirstName"]);
+
+                if (imageResult == "")
                 {
                     //do nothing
                 }
                 else
                 {
-                    userImage_box.Image = Image.FromFile(result);
+                    userImage_box.Image = Image.FromFile(imageResult);
                     weightDataTable();
                     weightPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Weight";
                     measurementDataTable();
@@ -189,6 +197,12 @@ namespace Baby_Tracker
                     medicationDataTable();
                     medicationPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Medications";
 
+                    //used for dashboard display results
+                    dashBirthWeightOuput_lb.Text = weightResult;
+                    dashBirthLengthOutput_lb.Text = lengthResult;
+                    dashDOBOutput_lb.Text = DOBResult;
+                    dashNameOutput_lb.Text = firstNameResult;
+                    dashboardDisplay();
 
                 }
             }
@@ -262,6 +276,10 @@ namespace Baby_Tracker
                     this.weightDataView.Columns[0].Visible = false;
                     weightStatistics();
                     weightChartMethod();
+
+                    //used for dashboard display results
+                    dashWeightInput_lb.Text = Weight.lastWeight;
+                    dashLastDateInput_lb.Text = Weight.lastDate;
                 }
             }
         }
@@ -564,6 +582,14 @@ namespace Baby_Tracker
                     measurementDatatable.DataSource = dt;
                     this.measurementDatatable.Columns[0].Visible = false;
                     measurementChartMethod();
+
+                   
+                    //Used for dashboard display
+                    dashMLengthOut_lb.Text = measurementsLength;
+                    dashMHeadOut_lb.Text = measurementsHead;
+                    dashMHipsOut_lb.Text = measurementsHips;
+                    dashMWaistOut_lb.Text = measurementsWaist;
+                    dashMChestOut_lb.Text = measurementsChest;
                 }
             }
         }
@@ -815,6 +841,26 @@ namespace Baby_Tracker
             medicationPrecribDoc_tbox.Text = medicationsDataTable.CurrentRow.Cells[8].Value.ToString();
 
         }
+        }
+
+
+
+
+        public void dashboardDisplay()
+        {
+            string query = "SELECT * FROM Measurements where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            SQLiteCommand command = new SQLiteCommand(query, connection);
+            connection.Open();
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                dashMLengthOut_lb.Text = Convert.ToString(reader["Length"]);
+                dashMWaistOut_lb.Text = Convert.ToString(reader["Waist"]);
+                dashMHipsOut_lb.Text = Convert.ToString(reader["Hips"]);
+                dashMHeadOut_lb.Text = Convert.ToString(reader["Head"]);
+                dashMChestOut_lb.Text = Convert.ToString(reader["Chest"]);
+            }
         }
     }
 }
