@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="DatabaseCreation.cs" />
     <Compile Include="DoctorContacts.cs" />
+    <Compile Include="Immunizations.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +239,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cdcImmunizationList.gif" />
+    <None Include="BabyProfileImages\BabyBoy1.png" />
+    <None Include="BabyProfileImages\BabyBoy2.png" />
+    <None Include="BabyProfileImages\BabyGirl2.png" />
+    <None Include="BabyProfileImages\BabyGirl1.png" />
     <Content Include="MainIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
