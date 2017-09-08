@@ -23,6 +23,7 @@ namespace Baby_Tracker
         DoctorContacts doctorContacts = new DoctorContacts();
         Measurements measurementsClass = new Measurements();
         Medications medicationClass = new Medications();
+        Immunizations immunizationsClass = new Immunizations();
 
         //Allows for the weight and baby to be called in other classes for data entry
         public static string babyName = ""; //declares the baby name from the main combobox in the left panel
@@ -60,6 +61,12 @@ namespace Baby_Tracker
         public static string medPharmacy = "";
         public static string medTakenTime = "";
         public static string medPrescribingDoc = "";
+
+        //Immunizations delcarations for database
+        public static int immunizationID = 0;
+        public static string immName = "";
+        public static string immDosage = "";
+        public static string immDateGiven = "";
         
         //Database connection string
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
@@ -75,6 +82,7 @@ namespace Baby_Tracker
             measurementDataTable();
             medicationDataTable();
             dashboardDisplay();
+            immunizationDataTable();
 
         }
 
@@ -845,6 +853,9 @@ namespace Baby_Tracker
 
 
 
+        /// 
+        /// Dashboard
+        /// 
 
         public void dashboardDisplay()
         {
@@ -861,6 +872,82 @@ namespace Baby_Tracker
                 dashMHeadOut_lb.Text = Convert.ToString(reader["Head"]);
                 dashMChestOut_lb.Text = Convert.ToString(reader["Chest"]);
             }
+        }
+
+
+
+        /// 
+        /// Immunizations
+        /// 
+
+
+        /*
+  * Allows for the measurements datatable to be called and then 
+  * the data found there is then loaded into the Datatable in the
+  * Measurements Panel. The first column is not visable in the 
+  * table view itself.
+  */
+        public void immunizationDataTable()
+        {
+            DataTable dt = new DataTable();
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Name, Dosage, DateGiven FROM Immunizations where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                    immunizationDatatable.DataSource = dt;
+                    this.immunizationDatatable.Columns[0].Visible = false;
+                }
+            }
+        }
+
+
+        /*
+       * Sets the current textbox inputs for medications to a variable 
+       * to be used throughout the application.
+       */
+        public void getTextboxImmInputs()
+        {
+            immName = nameImmunization_box.Text;
+            immDosage = dosageImmunization_box.Text;
+            immDateGiven = lastDateImmunization_box.Text;
+           
+        }
+
+
+        private void addImmunization_btn_Click(object sender, EventArgs e)
+        {
+            getTextboxImmInputs();
+            immunizationsClass.addImmunization();
+            immunizationDataTable();
+        }
+
+        private void editImmunization_btn_Click(object sender, EventArgs e)
+        {
+            getTextboxImmInputs();
+            immunizationsClass.updateImmunization();
+            immunizationDataTable();
+
+        }
+
+        private void immunizationDelete_btn_Click(object sender, EventArgs e)
+        {
+            immunizationsClass.deleteImmunization();
+            immunizationDataTable();
+
+        }
+
+        private void immunizationDatatable_Click(object sender, EventArgs e)
+        {
+                if (immunizationDatatable.CurrentRow.Index != -1)
+            {
+            immunizationID = Convert.ToInt32(immunizationDatatable.CurrentRow.Cells[0].Value.ToString());
+            nameImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[1].Value.ToString();
+            lastDateImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[3].Value.ToString();
+            dosageImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[2].Value.ToString();
+
+        }
         }
     }
 }

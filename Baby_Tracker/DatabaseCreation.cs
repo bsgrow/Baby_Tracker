@@ -11,10 +11,10 @@ namespace Baby_Tracker
     class DatabaseCreation
     {
      
-        public static string bg1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
-        public static string bg2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
-        public static string bb1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
-        public static string bb2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
+        public static string bb1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
+        public static string bb2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
+        public static string bg1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
+        public static string bg2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
 
 	    
         SQLiteConnection connection;
@@ -58,9 +58,9 @@ namespace Baby_Tracker
         string sqlImmunizationsTable = @"CREATE TABLE Immunizations (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 				Name VARCHAR(100) NOT NULL,
-				DateGiven DATE NULL,
-				AdminBy VARCHAR(100) NULL,
-				NextDose DATE NULL
+				DateGiven VARCHAR(9) NULL,
+				Dosage INTEGER NULL,
+                BabyID VARCHAR(50) NOT NULL
 				)";
 
         string sqlMedicationsTable = @"CREATE TABLE Medications (
@@ -71,9 +71,9 @@ namespace Baby_Tracker
 				DateStarted VARCHAR(9) NULL,
 				Refill INTEGER NULL,
 				Pharmacy VARCHAR(100) NULL,
-                		TakenTime VARCHAR(100) NULL,
+                TakenTime VARCHAR(100) NULL,
 				PrescribingDoc VARCHAR(100) NULL,
-                		BabyID VARCHAR(50) NULL
+                BabyID VARCHAR(50) NULL
 				)";
 
         string sqlDoctorAppointmentsTable = @"CREATE TABLE DoctorAppointments (

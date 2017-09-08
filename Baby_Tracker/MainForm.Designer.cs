@@ -54,9 +54,7 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.completeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.babyListExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.babyListPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weightReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.growthStatisticReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.immunizationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,6 +154,15 @@
             this.immunizationsPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.immunizationGroupBox = new System.Windows.Forms.GroupBox();
+            this.dosageImmunization_box = new System.Windows.Forms.TextBox();
+            this.lastDateImmunization_box = new System.Windows.Forms.TextBox();
+            this.nameImmunization_box = new System.Windows.Forms.TextBox();
+            this.immunizationDelete_btn = new System.Windows.Forms.Button();
+            this.editImmunization_btn = new System.Windows.Forms.Button();
+            this.addImmunization_btn = new System.Windows.Forms.Button();
+            this.immunizationDateGive_lb = new System.Windows.Forms.Label();
+            this.immunizaitonDosagenum_lb = new System.Windows.Forms.Label();
+            this.immunizationName_lb = new System.Windows.Forms.Label();
             this.immunizationDatatable = new System.Windows.Forms.DataGridView();
             this.immunizationsPanel_lb = new System.Windows.Forms.Label();
             this.medicationsPanel = new System.Windows.Forms.Panel();
@@ -205,12 +212,9 @@
             this.docOfficeName_lb = new System.Windows.Forms.Label();
             this.docLastName_lb = new System.Windows.Forms.Label();
             this.docFirstName_lb = new System.Windows.Forms.Label();
-            this.immunizationName_lb = new System.Windows.Forms.Label();
-            this.immunizaitonDosagenum_lb = new System.Windows.Forms.Label();
-            this.immunizationDateGive_lb = new System.Windows.Forms.Label();
-            this.addImmunization_btn = new System.Windows.Forms.Button();
-            this.editImmunization_btn = new System.Windows.Forms.Button();
-            this.immunizationDelete_btn = new System.Windows.Forms.Button();
+            this.weightRecordExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.immunizationRecordExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorsContactsExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -276,7 +280,6 @@
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.completeReportToolStripMenuItem,
             this.weightReportToolStripMenuItem,
-            this.growthStatisticReportToolStripMenuItem,
             this.immunizationReportToolStripMenuItem,
             this.contactListToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
@@ -286,48 +289,40 @@
             // completeReportToolStripMenuItem
             // 
             this.completeReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.babyListExcelToolStripMenuItem,
-            this.babyListPDFToolStripMenuItem});
+            this.babyListExcelToolStripMenuItem});
             this.completeReportToolStripMenuItem.Name = "completeReportToolStripMenuItem";
-            this.completeReportToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.completeReportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.completeReportToolStripMenuItem.Text = "Baby List Report";
             // 
             // babyListExcelToolStripMenuItem
             // 
             this.babyListExcelToolStripMenuItem.Name = "babyListExcelToolStripMenuItem";
-            this.babyListExcelToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.babyListExcelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.babyListExcelToolStripMenuItem.Text = "Baby List Excel";
             this.babyListExcelToolStripMenuItem.Click += new System.EventHandler(this.babyListExcelToolStripMenuItem_Click);
             // 
-            // babyListPDFToolStripMenuItem
-            // 
-            this.babyListPDFToolStripMenuItem.Name = "babyListPDFToolStripMenuItem";
-            this.babyListPDFToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.babyListPDFToolStripMenuItem.Text = "Baby List PDF";
-            this.babyListPDFToolStripMenuItem.Click += new System.EventHandler(this.babyListPDFToolStripMenuItem_Click);
-            // 
             // weightReportToolStripMenuItem
             // 
+            this.weightReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.weightRecordExcelToolStripMenuItem});
             this.weightReportToolStripMenuItem.Name = "weightReportToolStripMenuItem";
-            this.weightReportToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.weightReportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.weightReportToolStripMenuItem.Text = "Weight Report";
-            // 
-            // growthStatisticReportToolStripMenuItem
-            // 
-            this.growthStatisticReportToolStripMenuItem.Name = "growthStatisticReportToolStripMenuItem";
-            this.growthStatisticReportToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.growthStatisticReportToolStripMenuItem.Text = "Growth Statistic Report";
             // 
             // immunizationReportToolStripMenuItem
             // 
+            this.immunizationReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.immunizationRecordExcelToolStripMenuItem});
             this.immunizationReportToolStripMenuItem.Name = "immunizationReportToolStripMenuItem";
-            this.immunizationReportToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.immunizationReportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.immunizationReportToolStripMenuItem.Text = "Immunization Report";
             // 
             // contactListToolStripMenuItem
             // 
+            this.contactListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doctorsContactsExcelToolStripMenuItem});
             this.contactListToolStripMenuItem.Name = "contactListToolStripMenuItem";
-            this.contactListToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.contactListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.contactListToolStripMenuItem.Text = "Doctor Contact List";
             // 
             // helpToolStripMenuItem
@@ -343,14 +338,14 @@
             // 
             this.helpDocumentationToolStripMenuItem.Image = global::Baby_Tracker.Properties.Resources.helpDocumIcon;
             this.helpDocumentationToolStripMenuItem.Name = "helpDocumentationToolStripMenuItem";
-            this.helpDocumentationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.helpDocumentationToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.helpDocumentationToolStripMenuItem.Text = "Help Documentation";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::Baby_Tracker.Properties.Resources.aboutIcon;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // leftPanel
@@ -1501,6 +1496,9 @@
             // 
             // immunizationGroupBox
             // 
+            this.immunizationGroupBox.Controls.Add(this.dosageImmunization_box);
+            this.immunizationGroupBox.Controls.Add(this.lastDateImmunization_box);
+            this.immunizationGroupBox.Controls.Add(this.nameImmunization_box);
             this.immunizationGroupBox.Controls.Add(this.immunizationDelete_btn);
             this.immunizationGroupBox.Controls.Add(this.editImmunization_btn);
             this.immunizationGroupBox.Controls.Add(this.addImmunization_btn);
@@ -1515,13 +1513,96 @@
             this.immunizationGroupBox.TabStop = false;
             this.immunizationGroupBox.Text = "Immunization New/Edit";
             // 
+            // dosageImmunization_box
+            // 
+            this.dosageImmunization_box.Location = new System.Drawing.Point(103, 89);
+            this.dosageImmunization_box.Name = "dosageImmunization_box";
+            this.dosageImmunization_box.Size = new System.Drawing.Size(187, 24);
+            this.dosageImmunization_box.TabIndex = 8;
+            // 
+            // lastDateImmunization_box
+            // 
+            this.lastDateImmunization_box.Location = new System.Drawing.Point(156, 147);
+            this.lastDateImmunization_box.Name = "lastDateImmunization_box";
+            this.lastDateImmunization_box.Size = new System.Drawing.Size(187, 24);
+            this.lastDateImmunization_box.TabIndex = 7;
+            // 
+            // nameImmunization_box
+            // 
+            this.nameImmunization_box.Location = new System.Drawing.Point(92, 38);
+            this.nameImmunization_box.Name = "nameImmunization_box";
+            this.nameImmunization_box.Size = new System.Drawing.Size(187, 24);
+            this.nameImmunization_box.TabIndex = 6;
+            // 
+            // immunizationDelete_btn
+            // 
+            this.immunizationDelete_btn.Location = new System.Drawing.Point(264, 275);
+            this.immunizationDelete_btn.Name = "immunizationDelete_btn";
+            this.immunizationDelete_btn.Size = new System.Drawing.Size(75, 23);
+            this.immunizationDelete_btn.TabIndex = 5;
+            this.immunizationDelete_btn.Text = "Delete";
+            this.immunizationDelete_btn.UseVisualStyleBackColor = true;
+            this.immunizationDelete_btn.Click += new System.EventHandler(this.immunizationDelete_btn_Click);
+            // 
+            // editImmunization_btn
+            // 
+            this.editImmunization_btn.Location = new System.Drawing.Point(143, 275);
+            this.editImmunization_btn.Name = "editImmunization_btn";
+            this.editImmunization_btn.Size = new System.Drawing.Size(75, 23);
+            this.editImmunization_btn.TabIndex = 4;
+            this.editImmunization_btn.Text = "Edit";
+            this.editImmunization_btn.UseVisualStyleBackColor = true;
+            this.editImmunization_btn.Click += new System.EventHandler(this.editImmunization_btn_Click);
+            // 
+            // addImmunization_btn
+            // 
+            this.addImmunization_btn.Location = new System.Drawing.Point(25, 275);
+            this.addImmunization_btn.Name = "addImmunization_btn";
+            this.addImmunization_btn.Size = new System.Drawing.Size(75, 23);
+            this.addImmunization_btn.TabIndex = 3;
+            this.addImmunization_btn.Text = "New";
+            this.addImmunization_btn.UseVisualStyleBackColor = true;
+            this.addImmunization_btn.Click += new System.EventHandler(this.addImmunization_btn_Click);
+            // 
+            // immunizationDateGive_lb
+            // 
+            this.immunizationDateGive_lb.AutoSize = true;
+            this.immunizationDateGive_lb.Location = new System.Drawing.Point(33, 150);
+            this.immunizationDateGive_lb.Name = "immunizationDateGive_lb";
+            this.immunizationDateGive_lb.Size = new System.Drawing.Size(117, 18);
+            this.immunizationDateGive_lb.TabIndex = 2;
+            this.immunizationDateGive_lb.Text = "Last Date Given:";
+            // 
+            // immunizaitonDosagenum_lb
+            // 
+            this.immunizaitonDosagenum_lb.AutoSize = true;
+            this.immunizaitonDosagenum_lb.Location = new System.Drawing.Point(33, 92);
+            this.immunizaitonDosagenum_lb.Name = "immunizaitonDosagenum_lb";
+            this.immunizaitonDosagenum_lb.Size = new System.Drawing.Size(64, 18);
+            this.immunizaitonDosagenum_lb.TabIndex = 1;
+            this.immunizaitonDosagenum_lb.Text = "Dosage:";
+            // 
+            // immunizationName_lb
+            // 
+            this.immunizationName_lb.AutoSize = true;
+            this.immunizationName_lb.Location = new System.Drawing.Point(33, 40);
+            this.immunizationName_lb.Name = "immunizationName_lb";
+            this.immunizationName_lb.Size = new System.Drawing.Size(52, 18);
+            this.immunizationName_lb.TabIndex = 0;
+            this.immunizationName_lb.Text = "Name:";
+            // 
             // immunizationDatatable
             // 
+            this.immunizationDatatable.AllowUserToAddRows = false;
+            this.immunizationDatatable.AllowUserToDeleteRows = false;
+            this.immunizationDatatable.AllowUserToResizeRows = false;
+            this.immunizationDatatable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.immunizationDatatable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.immunizationDatatable.Location = new System.Drawing.Point(42, 72);
             this.immunizationDatatable.Name = "immunizationDatatable";
             this.immunizationDatatable.Size = new System.Drawing.Size(470, 310);
             this.immunizationDatatable.TabIndex = 1;
+            this.immunizationDatatable.Click += new System.EventHandler(this.immunizationDatatable_Click);
             // 
             // immunizationsPanel_lb
             // 
@@ -2037,59 +2118,23 @@
             this.docFirstName_lb.TabIndex = 0;
             this.docFirstName_lb.Text = "First Name:";
             // 
-            // immunizationName_lb
+            // weightRecordExcelToolStripMenuItem
             // 
-            this.immunizationName_lb.AutoSize = true;
-            this.immunizationName_lb.Location = new System.Drawing.Point(33, 40);
-            this.immunizationName_lb.Name = "immunizationName_lb";
-            this.immunizationName_lb.Size = new System.Drawing.Size(52, 18);
-            this.immunizationName_lb.TabIndex = 0;
-            this.immunizationName_lb.Text = "Name:";
+            this.weightRecordExcelToolStripMenuItem.Name = "weightRecordExcelToolStripMenuItem";
+            this.weightRecordExcelToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.weightRecordExcelToolStripMenuItem.Text = "Weight Record Excel";
             // 
-            // immunizaitonDosagenum_lb
+            // immunizationRecordExcelToolStripMenuItem
             // 
-            this.immunizaitonDosagenum_lb.AutoSize = true;
-            this.immunizaitonDosagenum_lb.Location = new System.Drawing.Point(33, 92);
-            this.immunizaitonDosagenum_lb.Name = "immunizaitonDosagenum_lb";
-            this.immunizaitonDosagenum_lb.Size = new System.Drawing.Size(64, 18);
-            this.immunizaitonDosagenum_lb.TabIndex = 1;
-            this.immunizaitonDosagenum_lb.Text = "Dosage:";
+            this.immunizationRecordExcelToolStripMenuItem.Name = "immunizationRecordExcelToolStripMenuItem";
+            this.immunizationRecordExcelToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.immunizationRecordExcelToolStripMenuItem.Text = "Immunization Record Excel";
             // 
-            // immunizationDateGive_lb
+            // doctorsContactsExcelToolStripMenuItem
             // 
-            this.immunizationDateGive_lb.AutoSize = true;
-            this.immunizationDateGive_lb.Location = new System.Drawing.Point(33, 150);
-            this.immunizationDateGive_lb.Name = "immunizationDateGive_lb";
-            this.immunizationDateGive_lb.Size = new System.Drawing.Size(117, 18);
-            this.immunizationDateGive_lb.TabIndex = 2;
-            this.immunizationDateGive_lb.Text = "Last Date Given:";
-            // 
-            // addImmunization_btn
-            // 
-            this.addImmunization_btn.Location = new System.Drawing.Point(25, 275);
-            this.addImmunization_btn.Name = "addImmunization_btn";
-            this.addImmunization_btn.Size = new System.Drawing.Size(75, 23);
-            this.addImmunization_btn.TabIndex = 3;
-            this.addImmunization_btn.Text = "New";
-            this.addImmunization_btn.UseVisualStyleBackColor = true;
-            // 
-            // editImmunization_btn
-            // 
-            this.editImmunization_btn.Location = new System.Drawing.Point(143, 275);
-            this.editImmunization_btn.Name = "editImmunization_btn";
-            this.editImmunization_btn.Size = new System.Drawing.Size(75, 23);
-            this.editImmunization_btn.TabIndex = 4;
-            this.editImmunization_btn.Text = "Edit";
-            this.editImmunization_btn.UseVisualStyleBackColor = true;
-            // 
-            // immunizationDelete_btn
-            // 
-            this.immunizationDelete_btn.Location = new System.Drawing.Point(264, 275);
-            this.immunizationDelete_btn.Name = "immunizationDelete_btn";
-            this.immunizationDelete_btn.Size = new System.Drawing.Size(75, 23);
-            this.immunizationDelete_btn.TabIndex = 5;
-            this.immunizationDelete_btn.Text = "Delete";
-            this.immunizationDelete_btn.UseVisualStyleBackColor = true;
+            this.doctorsContactsExcelToolStripMenuItem.Name = "doctorsContactsExcelToolStripMenuItem";
+            this.doctorsContactsExcelToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.doctorsContactsExcelToolStripMenuItem.Text = "Doctors Contacts Excel";
             // 
             // BabyTracker
             // 
@@ -2098,12 +2143,12 @@
             this.ClientSize = new System.Drawing.Size(1195, 795);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.mainMenuStrip);
+            this.Controls.Add(this.dashboardPanel);
+            this.Controls.Add(this.medicationsPanel);
             this.Controls.Add(this.immunizationsPanel);
             this.Controls.Add(this.doctorContactsPanel);
             this.Controls.Add(this.measurementsPanel);
             this.Controls.Add(this.testPanel);
-            this.Controls.Add(this.dashboardPanel);
-            this.Controls.Add(this.medicationsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
@@ -2172,7 +2217,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem completeReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weightReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem growthStatisticReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem immunizationReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpDocumentationToolStripMenuItem;
@@ -2195,7 +2239,6 @@
         private System.Windows.Forms.Button immunizations_btn;
         private System.Windows.Forms.Button measurements_btn;
         private System.Windows.Forms.ToolStripMenuItem babyListExcelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem babyListPDFToolStripMenuItem;
         private System.Windows.Forms.Panel testPanel;
         private System.Windows.Forms.Label dashBoardPanel_lb;
         private System.Windows.Forms.Label weightPanel_lb;
@@ -2328,6 +2371,12 @@
         private System.Windows.Forms.Label immunizationDateGive_lb;
         private System.Windows.Forms.Label immunizaitonDosagenum_lb;
         private System.Windows.Forms.Label immunizationName_lb;
+        private System.Windows.Forms.TextBox dosageImmunization_box;
+        private System.Windows.Forms.TextBox lastDateImmunization_box;
+        private System.Windows.Forms.TextBox nameImmunization_box;
+        private System.Windows.Forms.ToolStripMenuItem weightRecordExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem immunizationRecordExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doctorsContactsExcelToolStripMenuItem;
     }
 }
 
