@@ -13,8 +13,9 @@ namespace Baby_Tracker
 {
     public partial class BabyTracker : Form
     {
-    
+
         //Access to other classes and forms
+        AboutForm aboutForm = new AboutForm();
         BabyEntryForm babyEntryForm = new BabyEntryForm();
         BabyUpdateForm babyUpdateForm = new BabyUpdateForm();
         BabyDeleteForm babyDeleteForm = new BabyDeleteForm();
@@ -951,6 +952,9 @@ namespace Baby_Tracker
         }
         }
 
-     
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aboutForm.ShowDialog();
+        }
     }
 }
