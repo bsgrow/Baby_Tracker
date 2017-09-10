@@ -172,19 +172,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\editIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\addUserIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\settingsIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Icons\exitIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\helpDocumIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\aboutIcon.png" />
@@ -205,25 +193,13 @@
     <None Include="Icons\medicationIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\calanderIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Icons\contactIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\statIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\addIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\editIcon%28L%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\exportIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icons\settingsIcon%28L%29.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -239,6 +215,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\deleteIcon.png" />
     <None Include="Resources\cdcImmunizationList.gif" />
     <None Include="BabyProfileImages\BabyBoy1.png" />
     <None Include="BabyProfileImages\BabyBoy2.png" />

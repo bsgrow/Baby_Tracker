@@ -190,6 +190,8 @@ namespace Baby_Tracker
                 string DOBResult = Convert.ToString(reader["DOB"]);
                 string lengthResult = Convert.ToString(reader["BirthLength"]);
                 string firstNameResult = Convert.ToString(reader["FirstName"]);
+                string lastNameResult = Convert.ToString(reader["LastName"]);
+
 
                 if (imageResult == "")
                 {
@@ -199,17 +201,15 @@ namespace Baby_Tracker
                 {
                     userImage_box.Image = Image.FromFile(imageResult);
                     weightDataTable();
-                    weightPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Weight";
                     measurementDataTable();
-                    measurementsPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Measurements";
                     medicationDataTable();
-                    medicationPanel_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'s Medications";
 
                     //used for dashboard display results
                     dashBirthWeightOuput_lb.Text = weightResult;
                     dashBirthLengthOutput_lb.Text = lengthResult;
                     dashDOBOutput_lb.Text = DOBResult;
                     dashNameOutput_lb.Text = firstNameResult;
+                    dashLastNameDisplay.Text = lastNameResult;
                     dashboardDisplay();
 
                 }
@@ -286,8 +286,8 @@ namespace Baby_Tracker
                     weightChartMethod();
 
                     //used for dashboard display results
-                    dashWeightInput_lb.Text = Weight.lastWeight;
-                    dashLastDateInput_lb.Text = Weight.lastDate;
+                    lastEntered.Text = Weight.lastWeight;
+                    lastDateEntered.Text = Weight.lastDate;
                 }
             }
         }
@@ -399,11 +399,11 @@ namespace Baby_Tracker
                 connection.Open();
                 SQLiteDataReader reader = command.ExecuteReader();
                 weightChart.Series["Weight"].Points.Clear();
-                dashboardWeightChart.Series["Weight"].Points.Clear();
+                dashWeightChart.Series["Weight"].Points.Clear();
                 while (reader.Read())
                 {
                     weightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
-                    dashboardWeightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
+                    dashWeightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
                 }
             }
             catch(Exception ex)
@@ -635,13 +635,14 @@ namespace Baby_Tracker
                 measurementsWaistChart.Series["Waist"].Points.Clear();
                 measurementsHeadChart.Series["Head"].Points.Clear();
                 measurementsChestChart.Series["Chest"].Points.Clear();
-                
+
                 while (reader.Read())
                 {
+                    
                     measurementsLengthChart.Series["Length"].Points.AddXY(reader[0], reader[1]);
-                    measurementsWaistChart.Series["Waist"].Points.AddXY(reader[0], reader[1]);
-                    measurementsHeadChart.Series["Head"].Points.AddXY(reader[0], reader[1]);
-                    measurementsChestChart.Series["Chest"].Points.AddXY(reader[0], reader[1]);
+                    measurementsWaistChart.Series["Waist"].Points.AddXY(reader[0], reader[2]);
+                    measurementsHeadChart.Series["Head"].Points.AddXY(reader[0], reader[3]);
+                    measurementsChestChart.Series["Chest"].Points.AddXY(reader[0], reader[4]);
                 }
             }
             catch(Exception ex)
@@ -949,5 +950,7 @@ namespace Baby_Tracker
 
         }
         }
+
+     
     }
 }
