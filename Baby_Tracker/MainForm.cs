@@ -124,27 +124,6 @@ namespace Baby_Tracker
 
 
         /*
-         * Calls the ReportExports class to allows for the excel function
-         * to be activated to export a excel spreadsheet to the desired location.
-         * (Only for Baby List)
-         */
-        private void babyListExcelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            reportExports.excelExport();
-        }
-
-
-        /*
-         * Calls the ReportExports class to allow for the PDF function to be
-         * activated to export a PDF to the desired location. (Only for Baby List)
-         */
-        private void babyListPDFToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            reportExports.pdfExport();
-        }
-
-
-        /*
         *  Calls the FirstName table from the SQLite database to be displayed inside
         *  the combob box. This is also set to refresh as a new baby is entered into the
         *  application.
@@ -955,6 +934,11 @@ namespace Baby_Tracker
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             aboutForm.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
