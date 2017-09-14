@@ -10,29 +10,19 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Text;
 using System.IO;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+
 namespace Baby_Tracker
 {
     class ReportExports
     {
         // ,DataTable measurementsDataTable, DataTable immunizationsTable, DataTable medicatonsTable
-        public void createPDF(DataTable weightDataTable)
+        public void createPDF(DataTable weightDataTable, DataTable measurementsDataTable, DataTable immunizationsDataTable, DataTable medicationsDataTable)
         {
             //gets user Download location in system
             string userRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
-            string destinationPath = Path.Combine(userRoot, "Downloads");
+            string destinationPath = @"\\Mac\Home\Desktop\test.pdf";
             
             
             Document document = new Document();
@@ -41,21 +31,24 @@ namespace Baby_Tracker
 
             
             PdfPTable weightTable = new PdfPTable(weightDataTable.Columns.Count);
-            //PdfPTable measurementsTable = new PdfPTable(measurementsDataTable.Columns.Count);
-            //PdfPTable immunizationsTable = new PdfPTable(immunizationsDataTable.Columns.Count);
-            //PdfPTable medicatonsTable = new PdfPTable(medicationsDataTable.Columns.Count);
+            PdfPTable measurementsTable = new PdfPTable(measurementsDataTable.Columns.Count);
+            PdfPTable immunizationsTable = new PdfPTable(immunizationsDataTable.Columns.Count);
+            PdfPTable medicationsTable = new PdfPTable(medicationsDataTable.Columns.Count);
             weightTable.WidthPercentage = 100;
+            measurementsTable.WidthPercentage = 100;
+            immunizationsTable.WidthPercentage = 100;
+            medicationsTable.WidthPercentage = 100;
 
-            
+
             //Used to create weight table
             //Columns
-            for(int k = 0; k < weightDataTable.Columns.Count; k++)
+            for (int k = 0; k < weightDataTable.Columns.Count; k++)
             {
                 PdfPCell cell = new PdfPCell(new Phrase(weightDataTable.Columns[k].ColumnName));
 
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 cell.VerticalAlignment = PdfPCell.ALIGN_CENTER;
-                cell.BackgroundColor = new iTextSharp.text.BaseColor(51, 102, 102);
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(220, 220, 220);
 
                 weightTable.AddCell(cell);
             }
@@ -74,7 +67,8 @@ namespace Baby_Tracker
                     weightTable.AddCell(cell);
                 }
             }
-            /*
+            
+
             //Used to create Measurements Table
             //Columns
             for(int k = 0; k < measurementsDataTable.Columns.Count; k++)
@@ -83,7 +77,7 @@ namespace Baby_Tracker
 
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 cell.VerticalAlignment = PdfPCell.ALIGN_CENTER;
-                cell.BackgroundColor = new iTextSharp.text.BaseColor(51, 102, 102);
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(220, 220, 220);
 
                 measurementsTable.AddCell(cell);
             }
@@ -112,7 +106,7 @@ namespace Baby_Tracker
 
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 cell.VerticalAlignment = PdfPCell.ALIGN_CENTER;
-                cell.BackgroundColor = new iTextSharp.text.BaseColor(51, 102, 102);
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(220, 220, 220);
 
                 immunizationsTable.AddCell(cell);
             }
@@ -133,47 +127,45 @@ namespace Baby_Tracker
             }
             
             
-
+            
             //Used to create Medication Table
             //Columns
-            for(int k = 0; k < medicatonsTable .Columns.Count; k++)
+            for(int k = 0; k < medicationsDataTable.Columns.Count; k++)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(medicatonsTable .Columns[k].ColumnName));
+                PdfPCell cell = new PdfPCell(new Phrase(medicationsDataTable.Columns[k].ColumnName));
 
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 cell.VerticalAlignment = PdfPCell.ALIGN_CENTER;
-                cell.BackgroundColor = new iTextSharp.text.BaseColor(51, 102, 102);
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(220, 220, 220);
 
-                medicatonsTable.AddCell(cell);
+                medicationsTable.AddCell(cell);
             }
 
             //Values
-            for(int i = 0; i < medicatonsTable .Rows.Count; i++)
+            for(int i = 0; i < medicationsDataTable.Rows.Count; i++)
             {
-                for(int j = 0; j < medicatonsTable .Columns.Count; j++)
+                for(int j = 0; j < medicationsDataTable.Columns.Count; j++)
                 {
-                        PdfPCell cell = new PdfPCell(new Phrase(medicatonsTable .Rows[i][j].ToString()));
+                        PdfPCell cell = new PdfPCell(new Phrase(medicationsDataTable.Rows[i][j].ToString()));
 
                         //Align the cell in the center
                         cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                         cell.VerticalAlignment = PdfPCell.ALIGN_CENTER;
 
-                        medicatonsTable.AddCell(cell);
+                        medicationsTable.AddCell(cell);
                  }
              } 
             
-            */
+            
 
             document.Add(weightTable);
-            document.add(Chunk.NEWLINE);
-            //document.Add(measurementsTable);
-            //document.add( Chunk.NEWLINE );
-            //document.Add(immunizationsTable);
-            //document.add( Chunk.NEWLINE );
-            //document.Add(medicatonsTable);
+            document.Add(new Paragraph("\n\n"));
+            document.Add(measurementsTable);
+            document.Add(new Paragraph("\n\n"));
+            document.Add(immunizationsTable);
+            document.Add(new Paragraph("\n\n"));
+            document.Add(medicationsTable);
             document.Close();
-            
-            //document.add(new Paragraph("\n\n"));
-}
+        }
     }
 }

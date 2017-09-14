@@ -278,7 +278,7 @@
             // 
             this.exitToolStripMenuItem.Image = global::Baby_Tracker.Properties.Resources.exitIcon;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -295,6 +295,7 @@
             this.exportBabyRecordExcelToolStripMenuItem.Name = "exportBabyRecordExcelToolStripMenuItem";
             this.exportBabyRecordExcelToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.exportBabyRecordExcelToolStripMenuItem.Text = "Export Baby Record (CSV)";
+            this.exportBabyRecordExcelToolStripMenuItem.Click += new System.EventHandler(this.exportBabyRecordExcelToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

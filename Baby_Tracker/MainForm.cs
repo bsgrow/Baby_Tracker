@@ -72,6 +72,12 @@ namespace Baby_Tracker
         //Database connection string
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
+        DataTable weightTable = new DataTable();
+        DataTable measurementsTable = new DataTable();
+        DataTable immunizationsTable = new DataTable();
+        DataTable medicationsTable = new DataTable();
+
+
 
         public BabyTracker()
         {
@@ -253,14 +259,13 @@ namespace Baby_Tracker
          */
         public void weightDataTable()
         {
-            DataTable dt = new DataTable();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Weight, Date FROM Weight where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
-                    dt.Clear();
-                    da.Fill(dt);
-                    weightDataView.DataSource = dt;
+                    weightTable.Clear();
+                    da.Fill(weightTable);
+                    weightDataView.DataSource = weightTable;
                     this.weightDataView.Columns[0].Visible = false;
                     weightStatistics();
                     weightChartMethod();
@@ -560,14 +565,13 @@ namespace Baby_Tracker
          */
         public void measurementDataTable()
         {
-            DataTable dt = new DataTable();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Length, Waist, Head, Chest, Hips FROM Measurements where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
-                    dt.Clear();
-                    da.Fill(dt);
-                    measurementDatatable.DataSource = dt;
+                    measurementsTable.Clear();
+                    da.Fill(measurementsTable);
+                    measurementDatatable.DataSource = measurementsTable;
                     this.measurementDatatable.Columns[0].Visible = false;
                     measurementChartMethod();
 
@@ -723,14 +727,13 @@ namespace Baby_Tracker
          */
         public void medicationDataTable()
         {
-            DataTable dt = new DataTable();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Name, Dosage, Type, DateStarted, Refill, Pharmacy, TakenTime, PrescribingDoc FROM Medications where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
-                    dt.Clear();
-                    da.Fill(dt);
-                    medicationsDataTable.DataSource = dt;
+                    medicationsTable.Clear();
+                    da.Fill(medicationsTable);
+                    medicationsDataTable.DataSource = medicationsTable;
                     this.medicationsDataTable.Columns[0].Visible = false;
                 }
             }
@@ -870,14 +873,13 @@ namespace Baby_Tracker
   */
         public void immunizationDataTable()
         {
-            DataTable dt = new DataTable();
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Name, Dosage, DateGiven FROM Immunizations where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
-                    dt.Clear();
-                    da.Fill(dt);
-                    immunizationDatatable.DataSource = dt;
+                    immunizationsTable.Clear();
+                    da.Fill(immunizationsTable);
+                    immunizationDatatable.DataSource = immunizationsTable;
                     this.immunizationDatatable.Columns[0].Visible = false;
                 }
             }
@@ -939,6 +941,12 @@ namespace Baby_Tracker
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void exportBabyRecordExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable);
         }
     }
 }
