@@ -17,6 +17,7 @@ namespace Baby_Tracker
             InitializeComponent();
         }
 
+        //Allows for the About Form to be hidden
         private void aboutOK_btn_Click(object sender, EventArgs e)
         {
             Hide();
