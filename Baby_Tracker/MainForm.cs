@@ -952,8 +952,14 @@ namespace Baby_Tracker
         //Calls for a PDF to be created 
         private void exportBabyRecordExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+             // Show the FolderBrowserDialog.
+                DialogResult result = folderBrowserDialog1.ShowDialog();
+                if( result == DialogResult.OK )
+                {
+                   string savepath = folderBrowserDialog1.SelectedPath;
+                   reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable, savePath);
+                }
 
-            reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable);
         }
     }
 }
