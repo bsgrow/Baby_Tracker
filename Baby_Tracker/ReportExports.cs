@@ -19,6 +19,10 @@ namespace Baby_Tracker
     {
         BabyTracker babyTracker = new BabyTracker();
         
+        /*
+         * Creates the PDF file of the selected baby from the main application. Here the 
+         * PDF is then saved to the users download file.
+         */
         public void createPDF(DataTable weightDataTable, DataTable measurementsDataTable, DataTable immunizationsDataTable, DataTable medicationsDataTable)
         {
             //gets user Download location in system
