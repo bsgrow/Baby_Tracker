@@ -24,8 +24,11 @@ namespace Baby_Tracker
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
-
+                conn.Open();
+                
                 command.CommandText = "INSERT INTO BabyList (ID, FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) VALUES (@id, @firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
+                command.ExecuteNonQuery();
+                command.CommandText = "INSERT INTO Weight (ID, Weight, Date, BabyID) VALUES (@id, @weight, @date, @babyID)";
                 command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
                 command.Parameters.AddWithValue("@middleName", BabyEntryForm.middleName);
@@ -35,8 +38,9 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@birthLength", BabyEntryForm.length);
                 command.Parameters.AddWithValue("@birthHeadCir", BabyEntryForm.headCir);
                 command.Parameters.AddWithValue("@babyImagePath", BabyEntryForm.imagePath);
+                command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
+                command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
 
-                conn.Open();
                 command.ExecuteNonQuery();
 
             }
