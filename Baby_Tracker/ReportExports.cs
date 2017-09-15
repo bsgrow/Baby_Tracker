@@ -17,19 +17,17 @@ namespace Baby_Tracker
 {
     class ReportExports
     {
-        // ,DataTable measurementsDataTable, DataTable immunizationsTable, DataTable medicatonsTable
+        BabyTracker babyTracker = new BabyTracker();
+        
         public void createPDF(DataTable weightDataTable, DataTable measurementsDataTable, DataTable immunizationsDataTable, DataTable medicationsDataTable)
         {
             //gets user Download location in system
-            string userRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
             string destinationPath = @"\\Mac\Home\Desktop\test.pdf";
-            
             
             Document document = new Document();
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(destinationPath, FileMode.Create));
             document.Open();
 
-            
             PdfPTable weightTable = new PdfPTable(weightDataTable.Columns.Count);
             PdfPTable measurementsTable = new PdfPTable(measurementsDataTable.Columns.Count);
             PdfPTable immunizationsTable = new PdfPTable(immunizationsDataTable.Columns.Count);
@@ -157,14 +155,21 @@ namespace Baby_Tracker
              } 
             
             
-
+            document.Add(new Paragraph(babyTracker.babyname + " Baby Tracker Report"));
+            document.Add(new Paragraph("\n\n"));
+            document.Add(new Paragraph("\n\n"));
+            document.Add(new Paragraph("Weight"));
             document.Add(weightTable);
             document.Add(new Paragraph("\n\n"));
+            document.Add(new Paragraph("Measurements"));
             document.Add(measurementsTable);
             document.Add(new Paragraph("\n\n"));
+            document.Add(new Paragraph("Immunizations"));
             document.Add(immunizationsTable);
             document.Add(new Paragraph("\n\n"));
+            document.Add(new Paragraph("Medications"));
             document.Add(medicationsTable);
+            
             document.Close();
         }
     }
