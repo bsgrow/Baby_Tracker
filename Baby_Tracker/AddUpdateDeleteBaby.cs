@@ -28,7 +28,9 @@ namespace Baby_Tracker
                 
                 command.CommandText = "INSERT INTO BabyList (ID, FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) VALUES (@id, @firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
                 command.ExecuteNonQuery();
-                command.CommandText = "INSERT INTO Weight (ID, Weight, Date, BabyID) VALUES (@id, @weight, @date, @babyID)";
+                command.CommandText = "INSERT INTO Weight (ID, Weight, Date, BabyID) VALUES (@id, @birthWeight, @DOB, @firstName)";
+                command.ExecuteNonQuery();
+                command.CommandText = "INSERT INTO Measurements (ID, Length, Waist, Head, Chest, Hips, BabyID) VALUES (@id, @birthLength, 0, @birthHeadCir, 0, 0, @firstName)";
                 command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
                 command.Parameters.AddWithValue("@middleName", BabyEntryForm.middleName);
@@ -39,7 +41,7 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@birthHeadCir", BabyEntryForm.headCir);
                 command.Parameters.AddWithValue("@babyImagePath", BabyEntryForm.imagePath);
                 command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
-                command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
+                //command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
 
                 command.ExecuteNonQuery();
 
