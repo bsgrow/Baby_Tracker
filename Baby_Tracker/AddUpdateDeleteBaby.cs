@@ -59,6 +59,7 @@ namespace Baby_Tracker
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
+                conn.Open();
                 command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
                 command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
                 command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
@@ -69,7 +70,6 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
                 command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
 
-                conn.Open();
                 command.ExecuteNonQuery();
 
             }
@@ -90,6 +90,12 @@ namespace Baby_Tracker
             {
                 conn.Open();
                 command.CommandText = "DELETE FROM BabyList WHERE FirstName = '" + BabyDeleteForm.comboName + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM Weight WHERE BabyID = '" + BabyDeleteForm.comboName + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM Measurements WHERE BabyID = '" + BabyDeleteForm.comboName + "'";
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM Immunizations WHERE BabyID = '" + BabyDeleteForm.comboName + "'";
                 command.ExecuteNonQuery();
             }
 
