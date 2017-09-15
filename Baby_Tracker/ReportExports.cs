@@ -23,10 +23,10 @@ namespace Baby_Tracker
          * Creates the PDF file of the selected baby from the main application. Here the 
          * PDF is then saved to the users download file.
          */
-        public void createPDF(DataTable weightDataTable, DataTable measurementsDataTable, DataTable immunizationsDataTable, DataTable medicationsDataTable)
+        public void createPDF(DataTable weightDataTable, DataTable measurementsDataTable, DataTable immunizationsDataTable, DataTable medicationsDataTable, String destinationPath)
         {
             //gets user Download location in system
-            string destinationPath = @"\\Mac\Home\Desktop\test.pdf";
+            //string destinationPath = @"\\Mac\Home\Desktop\test.pdf";
             
             Document document = new Document();
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(destinationPath, FileMode.Create));
