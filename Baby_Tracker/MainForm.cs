@@ -841,6 +841,7 @@ namespace Baby_Tracker
         /// Dashboard
         /// 
 
+        //Selects all the information to be displayed about the selected baby on the dashboard panel
         public void dashboardDisplay()
         {
             string query = "SELECT * FROM Measurements where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'";
@@ -898,7 +899,7 @@ namespace Baby_Tracker
            
         }
 
-
+        //Adds immunizaiton to database
         private void addImmunization_btn_Click(object sender, EventArgs e)
         {
             getTextboxImmInputs();
@@ -906,6 +907,7 @@ namespace Baby_Tracker
             immunizationDataTable();
         }
 
+        //Updates Immunization to Database
         private void editImmunization_btn_Click(object sender, EventArgs e)
         {
             getTextboxImmInputs();
@@ -914,6 +916,7 @@ namespace Baby_Tracker
 
         }
 
+        //Deletes a immunization record from database
         private void immunizationDelete_btn_Click(object sender, EventArgs e)
         {
             immunizationsClass.deleteImmunization();
@@ -921,6 +924,7 @@ namespace Baby_Tracker
 
         }
 
+        //Gets the information from the datatable to be editted in the panel
         private void immunizationDatatable_Click(object sender, EventArgs e)
         {
                 if (immunizationDatatable.CurrentRow.Index != -1)
@@ -933,16 +937,19 @@ namespace Baby_Tracker
         }
         }
 
+        //Shows the about from
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             aboutForm.ShowDialog();
         }
 
+        //Allows for the application to Exit from the File menu "Exit"
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Calls for a PDF to be created 
         private void exportBabyRecordExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
