@@ -12,7 +12,10 @@ namespace Baby_Tracker
         //Database Connection String
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
-
+        /*
+         * Adds the information entered from the Immunizations panel to the
+         * immunization table based on the baby entered for.
+         */
         public void addImmunization()
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
@@ -32,7 +35,10 @@ namespace Baby_Tracker
             }
         }
 
-
+        /*
+         * Updates the information that is editted in the immunization panel. This
+         * is then saved based on the baby selected.
+         */
         public void updateImmunization()
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
@@ -47,6 +53,10 @@ namespace Baby_Tracker
             }
         }
 
+        /*
+         * Deletes a record for the database and datatable that the user selects
+         * from the table grid in the immunization panel.
+         */
         public void deleteImmunization()
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
