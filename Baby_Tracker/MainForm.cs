@@ -43,7 +43,7 @@ namespace Baby_Tracker
         public static string zipCodeDoc = "";
         public static string phoneNumDoc = "";
         public static string emailDoc = "";
-        
+
         //Measurement declarations for database
         public static int measurementsID = 0;
         public static string measurementsLength = "";
@@ -51,7 +51,8 @@ namespace Baby_Tracker
         public static string measurementsHead = "";
         public static string measurementsChest = "";
         public static string measurementsHips = "";
-        
+        public static string measurementsDate = "";
+
         //Medications Declarations for database
         public static int medicationID = 0;
         public static string medName = "";
@@ -68,7 +69,7 @@ namespace Baby_Tracker
         public static string immName = "";
         public static string immDosage = "";
         public static string immDateGiven = "";
-        
+
         //Database connection string
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
@@ -232,7 +233,7 @@ namespace Baby_Tracker
             medicationsPanel.BringToFront();
         }
 
-       
+
         //Shows Doctor Contact Panel
         private void button4_Click(object sender, EventArgs e)
         {
@@ -357,7 +358,7 @@ namespace Baby_Tracker
          * on the statistic section on the weight panel.
          */
         public void weightStatistics()
-        { 
+        {
             weightClass.weightStatistics();
             averageWeight_Text.Text = Weight.averageWeight;
             minWeight_text.Text = Weight.minWeight;
@@ -365,18 +366,18 @@ namespace Baby_Tracker
             lastWeight_Text.Text = Weight.lastWeight;
             lastDate_Text.Text = Weight.lastDate;
             weightGained_Text.Text = Weight.gainWeight;
-            
+
         }
 
 
-         /*
-         * Allows for the data from the database to be displayed the graphs 
-         * shown in the Weigth panel. These data points
-         * are used from the Weight Table in the database.
-         */
+        /*
+        * Allows for the data from the database to be displayed the graphs 
+        * shown in the Weigth panel. These data points
+        * are used from the Weight Table in the database.
+        */
         public void weightChartMethod()
         {
-            string weightQuery = "SELECT * FROM Weight WHERE BabyID = '"+babyName+"'";
+            string weightQuery = "SELECT * FROM Weight WHERE BabyID = '" + babyName + "'";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
             try
@@ -391,9 +392,9 @@ namespace Baby_Tracker
                     dashWeightChart.Series["Weight"].Points.AddXY(reader[0], reader[1]);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("There was an error in loading Chart!" +ex);
+                MessageBox.Show("There was an error in loading Chart!" + ex);
             }
         }
 
@@ -403,7 +404,7 @@ namespace Baby_Tracker
         /// Doctor Contacts Panel
         /// 
 
-        
+
         /*
          * Allows for the doctor contact datatable to be called and then 
          * the data found there is then loaded into the Datatable in the
@@ -421,7 +422,7 @@ namespace Baby_Tracker
                     da.Fill(dt);
                     doctorContactTable.DataSource = dt;
                     this.doctorContactTable.Columns[0].Visible = false;
-                   
+
                 }
             }
         }
@@ -500,7 +501,7 @@ namespace Baby_Tracker
             }
         }
 
-        
+
         /*
          * Button allows for the correct methods to be called to allow
          * for a deletion of a selected row in the datatable. Here all
@@ -532,31 +533,31 @@ namespace Baby_Tracker
             docPhone_tbox.Text = "";
             docEmail_tbox.Text = "";
         }
-        
-         /*
-         * Sets the current textbox inputs for doctor contacts to a variable 
-         * to be used throughout the application.
-         */
+
+        /*
+        * Sets the current textbox inputs for doctor contacts to a variable 
+        * to be used throughout the application.
+        */
         public void getDoctorContactTextboxes()
         {
-               officeNameDoc = docOfficeName_tbox.Text;
-                firstNameDoc = docFirstName_tbox.Text;
-                lastNamedoc = docLastName_tbox.Text;
-                addressDoc = docAddress1_tbox.Text;
-                cityDoc = docCity_tbox.Text;
-                stateDoc = docState_tbox.Text;
-                zipCodeDoc = docZip_tbox.Text;
-                phoneNumDoc = docPhone_tbox.Text;
-                emailDoc = docEmail_tbox.Text;
+            officeNameDoc = docOfficeName_tbox.Text;
+            firstNameDoc = docFirstName_tbox.Text;
+            lastNamedoc = docLastName_tbox.Text;
+            addressDoc = docAddress1_tbox.Text;
+            cityDoc = docCity_tbox.Text;
+            stateDoc = docState_tbox.Text;
+            zipCodeDoc = docZip_tbox.Text;
+            phoneNumDoc = docPhone_tbox.Text;
+            emailDoc = docEmail_tbox.Text;
         }
-        
-        
-        
+
+
+
         ///
         /// Measurements Panel
         ///
-        
-        
+
+
         /*
          * Allows for the measurements datatable to be called and then 
          * the data found there is then loaded into the Datatable in the
@@ -567,7 +568,7 @@ namespace Baby_Tracker
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Length, Waist, Head, Chest, Hips FROM Measurements where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
+                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ID, Date, Length, Waist, Head, Chest, Hips FROM Measurements where BabyID = '" + babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem) + "'", connection))
                 {
                     measurementsTable.Clear();
                     da.Fill(measurementsTable);
@@ -575,7 +576,7 @@ namespace Baby_Tracker
                     this.measurementDatatable.Columns[0].Visible = false;
                     measurementChartMethod();
 
-                   
+
                     //Used for dashboard display
                     dashMLengthOut_lb.Text = measurementsLength;
                     dashMHeadOut_lb.Text = measurementsHead;
@@ -585,30 +586,32 @@ namespace Baby_Tracker
                 }
             }
         }
-        
-        
+
+
         /*
          * Allows for the meaurements panel textboxes to be set
          * to blank after each computation is completed.
          */
-        public void clearMeasurementTextboxes() 
+        public void clearMeasurementTextboxes()
         {
             measurementsLength_tbox.Text = "";
             measurementsWaist_tbox.Text = "";
             measurementsHead_tbox.Text = "";
             measurementsChest_tbox.Text = "";
             measurementsHips_tbox.Text = "";
+            measurementsDate_box.Text = "";
+
         }
-        
-        
+
+
         /*
          * Allows for the data from the database to be displayed on all four
          * of the graphs shown in the Measurements panel. These data points
          * are used from the Measurements Table in the database.
          */
-         public void measurementChartMethod()
+        public void measurementChartMethod()
         {
-            string weightQuery = "SELECT * FROM Measurements WHERE BabyID = '"+babyName+"'";
+            string weightQuery = "SELECT * FROM Measurements WHERE BabyID = '" + babyName + "'";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(weightQuery, connection);
             try
@@ -622,16 +625,16 @@ namespace Baby_Tracker
 
                 while (reader.Read())
                 {
-                    
+
                     measurementsLengthChart.Series["Length"].Points.AddXY(reader[0], reader[1]);
                     measurementsWaistChart.Series["Waist"].Points.AddXY(reader[0], reader[2]);
                     measurementsHeadChart.Series["Head"].Points.AddXY(reader[0], reader[3]);
                     measurementsChestChart.Series["Chest"].Points.AddXY(reader[0], reader[4]);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("There was an error in loading Charts!/n" +ex);
+                MessageBox.Show("There was an error in loading Charts!/n" + ex);
             }
         }
 
@@ -643,14 +646,16 @@ namespace Baby_Tracker
          */
         private void measurementDatatable_Click(object sender, EventArgs e)
         {
-             if (measurementDatatable.CurrentRow.Index != -1)
+            if (measurementDatatable.CurrentRow.Index != -1)
             {
-                 measurementsID = Convert.ToInt32(measurementDatatable.CurrentRow.Cells[0].Value.ToString());
-                 measurementsLength_tbox.Text = measurementDatatable.CurrentRow.Cells[1].Value.ToString();
-                    measurementsWaist_tbox.Text = measurementDatatable.CurrentRow.Cells[2].Value.ToString();
-                    measurementsHead_tbox.Text = measurementDatatable.CurrentRow.Cells[3].Value.ToString();
-                    measurementsChest_tbox.Text = measurementDatatable.CurrentRow.Cells[4].Value.ToString();
-                    measurementsHips_tbox.Text = measurementDatatable.CurrentRow.Cells[5].Value.ToString();
+                measurementsID = Convert.ToInt32(measurementDatatable.CurrentRow.Cells[0].Value.ToString());
+                measurementsLength_tbox.Text = measurementDatatable.CurrentRow.Cells[2].Value.ToString();
+                measurementsWaist_tbox.Text = measurementDatatable.CurrentRow.Cells[3].Value.ToString();
+                measurementsHead_tbox.Text = measurementDatatable.CurrentRow.Cells[4].Value.ToString();
+                measurementsChest_tbox.Text = measurementDatatable.CurrentRow.Cells[5].Value.ToString();
+                measurementsHips_tbox.Text = measurementDatatable.CurrentRow.Cells[6].Value.ToString();
+                measurementsDate_box.Text = measurementDatatable.CurrentRow.Cells[1].Value.ToString();
+
             }
 
         }
@@ -685,8 +690,8 @@ namespace Baby_Tracker
             measurementChartMethod();
             clearMeasurementTextboxes();
         }
-        
-        
+
+
         public void getMeasurementTextboxEntry()
         {
             measurementsLength = measurementsLength_tbox.Text;
@@ -694,9 +699,11 @@ namespace Baby_Tracker
             measurementsHead = measurementsHead_tbox.Text;
             measurementsChest = measurementsChest_tbox.Text;
             measurementsHips = measurementsHips_tbox.Text;
+            measurementsDate = measurementsDate_box.Text;
+
         }
 
-    
+
         /*
          * Allows for a record to be deleted from the datbase and also allows
          * for all charts and table views to refreshed to display the edit 
@@ -778,8 +785,8 @@ namespace Baby_Tracker
             medicationDataTable();
             medicationClearTextboxes();
         }
-        
-        
+
+
         /*
          * Allows for all the textboxes on the medication panel 
          * to be reset to blank after a function is completed.
@@ -795,8 +802,8 @@ namespace Baby_Tracker
             medicationDosage_tbox.Text = "";
             medicationName_tbox.Text = "";
         }
-        
-        
+
+
         /*
          * Sets the current textbox inputs for medications to a variable 
          * to be used throughout the application.
@@ -806,7 +813,7 @@ namespace Baby_Tracker
             medName = medicationName_tbox.Text;
             medDosage = medicationDosage_tbox.Text;
             medType = medicationType_tbox.Text;
-            medDateStarted =  medicationDateStart_tbox.Text;
+            medDateStarted = medicationDateStart_tbox.Text;
             medRefill = medicationRefill_tbox.Text;
             medPharmacy = medicationPharmacy_tbox.Text;
             medTakenTime = medicationTaken_tbox.Text;
@@ -820,19 +827,19 @@ namespace Baby_Tracker
          */
         private void medicationsDataTable_Click(object sender, EventArgs e)
         {
-        if (medicationsDataTable.CurrentRow.Index != -1)
+            if (medicationsDataTable.CurrentRow.Index != -1)
             {
-            medicationID = Convert.ToInt32(medicationsDataTable.CurrentRow.Cells[0].Value.ToString());
-            medicationName_tbox.Text = medicationsDataTable.CurrentRow.Cells[1].Value.ToString();
-            medicationDosage_tbox.Text = medicationsDataTable.CurrentRow.Cells[2].Value.ToString();
-            medicationType_tbox.Text = medicationsDataTable.CurrentRow.Cells[3].Value.ToString();
-            medicationDateStart_tbox.Text = medicationsDataTable.CurrentRow.Cells[4].Value.ToString();
-            medicationRefill_tbox.Text = medicationsDataTable.CurrentRow.Cells[5].Value.ToString();
-            medicationPharmacy_tbox.Text = medicationsDataTable.CurrentRow.Cells[6].Value.ToString();
-            medicationTaken_tbox.Text = medicationsDataTable.CurrentRow.Cells[7].Value.ToString();
-            medicationPrecribDoc_tbox.Text = medicationsDataTable.CurrentRow.Cells[8].Value.ToString();
+                medicationID = Convert.ToInt32(medicationsDataTable.CurrentRow.Cells[0].Value.ToString());
+                medicationName_tbox.Text = medicationsDataTable.CurrentRow.Cells[1].Value.ToString();
+                medicationDosage_tbox.Text = medicationsDataTable.CurrentRow.Cells[2].Value.ToString();
+                medicationType_tbox.Text = medicationsDataTable.CurrentRow.Cells[3].Value.ToString();
+                medicationDateStart_tbox.Text = medicationsDataTable.CurrentRow.Cells[4].Value.ToString();
+                medicationRefill_tbox.Text = medicationsDataTable.CurrentRow.Cells[5].Value.ToString();
+                medicationPharmacy_tbox.Text = medicationsDataTable.CurrentRow.Cells[6].Value.ToString();
+                medicationTaken_tbox.Text = medicationsDataTable.CurrentRow.Cells[7].Value.ToString();
+                medicationPrecribDoc_tbox.Text = medicationsDataTable.CurrentRow.Cells[8].Value.ToString();
 
-        }
+            }
         }
 
 
@@ -896,7 +903,7 @@ namespace Baby_Tracker
             immName = nameImmunization_box.Text;
             immDosage = dosageImmunization_box.Text;
             immDateGiven = lastDateImmunization_box.Text;
-           
+
         }
 
         //Adds immunizaiton to database
@@ -927,14 +934,14 @@ namespace Baby_Tracker
         //Gets the information from the datatable to be editted in the panel
         private void immunizationDatatable_Click(object sender, EventArgs e)
         {
-                if (immunizationDatatable.CurrentRow.Index != -1)
+            if (immunizationDatatable.CurrentRow.Index != -1)
             {
-            immunizationID = Convert.ToInt32(immunizationDatatable.CurrentRow.Cells[0].Value.ToString());
-            nameImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[1].Value.ToString();
-            lastDateImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[3].Value.ToString();
-            dosageImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[2].Value.ToString();
+                immunizationID = Convert.ToInt32(immunizationDatatable.CurrentRow.Cells[0].Value.ToString());
+                nameImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[1].Value.ToString();
+                lastDateImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[3].Value.ToString();
+                dosageImmunization_box.Text = immunizationDatatable.CurrentRow.Cells[2].Value.ToString();
 
-        }
+            }
         }
 
         //Shows the about from
@@ -952,13 +959,8 @@ namespace Baby_Tracker
         //Calls for a PDF to be created 
         private void exportBabyRecordExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             // Show the FolderBrowserDialog.
-                DialogResult result = folderBrowserDialog1.ShowDialog();
-                if( result == DialogResult.OK )
-                {
-                   string savepath = folderBrowserDialog1.SelectedPath;
-                   reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable, savePath);
-                }
+
+            reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable);
 
         }
     }

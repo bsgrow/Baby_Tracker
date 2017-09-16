@@ -26,13 +26,14 @@ namespace Baby_Tracker
             using (SQLiteCommand command = conn.CreateCommand())
             {
                 conn.Open();
-                command.CommandText = "INSERT INTO Measurements (ID, Length, Waist, Head, Chest, Hips, BabyID) VALUES (@id, @length, @waist, @head, @chest, @hips, @babyID)";
+                command.CommandText = "INSERT INTO Measurements (ID, Length, Waist, Head, Chest, Hips, Date, BabyID) VALUES (@id, @length, @waist, @head, @chest, @hips, @date, @babyID)";
                 command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@length", BabyTracker.measurementsLength);
                 command.Parameters.AddWithValue("@waist", BabyTracker.measurementsWaist);
                 command.Parameters.AddWithValue("@head", BabyTracker.measurementsHead);
                 command.Parameters.AddWithValue("@chest", BabyTracker.measurementsChest);
                 command.Parameters.AddWithValue("@hips", BabyTracker.measurementsHips);
+                command.Parameters.AddWithValue("@date", BabyTracker.measurementsDate);
                 command.Parameters.AddWithValue("@babyID", BabyTracker.babyName);
 
                 command.ExecuteNonQuery();
@@ -52,13 +53,15 @@ namespace Baby_Tracker
             using (SQLiteCommand command = conn.CreateCommand())
             {
                 conn.Open();
-                command.CommandText = "UPDATE Measurements SET Length = @length, Waist = @waist, Head = @head, Chest = @chest, Hips = @hips  WHERE ID = '" + BabyTracker.measurementsID + "'";
+                command.CommandText = "UPDATE Measurements SET Length = @length, Waist = @waist, Head = @head, Chest = @chest, Hips = @hips, Date = @date  WHERE ID = '" + BabyTracker.measurementsID + "'";
                 command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@length", BabyTracker.measurementsLength);
                 command.Parameters.AddWithValue("@waist", BabyTracker.measurementsWaist);
                 command.Parameters.AddWithValue("@head", BabyTracker.measurementsHead);
                 command.Parameters.AddWithValue("@chest", BabyTracker.measurementsChest);
                 command.Parameters.AddWithValue("@hips", BabyTracker.measurementsHips);
+                command.Parameters.AddWithValue("@date", BabyTracker.measurementsDate);
+
                 command.ExecuteNonQuery();
             }
         }

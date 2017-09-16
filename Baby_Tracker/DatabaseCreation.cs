@@ -10,13 +10,13 @@ namespace Baby_Tracker
 {
     class DatabaseCreation
     {
-     
+
         public static string bb1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
         public static string bb2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
         public static string bg1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
         public static string bg2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
 
-	    
+
         SQLiteConnection connection;
         SQLiteCommand command;
 
@@ -25,7 +25,7 @@ namespace Baby_Tracker
 				FirstName VARCHAR(20) NOT NULL, 
 				MiddleName VARCHAR(20) NULL, 
 				LastName VARCHAR(20) NULL, 
-				DOB VARCHAR(9) NOT NULL,
+				DOB VARCHAR(10) NOT NULL,
 				BirthWeight INTEGER NOT NULL, 
 				BirthLength INTEGER NOT NULL, 
 				BirthHeadCir INTEGER NOT NULL,
@@ -41,7 +41,7 @@ namespace Baby_Tracker
         string sqlWeightTable = @"CREATE TABLE Weight (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
 				Weight INTEGER NOT NULL, 
-				Date VARCHAR(9) NOT NULL,
+				Date VARCHAR(10) NOT NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
 
@@ -52,13 +52,14 @@ namespace Baby_Tracker
 				Head INTEGER NULL,
 				Chest INTEGER NULL,
 				Hips INTEGER NULL,
+                Date VARCHAR(10) NOT NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
 
         string sqlImmunizationsTable = @"CREATE TABLE Immunizations (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 				Name VARCHAR(100) NOT NULL,
-				DateGiven VARCHAR(9) NULL,
+				DateGiven VARCHAR(10) NULL,
 				Dosage INTEGER NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
@@ -68,7 +69,7 @@ namespace Baby_Tracker
 				Name VARCHAR(200) NULL,
 				Dosage VARCHAR(20) NULL,
 				Type VARCHAR(100) NULL,
-				DateStarted VARCHAR(9) NULL,
+				DateStarted VARCHAR(10) NULL,
 				Refill INTEGER NULL,
 				Pharmacy VARCHAR(100) NULL,
                 TakenTime VARCHAR(100) NULL,
@@ -79,7 +80,7 @@ namespace Baby_Tracker
         string sqlDoctorAppointmentsTable = @"CREATE TABLE DoctorAppointments (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 				Name VARCHAR(200) NOT NULL,
-				Date DATE NOT NULL,
+				Date VARCHAR(10) NOT NULL,
 				Time VARCHAR NOT NULL,
 				Location VARCHAR NULL,
 				Doctor VARCHAR NULL

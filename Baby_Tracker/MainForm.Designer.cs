@@ -220,6 +220,8 @@
             this.docOfficeName_lb = new System.Windows.Forms.Label();
             this.docLastName_lb = new System.Windows.Forms.Label();
             this.docFirstName_lb = new System.Windows.Forms.Label();
+            this.measurementsDate_box = new System.Windows.Forms.TextBox();
+            this.measurementsDate_lb = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -294,7 +296,7 @@
             // 
             this.exportBabyRecordExcelToolStripMenuItem.Name = "exportBabyRecordExcelToolStripMenuItem";
             this.exportBabyRecordExcelToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.exportBabyRecordExcelToolStripMenuItem.Text = "Export Baby Record (CSV)";
+            this.exportBabyRecordExcelToolStripMenuItem.Text = "Export Baby Record (PDF)";
             this.exportBabyRecordExcelToolStripMenuItem.Click += new System.EventHandler(this.exportBabyRecordExcelToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -1295,6 +1297,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.measurementsDate_lb);
+            this.groupBox1.Controls.Add(this.measurementsDate_box);
             this.groupBox1.Controls.Add(this.measurementsHead_tbox);
             this.groupBox1.Controls.Add(this.measurementsHips_tbox);
             this.groupBox1.Controls.Add(this.measurementsChest_tbox);
@@ -1313,14 +1317,14 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(294, 356);
+            this.groupBox1.Size = new System.Drawing.Size(294, 377);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Measurements New/Edit";
             // 
             // measurementsHead_tbox
             // 
-            this.measurementsHead_tbox.Location = new System.Drawing.Point(83, 141);
+            this.measurementsHead_tbox.Location = new System.Drawing.Point(83, 134);
             this.measurementsHead_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.measurementsHead_tbox.Name = "measurementsHead_tbox";
             this.measurementsHead_tbox.Size = new System.Drawing.Size(189, 24);
@@ -1328,7 +1332,7 @@
             // 
             // measurementsHips_tbox
             // 
-            this.measurementsHips_tbox.Location = new System.Drawing.Point(83, 241);
+            this.measurementsHips_tbox.Location = new System.Drawing.Point(83, 236);
             this.measurementsHips_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.measurementsHips_tbox.Name = "measurementsHips_tbox";
             this.measurementsHips_tbox.Size = new System.Drawing.Size(189, 24);
@@ -1336,7 +1340,7 @@
             // 
             // measurementsChest_tbox
             // 
-            this.measurementsChest_tbox.Location = new System.Drawing.Point(83, 194);
+            this.measurementsChest_tbox.Location = new System.Drawing.Point(83, 187);
             this.measurementsChest_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.measurementsChest_tbox.Name = "measurementsChest_tbox";
             this.measurementsChest_tbox.Size = new System.Drawing.Size(189, 24);
@@ -1344,7 +1348,7 @@
             // 
             // measurementsWaist_tbox
             // 
-            this.measurementsWaist_tbox.Location = new System.Drawing.Point(83, 92);
+            this.measurementsWaist_tbox.Location = new System.Drawing.Point(83, 84);
             this.measurementsWaist_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.measurementsWaist_tbox.Name = "measurementsWaist_tbox";
             this.measurementsWaist_tbox.Size = new System.Drawing.Size(189, 24);
@@ -1352,7 +1356,7 @@
             // 
             // measurementsLength_tbox
             // 
-            this.measurementsLength_tbox.Location = new System.Drawing.Point(83, 46);
+            this.measurementsLength_tbox.Location = new System.Drawing.Point(83, 34);
             this.measurementsLength_tbox.Margin = new System.Windows.Forms.Padding(2);
             this.measurementsLength_tbox.Name = "measurementsLength_tbox";
             this.measurementsLength_tbox.Size = new System.Drawing.Size(189, 24);
@@ -1360,7 +1364,7 @@
             // 
             // measurementEdit_btn
             // 
-            this.measurementEdit_btn.Location = new System.Drawing.Point(118, 314);
+            this.measurementEdit_btn.Location = new System.Drawing.Point(118, 335);
             this.measurementEdit_btn.Margin = new System.Windows.Forms.Padding(2);
             this.measurementEdit_btn.Name = "measurementEdit_btn";
             this.measurementEdit_btn.Size = new System.Drawing.Size(64, 30);
@@ -1371,7 +1375,7 @@
             // 
             // measurementsDelete_btn
             // 
-            this.measurementsDelete_btn.Location = new System.Drawing.Point(200, 314);
+            this.measurementsDelete_btn.Location = new System.Drawing.Point(200, 335);
             this.measurementsDelete_btn.Margin = new System.Windows.Forms.Padding(2);
             this.measurementsDelete_btn.Name = "measurementsDelete_btn";
             this.measurementsDelete_btn.Size = new System.Drawing.Size(64, 30);
@@ -1382,7 +1386,7 @@
             // 
             // newMeasurement_btn
             // 
-            this.newMeasurement_btn.Location = new System.Drawing.Point(34, 314);
+            this.newMeasurement_btn.Location = new System.Drawing.Point(34, 335);
             this.newMeasurement_btn.Margin = new System.Windows.Forms.Padding(2);
             this.newMeasurement_btn.Name = "newMeasurement_btn";
             this.newMeasurement_btn.Size = new System.Drawing.Size(64, 30);
@@ -1394,7 +1398,7 @@
             // waist_lb
             // 
             this.waist_lb.AutoSize = true;
-            this.waist_lb.Location = new System.Drawing.Point(30, 94);
+            this.waist_lb.Location = new System.Drawing.Point(30, 86);
             this.waist_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.waist_lb.Name = "waist_lb";
             this.waist_lb.Size = new System.Drawing.Size(50, 18);
@@ -1404,7 +1408,7 @@
             // head_lb
             // 
             this.head_lb.AutoSize = true;
-            this.head_lb.Location = new System.Drawing.Point(30, 142);
+            this.head_lb.Location = new System.Drawing.Point(30, 137);
             this.head_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.head_lb.Name = "head_lb";
             this.head_lb.Size = new System.Drawing.Size(47, 18);
@@ -1414,7 +1418,7 @@
             // chest_lb
             // 
             this.chest_lb.AutoSize = true;
-            this.chest_lb.Location = new System.Drawing.Point(30, 194);
+            this.chest_lb.Location = new System.Drawing.Point(30, 189);
             this.chest_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.chest_lb.Name = "chest_lb";
             this.chest_lb.Size = new System.Drawing.Size(51, 18);
@@ -1424,7 +1428,7 @@
             // hips_lb
             // 
             this.hips_lb.AutoSize = true;
-            this.hips_lb.Location = new System.Drawing.Point(30, 243);
+            this.hips_lb.Location = new System.Drawing.Point(30, 239);
             this.hips_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hips_lb.Name = "hips_lb";
             this.hips_lb.Size = new System.Drawing.Size(42, 18);
@@ -1434,7 +1438,7 @@
             // length_lb
             // 
             this.length_lb.AutoSize = true;
-            this.length_lb.Location = new System.Drawing.Point(23, 46);
+            this.length_lb.Location = new System.Drawing.Point(23, 36);
             this.length_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.length_lb.Name = "length_lb";
             this.length_lb.Size = new System.Drawing.Size(56, 18);
@@ -2203,6 +2207,24 @@
             this.docFirstName_lb.TabIndex = 0;
             this.docFirstName_lb.Text = "First Name:";
             // 
+            // measurementsDate_box
+            // 
+            this.measurementsDate_box.Location = new System.Drawing.Point(83, 284);
+            this.measurementsDate_box.Margin = new System.Windows.Forms.Padding(2);
+            this.measurementsDate_box.Name = "measurementsDate_box";
+            this.measurementsDate_box.Size = new System.Drawing.Size(189, 24);
+            this.measurementsDate_box.TabIndex = 13;
+            // 
+            // measurementsDate_lb
+            // 
+            this.measurementsDate_lb.AutoSize = true;
+            this.measurementsDate_lb.Location = new System.Drawing.Point(33, 287);
+            this.measurementsDate_lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.measurementsDate_lb.Name = "measurementsDate_lb";
+            this.measurementsDate_lb.Size = new System.Drawing.Size(43, 18);
+            this.measurementsDate_lb.TabIndex = 14;
+            this.measurementsDate_lb.Text = "Date:";
+            // 
             // BabyTracker
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2447,6 +2469,8 @@
         private System.Windows.Forms.Label dashLastDateEntered_lb;
         private System.Windows.Forms.Label dashLastWeightEntered_lb;
         private System.Windows.Forms.Label lastDateEntered;
+        private System.Windows.Forms.Label measurementsDate_lb;
+        private System.Windows.Forms.TextBox measurementsDate_box;
     }
 }
 

@@ -22,31 +22,52 @@ namespace Baby_Tracker
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            using (SQLiteCommand command = conn.CreateCommand())
             {
-                conn.Open();
-                
-                command.CommandText = "INSERT INTO BabyList (ID, FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) VALUES (@id, @firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
-                command.ExecuteNonQuery();
-                command.CommandText = "INSERT INTO Weight (ID, Weight, Date, BabyID) VALUES (@id, @birthWeight, @DOB, @firstName)";
-                command.ExecuteNonQuery();
-                command.CommandText = "INSERT INTO Measurements (ID, Length, Waist, Head, Chest, Hips, BabyID) VALUES (@id, @birthLength, 0, @birthHeadCir, 0, 0, @firstName)";
-                command.Parameters.AddWithValue("@id", null);
-                command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
-                command.Parameters.AddWithValue("@middleName", BabyEntryForm.middleName);
-                command.Parameters.AddWithValue("@lastName", BabyEntryForm.lastName);
-                command.Parameters.AddWithValue("@DOB", BabyEntryForm.dob);
-                command.Parameters.AddWithValue("@birthWeight", BabyEntryForm.weight);
-                command.Parameters.AddWithValue("@birthLength", BabyEntryForm.length);
-                command.Parameters.AddWithValue("@birthHeadCir", BabyEntryForm.headCir);
-                command.Parameters.AddWithValue("@babyImagePath", BabyEntryForm.imagePath);
-                command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
-                //command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
+                using (SQLiteCommand command = conn.CreateCommand())
+                {
+                    conn.Open();
 
-                command.ExecuteNonQuery();
+                    command.CommandText = "INSERT INTO BabyList (ID, FirstName, MiddleName, LastName, DOB, BirthWeight, BirthLength, BirthHeadCir, BabyImagePath) VALUES (@id, @firstName, @middleName, @lastName, @DOB, @birthWeight, @birthLength, @birthHeadCir, @babyImagePath)";
+                    command.Parameters.AddWithValue("@id", null);
+                    command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
+                    command.Parameters.AddWithValue("@middleName", BabyEntryForm.middleName);
+                    command.Parameters.AddWithValue("@lastName", BabyEntryForm.lastName);
+                    command.Parameters.AddWithValue("@DOB", BabyEntryForm.dob);
+                    command.Parameters.AddWithValue("@birthWeight", BabyEntryForm.weight);
+                    command.Parameters.AddWithValue("@birthLength", BabyEntryForm.length);
+                    command.Parameters.AddWithValue("@birthHeadCir", BabyEntryForm.headCir);
+                    command.Parameters.AddWithValue("@babyImagePath", BabyEntryForm.imagePath);
+                    command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
+                    command.ExecuteNonQuery();
+                }
 
+
+                using (SQLiteCommand command = conn.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO Weight (Weight, Date, BabyID) VALUES (@birthWeight, @DOB, @babyID)";
+                    //command.Parameters.AddWithValue("@id", null);
+                    command.Parameters.AddWithValue("@birthWeight", BabyEntryForm.weight);
+                    command.Parameters.AddWithValue("@DOB", BabyEntryForm.dob);
+                    command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
+                    command.ExecuteNonQuery();
+                }
+
+
+                using (SQLiteCommand command = conn.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO Measurements (ID, Length, Waist, Head, Chest, Hips, Date, BabyID) VALUES (@id, @birthLength, 0, @birthHeadCir, 0, 0, @date, @babyID)";
+                    command.Parameters.AddWithValue("@id", null);
+                    command.Parameters.AddWithValue("@birthLength", BabyEntryForm.length);
+                    command.Parameters.AddWithValue("@birthHeadCir", BabyEntryForm.headCir);
+                    command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
+                    command.Parameters.AddWithValue("@date", BabyEntryForm.dob);
+                   command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
+
+                    command.ExecuteNonQuery();
+                }
             }
         }
+
 
 
         /* Connections to the database to use the information entered from the
@@ -57,21 +78,23 @@ namespace Baby_Tracker
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            using (SQLiteCommand command = conn.CreateCommand())
             {
-                conn.Open();
-                command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
-                command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
-                command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
-                command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
-                command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
-                command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
-                command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
-                command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
-                command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
+                using (SQLiteCommand command = conn.CreateCommand())
+                {
+                    conn.Open();
+                    command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
+                    command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
+                    command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
+                    command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
+                    command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
+                    command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
+                    command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
+                    command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
+                    command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
 
-                command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
+                }
             }
 
         }
@@ -100,6 +123,9 @@ namespace Baby_Tracker
             }
 
         }
-
     }
 }
+
+
+
+
