@@ -17,6 +17,8 @@ namespace Baby_Tracker
 
         AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
         public static string result = "";
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+
 
         //String declarations
         public static string updateFirstName = "";
@@ -46,7 +48,6 @@ namespace Baby_Tracker
         private void profilePic_comb_SelectedIndexChanged(object sender, EventArgs e)
         {
             string query = "SELECT ImagePath FROM ProfileImages where ImageName = '" + profilePic_comb.GetItemText(profilePic_comb.SelectedItem) + "'";
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -128,7 +129,6 @@ namespace Baby_Tracker
             comboName = updateCombo.GetItemText(updateCombo.SelectedItem);
 
             DataTable dt = new DataTable();
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))
@@ -152,7 +152,6 @@ namespace Baby_Tracker
          */
         public void profileCombobox()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ImageName FROM ProfileImages", connection))
@@ -173,7 +172,6 @@ namespace Baby_Tracker
          */
         public void fillUpdateTextboxes() 
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM BabyList WHERE FirstName = '"+updateCombo.GetItemText(updateCombo.SelectedItem)+"'", connection))

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace Baby_Tracker
 {
@@ -959,8 +960,18 @@ namespace Baby_Tracker
         //Calls for a PDF to be created 
         private void exportBabyRecordExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveDialog1 = new SaveFileDialog();
+            saveDialog1.Title = "Export Baby Report To PDF";
+            saveDialog1.Filter = "PDF(*.pdf)|*.pdf";
 
-            reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable);
+            saveDialog1.FileName = "Choose you Name to Save";
+
+            if(saveDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = Path.GetFullPath(saveDialog1.FileName);
+                reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable, filePath);
+
+            }
 
         }
     }

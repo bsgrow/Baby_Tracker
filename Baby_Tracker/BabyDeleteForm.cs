@@ -16,6 +16,7 @@ namespace Baby_Tracker
     {
         AddUpdateDeleteBaby addUpdateDeleteBaby = new AddUpdateDeleteBaby();
         public static string comboName = "";
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
 
         public BabyDeleteForm()
@@ -41,7 +42,7 @@ namespace Baby_Tracker
          */
         public void updateDeleteCombo()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+            
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))

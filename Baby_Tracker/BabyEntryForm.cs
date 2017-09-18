@@ -15,6 +15,8 @@ namespace Baby_Tracker
     public partial class BabyEntryForm : Form
     {
         AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+
 
         //String declarations
         public static string firstName = "";
@@ -43,7 +45,6 @@ namespace Baby_Tracker
         private void profilePic_comb_SelectedIndexChanged(object sender, EventArgs e)
         {
             string query = "SELECT ImagePath FROM ProfileImages where ImageName = '" + profilePic_comb.GetItemText(profilePic_comb.SelectedItem) + "'";
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(query, connection);
             connection.Open();
@@ -136,7 +137,6 @@ namespace Baby_Tracker
          */
         public void updateProfilePicCombo()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT ImageName FROM ProfileImages", connection))

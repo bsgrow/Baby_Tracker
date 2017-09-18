@@ -10,6 +10,7 @@ namespace Baby_Tracker
 {
     class DatabaseCreation
     {
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
         public static string bb1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
         public static string bb2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
@@ -105,7 +106,7 @@ namespace Baby_Tracker
         {
             //Creating database and connection
             SQLiteConnection.CreateFile("BabyDatabase.sqlite"); //set location to a database folder
-            connection = new SQLiteConnection("Data Source = BabyDatabase.sqlite; Version = 3;");
+            connection = new SQLiteConnection(connectionString);
             connection.Open();
 
             //Creating the tables

@@ -12,6 +12,9 @@ namespace Baby_Tracker
 {
     class AddUpdateDeleteBaby
     {
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+
+
 
         /*
          * Method is using the data from the BabyEntryForm textboxes to create a new row for
@@ -20,7 +23,6 @@ namespace Baby_Tracker
          */
         public void addBaby()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 using (SQLiteCommand command = conn.CreateCommand())
@@ -76,7 +78,6 @@ namespace Baby_Tracker
          */
         public void updateBaby()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 using (SQLiteCommand command = conn.CreateCommand())
@@ -107,7 +108,6 @@ namespace Baby_Tracker
          */
         public void deletebaby()
         {
-            string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
