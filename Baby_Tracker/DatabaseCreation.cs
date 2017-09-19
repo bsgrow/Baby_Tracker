@@ -105,7 +105,7 @@ namespace Baby_Tracker
         public void databaseCreation()
         {
             //Creating database and connection
-            SQLiteConnection.CreateFile("BabyDatabase.sqlite"); //set location to a database folder
+            SQLiteConnection.CreateFile("BabyDatabase.sqlite;"); //set location to a database folder
             connection = new SQLiteConnection(connectionString);
             connection.Open();
 
