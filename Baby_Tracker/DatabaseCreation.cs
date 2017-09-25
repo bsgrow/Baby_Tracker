@@ -12,10 +12,10 @@ namespace Baby_Tracker
     {
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
-        public static string bb1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
-        public static string bb2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
-        public static string bg1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
-        public static string bg2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
+        public static string bb1 = "C:\\Program Files(x86)/Baby Tracker/BabyBoy1.png";
+        public static string bb2 = "C:\\Program Files(x86)/Baby Tracker/BabyBoy2.png";
+        public static string bg1 = "C:\\Program Files(x86)/Baby Tracker/BabyGirl1.png";
+        public static string bg2 = "C:\\Program Files(x86)/Baby Tracker/BabyGirl2.png";
 
 
         SQLiteConnection connection;
@@ -27,9 +27,9 @@ namespace Baby_Tracker
 				MiddleName VARCHAR(20) NULL, 
 				LastName VARCHAR(20) NULL, 
 				DOB VARCHAR(10) NOT NULL,
-				BirthWeight INTEGER NOT NULL, 
-				BirthLength INTEGER NOT NULL, 
-				BirthHeadCir INTEGER NOT NULL,
+				BirthWeight REAL NOT NULL, 
+				BirthLength REAL NOT NULL, 
+				BirthHeadCir REAL NOT NULL,
 				BabyImagePath VARCHAR(250) NULL
 				)";
 
@@ -41,18 +41,18 @@ namespace Baby_Tracker
 
         string sqlWeightTable = @"CREATE TABLE Weight (
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
-				Weight INTEGER NOT NULL, 
+				Weight REAL NOT NULL, 
 				Date VARCHAR(10) NOT NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
 
         string sqlMeasurementsTable = @"CREATE TABLE Measurements (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-				Length INTEGER NULL,
-				Waist INTEGER NULL,
-				Head INTEGER NULL,
-				Chest INTEGER NULL,
-				Hips INTEGER NULL,
+				Length REAL NULL,
+				Waist REAL NULL,
+				Head REAL NULL,
+				Chest REAL NULL,
+				Hips REAL NULL,
                 Date VARCHAR(10) NOT NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
@@ -61,17 +61,17 @@ namespace Baby_Tracker
 			    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 				Name VARCHAR(100) NOT NULL,
 				DateGiven VARCHAR(10) NULL,
-				Dosage INTEGER NULL,
+				Dosage REAL NULL,
                 BabyID VARCHAR(50) NOT NULL
 				)";
 
         string sqlMedicationsTable = @"CREATE TABLE Medications (
 				ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 				Name VARCHAR(200) NULL,
-				Dosage VARCHAR(20) NULL,
+				Dosage REAL NULL,
 				Type VARCHAR(100) NULL,
 				DateStarted VARCHAR(10) NULL,
-				Refill INTEGER NULL,
+				Refill REAL NULL,
 				Pharmacy VARCHAR(100) NULL,
                 TakenTime VARCHAR(100) NULL,
 				PrescribingDoc VARCHAR(100) NULL,
@@ -105,7 +105,7 @@ namespace Baby_Tracker
         public void databaseCreation()
         {
             //Creating database and connection
-            SQLiteConnection.CreateFile("BabyDatabase.sqlite;"); //set location to a database folder
+            SQLiteConnection.CreateFile("Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3"); //set location to a database folder
             connection = new SQLiteConnection(connectionString);
             connection.Open();
 

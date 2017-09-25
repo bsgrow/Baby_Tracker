@@ -92,6 +92,7 @@ namespace Baby_Tracker
             medicationDataTable();
             dashboardDisplay();
             immunizationDataTable();
+            loadNameandImages();
 
         }
 
@@ -128,6 +129,8 @@ namespace Baby_Tracker
             babyDeleteForm.updateDeleteCombo();
             babyDeleteForm.ShowDialog();
             comboBoxNameRetrival();
+            userImage_box.Image = null;
+            name_lb.Text = "";
         }
 
 
@@ -161,6 +164,13 @@ namespace Baby_Tracker
         */
         private void babySelector_cmbo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            loadNameandImages();
+        }
+
+
+        public void loadNameandImages()
+        {
+
             name_lb.Text = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //loads the selected name from combobox to theis label
             babyName = babySelector_cmbo.GetItemText(babySelector_cmbo.SelectedItem); //sets he combobox to be saved as a string
 
@@ -183,7 +193,8 @@ namespace Baby_Tracker
 
                 if (imageResult == "")
                 {
-                    //do nothing
+                    userImage_box.Image = Image.FromFile("");
+                    name_lb.Text = "";
                 }
                 else
                 {

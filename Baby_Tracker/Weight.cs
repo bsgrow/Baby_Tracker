@@ -11,7 +11,7 @@ namespace Baby_Tracker
     class Weight
     {
         //Database Connection String
-        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
         //Variable Declarations for statistics
         public static string averageWeight = "0";
@@ -115,7 +115,7 @@ namespace Baby_Tracker
             }
             else
             {
-                gainWeight = Convert.ToString(Convert.ToInt32(lastWeight) - Convert.ToInt32(minWeight));
+                gainWeight = Convert.ToString(Convert.ToDouble(lastWeight) - Convert.ToDouble(minWeight));
             }
             conn.Close();
         }

@@ -26,7 +26,7 @@ namespace Baby_Tracker
                 command.Parameters.AddWithValue("@id", null);
                 command.Parameters.AddWithValue("@name", BabyTracker.immName);
                 command.Parameters.AddWithValue("@dateGiven", BabyTracker.immDateGiven);
-                command.Parameters.AddWithValue("@dosage", BabyTracker.immDateGiven);
+                command.Parameters.AddWithValue("@dosage", BabyTracker.immDosage);
                 command.Parameters.AddWithValue("@babyID", BabyTracker.babyName);
 
                 conn.Open();
