@@ -72,7 +72,7 @@ namespace Baby_Tracker
         public static string immDateGiven = "";
 
         //Database connection string
-        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
 
         DataTable weightTable = new DataTable();
         DataTable measurementsTable = new DataTable();
