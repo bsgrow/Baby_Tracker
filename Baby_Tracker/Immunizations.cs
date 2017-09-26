@@ -10,7 +10,7 @@ namespace Baby_Tracker
     class Immunizations
     {
         //Database Connection String
-        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
         /*
          * Adds the information entered from the Immunizations panel to the
