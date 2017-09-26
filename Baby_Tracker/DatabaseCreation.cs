@@ -10,7 +10,7 @@ namespace Baby_Tracker
 {
     class DatabaseCreation
     {
-        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
 
         public static string bb1 = "C:\\Program Files(x86)/Baby Tracker/BabyBoy1.png";
         public static string bb2 = "C:\\Program Files(x86)/Baby Tracker/BabyBoy2.png";
