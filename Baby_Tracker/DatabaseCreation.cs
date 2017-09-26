@@ -12,10 +12,10 @@ namespace Baby_Tracker
     {
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
-        public static string bb1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy1.png";
-        public static string bb2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyBoy2.png";
-        public static string bg1 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl1.png";
-        public static string bg2 = @"\\Mac\Home\Documents\GitHub\Baby_Tracker\Baby_Tracker\BabyProfileImages\BabyGirl2.png";
+        public static string bb1 = @"C:\Program Files (x86)\Baby Tracker\BabyBoy1.png";
+        public static string bb2 = @"C:\Program Files (x86)\Baby Tracker\BabyBoy2.png";
+        public static string bg1 = @"C:\Program Files (x86)\Baby Tracker\BabyGirl1.png";
+        public static string bg2 = @"C:\Program Files (x86)\Baby Tracker\BabyGirl2.png";
 
 
         SQLiteConnection connection;
