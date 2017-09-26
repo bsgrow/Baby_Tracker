@@ -17,7 +17,7 @@ namespace Baby_Tracker
 
         AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
         public static string result = "";
-        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
 
 
         //String declarations
