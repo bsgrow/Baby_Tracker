@@ -11,7 +11,7 @@ namespace Baby_Tracker
     {
 
         //variable declarations
-        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
 
 
         /*
