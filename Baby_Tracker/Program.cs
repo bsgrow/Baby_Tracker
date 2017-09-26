@@ -18,7 +18,7 @@ namespace Baby_Tracker
         static void Main()
         {
             //checks for existing database, none found then created
-            if (!File.Exists("BabyDatabase.sqlite"))
+            if (!File.Exists("C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite"))
             {
                 DatabaseCreation database = new DatabaseCreation();
                 database.databaseCreation();
