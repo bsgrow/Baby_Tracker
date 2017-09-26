@@ -15,7 +15,7 @@ namespace Baby_Tracker
     public partial class BabyEntryForm : Form
     {
         AddUpdateDeleteBaby addUpdateBaby = new AddUpdateDeleteBaby();
-        string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
+        string connectionString = "Data Source = C:\\Program Files (x86)/Baby Tracker/BabyDatabase.sqlite; Version=3;";
 
         //String declarations
         public static string firstName = "";
