@@ -2232,12 +2232,12 @@
             this.ClientSize = new System.Drawing.Size(1195, 795);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.mainMenuStrip);
-            this.Controls.Add(this.doctorContactsPanel);
-            this.Controls.Add(this.measurementsPanel);
-            this.Controls.Add(this.testPanel);
             this.Controls.Add(this.dashboardPanel);
             this.Controls.Add(this.medicationsPanel);
             this.Controls.Add(this.immunizationsPanel);
+            this.Controls.Add(this.doctorContactsPanel);
+            this.Controls.Add(this.measurementsPanel);
+            this.Controls.Add(this.testPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
