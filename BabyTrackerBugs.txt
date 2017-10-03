@@ -1,0 +1,7 @@
+Bugs:
+
+	1. When You edit the first Weight entry from a new baby entry the weight is not updated in the weight Panel.
+	2. When you edit the first Length entry from a new baby entry the length is not updated in the measurements panel.
+	3. When you edit the first Head entry from a new baby entry the head is not updated in the measurements panel.
+	4. When a baby is deleted the baby is deleted, but the panels are not updated with the deletions.
+	5. WHen things are deleted they might not be deleting from the other tables that are coordinated with the name.
