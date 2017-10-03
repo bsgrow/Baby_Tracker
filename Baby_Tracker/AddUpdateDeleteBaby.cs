@@ -92,9 +92,27 @@ namespace Baby_Tracker
                     command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
                     command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
                     command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
-
                     command.ExecuteNonQuery();
-
+                }
+                
+                
+                using (SQLiteCommand command = conn.CreateCommand())
+                {
+                    command.CommandText = "UPDATE Weight SET BirthWeight = @birthWeight, DOB = @DOB WHERE ID = '" + BabyTracker.weightID + "'";
+                    command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
+                    command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
+                    command.ExecuteNonQuery();
+                }
+                
+                
+                using (SQLiteCommand command = conn.CreateCommand())
+                {
+                    conn.Open();
+                    command.CommandText = "UPDATE BabyList SET  DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir WHERE FirstName = '" + BabyTracker.weightID + "'";
+                    command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
+                    command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
+                    command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
+                    command.ExecuteNonQuery();
                 }
             }
 
