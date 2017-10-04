@@ -83,37 +83,15 @@ namespace Baby_Tracker
                 using (SQLiteCommand command = conn.CreateCommand())
                 {
                     conn.Open();
-                    command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
+                    command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
                     command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
                     command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
                     command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
                     command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
-                    command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
-                    command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
-                    command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
                     command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
                     command.ExecuteNonQuery();
                 }
-                
-                
-                using (SQLiteCommand command = conn.CreateCommand())
-                {
-                    command.CommandText = "UPDATE Weight SET BirthWeight = @birthWeight, DOB = @DOB WHERE ID = '" + BabyTracker.weightID + "'";
-                    command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
-                    command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
-                    command.ExecuteNonQuery();
-                }
-                
-                
-                using (SQLiteCommand command = conn.CreateCommand())
-                {
-                    conn.Open();
-                    command.CommandText = "UPDATE BabyList SET  DOB = @DOB, BirthWeight = @birthWeight, BirthLength = @birthLength, BirthHeadCir = @birthHeadCir WHERE FirstName = '" + BabyTracker.weightID + "'";
-                    command.Parameters.AddWithValue("@birthWeight", BabyUpdateForm.updateWeight);
-                    command.Parameters.AddWithValue("@birthLength", BabyUpdateForm.updateLength);
-                    command.Parameters.AddWithValue("@birthHeadCir", BabyUpdateForm.updateHeadCir);
-                    command.ExecuteNonQuery();
-                }
+
             }
 
         }

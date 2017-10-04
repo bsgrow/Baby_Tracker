@@ -25,9 +25,6 @@ namespace Baby_Tracker
         public static string updateMiddleName = "";
         public static string updateLastName = "";
         public static string updatedob = "";
-        public static double updateWeight;
-        public static double updateLength;
-        public static double updateHeadCir;
         public static string updateImagePath = "";
         public static string comboName = "";
 
@@ -90,9 +87,6 @@ namespace Baby_Tracker
             updateMiddleName_tbox.Text = "";
             updateLastName_tbox.Text = "";
             updateDOB_tbox.Text = "";
-            updateBirthWeight_tbox.Text = "";
-            updateBirthLength_tbox.Text = "";
-            updateBirthHead_tbox.Text = "";
             updatePathLocation_lb.Text = "";
         }
 
@@ -108,14 +102,12 @@ namespace Baby_Tracker
             updateMiddleName = updateMiddleName_tbox.Text;
             updateLastName = updateLastName_tbox.Text;
             updatedob = updateDOB_tbox.Text;
-            updateWeight = double.Parse(updateBirthWeight_tbox.Text);
-            updateLength = double.Parse(updateBirthLength_tbox.Text);
-            updateHeadCir = double.Parse(updateBirthHead_tbox.Text);
             updateImagePath = result;
 
             addUpdateBaby.updateBaby();
             Hide();
             emptyTextFields();
+            
 
         }
 
@@ -182,11 +174,7 @@ namespace Baby_Tracker
                     updateFirstName_tbox.Text = dt.Rows[0]["FirstName"].ToString();
                     updateMiddleName_tbox.Text = dt.Rows[0]["MiddleName"].ToString();
                     updateLastName_tbox.Text = dt.Rows[0]["LastName"].ToString();
-                    updateDOB_tbox.Text = Convert.ToDateTime(dt.Rows[0]["DOB"]).ToString("MM/dd/yyyy");
-                    updateBirthWeight_tbox.Text = dt.Rows[0]["BirthWeight"].ToString();
-                    updateBirthLength_tbox.Text = dt.Rows[0]["BirthLength"].ToString();
-                    updateBirthHead_tbox.Text = dt.Rows[0]["BirthHeadCir"].ToString();
-                    profilePictureBox.Image = Image.FromFile(dt.Rows[0]["BabyImagePath"].ToString());
+                    updateDOB_tbox.Text = dt.Rows[0]["DOB"].ToString();
 
                 }
             }
