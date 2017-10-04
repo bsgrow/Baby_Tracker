@@ -19,12 +19,7 @@ namespace Baby_Tracker
         public static string result = "";
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
-
         //String declarations
-        public static string updateFirstName = "";
-        public static string updateMiddleName = "";
-        public static string updateLastName = "";
-        public static string updatedob = "";
         public static string updateImagePath = "";
         public static string comboName = "";
 
@@ -83,10 +78,6 @@ namespace Baby_Tracker
          */
         public void emptyTextFields()
         {
-            updateFirstName_tbox.Text = "";
-            updateMiddleName_tbox.Text = "";
-            updateLastName_tbox.Text = "";
-            updateDOB_tbox.Text = "";
             updatePathLocation_lb.Text = "";
         }
 
@@ -98,17 +89,10 @@ namespace Baby_Tracker
          */
         private void updateEntry_btn_Click(object sender, EventArgs e)
         {
-            updateFirstName = updateFirstName_tbox.Text;
-            updateMiddleName = updateMiddleName_tbox.Text;
-            updateLastName = updateLastName_tbox.Text;
-            updatedob = updateDOB_tbox.Text;
             updateImagePath = result;
-
             addUpdateBaby.updateBaby();
             Hide();
             emptyTextFields();
-            
-
         }
 
         /*
@@ -156,34 +140,7 @@ namespace Baby_Tracker
                 }
             }
         }
-        
-        /*
-         * Method allows for the text boxes in the form to be filled by the name
-         * that is selected in the combobox found at the top of the form. This 
-         * will update the textboxes as the user changes the name in the combobox.
-         */
-        public void fillUpdateTextboxes() 
-        {
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT * FROM BabyList WHERE FirstName = '"+updateCombo.GetItemText(updateCombo.SelectedItem)+"'", connection))
-                {
-                    DataTable dt = new DataTable();
-                    dt.Clear();
-                    da.Fill(dt);
-                    updateFirstName_tbox.Text = dt.Rows[0]["FirstName"].ToString();
-                    updateMiddleName_tbox.Text = dt.Rows[0]["MiddleName"].ToString();
-                    updateLastName_tbox.Text = dt.Rows[0]["LastName"].ToString();
-                    updateDOB_tbox.Text = dt.Rows[0]["DOB"].ToString();
 
-                }
-            }
-        }
-
-        private void updateCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            fillUpdateTextboxes(); //updates the textboxes with the selected Name
-        }
     }//End of Class
 }//End of Namespace
 
