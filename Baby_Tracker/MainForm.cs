@@ -106,6 +106,17 @@ namespace Baby_Tracker
             babyEntryForm.ShowDialog();
             comboBoxNameRetrival();
         }
+        
+         /*
+       *  Allows for the BabyUpdateForm to be opened for the user to 
+       *  add a updated entry for a baby.
+       */
+        private void editBaby_btn_Click(object sender, EventArgs e)
+        {
+            babyUpdateForm.updateComboBox();
+            babyUpdateForm.ShowDialog();
+            comboBoxNameRetrival();
+        }
 
         /*
          * Calls the BabyDeleteForm to allow for the user to delete an
