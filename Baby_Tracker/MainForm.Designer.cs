@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -222,6 +223,7 @@
             this.docOfficeName_lb = new System.Windows.Forms.Label();
             this.docLastName_lb = new System.Windows.Forms.Label();
             this.docFirstName_lb = new System.Windows.Forms.Label();
+            this.addToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.mainMenuStrip.SuspendLayout();
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImage_box)).BeginInit();
@@ -442,6 +444,7 @@
             this.editBaby_btn.Name = "editBaby_btn";
             this.editBaby_btn.Size = new System.Drawing.Size(28, 32);
             this.editBaby_btn.TabIndex = 8;
+            this.addToolTip.SetToolTip(this.editBaby_btn, "Edit Selected Baby Image");
             this.editBaby_btn.UseVisualStyleBackColor = true;
             this.editBaby_btn.Click += new System.EventHandler(this.editBaby_btn_Click);
             // 
@@ -453,6 +456,7 @@
             this.deleteBaby_btn.Name = "deleteBaby_btn";
             this.deleteBaby_btn.Size = new System.Drawing.Size(28, 32);
             this.deleteBaby_btn.TabIndex = 7;
+            this.addToolTip.SetToolTip(this.deleteBaby_btn, "Delete Baby From Application");
             this.deleteBaby_btn.UseVisualStyleBackColor = true;
             this.deleteBaby_btn.Click += new System.EventHandler(this.deleteBaby_btn_Click);
             // 
@@ -486,6 +490,7 @@
             this.userImage_box.Size = new System.Drawing.Size(60, 66);
             this.userImage_box.TabIndex = 2;
             this.userImage_box.TabStop = false;
+            this.addToolTip.SetToolTip(this.userImage_box, "Baby Image");
             // 
             // babySelector_cmbo
             // 
@@ -498,6 +503,7 @@
             this.babySelector_cmbo.Name = "babySelector_cmbo";
             this.babySelector_cmbo.Size = new System.Drawing.Size(130, 21);
             this.babySelector_cmbo.TabIndex = 1;
+            this.addToolTip.SetToolTip(this.babySelector_cmbo, "Select Baby");
             this.babySelector_cmbo.SelectedIndexChanged += new System.EventHandler(this.babySelector_cmbo_SelectedIndexChanged);
             // 
             // leftPanelTitle_lb
@@ -519,6 +525,7 @@
             this.newBaby_btn.Name = "newBaby_btn";
             this.newBaby_btn.Size = new System.Drawing.Size(28, 32);
             this.newBaby_btn.TabIndex = 5;
+            this.addToolTip.SetToolTip(this.newBaby_btn, "Add New Baby");
             this.newBaby_btn.UseVisualStyleBackColor = true;
             this.newBaby_btn.Click += new System.EventHandler(this.newBaby_btn_Click);
             // 
@@ -2471,6 +2478,7 @@
         private System.Windows.Forms.Label lastDateEntered;
         private System.Windows.Forms.Label measurementsDate_lb;
         private System.Windows.Forms.TextBox measurementsDate_box;
+        private System.Windows.Forms.ToolTip addToolTip;
     }
 }
 

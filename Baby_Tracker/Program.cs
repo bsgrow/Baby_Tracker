@@ -26,7 +26,7 @@ namespace Baby_Tracker
             }
             else
             {
-                MessageBox.Show("The SQLITE file does Exist");
+              
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
