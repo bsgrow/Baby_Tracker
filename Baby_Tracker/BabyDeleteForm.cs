@@ -42,7 +42,7 @@ namespace Baby_Tracker
          */
         public void updateDeleteCombo()
         {
-            
+
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 using (SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FirstName FROM BabyList", connection))

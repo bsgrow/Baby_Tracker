@@ -106,11 +106,11 @@ namespace Baby_Tracker
             babyEntryForm.ShowDialog();
             comboBoxNameRetrival();
         }
-        
-         /*
-       *  Allows for the BabyUpdateForm to be opened for the user to 
-       *  add a updated entry for a baby.
-       */
+
+        /*
+      *  Allows for the BabyUpdateForm to be opened for the user to 
+      *  add a updated entry for a baby.
+      */
         private void editBaby_btn_Click(object sender, EventArgs e)
         {
             babyUpdateForm.updateComboBox();
@@ -975,7 +975,7 @@ namespace Baby_Tracker
 
             saveDialog1.FileName = "Choose you Name to Save";
 
-            if(saveDialog1.ShowDialog() == DialogResult.OK)
+            if (saveDialog1.ShowDialog() == DialogResult.OK)
             {
                 string filePath = Path.GetFullPath(saveDialog1.FileName);
                 reportExports.createPDF(weightTable, measurementsTable, immunizationsTable, medicationsTable, filePath);

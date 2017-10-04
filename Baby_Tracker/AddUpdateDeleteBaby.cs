@@ -63,32 +63,32 @@ namespace Baby_Tracker
                     command.Parameters.AddWithValue("@birthHeadCir", BabyEntryForm.headCir);
                     command.Parameters.AddWithValue("@firstName", BabyEntryForm.firstName);
                     command.Parameters.AddWithValue("@date", BabyEntryForm.dob);
-                   command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
+                    command.Parameters.AddWithValue("@babyID", BabyEntryForm.firstName);
 
                     command.ExecuteNonQuery();
                 }
             }
         }
-        
-        
-            /* Connections to the database to use the information entered from the
-         * BabyUpdateForm to update the database based upon the fields that 
-         * have entered data.
-         */
+
+
+        /* Connections to the database to use the information entered from the
+     * BabyUpdateForm to update the database based upon the fields that 
+     * have entered data.
+     */
         public void updateBaby()
         {
             string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             using (SQLiteCommand command = conn.CreateCommand())
             {
-                command.CommandText = "UPDATE BabyList SET BabyImagePath = @babyImagePath WHERE FirstName = '"+BabyUpdateForm.comboName+"'";
+                command.CommandText = "UPDATE BabyList SET BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
                 command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
                 conn.Open();
                 command.ExecuteNonQuery();
             }
         }
 
-        
+
 
 
         /* Connects to the database to allow for the user to delete a baby 

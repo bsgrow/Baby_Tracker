@@ -11,8 +11,8 @@ namespace Baby_Tracker
     {
         //Database Connection String
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
-        
-       
+
+
         /*
          * Method allows for the information for the textboxes from the
          * Medications Panel to be recorded and saved into the table 
@@ -43,14 +43,14 @@ namespace Baby_Tracker
 
             }
         }
-        
-        
-        
-         /*
-         * Allows for the Medication row selected to be updated. All the values
-         * are now updated here and if there are blanks, then that is determined
-         * in the MainFrame Form. 
-         */
+
+
+
+        /*
+        * Allows for the Medication row selected to be updated. All the values
+        * are now updated here and if there are blanks, then that is determined
+        * in the MainFrame Form. 
+        */
         public void updateMedicationEntry()
         {
 

@@ -13,11 +13,11 @@ namespace Baby_Tracker
         string connectionString = "Data Source = BabyDatabase.sqlite; Version=3;";
 
 
-           /*
-            * Allows for the a new contact to be added to the Doctor Contacts table
-            * in the database. This method calls the variable from MainForm and then 
-            * saves them datatable. Blanks are excepted and determined in MainForm.
-            */
+        /*
+         * Allows for the a new contact to be added to the Doctor Contacts table
+         * in the database. This method calls the variable from MainForm and then 
+         * saves them datatable. Blanks are excepted and determined in MainForm.
+         */
         public void newContactEntry()
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
@@ -71,7 +71,7 @@ namespace Baby_Tracker
             }
         }
 
-        
+
         /*
          * Allows for a selected contact to be deleted by the user. Calles the ID
          * on the table to compare with the ID in the database to delete. 
@@ -89,4 +89,4 @@ namespace Baby_Tracker
         }
     }
 }
-            
+
