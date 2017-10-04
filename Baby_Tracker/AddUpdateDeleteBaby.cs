@@ -71,32 +71,6 @@ namespace Baby_Tracker
         }
 
 
-
-        /* Connections to the database to use the information entered from the
-         * BabyUpdateForm to update the database based upon the fields that 
-         * have entered data.
-         */
-        public void updateBaby()
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                using (SQLiteCommand command = conn.CreateCommand())
-                {
-                    conn.Open();
-                    command.CommandText = "UPDATE BabyList SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName, DOB = @DOB, BabyImagePath = @babyImagePath WHERE FirstName = '" + BabyUpdateForm.comboName + "'";
-                    command.Parameters.AddWithValue("@firstName", BabyUpdateForm.updateFirstName);
-                    command.Parameters.AddWithValue("@middleName", BabyUpdateForm.updateMiddleName);
-                    command.Parameters.AddWithValue("@lastName", BabyUpdateForm.updateLastName);
-                    command.Parameters.AddWithValue("@DOB", BabyUpdateForm.updatedob);
-                    command.Parameters.AddWithValue("@babyImagePath", BabyUpdateForm.updateImagePath);
-                    command.ExecuteNonQuery();
-                }
-
-            }
-
-        }
-
-
         /* Connects to the database to allow for the user to delete a baby 
          * entry that they have previously made. Once a baby is deleted 
          * from the database, all data is lost on the baby and must
